@@ -35,17 +35,24 @@ public class Conexion {
         try 
         {
             Class.forName(Driver).newInstance();
-            Conexion = DriverManager.getConnection(URL, Username, Password);
             
-            if (Conexion != null) 
+            if ("Mac OS X".equals(System.getProperty("os.name")))
             {
-                return true;
+                Conexion = DriverManager.getConnection(URL, Username, Password);
             }
             else
             {
-                Conexion = DriverManager.getConnection(URL_N2, Username, Password_N2);
-                return false;
+                if ("Windows".equals(System.getProperty("os.name")))
+                {
+                    Conexion = DriverManager.getConnection(URL_N2, Username, Password_N2);
+                }
+                else
+                {
+                    
+                }
             }
+            
+            return Conexion != null;
         } 
         catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) 
         {
@@ -55,6 +62,7 @@ public class Conexion {
     
     public void Desconectar()
     {
+        
         try 
         {
             this.Conexion.close();
