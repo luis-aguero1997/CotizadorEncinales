@@ -20,7 +20,7 @@ public class Conexion {
     public String Username = "root";
     public String Password = "root";
     
-    public String Port_N2 = "8886";
+    public String Port_N2 = "3306";
     public String Password_N2 = "";
     public String URL_N2 = "jdbc:mysql://" + Hostname + ":" + Port_N2 + "/" + Database;
     
@@ -42,7 +42,7 @@ public class Conexion {
             }
             else
             {
-                if ("Windows".equals(System.getProperty("os.name")))
+                if ("Windows 10".equals(System.getProperty("os.name")))
                 {
                     Conexion = DriverManager.getConnection(URL_N2, Username, Password_N2);
                 }
@@ -62,7 +62,6 @@ public class Conexion {
     
     public void Desconectar()
     {
-        
         try 
         {
             this.Conexion.close();
