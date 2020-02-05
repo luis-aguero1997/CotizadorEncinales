@@ -5,17 +5,24 @@
  */
 package Formularios;
 
+import Clases.*;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author eduardogarciadelgado
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+    BD mBD = new BD();
+    Usuario mUsuario;
+    
+    
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        mUsuario = new Usuario();
     }
 
     /**
@@ -28,14 +35,42 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jDayChooser1 = new com.toedter.calendar.JDayChooser();
-        jButton1 = new javax.swing.JButton();
+        Btn_Login_Entrar = new javax.swing.JButton();
+        Btn_Login_Salir = new javax.swing.JButton();
+        Lbl_Usuario = new javax.swing.JLabel();
+        Lbl_Psw = new javax.swing.JLabel();
+        Txt_Nombre = new javax.swing.JTextField();
+        Txt_Psw = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Login_Entrar.setText("Entrar");
+        Btn_Login_Entrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_Login_EntrarMouseClicked(evt);
+            }
+        });
+        Btn_Login_Entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Btn_Login_EntrarActionPerformed(evt);
+            }
+        });
+
+        Btn_Login_Salir.setText("Salir");
+
+        Lbl_Usuario.setText("Usuario");
+
+        Lbl_Psw.setText("Contraseña");
+
+        Txt_Nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Txt_NombreActionPerformed(evt);
+            }
+        });
+
+        Txt_Psw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Txt_PswActionPerformed(evt);
             }
         });
 
@@ -44,24 +79,112 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(jButton1)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addGap(108, 108, 108)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Lbl_Psw)
+                    .addComponent(Lbl_Usuario)
+                    .addComponent(Btn_Login_Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Txt_Psw, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Txt_Nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Login_Salir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(110, 110, 110))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jButton1)
-                .addContainerGap(163, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(327, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lbl_Usuario)
+                    .addComponent(Txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Txt_Psw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lbl_Psw))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Btn_Login_Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Login_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Btn_Login_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Login_EntrarActionPerformed
+      
+        if (Txt_Nombre.equals("") || Txt_Psw.equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese Nombre de usuario y Contraseña");
+        } else {
+            if (mBD.Conectar()) {
+                String Nombre, Psw, Tipo;
+                
+                Nombre = Txt_Nombre.getText();
+                Psw = Txt_Psw.getText();
+                
+                ArrayList mListaUsuario = mBD.ConsultaUsuario(Nombre, Psw);
+                String [] datos=null;
+                
+                for (Object mListaUsuario2 : mListaUsuario)
+                {
+                    datos = new String[6];
+                    mUsuario = (Usuario) mListaUsuario2;
+                    
+                    datos[0] = String.valueOf(mUsuario.getId_Usuario());
+                    datos[1] = mUsuario.getUsuario();
+                    datos[2] = mUsuario.getNomCompleto();
+                    datos[3] = mUsuario.getPassword();
+                    datos[4] = mUsuario.getCorreo();
+                    datos[5] = mUsuario.getTipo();
+                }              
+                
+                
+                
+                if ((datos[1] == null ? this.Txt_Nombre.getText() == null : datos[1].equals(this.Txt_Nombre.getText())) && (datos[3] == null ? this.Txt_Psw.getText() == null : datos[3].equals(this.Txt_Psw.getText())))
+                {                                           
+                    switch (datos[5])
+                    {
+                        case "1":
+                            Admin mAdmin = new Admin();
+                            mAdmin.setVisible(true);
+                            this.dispose();
+                            break;
+                        case "2":
+                            Cotizador mCotizador = new Cotizador();
+                            mCotizador.setVisible(true);
+                            this.dispose();
+                            break;
+                        case "3":
+                            Ventas mVentas = new Ventas();
+                            mVentas.setVisible(true);
+                            this.dispose();
+                            break;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos");
+                }
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+            mBD.Desconectar();
+        }
+        
+      // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Login_EntrarActionPerformed
+
+    private void Txt_PswActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_PswActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Txt_PswActionPerformed
+
+    private void Btn_Login_EntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_Login_EntrarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Login_EntrarMouseClicked
+
+    private void Txt_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_NombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_NombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,7 +222,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Btn_Login_Entrar;
+    private javax.swing.JButton Btn_Login_Salir;
+    private javax.swing.JLabel Lbl_Psw;
+    private javax.swing.JLabel Lbl_Usuario;
+    private javax.swing.JTextField Txt_Nombre;
+    private javax.swing.JTextField Txt_Psw;
     private com.toedter.calendar.JDayChooser jDayChooser1;
     // End of variables declaration//GEN-END:variables
 }

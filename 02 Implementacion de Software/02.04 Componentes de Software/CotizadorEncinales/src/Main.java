@@ -9,6 +9,7 @@
  * @author luis_
  */
 import BaseDeDatos.*;
+import Formularios.*;
 
 public class Main {
 
@@ -17,9 +18,11 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Conexion mConexion = new Conexion();
-        mConexion.Conectar();
-        mConexion.Desconectar();
+        Login mLogin = new Login();
+        mLogin.setVisible(true);
+        //Conexion mConexion = new Conexion();
+        //mConexion.Conectar();
+        //mConexion.Desconectar();
     }
     
 }
