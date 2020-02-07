@@ -27,31 +27,130 @@ public class Ventas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        BtnVentasSalir = new javax.swing.JButton();
+        BtnVentasCotizar = new javax.swing.JButton();
+        BtnVentasComparacion = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
+        jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         jLabel1.setText("Bienvenido Subgerente de Ventas");
+
+        jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
+        jLabel2.setText("Seleccione alguna de las siguientes opciones");
+
+        BtnVentasSalir.setText("Salir");
+        BtnVentasSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVentasSalirActionPerformed(evt);
+            }
+        });
+
+        BtnVentasCotizar.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        BtnVentasCotizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tutorial.png"))); // NOI18N
+        BtnVentasCotizar.setText("Cotizar");
+        BtnVentasCotizar.setBorderPainted(false);
+        BtnVentasCotizar.setContentAreaFilled(false);
+        BtnVentasCotizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnVentasCotizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnVentasCotizar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tutorial (2).png"))); // NOI18N
+        BtnVentasCotizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tutorial (2).png"))); // NOI18N
+        BtnVentasCotizar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnVentasCotizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVentasCotizarActionPerformed(evt);
+            }
+        });
+
+        BtnVentasComparacion.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
+        BtnVentasComparacion.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        BtnVentasComparacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/documento.png"))); // NOI18N
+        BtnVentasComparacion.setText("Comparar Precio");
+        BtnVentasComparacion.setBorderPainted(false);
+        BtnVentasComparacion.setContentAreaFilled(false);
+        BtnVentasComparacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnVentasComparacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnVentasComparacion.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/documento (1).png"))); // NOI18N
+        BtnVentasComparacion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/documento (1).png"))); // NOI18N
+        BtnVentasComparacion.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        BtnVentasComparacion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnVentasComparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVentasComparacionActionPerformed(evt);
+            }
+        });
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/logotipo encinales _1.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salida.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BtnVentasCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76)
+                                .addComponent(BtnVentasComparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnVentasSalir)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
                 .addComponent(jLabel1)
-                .addGap(145, 145, 145))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnVentasCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnVentasComparacion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnVentasSalir, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(14, 14, 14))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnVentasCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentasCotizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnVentasCotizarActionPerformed
+
+    private void BtnVentasComparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentasComparacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnVentasComparacionActionPerformed
+
+    private void BtnVentasSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentasSalirActionPerformed
+
+        Login mLogin = new Login();
+        this.dispose();
+        mLogin.setVisible(true);
+    }//GEN-LAST:event_BtnVentasSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +188,12 @@ public class Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnVentasComparacion;
+    private javax.swing.JButton BtnVentasCotizar;
+    private javax.swing.JButton BtnVentasSalir;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

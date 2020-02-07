@@ -5,7 +5,11 @@
  */
 package Formularios;
 
+import BaseDeDatos.BD;
 import Clases.*;
+import java.awt.Color;
+import java.awt.Desktop;
+import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -35,31 +39,59 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jDayChooser1 = new com.toedter.calendar.JDayChooser();
-        Btn_Login_Entrar = new javax.swing.JButton();
+        jSpinner1 = new javax.swing.JSpinner();
+        jPanel1 = new javax.swing.JPanel();
         Btn_Login_Salir = new javax.swing.JButton();
-        Lbl_Usuario = new javax.swing.JLabel();
+        BtnLoginEntrar = new javax.swing.JButton();
         Lbl_Psw = new javax.swing.JLabel();
         Txt_Nombre = new javax.swing.JTextField();
-        Txt_Psw = new javax.swing.JTextField();
+        Encinales = new javax.swing.JLabel();
+        Lbl_Usuario = new javax.swing.JLabel();
+        Lbl_Usuario1 = new javax.swing.JLabel();
+        Txt_Psw = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setFont(new java.awt.Font("AppleGothic", 0, 24)); // NOI18N
+        setUndecorated(true);
 
-        Btn_Login_Entrar.setText("Entrar");
-        Btn_Login_Entrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_Login_EntrarMouseClicked(evt);
-            }
-        });
-        Btn_Login_Entrar.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        Btn_Login_Salir.setBackground(new java.awt.Color(102, 255, 0));
+        Btn_Login_Salir.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
+        Btn_Login_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cerrar.png"))); // NOI18N
+        Btn_Login_Salir.setBorderPainted(false);
+        Btn_Login_Salir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/error.png"))); // NOI18N
+        Btn_Login_Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_Login_EntrarActionPerformed(evt);
+                Btn_Login_SalirActionPerformed(evt);
             }
         });
 
-        Btn_Login_Salir.setText("Salir");
+        BtnLoginEntrar.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
+        BtnLoginEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/entrar.png"))); // NOI18N
+        BtnLoginEntrar.setText("Entrar");
+        BtnLoginEntrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/entrar (1).png"))); // NOI18N
+        BtnLoginEntrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                BtnLoginEntrarMouseMoved(evt);
+            }
+        });
+        BtnLoginEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnLoginEntrarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnLoginEntrarMouseExited(evt);
+            }
+        });
+        BtnLoginEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLoginEntrarActionPerformed(evt);
+            }
+        });
 
-        Lbl_Usuario.setText("Usuario");
-
+        Lbl_Psw.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         Lbl_Psw.setText("Contraseña");
 
         Txt_Nombre.addActionListener(new java.awt.event.ActionListener() {
@@ -68,123 +100,164 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        Txt_Psw.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Txt_PswActionPerformed(evt);
-            }
-        });
+        Encinales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Encinales250.png"))); // NOI18N
+
+        Lbl_Usuario.setFont(new java.awt.Font("Sukhumvit Set", 0, 28)); // NOI18N
+        Lbl_Usuario.setText("Cotizador de Ventas y Servicios");
+
+        Lbl_Usuario1.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
+        Lbl_Usuario1.setText("Usuario");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Lbl_Usuario)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Lbl_Usuario1)
+                                    .addComponent(Lbl_Psw))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Txt_Psw, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                    .addComponent(Txt_Nombre)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(BtnLoginEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(Encinales)
+                        .addGap(48, 48, 48)
+                        .addComponent(Btn_Login_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Encinales)
+                    .addComponent(Btn_Login_Salir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Lbl_Usuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lbl_Usuario1))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lbl_Psw)
+                    .addComponent(Txt_Psw, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(BtnLoginEntrar)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Lbl_Psw)
-                    .addComponent(Lbl_Usuario)
-                    .addComponent(Btn_Login_Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Txt_Psw, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Txt_Nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Btn_Login_Salir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(110, 110, 110))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(327, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Lbl_Usuario)
-                    .addComponent(Txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_Psw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lbl_Psw))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Btn_Login_Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Btn_Login_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Btn_Login_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Login_EntrarActionPerformed
-      
+    private void Txt_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_NombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_NombreActionPerformed
+
+    private void BtnLoginEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginEntrarActionPerformed
+
         if (Txt_Nombre.equals("") || Txt_Psw.equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese Nombre de usuario y Contraseña");
         } else {
             if (mBD.Conectar()) {
                 String Nombre, Psw, Tipo;
-                
+
                 Nombre = Txt_Nombre.getText();
                 Psw = Txt_Psw.getText();
-                
+
                 ArrayList mListaUsuario = mBD.ConsultaUsuario(Nombre, Psw);
                 String [] datos=null;
-                
+
                 for (Object mListaUsuario2 : mListaUsuario)
                 {
                     datos = new String[6];
                     mUsuario = (Usuario) mListaUsuario2;
-                    
+
                     datos[0] = String.valueOf(mUsuario.getId_Usuario());
                     datos[1] = mUsuario.getUsuario();
                     datos[2] = mUsuario.getNomCompleto();
                     datos[3] = mUsuario.getPassword();
                     datos[4] = mUsuario.getCorreo();
                     datos[5] = mUsuario.getTipo();
-                }              
-                
-                
-                
-                if ((datos[1] == null ? this.Txt_Nombre.getText() == null : datos[1].equals(this.Txt_Nombre.getText())) && (datos[3] == null ? this.Txt_Psw.getText() == null : datos[3].equals(this.Txt_Psw.getText())))
-                {                                           
+                }
+
+               if ((datos[1] == null ? this.Txt_Nombre.getText() == null : datos[1].equals(this.Txt_Nombre.getText())) && 
+                        (datos[3] == null ? this.Txt_Psw.getText() == null : datos[3].equals(this.Txt_Psw.getText())))
+                {
                     switch (datos[5])
                     {
                         case "1":
-                            Admin mAdmin = new Admin();
-                            mAdmin.setVisible(true);
-                            this.dispose();
-                            break;
+                        Admin mAdmin = new Admin();
+                        mAdmin.setVisible(true);
+                        this.dispose();
+                        break;
                         case "2":
-                            Cotizador mCotizador = new Cotizador();
-                            mCotizador.setVisible(true);
-                            this.dispose();
-                            break;
+                        Cotizador mCotizador = new Cotizador();
+                        mCotizador.setVisible(true);
+                        this.dispose();
+                        break;
                         case "3":
-                            Ventas mVentas = new Ventas();
-                            mVentas.setVisible(true);
-                            this.dispose();
-                            break;
+                        Ventas mVentas = new Ventas();
+                        mVentas.setVisible(true);
+                        this.dispose();
+                        break;
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos");
                 }
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "Error");
             }
             mBD.Desconectar();
         }
-        
-      // TODO add your handling code here:
-    }//GEN-LAST:event_Btn_Login_EntrarActionPerformed
 
-    private void Txt_PswActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_PswActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Txt_PswActionPerformed
+    }//GEN-LAST:event_BtnLoginEntrarActionPerformed
 
-    private void Btn_Login_EntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_Login_EntrarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Btn_Login_EntrarMouseClicked
+    private void BtnLoginEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnLoginEntrarMouseExited
+        BtnLoginEntrar.setBackground(new Color(0,255,0));
+    }//GEN-LAST:event_BtnLoginEntrarMouseExited
 
-    private void Txt_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_NombreActionPerformed
+    private void BtnLoginEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnLoginEntrarMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_Txt_NombreActionPerformed
+    }//GEN-LAST:event_BtnLoginEntrarMouseClicked
+
+    private void BtnLoginEntrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnLoginEntrarMouseMoved
+        BtnLoginEntrar.setBackground(new Color(255,0,0));
+    }//GEN-LAST:event_BtnLoginEntrarMouseMoved
+
+    private void Btn_Login_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Login_SalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_Btn_Login_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,12 +295,16 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_Login_Entrar;
+    private javax.swing.JButton BtnLoginEntrar;
     private javax.swing.JButton Btn_Login_Salir;
+    private javax.swing.JLabel Encinales;
     private javax.swing.JLabel Lbl_Psw;
     private javax.swing.JLabel Lbl_Usuario;
+    private javax.swing.JLabel Lbl_Usuario1;
     private javax.swing.JTextField Txt_Nombre;
-    private javax.swing.JTextField Txt_Psw;
+    private javax.swing.JPasswordField Txt_Psw;
     private com.toedter.calendar.JDayChooser jDayChooser1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables
 }
