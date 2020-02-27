@@ -5,6 +5,10 @@
  */
 package Formularios;
 
+import java.awt.Desktop;
+import java.net.URI;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author manuelvaquera
@@ -33,10 +37,11 @@ public class Admin extends javax.swing.JFrame {
         BtnAdminFacturas = new javax.swing.JButton();
         BtnAdminCotizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         BtnAdminProductos = new javax.swing.JButton();
         BtnAdminSalirMenu = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        BtnAdminCotizar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,27 +67,32 @@ public class Admin extends javax.swing.JFrame {
 
         BtnAdminUsuarios.setBackground(new java.awt.Color(238, 217, 158));
         BtnAdminUsuarios.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
-        BtnAdminUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tarjeta (1).png"))); // NOI18N
+        BtnAdminUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/lista-de-contactos.png"))); // NOI18N
         BtnAdminUsuarios.setText("Usuarios");
         BtnAdminUsuarios.setBorderPainted(false);
         BtnAdminUsuarios.setContentAreaFilled(false);
         BtnAdminUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnAdminUsuarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnAdminUsuarios.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tarjeta.png"))); // NOI18N
-        BtnAdminUsuarios.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tarjeta.png"))); // NOI18N
+        BtnAdminUsuarios.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/lista-de-contactos (1).png"))); // NOI18N
+        BtnAdminUsuarios.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/lista-de-contactos (1).png"))); // NOI18N
         BtnAdminUsuarios.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         BtnAdminUsuarios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnAdminUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAdminUsuariosActionPerformed(evt);
+            }
+        });
 
         BtnAdminFacturas.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
-        BtnAdminFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley.png"))); // NOI18N
+        BtnAdminFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cuenta.png"))); // NOI18N
         BtnAdminFacturas.setText("Facturas");
         BtnAdminFacturas.setBorderPainted(false);
         BtnAdminFacturas.setContentAreaFilled(false);
         BtnAdminFacturas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnAdminFacturas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnAdminFacturas.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (1).png"))); // NOI18N
-        BtnAdminFacturas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (1).png"))); // NOI18N
-        BtnAdminFacturas.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (1).png"))); // NOI18N
+        BtnAdminFacturas.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (2).png"))); // NOI18N
+        BtnAdminFacturas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (2).png"))); // NOI18N
+        BtnAdminFacturas.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (2).png"))); // NOI18N
         BtnAdminFacturas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         BtnAdminFacturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +102,7 @@ public class Admin extends javax.swing.JFrame {
 
         BtnAdminCotizar.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         BtnAdminCotizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tutorial.png"))); // NOI18N
-        BtnAdminCotizar.setText("Cotizar");
+        BtnAdminCotizar.setText("Cotizacion General");
         BtnAdminCotizar.setBorderPainted(false);
         BtnAdminCotizar.setContentAreaFilled(false);
         BtnAdminCotizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -109,13 +119,8 @@ public class Admin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 36)); // NOI18N
         jLabel1.setText("Bienvenido Administrador");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/logotipo encinales _1.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salida.png"))); // NOI18N
-
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
-        jLabel2.setText("Seleccione Alguna de las Siguientes Opciones");
+        jLabel2.setText("Seleccione alguna de las siguientes opciones");
 
         BtnAdminProductos.setBackground(new java.awt.Color(0, 102, 102));
         BtnAdminProductos.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
@@ -137,73 +142,93 @@ public class Admin extends javax.swing.JFrame {
 
         BtnAdminSalirMenu.setBackground(new java.awt.Color(255, 255, 255));
         BtnAdminSalirMenu.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        BtnAdminSalirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (1).png"))); // NOI18N
+        BtnAdminSalirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         BtnAdminSalirMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BtnAdminSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (2).png"))); // NOI18N
+        BtnAdminSalirMenu.setBorderPainted(false);
+        BtnAdminSalirMenu.setContentAreaFilled(false);
+        BtnAdminSalirMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
+        BtnAdminSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
+        BtnAdminSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-izquierda (1).png"))); // NOI18N
         BtnAdminSalirMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAdminSalirMenuActionPerformed(evt);
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
+
+        BtnAdminCotizar2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        BtnAdminCotizar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (2).png"))); // NOI18N
+        BtnAdminCotizar2.setText("Cotizacion Preliminar ");
+        BtnAdminCotizar2.setBorderPainted(false);
+        BtnAdminCotizar2.setContentAreaFilled(false);
+        BtnAdminCotizar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnAdminCotizar2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
+        BtnAdminCotizar2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
+        BtnAdminCotizar2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
+        BtnAdminCotizar2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(BtnAdminSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton2)
-                        .addGap(42, 42, 42)
-                        .addComponent(BtnAdminUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(BtnAdminProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(107, 107, 107)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BtnAdminSalirMenu)
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(BtnAdminComparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnAdminCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(BtnAdminFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel2)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnAdminComparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnAdminCotizar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnAdminUsuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnAdminProductos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnAdminFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnAdminCotizar2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(7, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BtnAdminSalirMenu)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(BtnAdminComparacion, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(BtnAdminFacturas))
-                    .addComponent(BtnAdminCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BtnAdminUsuarios)
-                            .addComponent(BtnAdminProductos))
-                        .addGap(27, 62, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(BtnAdminSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnAdminCotizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addComponent(BtnAdminFacturas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnAdminProductos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(19, 19, 19))))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(BtnAdminComparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                            .addComponent(BtnAdminCotizar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnAdminUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 55, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,19 +237,23 @@ public class Admin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnAdminSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminSalirMenuActionPerformed
+
+        Login mLogin = new Login();
+        this.dispose();
+        mLogin.setVisible(true);
+    }//GEN-LAST:event_BtnAdminSalirMenuActionPerformed
 
     private void BtnAdminProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminProductosActionPerformed
         // TODO add your handling code here:
@@ -234,20 +263,19 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnAdminCotizarActionPerformed
 
-    private void BtnAdminComparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminComparacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAdminComparacionActionPerformed
-
     private void BtnAdminFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminFacturasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnAdminFacturasActionPerformed
 
-    private void BtnAdminSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminSalirMenuActionPerformed
-            
-               Login mLogin = new Login();
-               this.dispose();
-               mLogin.setVisible(true);
-    }//GEN-LAST:event_BtnAdminSalirMenuActionPerformed
+    private void BtnAdminUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminUsuariosActionPerformed
+        Usuarios mUsuarios = new Usuarios();
+        this.dispose();
+        mUsuarios.setVisible(true);
+    }//GEN-LAST:event_BtnAdminUsuariosActionPerformed
+
+    private void BtnAdminComparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminComparacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnAdminComparacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,13 +316,14 @@ public class Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAdminComparacion;
     private javax.swing.JButton BtnAdminCotizar;
+    private javax.swing.JButton BtnAdminCotizar2;
     private javax.swing.JButton BtnAdminFacturas;
     private javax.swing.JButton BtnAdminProductos;
     private javax.swing.JButton BtnAdminSalirMenu;
     private javax.swing.JButton BtnAdminUsuarios;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

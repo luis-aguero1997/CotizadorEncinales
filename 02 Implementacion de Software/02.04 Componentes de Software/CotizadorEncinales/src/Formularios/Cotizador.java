@@ -28,13 +28,15 @@ public class Cotizador extends javax.swing.JFrame {
     private void initComponents() {
 
         BtnAdminFacturas = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        BtnSalirCotizador = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        BtnCotizadorFacturas = new javax.swing.JButton();
         BtnCotizadorCotizar = new javax.swing.JButton();
         BtnCotizadorComparacion = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnCotizadorSalirMenu = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        BtnAdminFacturas1 = new javax.swing.JButton();
 
         BtnAdminFacturas.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         BtnAdminFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley.png"))); // NOI18N
@@ -55,39 +57,17 @@ public class Cotizador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 2, 24)); // NOI18N
-        jLabel1.setText("Bienvenido Usuario Cotizador ");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        BtnSalirCotizador.setText("Salir");
-        BtnSalirCotizador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSalirCotizadorActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("AppleGothic", 0, 28)); // NOI18N
+        jLabel1.setText("Bienvenido Cotizador ");
 
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         jLabel2.setText("Seleccione Alguna de las Siguientes Opciones ");
 
-        BtnCotizadorFacturas.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
-        BtnCotizadorFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley.png"))); // NOI18N
-        BtnCotizadorFacturas.setText("Facturas");
-        BtnCotizadorFacturas.setBorderPainted(false);
-        BtnCotizadorFacturas.setContentAreaFilled(false);
-        BtnCotizadorFacturas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnCotizadorFacturas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnCotizadorFacturas.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (1).png"))); // NOI18N
-        BtnCotizadorFacturas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (1).png"))); // NOI18N
-        BtnCotizadorFacturas.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (1).png"))); // NOI18N
-        BtnCotizadorFacturas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        BtnCotizadorFacturas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCotizadorFacturasActionPerformed(evt);
-            }
-        });
-
         BtnCotizadorCotizar.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         BtnCotizadorCotizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tutorial.png"))); // NOI18N
-        BtnCotizadorCotizar.setText("Cotizar");
+        BtnCotizadorCotizar.setText("Cotización General");
         BtnCotizadorCotizar.setBorderPainted(false);
         BtnCotizadorCotizar.setContentAreaFilled(false);
         BtnCotizadorCotizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -119,64 +99,125 @@ public class Cotizador extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/logotipo encinales _1.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salida.png"))); // NOI18N
+        BtnCotizadorSalirMenu.setBackground(new java.awt.Color(255, 255, 255));
+        BtnCotizadorSalirMenu.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        BtnCotizadorSalirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
+        BtnCotizadorSalirMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnCotizadorSalirMenu.setBorderPainted(false);
+        BtnCotizadorSalirMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
+        BtnCotizadorSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
+        BtnCotizadorSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
+        BtnCotizadorSalirMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCotizadorSalirMenuActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (2).png"))); // NOI18N
+        jButton1.setText("Cotizacion Preliminar ");
+        jButton1.setBorderPainted(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
+        jButton1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
+        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
+
+        BtnAdminFacturas1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        BtnAdminFacturas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cuenta.png"))); // NOI18N
+        BtnAdminFacturas1.setText("Facturas");
+        BtnAdminFacturas1.setBorderPainted(false);
+        BtnAdminFacturas1.setContentAreaFilled(false);
+        BtnAdminFacturas1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnAdminFacturas1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnAdminFacturas1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (2).png"))); // NOI18N
+        BtnAdminFacturas1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (2).png"))); // NOI18N
+        BtnAdminFacturas1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley (2).png"))); // NOI18N
+        BtnAdminFacturas1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnAdminFacturas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAdminFacturas1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel2)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(BtnCotizadorCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(BtnCotizadorComparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(77, 77, 77)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnAdminFacturas1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jLabel1)))
+                .addContainerGap(55, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(BtnCotizadorSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(548, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BtnCotizadorCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnAdminFacturas1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnCotizadorComparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(BtnCotizadorSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(641, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(BtnCotizadorCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnCotizadorFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(BtnCotizadorComparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnSalirCotizador)
-                        .addContainerGap())))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnCotizadorCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnCotizadorFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnCotizadorComparacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnSalirCotizador))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -186,10 +227,6 @@ public class Cotizador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnAdminFacturasActionPerformed
 
-    private void BtnCotizadorFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCotizadorFacturasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCotizadorFacturasActionPerformed
-
     private void BtnCotizadorCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCotizadorCotizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCotizadorCotizarActionPerformed
@@ -198,12 +235,16 @@ public class Cotizador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCotizadorComparacionActionPerformed
 
-    private void BtnSalirCotizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirCotizadorActionPerformed
+    private void BtnCotizadorSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCotizadorSalirMenuActionPerformed
 
         Login mLogin = new Login();
         this.dispose();
-        mLogin.setVisible(true);        
-    }//GEN-LAST:event_BtnSalirCotizadorActionPerformed
+        mLogin.setVisible(true);
+    }//GEN-LAST:event_BtnCotizadorSalirMenuActionPerformed
+
+    private void BtnAdminFacturas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminFacturas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnAdminFacturas1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,12 +283,14 @@ public class Cotizador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAdminFacturas;
+    private javax.swing.JButton BtnAdminFacturas1;
     private javax.swing.JButton BtnCotizadorComparacion;
     private javax.swing.JButton BtnCotizadorCotizar;
-    private javax.swing.JButton BtnCotizadorFacturas;
-    private javax.swing.JButton BtnSalirCotizador;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton BtnCotizadorSalirMenu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
