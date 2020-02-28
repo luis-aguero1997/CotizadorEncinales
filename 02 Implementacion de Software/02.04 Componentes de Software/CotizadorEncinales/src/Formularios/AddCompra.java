@@ -41,6 +41,7 @@ public class AddCompra extends javax.swing.JFrame {
     public AddCompra() {
         initComponents();
         tpdf.visualizar_PdfVO(Table);
+        
         LblProceso.setText("");
         evitarPegar(this.TxtCant);
         evitarPegar(this.TxtClave);
@@ -266,6 +267,7 @@ public class AddCompra extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -291,11 +293,10 @@ public class AddCompra extends javax.swing.JFrame {
                                                     .addComponent(TxtMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(BtnCon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                                    .addComponent(jLabel3))
+                                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 66, Short.MAX_VALUE)
+                                .addGap(0, 67, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,7 +318,7 @@ public class AddCompra extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(210, 210, 210)
                         .addComponent(BtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(3, Short.MAX_VALUE))
+                .addContainerGap(6, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -346,7 +347,7 @@ public class AddCompra extends javax.swing.JFrame {
                     .addComponent(TxtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(TxtMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(TxtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -369,7 +370,7 @@ public class AddCompra extends javax.swing.JFrame {
                         .addComponent(Fecha2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnSave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -511,13 +512,22 @@ public class AddCompra extends javax.swing.JFrame {
 
     private void TxtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClaveKeyTyped
         // TODO add your handling code here:
-        if (TxtClave.getText().length() == 45) {
+        if (this.TxtClave.getText().isEmpty()) {
+            
+        } else if ((this.TxtClave.getText().length() == 45)) {
             evt.consume();
+            
+        } else if (this.TxtClave.getText().length() < 3) {
+            
+        } else if (this.TxtClave.getText().length() >= 3){
+            this.jLabel7.setText("");
         }
+        
     }//GEN-LAST:event_TxtClaveKeyTyped
 
     private void TxtDesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDesKeyTyped
         // TODO add your handling code here:
+        
         if (TxtDes.getText().length() == 45) {
             evt.consume();
         }
@@ -537,6 +547,11 @@ public class AddCompra extends javax.swing.JFrame {
 
     private void TxtCantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCantKeyTyped
 
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+        
         if (TxtCant.getText().length() == 10) {
             evt.consume();
         }
@@ -582,18 +597,21 @@ public class AddCompra extends javax.swing.JFrame {
         Date Date2 = convert(Fecha2.getDate());
 
         ArrayList<Archivo> list = dao.Listar_PdfVO(Date1, Date2);
+        
         if (list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
                 Object fila[] = new Object[3];
                 vo = list.get(i);
                 fila[0] = vo.getID();
                 fila[1] = vo.getNombre();
-                fila[2] = new JButton("ABRIR");
+                fila[2] = new JButton("Abrir");
 
                 dt.addRow(fila);
             }
             Table.setModel(dt);
             Table.setRowHeight(32);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontraron Facturas durante ese periodo");
         }
     }
 

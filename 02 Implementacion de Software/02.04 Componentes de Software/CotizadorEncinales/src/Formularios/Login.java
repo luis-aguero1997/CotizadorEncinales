@@ -21,8 +21,7 @@ public class Login extends javax.swing.JFrame {
 
     BD mBD = new BD();
     Usuario mUsuario;
-    
-    
+
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -190,8 +189,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_Txt_NombreActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-                        
-         if (Txt_Nombre.equals("") || Txt_Psw.equals("")) {
+
+        if (Txt_Nombre.getText().isEmpty() || Txt_Psw.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ingrese Nombre de usuario y Contraseña");
         } else {
             if (mBD.Conectar()) {
@@ -201,41 +200,42 @@ public class Login extends javax.swing.JFrame {
                 Psw = Txt_Psw.getText();
 
                 ArrayList mListaUsuario = mBD.ConsultaUsuario(Nombre, Psw);
-                String [] datos=null;
+                if (mListaUsuario.size() != 0) {
+                    String[] datos = null;
 
-                for (Object mListaUsuario2 : mListaUsuario)
-                {
-                    datos = new String[6];
-                    mUsuario = (Usuario) mListaUsuario2;
+                    for (Object mListaUsuario2 : mListaUsuario) {
+                        datos = new String[6];
+                        mUsuario = (Usuario) mListaUsuario2;
 
-                    datos[0] = String.valueOf(mUsuario.getId_Usuario());
-                    datos[1] = mUsuario.getUsuario();
-                    datos[2] = mUsuario.getNomCompleto();
-                    datos[3] = mUsuario.getPassword();
-                    datos[4] = mUsuario.getCorreo();
-                    datos[5] = mUsuario.getTipo();
-                }
+                        datos[0] = String.valueOf(mUsuario.getId_Usuario());
+                        datos[1] = mUsuario.getUsuario();
+                        datos[2] = mUsuario.getNomCompleto();
+                        datos[3] = mUsuario.getPassword();
+                        datos[4] = mUsuario.getCorreo();
+                        datos[5] = mUsuario.getTipo();
+                    }
 
-                if ((datos[1] == null ? this.Txt_Nombre.getText() == null : datos[1].equals(this.Txt_Nombre.getText())) &&
-                    (datos[3] == null ? this.Txt_Psw.getText() == null : datos[3].equals(this.Txt_Psw.getText())))
-                {
-                    switch (datos[5])
-                    {
+                    //if ((datos[1] == null ? this.Txt_Nombre.getText() == null : datos[1].equals(this.Txt_Nombre.getText()))
+                    //      && (datos[3] == null ? this.Txt_Psw.getText() == null : datos[3].equals(this.Txt_Psw.getText()))) {
+                    switch (datos[5]) {
                         case "1":
-                        Admin mAdmin = new Admin();
-                        mAdmin.setVisible(true);
-                        this.dispose();
-                        break;
+                            Admin mAdmin = new Admin();
+                            mAdmin.setVisible(true);
+                            this.dispose();
+                            break;
                         case "2":
-                        Cotizador mCotizador = new Cotizador();
-                        mCotizador.setVisible(true);
-                        this.dispose();
-                        break;
+                            Cotizador mCotizador = new Cotizador();
+                            mCotizador.setVisible(true);
+                            this.dispose();
+                            break;
                         case "3":
-                        Ventas mVentas = new Ventas();
-                        mVentas.setVisible(true);
-                        this.dispose();
-                        break;
+                            Ventas mVentas = new Ventas();
+                            mVentas.setVisible(true);
+                            this.dispose();
+                            break;
+                        //}
+                        //} else {
+                        //JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos");
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos");
@@ -246,15 +246,15 @@ public class Login extends javax.swing.JFrame {
             }
             mBD.Desconectar();
         }
-        
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void Txt_PswActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_PswActionPerformed

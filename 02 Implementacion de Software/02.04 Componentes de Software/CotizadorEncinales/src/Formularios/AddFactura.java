@@ -18,6 +18,7 @@ public class AddFactura extends javax.swing.JFrame {
 
     public AddFactura() {
         initComponents();
+        this.jLabel5.setText("");
     }
 
     /**
@@ -40,6 +41,7 @@ public class AddFactura extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,7 +96,6 @@ public class AddFactura extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add-file.png"))); // NOI18N
         jLabel2.setText("Añadir Factura");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setIgnoreRepaint(true);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -109,6 +110,9 @@ public class AddFactura extends javax.swing.JFrame {
         });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
+
+        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel5.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,7 +140,8 @@ public class AddFactura extends javax.swing.JFrame {
                             .addComponent(jDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(BtnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                .addComponent(BtnSeleccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(BtnSeleccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel5))))
                 .addGap(32, 32, 32))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -152,10 +157,12 @@ public class AddFactura extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtNomFact, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -220,7 +227,7 @@ public class AddFactura extends javax.swing.JFrame {
         File ruta = new File(this.Ruta);
 
         if (ruta.length() > 1048576) {
-            JOptionPane.showMessageDialog(null, "Archivo Demaciado grande para ser almacenado");
+            JOptionPane.showMessageDialog(null, "Archivo Demasiado grande para ser almacenado");
         } else {
 
             if (nombre.trim().length() != 0 && Ruta.trim().length() != 0 && !Fecha.equals("")) {
@@ -260,8 +267,14 @@ public class AddFactura extends javax.swing.JFrame {
 
     private void TxtNomFactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomFactKeyTyped
         // TODO add your handling code here:
-        if (TxtNomFact.getText().length()== 45) {
-             evt.consume();
+        if (this.TxtNomFact.getText().isEmpty()) {
+            this.jLabel5.setText("");
+        } else if (this.TxtNomFact.getText().length() == 45) {
+            evt.consume();
+        }  else if (this.TxtNomFact.getText().length() < 10) {
+            this.jLabel5.setText("Invalido, Demasiado corto");
+        } else if (this.TxtNomFact.getText().length() >= 10){
+            this.jLabel5.setText("");
         }
 
         
@@ -327,6 +340,7 @@ public class AddFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

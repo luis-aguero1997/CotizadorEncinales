@@ -14,15 +14,19 @@ import javax.swing.JOptionPane;
  * @author manuelvaquera
  */
 public class AddUser extends javax.swing.JFrame {
-    
-        BD mBD = new BD();
+
+    BD mBD = new BD();
 
     /**
      * Creates new form AddUser
      */
     public AddUser() {
-        
+
         initComponents();
+        this.jLabel8.setText("");
+        this.jLabel9.setText("");
+        this.jLabel10.setText("");
+        this.jLabel11.setText("");
     }
 
     /**
@@ -49,6 +53,10 @@ public class AddUser extends javax.swing.JFrame {
         TxtCorreo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,16 +109,37 @@ public class AddUser extends javax.swing.JFrame {
                 TxtUsuarioActionPerformed(evt);
             }
         });
+        TxtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtUsuarioKeyTyped(evt);
+            }
+        });
 
         TxtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtPasswordActionPerformed(evt);
             }
         });
+        TxtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtPasswordKeyTyped(evt);
+            }
+        });
 
         TxtNomCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtNomCompletoActionPerformed(evt);
+            }
+        });
+        TxtNomCompleto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtNomCompletoKeyTyped(evt);
+            }
+        });
+
+        TxtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtCorreoKeyTyped(evt);
             }
         });
 
@@ -129,6 +158,18 @@ public class AddUser extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
 
+        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel8.setText("jLabel8");
+
+        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel9.setText("jLabel9");
+
+        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel10.setText("jLabel10");
+
+        jLabel11.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel11.setText("jLabel11");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -139,7 +180,7 @@ public class AddUser extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(42, 42, 42)
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 63, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +191,11 @@ public class AddUser extends javax.swing.JFrame {
                                 .addGap(127, 127, 127)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Puesto, 0, 246, Short.MAX_VALUE)
-                                    .addComponent(BtnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(BtnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel11)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(44, 44, 44)
@@ -163,8 +208,14 @@ public class AddUser extends javax.swing.JFrame {
                                 .addGap(33, 33, 33)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtUsuario)
-                                    .addComponent(TxtPassword)
-                                    .addComponent(TxtCorreo))))))
+                                    .addComponent(TxtCorreo)
+                                    .addComponent(TxtPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -178,27 +229,35 @@ public class AddUser extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
                     .addComponent(TxtNomCompleto, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(TxtUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel5)
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel6)
                         .addGap(30, 30, 30)
                         .addComponent(jLabel7))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addGap(18, 18, 18)
+                        .addComponent(Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BtnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
@@ -222,10 +281,8 @@ public class AddUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddUserActionPerformed
-        
-                          
-        
-        
+
+
     }//GEN-LAST:event_BtnAddUserActionPerformed
 
     private void PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuestoActionPerformed
@@ -233,12 +290,12 @@ public class AddUser extends javax.swing.JFrame {
     }//GEN-LAST:event_PuestoActionPerformed
 
     private void BtnAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddUserMouseClicked
-        
-        if (!this.TxtNomCompleto.getText().isEmpty() || 
-                this.TxtUsuario.getText().isEmpty() || 
-                this.TxtPassword.getText().isEmpty() || 
-                this.TxtCorreo.getText().isEmpty() || 
-                this.Puesto.getSelectedIndex() == 0);
+
+        if (!this.TxtNomCompleto.getText().isEmpty()
+                || this.TxtUsuario.getText().isEmpty()
+                || this.TxtPassword.getText().isEmpty()
+                || this.TxtCorreo.getText().isEmpty()
+                || this.Puesto.getSelectedIndex() == 0);
         {
             Usuario Usuario = new Usuario();
             Usuario.setNomCompleto(TxtNomCompleto.getText());
@@ -246,7 +303,7 @@ public class AddUser extends javax.swing.JFrame {
             Usuario.setPassword(TxtPassword.getText());
             Usuario.setCorreo(TxtCorreo.getText());
             Usuario.setTipo(Integer.toString(Puesto.getSelectedIndex()));
-            
+
             mBD.Agregar_Usuario(Usuario);
 
             TxtNomCompleto.setText("");
@@ -255,15 +312,15 @@ public class AddUser extends javax.swing.JFrame {
             TxtCorreo.setText("");
             Puesto.setSelectedIndex(0);
         }
-    
+
     }//GEN-LAST:event_BtnAddUserMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-       Usuarios mUsuarios = new Usuarios();
-       this.dispose();
-       mUsuarios.setVisible(true);
-       
+        Usuarios mUsuarios = new Usuarios();
+        this.dispose();
+        mUsuarios.setVisible(true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TxtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtUsuarioActionPerformed
@@ -277,6 +334,62 @@ public class AddUser extends javax.swing.JFrame {
     private void TxtNomCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomCompletoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNomCompletoActionPerformed
+
+    private void TxtNomCompletoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomCompletoKeyTyped
+        // TODO add your handling code here:
+        
+        if (this.TxtNomCompleto.getText().isEmpty()) {
+            this.jLabel8.setText("");
+        } else if (this.TxtNomCompleto.getText().length() == 45) {
+            evt.consume();
+        } else if (this.TxtNomCompleto.getText().length() < 8) {
+            this.jLabel8.setText("Nombre Invalido");
+        } else if (this.TxtNomCompleto.getText().length() >= 8) {
+            this.jLabel8.setText("");
+        }
+    }//GEN-LAST:event_TxtNomCompletoKeyTyped
+
+    private void TxtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtUsuarioKeyTyped
+        // TODO add your handling code here:
+        if (this.TxtUsuario.getText().isEmpty()) {
+            this.jLabel9.setText("");
+        } else if ((this.TxtUsuario.getText().length() == 45)) {
+            evt.consume();
+
+        } else if (this.TxtUsuario.getText().length() < 8) {
+            this.jLabel9.setText("Usuario Invalida");
+        } else if (this.TxtUsuario.getText().length() >= 8) {
+            this.jLabel9.setText("");
+        }
+    }//GEN-LAST:event_TxtUsuarioKeyTyped
+
+    private void TxtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPasswordKeyTyped
+        // TODO add your handling code here:
+         if (this.TxtPassword.getText().isEmpty()) {
+            this.jLabel10.setText("");
+        } else if ((this.TxtPassword.getText().length() == 45)) {
+            evt.consume();
+            
+        } else if (this.TxtPassword.getText().length() < 8) {
+            this.jLabel10.setText("Contraseña Demasiado Corta");
+        } else if (this.TxtPassword.getText().length() > 8){
+            this.jLabel10.setText("");
+        }
+    }//GEN-LAST:event_TxtPasswordKeyTyped
+
+    private void TxtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCorreoKeyTyped
+        // TODO add your handling code here:
+        if (this.TxtCorreo.getText().isEmpty()) {
+            this.jLabel11.setText("");
+        } else if ((this.TxtCorreo.getText().length() == 45)) {
+            evt.consume();
+            
+        } else if (this.TxtCorreo.getText().length() < 10) {
+            this.jLabel11.setText("Correo Invalido");
+        } else if (this.TxtCorreo.getText().length() > 10){
+            this.jLabel11.setText("");
+        } 
+    }//GEN-LAST:event_TxtCorreoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -322,12 +435,16 @@ public class AddUser extends javax.swing.JFrame {
     private javax.swing.JTextField TxtUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

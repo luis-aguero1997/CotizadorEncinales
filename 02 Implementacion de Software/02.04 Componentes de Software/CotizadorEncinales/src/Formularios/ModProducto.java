@@ -6,9 +6,11 @@
 package Formularios;
 
 import Clases.*;
+import java.awt.Event;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.awt.Image.*;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -20,10 +22,13 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -45,6 +50,13 @@ public class ModProducto extends javax.swing.JFrame {
         Ruta = "";
         mBD = new BD();
         this.llenado();
+        this.jLabel7.setText("");
+        this.jLabel8.setText("");
+        this.jLabel9.setText("");
+        
+        evitarPegar(this.TxtDes);
+        evitarPegar(this.TxtNom);
+        evitarPegar(this.TxtPrecio);
     }
 
     /**
@@ -70,6 +82,9 @@ public class ModProducto extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -85,6 +100,24 @@ public class ModProducto extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel4.setText("Precio");
+
+        TxtNom.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtNomKeyTyped(evt);
+            }
+        });
+
+        TxtDes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtDesKeyTyped(evt);
+            }
+        });
+
+        TxtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtPrecioKeyTyped(evt);
+            }
+        });
 
         BtnSeleccion.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         BtnSeleccion.setText("Seleccionar Imagen");
@@ -126,6 +159,15 @@ public class ModProducto extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
 
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel7.setText("jLabel7");
+
+        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel8.setText("jLabel8");
+
+        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel9.setText("jLabel9");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -147,11 +189,15 @@ public class ModProducto extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TxtDes, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TxtNom, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TxtPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(BtnSeleccion, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(TxtDes, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(TxtNom, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(TxtPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(BtnSeleccion, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
                                 .addGap(18, 18, 18)
                                 .addComponent(LblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -177,15 +223,21 @@ public class ModProducto extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(TxtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(TxtDes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtDes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel8)
+                        .addGap(2, 2, 2)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(TxtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BtnSeleccion)
                             .addComponent(jLabel5)))
@@ -294,6 +346,44 @@ public class ModProducto extends javax.swing.JFrame {
         mGestionProductos.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void TxtNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomKeyTyped
+        // TODO add your handling code here:
+         if (this.TxtNom.getText().isEmpty()) {
+            this.jLabel7.setText("");
+        } else if (this.TxtNom.getText().length() == 45) {
+            evt.consume();
+        }  else if (this.TxtNom.getText().length() < 5) {
+            this.jLabel7.setText("Invalido, Demasiado corto");
+        } else if (this.TxtNom.getText().length() >= 5){
+            this.jLabel7.setText("");
+        }
+    }//GEN-LAST:event_TxtNomKeyTyped
+
+    private void TxtDesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDesKeyTyped
+        // TODO add your handling code here:
+        if (this.TxtDes.getText().isEmpty()) {
+            this.jLabel8.setText("");
+        } else if (this.TxtDes.getText().length() == 45) {
+            evt.consume();
+        }  else if (this.TxtDes.getText().length() < 5) {
+            this.jLabel8.setText("Invalido, Demasiado corto");
+        } else if (this.TxtDes.getText().length() >= 5){
+            this.jLabel8.setText("");
+        }
+    }//GEN-LAST:event_TxtDesKeyTyped
+
+    private void TxtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPrecioKeyTyped
+        // TODO add your handling code here:
+                char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TxtPrecio.getText().length() == 10) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtPrecioKeyTyped
+
     public void llenado() {
         BD mBD = new BD();
 
@@ -319,6 +409,13 @@ public class ModProducto extends javax.swing.JFrame {
         }
     }
 
+    public static void evitarPegar(JTextField campo) {
+
+        InputMap map2 = campo.getInputMap(JTextField.WHEN_FOCUSED);
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -370,6 +467,9 @@ public class ModProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

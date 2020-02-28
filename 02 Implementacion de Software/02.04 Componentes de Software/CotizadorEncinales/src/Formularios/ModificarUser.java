@@ -7,9 +7,14 @@ package Formularios;
 
 import BaseDeDatos.BD;
 import Clases.Usuario;
+import java.awt.Event;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.InputStream;
+import javax.swing.InputMap;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -23,6 +28,15 @@ public class ModificarUser extends javax.swing.JFrame {
      */
     public ModificarUser() {
         initComponents();
+        this.jLabel7.setText("");
+        this.jLabel8.setText("");
+        this.jLabel9.setText("");
+        this.jLabel10.setText("");
+        
+        evitarPegar(this.TxtModCorreo);
+        evitarPegar(this.TxtModNombre);
+        evitarPegar(this.TxtModPassword);
+        evitarPegar(this.TxtModUsuario);
     }
 
     /**
@@ -47,6 +61,10 @@ public class ModificarUser extends javax.swing.JFrame {
         ModPuesto = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,15 +87,48 @@ public class ModificarUser extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel6.setText("Puesto");
 
+        TxtModNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtModNombreActionPerformed(evt);
+            }
+        });
+        TxtModNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtModNombreKeyTyped(evt);
+            }
+        });
+
         TxtModUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtModUsuarioActionPerformed(evt);
+            }
+        });
+        TxtModUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TxtModUsuarioKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtModUsuarioKeyTyped(evt);
+            }
+        });
+
+        TxtModPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TxtModPasswordKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtModPasswordKeyTyped(evt);
             }
         });
 
         TxtModCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtModCorreoActionPerformed(evt);
+            }
+        });
+        TxtModCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtModCorreoKeyTyped(evt);
             }
         });
 
@@ -108,6 +159,18 @@ public class ModificarUser extends javax.swing.JFrame {
         jButton2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/expediente (1).png"))); // NOI18N
         jButton2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/expediente (1).png"))); // NOI18N
 
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel7.setText("jLabel7");
+
+        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel8.setText("jLabel8");
+
+        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel9.setText("jLabel9");
+
+        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel10.setText("jLabel10");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,14 +182,6 @@ public class ModificarUser extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtModUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtModNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel6)
@@ -134,13 +189,27 @@ public class ModificarUser extends javax.swing.JFrame {
                                         .addGap(52, 52, 52)
                                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TxtModCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtModPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ModPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(TxtModCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TxtModPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ModPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(26, 26, 26)))
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(TxtModUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TxtModNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addComponent(jLabel1)))
@@ -155,23 +224,31 @@ public class ModificarUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(TxtModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(TxtModUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(TxtModPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(TxtModCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(ModPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,6 +298,83 @@ public class ModificarUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void TxtModNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtModNombreActionPerformed
+
+    private void TxtModNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModNombreKeyTyped
+        // TODO add your handling code here:
+        if (this.TxtModNombre.getText().isEmpty()) {
+            this.jLabel10.setText("");
+        } else if (this.TxtModNombre.getText().length() == 45) {
+            evt.consume();
+        }  else if (this.TxtModNombre.getText().length() < 10) {
+            this.jLabel10.setText("Invalido, Demasiado corto");
+        } else if (this.TxtModNombre.getText().length() >= 10){
+            this.jLabel10.setText("");
+        }
+    }//GEN-LAST:event_TxtModNombreKeyTyped
+
+    private void TxtModUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModUsuarioKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TxtModUsuarioKeyPressed
+
+    private void TxtModPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModPasswordKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TxtModPasswordKeyPressed
+
+    private void TxtModCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModCorreoKeyTyped
+        // TODO add your handling code here:
+        if (this.TxtModCorreo.getText().isEmpty()) {
+            this.jLabel8.setText("");
+        } else if ((this.TxtModCorreo.getText().length() == 45)) {
+            evt.consume();
+            
+        } else if (this.TxtModCorreo.getText().length() < 10) {
+            this.jLabel8.setText("Correo Invalido");
+        } else if (this.TxtModCorreo.getText().length() > 10){
+            this.jLabel8.setText("");
+        }
+    }//GEN-LAST:event_TxtModCorreoKeyTyped
+
+    private void TxtModUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModUsuarioKeyTyped
+        // TODO add your handling code here:
+        if (this.TxtModUsuario.getText().isEmpty()) {
+            this.jLabel9.setText("");
+        } else if (this.TxtModUsuario.getText().length() == 45) {
+            evt.consume();
+        }  else if (this.TxtModUsuario.getText().length() < 10) {
+            this.jLabel9.setText("Invalido, Demasiado corto");
+        } else if (this.TxtModUsuario.getText().length() > 10){
+            this.jLabel9.setText("");
+        }
+    }//GEN-LAST:event_TxtModUsuarioKeyTyped
+
+    private void TxtModPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModPasswordKeyTyped
+        // TODO add your handling code here:
+        if (this.TxtModPassword.getText().isEmpty()) {
+            this.jLabel7.setText("");
+        } else if ((this.TxtModPassword.getText().length() == 45)) {
+            evt.consume();
+            
+        } else if (this.TxtModPassword.getText().length() < 8) {
+            this.jLabel7.setText("Contraseña Demasiado Corta");
+        } else if (this.TxtModPassword.getText().length() >= 8){
+            this.jLabel7.setText("");
+        }
+        
+        
+    }//GEN-LAST:event_TxtModPasswordKeyTyped
+
+    public static void evitarPegar(JTextField campo) {
+
+        InputMap map2 = campo.getInputMap(JTextField.WHEN_FOCUSED);
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -247,6 +401,7 @@ public class ModificarUser extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ModificarUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -265,10 +420,14 @@ public class ModificarUser extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
