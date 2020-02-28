@@ -147,8 +147,9 @@ public class Admin extends javax.swing.JFrame {
         BtnAdminSalirMenu.setBorderPainted(false);
         BtnAdminSalirMenu.setContentAreaFilled(false);
         BtnAdminSalirMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BtnAdminSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BtnAdminSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-izquierda (1).png"))); // NOI18N
+        BtnAdminSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        BtnAdminSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        BtnAdminSalirMenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
         BtnAdminSalirMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAdminSalirMenuActionPerformed(evt);
@@ -256,7 +257,9 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAdminSalirMenuActionPerformed
 
     private void BtnAdminProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminProductosActionPerformed
-        // TODO add your handling code here:
+          GestionProductos mGestionProductos = new GestionProductos();
+          this.dispose();
+          mGestionProductos.setVisible(true);
     }//GEN-LAST:event_BtnAdminProductosActionPerformed
 
     private void BtnAdminCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminCotizarActionPerformed
@@ -264,7 +267,10 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAdminCotizarActionPerformed
 
     private void BtnAdminFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminFacturasActionPerformed
-        // TODO add your handling code here:
+       
+        AddCompra mAddCompra = new AddCompra();
+        this.dispose();
+        mAddCompra.setVisible(true);
     }//GEN-LAST:event_BtnAdminFacturasActionPerformed
 
     private void BtnAdminUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminUsuariosActionPerformed

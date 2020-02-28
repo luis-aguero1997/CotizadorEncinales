@@ -76,6 +76,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -85,13 +86,12 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel3" min="-2" pref="60" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="302" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
                                   <Component id="jButton1" min="-2" pref="276" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="331" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="345" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -199,13 +199,13 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/espalda (1).png"/>
+              <Image iconType="3" name="/Icons/espalda (2).png"/>
             </Property>
             <Property name="rolloverSelectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/espalda (1).png"/>
+              <Image iconType="3" name="/Icons/espalda (2).png"/>
             </Property>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/espalda (1).png"/>
+              <Image iconType="3" name="/Icons/espalda (2).png"/>
             </Property>
           </Properties>
           <Events>
@@ -219,19 +219,10 @@
               <Font name="Sukhumvit Set" size="18" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/agregar-usuario (6).png"/>
+              <Image iconType="3" name="/Icons/agregar-usuario (8).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Agregar Nuevo Usuario"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
-            <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/agregar-usuario (7).png"/>
-            </Property>
-            <Property name="rolloverSelectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/agregar-usuario (7).png"/>
-            </Property>
-            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/agregar-usuario (2).png"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>

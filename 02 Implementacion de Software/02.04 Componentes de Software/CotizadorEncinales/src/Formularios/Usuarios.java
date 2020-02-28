@@ -91,9 +91,9 @@ public class Usuarios extends javax.swing.JFrame {
         BackMenuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         BackMenuUsuario.setBorderPainted(false);
         BackMenuUsuario.setContentAreaFilled(false);
-        BackMenuUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BackMenuUsuario.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BackMenuUsuario.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
+        BackMenuUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        BackMenuUsuario.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        BackMenuUsuario.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
         BackMenuUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BackMenuUsuarioMouseClicked(evt);
@@ -106,12 +106,9 @@ public class Usuarios extends javax.swing.JFrame {
         });
 
         jButton1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agregar-usuario (6).png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agregar-usuario (8).png"))); // NOI18N
         jButton1.setText("Agregar Nuevo Usuario");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agregar-usuario (7).png"))); // NOI18N
-        jButton1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agregar-usuario (7).png"))); // NOI18N
-        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agregar-usuario (2).png"))); // NOI18N
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -136,6 +133,7 @@ public class Usuarios extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -144,10 +142,9 @@ public class Usuarios extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(302, 302, 302)
+                                .addGap(288, 288, 288)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 331, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                        .addGap(0, 345, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
