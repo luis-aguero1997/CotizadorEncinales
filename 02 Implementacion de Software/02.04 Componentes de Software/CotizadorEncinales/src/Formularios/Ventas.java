@@ -50,6 +50,7 @@ public class Ventas extends javax.swing.JFrame {
         BtnVentasCotizar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (2).png"))); // NOI18N
         BtnVentasCotizar2.setText("Cotización Preliminar ");
         BtnVentasCotizar2.setBorderPainted(false);
+        BtnVentasCotizar2.setContentAreaFilled(false);
         BtnVentasCotizar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnVentasCotizar2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
         BtnVentasCotizar2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
@@ -101,6 +102,7 @@ public class Ventas extends javax.swing.JFrame {
         BtnVentasSalirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         BtnVentasSalirMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnVentasSalirMenu.setBorderPainted(false);
+        BtnVentasSalirMenu.setContentAreaFilled(false);
         BtnVentasSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
         BtnVentasSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
         BtnVentasSalirMenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N

@@ -48,6 +48,7 @@ public class ModificarUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,13 +61,17 @@ public class ModificarUser extends javax.swing.JFrame {
         TxtModCorreo = new javax.swing.JTextField();
         ModPuesto = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Modificar.png"))); // NOI18N
@@ -104,20 +109,20 @@ public class ModificarUser extends javax.swing.JFrame {
             }
         });
         TxtModUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtModUsuarioKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtModUsuarioKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TxtModUsuarioKeyPressed(evt);
             }
         });
 
         TxtModPassword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtModPasswordKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtModPasswordKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TxtModPasswordKeyPressed(evt);
             }
         });
 
@@ -134,7 +139,7 @@ public class ModificarUser extends javax.swing.JFrame {
 
         ModPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "* Seleccionar Opción *", "Administrador ", "Cotizador de Ventas", "Encargado de Ventas" }));
 
-        jButton1.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible.png"))); // NOI18N
         jButton1.setText("Guardar ");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -151,132 +156,153 @@ public class ModificarUser extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/expediente.png"))); // NOI18N
-        jButton2.setText("Cancelar");
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/expediente (1).png"))); // NOI18N
-        jButton2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/expediente (1).png"))); // NOI18N
-        jButton2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/expediente (1).png"))); // NOI18N
-
+        jLabel7.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("jLabel7");
 
+        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("jLabel8");
 
+        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
 
+        jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("jLabel10");
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        jButton2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(TxtModCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtModPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addComponent(TxtModUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(TxtModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(ModPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton2))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(TxtModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtModUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(3, 3, 3)
+                .addComponent(jLabel9)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TxtModPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(1, 1, 1)
+                .addComponent(jLabel7)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtModCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(ModPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(12, 12, 12))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(52, 52, 52)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(TxtModCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(TxtModPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ModPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(26, 26, 26)))
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(TxtModUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(TxtModNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jLabel1)))
-                .addGap(40, 40, 40))
+            .addGap(0, 404, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(TxtModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(TxtModUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(TxtModPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(TxtModCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(ModPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
+            .addGap(0, 499, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtModCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtModCorreoActionPerformed
-
-    private void TxtModUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtModUsuarioActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Usuarios mUsuarios = new Usuarios();
+        this.dispose();
+        mUsuarios.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-           
-        if (!this.TxtModNombre.getText().isEmpty() || 
-                   !this.TxtModUsuario.getText().isEmpty() ||
-                    !this.TxtModPassword.getText().isEmpty() || 
-                   this.TxtModCorreo.getText().isEmpty() || 
-                   this.ModPuesto.getSelectedIndex() == 0);
+
+        if (!this.TxtModNombre.getText().isEmpty() ||
+            !this.TxtModUsuario.getText().isEmpty() ||
+            !this.TxtModPassword.getText().isEmpty() ||
+            this.TxtModCorreo.getText().isEmpty() ||
+            this.ModPuesto.getSelectedIndex() == 0);
         {
             Usuario Usuario = new Usuario();
 
@@ -286,7 +312,7 @@ public class ModificarUser extends javax.swing.JFrame {
             Usuario.setCorreo(TxtModCorreo.getText());
             Usuario.setTipo(Integer.toString(ModPuesto.getSelectedIndex()));
             Usuario.setId_Usuario(Usuarios.Seleccion);
-           
+
             mBD.Modificar(Usuario);
 
             TxtModNombre.setText("");
@@ -294,36 +320,9 @@ public class ModificarUser extends javax.swing.JFrame {
             TxtModPassword.setText("");
             TxtModCorreo.setText("");
             ModPuesto.setSelectedIndex(0);
-            
+
         }
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void TxtModNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtModNombreActionPerformed
-
-    private void TxtModNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModNombreKeyTyped
-        // TODO add your handling code here:
-        if (this.TxtModNombre.getText().isEmpty()) {
-            this.jLabel10.setText("");
-        } else if (this.TxtModNombre.getText().length() == 45) {
-            evt.consume();
-        }  else if (this.TxtModNombre.getText().length() < 10) {
-            this.jLabel10.setText("Invalido, Demasiado corto");
-        } else if (this.TxtModNombre.getText().length() >= 10){
-            this.jLabel10.setText("");
-        }
-    }//GEN-LAST:event_TxtModNombreKeyTyped
-
-    private void TxtModUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModUsuarioKeyPressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_TxtModUsuarioKeyPressed
-
-    private void TxtModPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModPasswordKeyPressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_TxtModPasswordKeyPressed
 
     private void TxtModCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModCorreoKeyTyped
         // TODO add your handling code here:
@@ -331,13 +330,42 @@ public class ModificarUser extends javax.swing.JFrame {
             this.jLabel8.setText("");
         } else if ((this.TxtModCorreo.getText().length() == 45)) {
             evt.consume();
-            
+
         } else if (this.TxtModCorreo.getText().length() < 10) {
             this.jLabel8.setText("Correo Invalido");
         } else if (this.TxtModCorreo.getText().length() > 10){
             this.jLabel8.setText("");
         }
     }//GEN-LAST:event_TxtModCorreoKeyTyped
+
+    private void TxtModCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtModCorreoActionPerformed
+
+    private void TxtModPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModPasswordKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_TxtModPasswordKeyPressed
+
+    private void TxtModPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModPasswordKeyTyped
+        // TODO add your handling code here:
+        if (this.TxtModPassword.getText().isEmpty()) {
+            this.jLabel7.setText("");
+        } else if ((this.TxtModPassword.getText().length() == 45)) {
+            evt.consume();
+
+        } else if (this.TxtModPassword.getText().length() < 8) {
+            this.jLabel7.setText("Contraseña Demasiado Corta");
+        } else if (this.TxtModPassword.getText().length() >= 8){
+            this.jLabel7.setText("");
+        }
+
+    }//GEN-LAST:event_TxtModPasswordKeyTyped
+
+    private void TxtModUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModUsuarioKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_TxtModUsuarioKeyPressed
 
     private void TxtModUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModUsuarioKeyTyped
         // TODO add your handling code here:
@@ -352,21 +380,26 @@ public class ModificarUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TxtModUsuarioKeyTyped
 
-    private void TxtModPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModPasswordKeyTyped
+    private void TxtModUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModUsuarioActionPerformed
         // TODO add your handling code here:
-        if (this.TxtModPassword.getText().isEmpty()) {
-            this.jLabel7.setText("");
-        } else if ((this.TxtModPassword.getText().length() == 45)) {
+    }//GEN-LAST:event_TxtModUsuarioActionPerformed
+
+    private void TxtModNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtModNombreKeyTyped
+        // TODO add your handling code here:
+        if (this.TxtModNombre.getText().isEmpty()) {
+            this.jLabel10.setText("");
+        } else if (this.TxtModNombre.getText().length() == 45) {
             evt.consume();
-            
-        } else if (this.TxtModPassword.getText().length() < 8) {
-            this.jLabel7.setText("Contraseña Demasiado Corta");
-        } else if (this.TxtModPassword.getText().length() >= 8){
-            this.jLabel7.setText("");
+        }  else if (this.TxtModNombre.getText().length() < 10) {
+            this.jLabel10.setText("Invalido, Demasiado corto");
+        } else if (this.TxtModNombre.getText().length() >= 10){
+            this.jLabel10.setText("");
         }
-        
-        
-    }//GEN-LAST:event_TxtModPasswordKeyTyped
+    }//GEN-LAST:event_TxtModNombreKeyTyped
+
+    private void TxtModNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtModNombreActionPerformed
 
     public static void evitarPegar(JTextField campo) {
 
@@ -421,6 +454,7 @@ public class ModificarUser extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -429,5 +463,6 @@ public class ModificarUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

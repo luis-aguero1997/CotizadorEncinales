@@ -159,12 +159,15 @@ public class ModProducto extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
 
+        jLabel7.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("jLabel7");
 
+        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("jLabel8");
 
+        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
 

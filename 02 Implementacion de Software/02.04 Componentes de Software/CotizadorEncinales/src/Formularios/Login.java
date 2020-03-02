@@ -238,7 +238,7 @@ public class Login extends javax.swing.JFrame {
                         //JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos");
+                    JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos","AVISO", JOptionPane.WARNING_MESSAGE);
                 }
 
             } else {

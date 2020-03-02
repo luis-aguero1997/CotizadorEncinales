@@ -104,6 +104,7 @@ public class Cotizador extends javax.swing.JFrame {
         BtnCotizadorSalirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         BtnCotizadorSalirMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnCotizadorSalirMenu.setBorderPainted(false);
+        BtnCotizadorSalirMenu.setContentAreaFilled(false);
         BtnCotizadorSalirMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
         BtnCotizadorSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
         BtnCotizadorSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
@@ -117,6 +118,7 @@ public class Cotizador extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (2).png"))); // NOI18N
         jButton1.setText("Cotizacion Preliminar ");
         jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
         jButton1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N

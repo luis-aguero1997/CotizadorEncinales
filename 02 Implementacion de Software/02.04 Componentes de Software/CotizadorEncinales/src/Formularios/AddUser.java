@@ -81,7 +81,7 @@ public class AddUser extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel6.setText("Puesto");
 
-        BtnAddUser.setBackground(java.awt.Color.green);
+        BtnAddUser.setBackground(new java.awt.Color(0, 221, 79));
         BtnAddUser.setFont(new java.awt.Font("Sukhumvit Set", 1, 20)); // NOI18N
         BtnAddUser.setForeground(new java.awt.Color(255, 255, 255));
         BtnAddUser.setText("   Agregar ");
@@ -158,15 +158,19 @@ public class AddUser extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
 
+        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("jLabel8");
 
+        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
 
+        jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("jLabel10");
 
+        jLabel11.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("jLabel11");
 
@@ -180,7 +184,7 @@ public class AddUser extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(42, 42, 42)
                         .addComponent(jLabel1)
-                        .addGap(0, 63, Short.MAX_VALUE))
+                        .addGap(0, 94, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +235,7 @@ public class AddUser extends javax.swing.JFrame {
                     .addComponent(TxtNomCompleto, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(TxtUsuario))
@@ -245,9 +249,7 @@ public class AddUser extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel5)
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel6)
-                        .addGap(30, 30, 30)
+                        .addGap(116, 116, 116)
                         .addComponent(jLabel7))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -256,8 +258,10 @@ public class AddUser extends javax.swing.JFrame {
                         .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BtnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
