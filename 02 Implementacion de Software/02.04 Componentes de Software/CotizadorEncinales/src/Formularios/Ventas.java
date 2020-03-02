@@ -5,6 +5,9 @@
  */
 package Formularios;
 
+import Formularios.Comparacion.*;
+import Formularios.Cotizacion.*;
+
 /**
  *
  * @author manuelvaquera
@@ -178,10 +181,16 @@ public class Ventas extends javax.swing.JFrame {
 
     private void BtnVentasCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentasCotizarActionPerformed
         // TODO add your handling code here:
+        ElegirProducto mEP = new ElegirProducto();
+        mEP.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtnVentasCotizarActionPerformed
 
     private void BtnVentasComparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentasComparacionActionPerformed
         // TODO add your handling code here:
+        ComparacionPrecios mCP = new ComparacionPrecios();
+        mCP.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtnVentasComparacionActionPerformed
 
     private void BtnVentasSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentasSalirMenuActionPerformed

@@ -5,7 +5,7 @@
  */
 package Formularios;
 
-import BaseDeDatos.BD;
+import BaseDeDatos.BD_1;
 import Clases.Usuario;
 import javax.swing.JOptionPane;
 
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class AddUser extends javax.swing.JFrame {
 
-    BD mBD = new BD();
+    BD_1 mBD = new BD_1();
 
     /**
      * Creates new form AddUser

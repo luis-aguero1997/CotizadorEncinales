@@ -5,6 +5,9 @@
  */
 package Formularios;
 
+import Formularios.Comparacion.*;
+import Formularios.Cotizacion.*;
+
 /**
  *
  * @author manuelvaquera
@@ -75,6 +78,11 @@ public class Cotizador extends javax.swing.JFrame {
         BtnCotizadorCotizar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tutorial (2).png"))); // NOI18N
         BtnCotizadorCotizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/tutorial (2).png"))); // NOI18N
         BtnCotizadorCotizar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnCotizadorCotizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnCotizadorCotizarMouseClicked(evt);
+            }
+        });
         BtnCotizadorCotizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCotizadorCotizarActionPerformed(evt);
@@ -235,6 +243,9 @@ public class Cotizador extends javax.swing.JFrame {
 
     private void BtnCotizadorComparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCotizadorComparacionActionPerformed
         // TODO add your handling code here:
+        ComparacionPrecios mCP = new ComparacionPrecios();
+        mCP.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtnCotizadorComparacionActionPerformed
 
     private void BtnCotizadorSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCotizadorSalirMenuActionPerformed
@@ -247,6 +258,13 @@ public class Cotizador extends javax.swing.JFrame {
     private void BtnAdminFacturas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminFacturas1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnAdminFacturas1ActionPerformed
+
+    private void BtnCotizadorCotizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCotizadorCotizarMouseClicked
+        // TODO add your handling code here:
+        ElegirProducto mEP = new ElegirProducto();
+        mEP.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtnCotizadorCotizarMouseClicked
 
     /**
      * @param args the command line arguments

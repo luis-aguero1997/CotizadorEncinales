@@ -5,7 +5,7 @@
  */
 package Formularios;
 
-import BaseDeDatos.BD;
+import BaseDeDatos.BD_1;
 import Clases.*;
 import java.awt.Color;
 import java.awt.Desktop;
@@ -19,12 +19,14 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
-    BD mBD = new BD();
+    BD_1 mBD = new BD_1();
     Usuario mUsuario;
+    public static String Tipousuario;
 
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Tipousuario = "";
         mUsuario = new Usuario();
     }
 
@@ -219,16 +221,19 @@ public class Login extends javax.swing.JFrame {
                     //      && (datos[3] == null ? this.Txt_Psw.getText() == null : datos[3].equals(this.Txt_Psw.getText()))) {
                     switch (datos[5]) {
                         case "1":
+                            Tipousuario = datos[5];
                             Admin mAdmin = new Admin();
                             mAdmin.setVisible(true);
                             this.dispose();
                             break;
                         case "2":
+                            Tipousuario = datos[5];
                             Cotizador mCotizador = new Cotizador();
                             mCotizador.setVisible(true);
                             this.dispose();
                             break;
                         case "3":
+                            Tipousuario = datos[5];
                             Ventas mVentas = new Ventas();
                             mVentas.setVisible(true);
                             this.dispose();

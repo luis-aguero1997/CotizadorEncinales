@@ -8,7 +8,6 @@
  *
  * @author luis_
  */
-import BaseDeDatos.*;
 import Formularios.*;
 
 public class Main {
@@ -20,9 +19,6 @@ public class Main {
         // TODO code application logic here
         Login mLogin = new Login();
         mLogin.setVisible(true);
-        //Conexion mConexion = new Conexion();
-        //mConexion.Conectar();
-        //mConexion.Desconectar();
     }
     
 }

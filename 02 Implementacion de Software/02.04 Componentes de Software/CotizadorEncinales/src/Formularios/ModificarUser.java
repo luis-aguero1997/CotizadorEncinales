@@ -5,7 +5,7 @@
  */
 package Formularios;
 
-import BaseDeDatos.BD;
+import BaseDeDatos.BD_1;
 import Clases.Usuario;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
@@ -21,7 +21,7 @@ import javax.swing.KeyStroke;
  * @author manuelvaquera
  */
 public class ModificarUser extends javax.swing.JFrame {
-    BD mBD = new BD();
+    BD_1 mBD = new BD_1();
 
     /**
      * Creates new form ModificarUser

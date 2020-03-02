@@ -5,6 +5,8 @@
  */
 package Formularios;
 
+import Formularios.Comparacion.*;
+import Formularios.Cotizacion.*;
 import java.awt.Desktop;
 import java.net.URI;
 import javax.swing.JOptionPane;
@@ -264,6 +266,9 @@ public class Admin extends javax.swing.JFrame {
 
     private void BtnAdminCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminCotizarActionPerformed
         // TODO add your handling code here:
+        ElegirProducto mEP = new ElegirProducto();
+        mEP.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtnAdminCotizarActionPerformed
 
     private void BtnAdminFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminFacturasActionPerformed
@@ -281,6 +286,9 @@ public class Admin extends javax.swing.JFrame {
 
     private void BtnAdminComparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminComparacionActionPerformed
         // TODO add your handling code here:
+        ComparacionPrecios mCP = new ComparacionPrecios();
+        mCP.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtnAdminComparacionActionPerformed
 
     /**

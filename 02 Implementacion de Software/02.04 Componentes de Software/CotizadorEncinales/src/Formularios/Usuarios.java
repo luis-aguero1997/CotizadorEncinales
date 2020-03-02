@@ -5,7 +5,7 @@
  */
 package Formularios;
 
-import BaseDeDatos.BD;
+import BaseDeDatos.BD_1;
 import Clases.*;
 import Clases.imgTabla;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class Usuarios extends javax.swing.JFrame {
     int SeleccionY;
     int IdUsuarios;
     public static int Id2;
-    BD mBD = new BD();
+    BD_1 mBD = new BD_1();
     
     
     
@@ -247,7 +247,7 @@ public class Usuarios extends javax.swing.JFrame {
         dt.addColumn("Eliminar");
         dt.addColumn("Modificar");
 
-        BD mBD = new BD();
+        BD_1 mBD = new BD_1();
         Usuario vo = new Usuario();
         ArrayList<Usuario> list = mBD.Listar_Usuario();
 
