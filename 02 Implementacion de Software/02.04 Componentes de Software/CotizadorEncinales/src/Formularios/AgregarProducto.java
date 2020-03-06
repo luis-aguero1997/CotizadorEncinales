@@ -52,7 +52,6 @@ public class AgregarProducto extends javax.swing.JFrame {
         evitarPegar(this.TxtDes);
         evitarPegar(this.TxtNom);
         evitarPegar(this.TxtPrecio);
-        
     }
 
     /**
@@ -165,6 +164,11 @@ public class AgregarProducto extends javax.swing.JFrame {
                 BtnSaveMouseClicked(evt);
             }
         });
+        BtnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSaveActionPerformed(evt);
+            }
+        });
 
         LblImagen.setBackground(new java.awt.Color(255, 255, 255));
         LblImagen.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -221,8 +225,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                                 .addGap(48, 48, 48)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18))
+                                    .addComponent(jLabel5)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel7)
@@ -243,7 +246,6 @@ public class AgregarProducto extends javax.swing.JFrame {
                                     .addComponent(jLabel8)
                                     .addComponent(TxtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(BtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,7 +298,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(BtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(42, Short.MAX_VALUE))))
+                        .addContainerGap(52, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -339,40 +341,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void BtnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSaveMouseClicked
         // TODO add your handling code here:
-        if (!this.TxtClave.getText().isEmpty() || this.TxtDes.getText().isEmpty() || this.TxtNom.getText().isEmpty() || this.TxtPrecio.getText().isEmpty() || !Ruta.isEmpty()) {
-            Productos Pro = new Productos();
-            Pro.setClave(TxtClave.getText());
-            Pro.setDesc(TxtDes.getText());
-            Pro.setNombre(TxtNom.getText());
-            Pro.setPrecio(Float.parseFloat(TxtPrecio.getText()));
-
-            File ruta = new File(this.Ruta);
-
-            InputStream input = null;
-            try {
-                byte[] Imagen = new byte[(int) ruta.length()];
-
-                input = new FileInputStream(new File(Ruta));
-                input.read(Imagen);
-                Pro.setImagen(Imagen);
-            } catch (FileNotFoundException ex) {
-                Pro.setImagen(null);
-            } catch (IOException ex) {
-                Logger.getLogger(AgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            mBD.Agregar_Producto(Pro);
-
-            TxtClave.setText("");
-            TxtDes.setText("");
-            TxtNom.setText("");
-            TxtPrecio.setText("");
-            this.LblImagen.setIcon(null);
-            Gestion = new GestionProductos();
-            Gestion.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Llene Todos los campos y seleccione una imagen");
-        }
+        
     }//GEN-LAST:event_BtnSaveMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -384,6 +353,10 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void TxtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClaveKeyTyped
         // TODO add your handling code here:
+        
+
+        
+        
         if (this.TxtClave.getText().isEmpty()) {
             this.jLabel8.setText("");
         } else if (this.TxtClave.getText().length() == 45) {
@@ -436,6 +409,44 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void BtnSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSeleccionActionPerformed
+
+    private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
+        // TODO add your handling code here:
+        if (!this.TxtClave.getText().isEmpty() || this.TxtDes.getText().isEmpty() || this.TxtNom.getText().isEmpty() || this.TxtPrecio.getText().isEmpty() || !Ruta.isEmpty()) {
+            Productos Pro = new Productos();
+            Pro.setClave(TxtClave.getText());
+            Pro.setDesc(TxtDes.getText());
+            Pro.setNombre(TxtNom.getText());
+            Pro.setPrecio(Float.parseFloat(TxtPrecio.getText()));
+
+            File ruta = new File(this.Ruta);
+
+            InputStream input = null;
+            try {
+                byte[] Imagen = new byte[(int) ruta.length()];
+
+                input = new FileInputStream(new File(Ruta));
+                input.read(Imagen);
+                Pro.setImagen(Imagen);
+            } catch (FileNotFoundException ex) {
+                Pro.setImagen(null);
+            } catch (IOException ex) {
+                Logger.getLogger(AgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            mBD.Agregar_Producto(Pro);
+
+            TxtClave.setText("");
+            TxtDes.setText("");
+            TxtNom.setText("");
+            TxtPrecio.setText("");
+            this.LblImagen.setIcon(null);
+            Gestion = new GestionProductos();
+            Gestion.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Llene Todos los campos y seleccione una imagen");
+        }
+    }//GEN-LAST:event_BtnSaveActionPerformed
 
     public static void evitarPegar(JTextField campo) {
 

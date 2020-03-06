@@ -7,6 +7,8 @@ package Formularios;
 
 import BaseDeDatos.BD_1;
 import Clases.Usuario;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -294,7 +296,7 @@ public class AddUser extends javax.swing.JFrame {
     }//GEN-LAST:event_PuestoActionPerformed
 
     private void BtnAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddUserMouseClicked
-
+        BtnAddUser.setEnabled(false);
         if (!this.TxtNomCompleto.getText().isEmpty()
                 || this.TxtUsuario.getText().isEmpty()
                 || this.TxtPassword.getText().isEmpty()
@@ -305,16 +307,22 @@ public class AddUser extends javax.swing.JFrame {
             Usuario.setNomCompleto(TxtNomCompleto.getText());
             Usuario.setUsuario(TxtUsuario.getText());
             Usuario.setPassword(TxtPassword.getText());
-            Usuario.setCorreo(TxtCorreo.getText());
-            Usuario.setTipo(Integer.toString(Puesto.getSelectedIndex()));
+            if (this.IsEmail(TxtCorreo.getText())) {
+                Usuario.setCorreo(TxtCorreo.getText());
+                Usuario.setTipo(Integer.toString(Puesto.getSelectedIndex()));
 
-            mBD.Agregar_Usuario(Usuario);
+                mBD.Agregar_Usuario(Usuario);
+                TxtNomCompleto.setText("");
+                TxtUsuario.setText("");
+                TxtPassword.setText("");
+                TxtCorreo.setText("");
+                Puesto.setSelectedIndex(0);
+                BtnAddUser.setEnabled(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Correo Invalido");
+                BtnAddUser.setEnabled(false);
+            }
 
-            TxtNomCompleto.setText("");
-            TxtUsuario.setText("");
-            TxtPassword.setText("");
-            TxtCorreo.setText("");
-            Puesto.setSelectedIndex(0);
         }
 
     }//GEN-LAST:event_BtnAddUserMouseClicked
@@ -341,42 +349,45 @@ public class AddUser extends javax.swing.JFrame {
 
     private void TxtNomCompletoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomCompletoKeyTyped
         // TODO add your handling code here:
-        
         if (this.TxtNomCompleto.getText().isEmpty()) {
             this.jLabel8.setText("");
-        } else if (this.TxtNomCompleto.getText().length() == 45) {
-            evt.consume();
-        } else if (this.TxtNomCompleto.getText().length() < 8) {
+        } 
+        
+        if (this.TxtNomCompleto.getText().length() == 1 || this.TxtNomCompleto.getText().length() <= 8) {
             this.jLabel8.setText("Nombre Invalido");
-        } else if (this.TxtNomCompleto.getText().length() >= 8) {
+        } 
+        if (this.TxtNomCompleto.getText().length() >= 8) {
             this.jLabel8.setText("");
+        } 
+        if (this.TxtNomCompleto.getText().length() == 45) {
+            evt.consume();
         }
     }//GEN-LAST:event_TxtNomCompletoKeyTyped
 
     private void TxtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtUsuarioKeyTyped
         // TODO add your handling code here:
-        if (this.TxtUsuario.getText().isEmpty()) {
+        if (this.TxtUsuario.getText().length() == 0) {
+            this.jLabel9.setText("");
+        } else if (this.TxtUsuario.getText().length() == 1 || this.TxtUsuario.getText().length() <= 8) {
+            this.jLabel9.setText("Usuario Invalida");
+        } else if (this.TxtUsuario.getText().length() >= 8) {
             this.jLabel9.setText("");
         } else if ((this.TxtUsuario.getText().length() == 45)) {
             evt.consume();
 
-        } else if (this.TxtUsuario.getText().length() < 8) {
-            this.jLabel9.setText("Usuario Invalida");
-        } else if (this.TxtUsuario.getText().length() >= 8) {
-            this.jLabel9.setText("");
         }
     }//GEN-LAST:event_TxtUsuarioKeyTyped
 
     private void TxtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPasswordKeyTyped
         // TODO add your handling code here:
-         if (this.TxtPassword.getText().isEmpty()) {
+        if (this.TxtPassword.getText().isEmpty()) {
             this.jLabel10.setText("");
         } else if ((this.TxtPassword.getText().length() == 45)) {
             evt.consume();
-            
+
         } else if (this.TxtPassword.getText().length() < 8) {
             this.jLabel10.setText("Contraseña Demasiado Corta");
-        } else if (this.TxtPassword.getText().length() > 8){
+        } else if (this.TxtPassword.getText().length() > 8) {
             this.jLabel10.setText("");
         }
     }//GEN-LAST:event_TxtPasswordKeyTyped
@@ -387,13 +398,27 @@ public class AddUser extends javax.swing.JFrame {
             this.jLabel11.setText("");
         } else if ((this.TxtCorreo.getText().length() == 45)) {
             evt.consume();
-            
-        } else if (this.TxtCorreo.getText().length() < 10) {
-            this.jLabel11.setText("Correo Invalido");
-        } else if (this.TxtCorreo.getText().length() > 10){
+        } else if (this.TxtCorreo.getText().length() < 8) {
+            this.jLabel11.setText("Invalido, demasiado pequeño");
+        } else if (this.TxtCorreo.getText().length() > 8) {
             this.jLabel11.setText("");
-        } 
+        }
     }//GEN-LAST:event_TxtCorreoKeyTyped
+
+    public boolean IsEmail(String Correo) {
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+
+        // El email a validar
+        Matcher mather = pattern.matcher(Correo);
+
+        if (mather.find() == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * @param args the command line arguments
