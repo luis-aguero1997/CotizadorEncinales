@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Producto_idProducto" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM ReporteCostes where Producto_idProducto = $P{Producto_idProducto}]]>
+	</queryString>
+	<field name="idReporteCostes" class="java.lang.Integer"/>
+	<field name="Especificaciones" class="java.lang.String"/>
+	<field name="Diametro" class="java.lang.Double"/>
+	<field name="PesoMaterial" class="java.lang.Double"/>
+	<field name="UnidadEmpaque" class="java.lang.Double"/>
+	<field name="UnidadUtilizacionM" class="java.lang.Double"/>
+	<field name="UnidadUtilizacionKg" class="java.lang.Double"/>
+	<field name="Merma" class="java.lang.Double"/>
+	<field name="CMatPrim" class="java.lang.Double"/>
+	<field name="CMatPrimTotal" class="java.lang.Double"/>
+	<field name="TManoDeObra" class="java.lang.Double"/>
+	<field name="COpTotal" class="java.lang.Double"/>
+	<field name="ConsEnerKWh" class="java.lang.Double"/>
+	<field name="ConsEnerPesos" class="java.lang.Double"/>
+	<field name="CostoAdmin" class="java.lang.Double"/>
+	<field name="CostoFleteEmbarq" class="java.lang.Double"/>
+	<field name="CostoTotalOp" class="java.lang.Double"/>
+	<field name="Utilidad" class="java.lang.Double"/>
+	<field name="IVA" class="java.lang.Double"/>
+	<field name="PrecioSugerido" class="java.lang.Double"/>
+	<field name="Producto_idProducto" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="54" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="163" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="63" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Peso del material (kg/m)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="83" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Unidad de empaque (m)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="103" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Unidades de utilización (m^2)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="123" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Unidades de utilización (kg)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="143" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Merma c/1pz (g)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="186" y="63" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{PesoMaterial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="83" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{UnidadEmpaque}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="103" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{UnidadUtilizacionM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="123" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{UnidadUtilizacionKg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="143" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{Merma}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="19" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Especificaciones]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="467" y="39" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{CMatPrimTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="40" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{Diametro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="186" y="0" width="147" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Materia Prima]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="467" y="20" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{CMatPrim}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="39" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Diámetro nominal (mm)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="186" y="20" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Especificaciones}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="281" y="40" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Costo total operativo ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="20" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Costo materia prima ($)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="377" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="36" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tiempo mano de obra (h)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="36" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[C. operativo mano de obra ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="72" width="147" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Máquinas y Herramientas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="92" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[Consumo energético (kw/h)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="186" y="92" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ConsEnerKWh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="112" width="88" height="20"/>
+				<textElement>
+					<font isItalic="false" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ConsEnerPesos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="112" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[C. operativo energético ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="217" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[ 2. Costo energía eléctrica ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="197" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[1. Costo materia prima ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="238" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[3. Costo mano de obra ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="278" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[5. Costo flete embarque ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="298" width="149" height="20"/>
+				<textElement/>
+				<text><![CDATA[Costo total operativo ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="258" width="186" height="20"/>
+				<textElement/>
+				<text><![CDATA[4. Costo administrativo ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="318" width="149" height="20"/>
+				<textElement/>
+				<text><![CDATA[Utilidad 30 %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="159" width="147" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Discriminado de costes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="177" width="147" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ITEM]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="186" y="258" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{CostoAdmin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="278" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{CostoFleteEmbarq}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="197" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{CMatPrimTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="218" width="88" height="20"/>
+				<textElement>
+					<font isItalic="false" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ConsEnerPesos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="238" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{COpTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="298" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{CostoTotalOp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="318" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{Utilidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="336" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{IVA}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="274" y="153" width="281" height="223"/>
+				<imageExpression class="java.lang.String"><![CDATA["/Users/eduardogarciadelgado/Documents/02.4 Componentes de Software/CotizadorEncinales/Grafico.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="467" y="36" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{COpTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="36" width="88" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{TManoDeObra}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="338" width="149" height="20"/>
+				<textElement/>
+				<text><![CDATA[IVA 16 %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="356" width="149" height="20"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio sugerido de venta ($)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="186" y="356" width="88" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{PrecioSugerido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="186" y="16" width="147" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mano de Obra]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="61" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="23" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="46" splitType="Stretch"/>
+	</summary>
+</jasperReport>
