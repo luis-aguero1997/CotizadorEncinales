@@ -1,9 +1,11 @@
-package Formularios;
+package Formularios.Facturas;
 
 import Clases.Archivo;
 import Clases.Compras;
 import Clases.Tabla_PdfVO;
 import Clases.imgTabla;
+import Formularios.Admin;
+import Formularios.BD;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Desktop;
 import java.awt.Event;
@@ -40,8 +42,10 @@ public class AddCompra extends javax.swing.JFrame {
 
     public AddCompra() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         tpdf.visualizar_PdfVO(Table);
-
+        
         LblProceso.setText("");
         evitarPegar(this.TxtCant);
         evitarPegar(this.TxtClave);
@@ -113,6 +117,7 @@ public class AddCompra extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -318,7 +323,7 @@ public class AddCompra extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(210, 210, 210)
                         .addComponent(BtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(6, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -412,15 +417,11 @@ public class AddCompra extends javax.swing.JFrame {
     private void BtnConMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnConMouseClicked
         // TODO add your handling code here:
 
-        try {
-
+        if (!Fecha1.equals(null) && !Fecha2.equals(null)) {
             this.visualizar_ArchivoEspecificos(Table);
-
-        } catch (Error Rc) {
-            JOptionPane.showMessageDialog(this, Rc);
+        } else {
+            JOptionPane.showMessageDialog(null, "Llene los campos necesarios");
         }
-
-
     }//GEN-LAST:event_BtnConMouseClicked
 
     private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
@@ -469,10 +470,7 @@ public class AddCompra extends javax.swing.JFrame {
 
     private void BtnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSaveMouseClicked
         // TODO add your handling code here:
-        if (!this.TxtCant.getText().isEmpty() || !this.TxtDes.getText().isEmpty() || 
-                !this.TxtClave.getText().isEmpty() ||
-                !this.TxtMedida.getText().isEmpty() || 
-                !this.TxtPrecio.getText().isEmpty()) {
+        if (!this.TxtCant.getText().isEmpty() || !this.TxtDes.getText().isEmpty() || !this.TxtClave.getText().isEmpty() || !this.TxtMedida.getText().isEmpty() || !this.TxtPrecio.getText().isEmpty()) {
             int Cant = 0;
             String Des = "";
             String Clave = "";
@@ -484,58 +482,57 @@ public class AddCompra extends javax.swing.JFrame {
             Des = TxtDes.getText();
             Clave = this.TxtClave.getText();
             UMedida = TxtMedida.getText();
-
-            if (isDouble(TxtPrecio.getText())) {
-                Precio = Float.parseFloat(TxtPrecio.getText());
-                if (Seleccion == 0) {
-                    JOptionPane.showMessageDialog(null, "Seleccione una de las Facturas de la Tabla");
-                } else {
-                    BD BDT = new BD();
-                    Compras Com = new Compras();
-                    Com.setCantidad(Cant);
-                    Com.setClave(Clave);
-                    Com.setDescripcion(Des);
-                    Com.setPrecio(Precio);
-                    Com.setUMedida(UMedida);
-                    Com.setIdFactura(Seleccion);
-
-                    Fecha = BDT.FechaFactura(this.Seleccion);
-                    Com.setFecha(Fecha);
-                    if (BDT.Agregar_Compra(Com)) {
-                        TxtCant.setText("");
-                        TxtDes.setText("");
-                        TxtClave.setText("");
-                        TxtMedida.setText("");
-                        TxtPrecio.setText("");
-                        JOptionPane.showMessageDialog(null, "Compra agregada con Exito");
-                    }
-                }
+            Precio = Float.parseFloat(TxtPrecio.getText());
+            //Fecha = 
+            if (Seleccion == 0) {
+                JOptionPane.showMessageDialog(null, "Seleccione una de las Facturas de la Tabla");
             } else {
-                JOptionPane.showMessageDialog(this, "Formato de Precio Invalido");
+                BD BDT = new BD();
+                Compras Com = new Compras();
+                Com.setCantidad(Cant);
+                Com.setClave(Clave);
+                Com.setDescripcion(Des);
+                Com.setPrecio(Precio);
+                Com.setUMedida(UMedida);
+                Com.setIdFactura(Seleccion);
+
+                Fecha = BDT.FechaFactura(this.Seleccion);
+                Com.setFecha(Fecha);
+                if (BDT.Agregar_Compra(Com)) {
+                    TxtCant.setText("");
+                    TxtDes.setText("");
+                    TxtClave.setText("");
+                    TxtMedida.setText("");
+                    TxtPrecio.setText("");
+                    JOptionPane.showMessageDialog(null, "Compra agregada con Exito");
+                }
+
             }
+
         } else {
             JOptionPane.showMessageDialog(this, "No a llenado todos los elementos");
         }
+
     }//GEN-LAST:event_BtnSaveMouseClicked
 
     private void TxtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClaveKeyTyped
         // TODO add your handling code here:
         if (this.TxtClave.getText().isEmpty()) {
-
+            
         } else if ((this.TxtClave.getText().length() == 45)) {
             evt.consume();
-
+            
         } else if (this.TxtClave.getText().length() < 3) {
-
-        } else if (this.TxtClave.getText().length() >= 3) {
+            
+        } else if (this.TxtClave.getText().length() >= 3){
             this.jLabel7.setText("");
         }
-
+        
     }//GEN-LAST:event_TxtClaveKeyTyped
 
     private void TxtDesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDesKeyTyped
         // TODO add your handling code here:
-
+        
         if (TxtDes.getText().length() == 45) {
             evt.consume();
         }
@@ -551,28 +548,6 @@ public class AddCompra extends javax.swing.JFrame {
         if (TxtPrecio.getText().length() == 10) {
             evt.consume();
         }
-
-        boolean primero = true;
-        int k = (int) evt.getKeyChar();
-        //Este if no permite el ingreso de letras y otros símbolos
-        if ((k >= 32 && k <= 45) || (k >= 58 && k <= 126)) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            evt.consume();
-        }
-        if (k == 46) {//Este if me pregunta que si lo ingresado es un punto
-            if (primero) {//Este if me pregunta que si el punto es el primer punto digitado
-                primero = false;
-
-            } else {
-                evt.consume();//Si no es el primer cero, no lo permite
-            }
-        }
-        //Esteif no permite el ingreso de "ñ" ," Ñ" ni "/"
-        if (k == 241 || k == 209 || k == 47) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            evt.consume();
-        }
-
     }//GEN-LAST:event_TxtPrecioKeyTyped
 
     private void TxtCantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCantKeyTyped
@@ -581,7 +556,7 @@ public class AddCompra extends javax.swing.JFrame {
         if ((car < '0' || car > '9') && (car > '.')) {
             evt.consume();
         }
-
+        
         if (TxtCant.getText().length() == 10) {
             evt.consume();
         }
@@ -595,22 +570,21 @@ public class AddCompra extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtMedidaKeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        
         AddFactura mAddFactura = new AddFactura();
         this.dispose();
         mAddFactura.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        
         Admin mAdmin = new Admin();
         this.dispose();
         mAdmin.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public void visualizar_ArchivoEspecificos(JTable Tabla) {
-        Tabla.setDefaultRenderer(Object.class,
-                new imgTabla());
+        Tabla.setDefaultRenderer(Object.class, new imgTabla());
         DefaultTableModel dt = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -628,7 +602,7 @@ public class AddCompra extends javax.swing.JFrame {
         Date Date2 = convert(Fecha2.getDate());
 
         ArrayList<Archivo> list = dao.Listar_PdfVO(Date1, Date2);
-
+        
         if (list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
                 Object fila[] = new Object[3];
@@ -668,21 +642,12 @@ public class AddCompra extends javax.swing.JFrame {
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
 
     }
-
+    
     public static void evitarPegar(JDateChooser campo) {
 
         InputMap map2 = campo.getInputMap(JDateChooser.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
 
-    }
-
-    private static boolean isDouble(String cadena) {
-        try {
-            Double.parseDouble(cadena);
-            return true;
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
     }
 
     /**
@@ -699,24 +664,16 @@ public class AddCompra extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddCompra.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            java.util.logging.Logger.getLogger(AddCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddCompra.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            java.util.logging.Logger.getLogger(AddCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddCompra.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            java.util.logging.Logger.getLogger(AddCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddCompra.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

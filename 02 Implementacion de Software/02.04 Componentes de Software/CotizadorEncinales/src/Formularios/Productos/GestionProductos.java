@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Formularios;
+package Formularios.Productos;
 
+import Formularios.Productos.ModProducto;
 import BaseDeDatos.Conexion;
 import Clases.Archivo;
 import Clases.Productos;
 import Clases.imgTabla;
+import Formularios.Admin;
+import Formularios.BD;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.image.BufferedImage;
@@ -46,16 +49,20 @@ public class GestionProductos extends javax.swing.JFrame {
 
     public GestionProductos() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         visualizar_Productos(Table);
-        this.Table.getColumnModel().getColumn(0).setPreferredWidth(70);
-        this.Table.getColumnModel().getColumn(1).setPreferredWidth(130);
-        this.Table.getColumnModel().getColumn(2).setPreferredWidth(130);
-        this.Table.getColumnModel().getColumn(3).setPreferredWidth(70);
-        this.Table.getColumnModel().getColumn(4).setPreferredWidth(70);
-        this.Table.getColumnModel().getColumn(5).setPreferredWidth(70);
-        this.BtnAdd.setEnabled(true);
+        /*TableColumn columna;
+        columna = Table.getColumnModel().getColumn(6);
+        columna.setMaxWidth(190);
+        columna.setMinWidth(890);
         
         
+        TableColumnModel columnModel = Table.getColumnModel();
+        for (int i = 0; i < columnModel.getColumnCount(); i++) {
+        columnModel.getColumn(i).setPreferredWidth(300);
+        }*/
+        Table.setRowHeight(6, 1500);
     }
 
     /**
@@ -77,6 +84,7 @@ public class GestionProductos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -122,7 +130,6 @@ public class GestionProductos extends javax.swing.JFrame {
 
             }
         ));
-        Table.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         Table.setRowHeight(50);
         Table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,7 +150,9 @@ public class GestionProductos extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(335, 335, 335)
                         .addComponent(jLabel2))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -194,7 +203,8 @@ public class GestionProductos extends javax.swing.JFrame {
 
     private void BtnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddMouseClicked
         // TODO add your handling code here:
-        
+        AgregarProducto Add = new AgregarProducto();
+        Add.setVisible(true);
     }//GEN-LAST:event_BtnAddMouseClicked
 
     private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
@@ -240,10 +250,6 @@ public class GestionProductos extends javax.swing.JFrame {
 
     private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
         // TODO add your handling code here:
-        AgregarProducto Add = new AgregarProducto();
-        Add.setVisible(true);
-        this.dispose();
-        BtnAdd.setEnabled(false);
     }//GEN-LAST:event_BtnAddActionPerformed
 
     public void visualizar_Productos(JTable tabla) {

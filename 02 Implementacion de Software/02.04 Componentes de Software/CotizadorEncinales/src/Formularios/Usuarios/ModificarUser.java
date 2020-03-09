@@ -3,18 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Formularios;
+package Formularios.Usuarios;
 
+import Formularios.Usuarios.Usuarios;
 import BaseDeDatos.BD_1;
-import Clases.Productos;
 import Clases.Usuario;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.InputStream;
-import java.util.ArrayList;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -25,7 +22,6 @@ import javax.swing.KeyStroke;
  * @author manuelvaquera
  */
 public class ModificarUser extends javax.swing.JFrame {
-
     BD_1 mBD = new BD_1();
 
     /**
@@ -33,12 +29,13 @@ public class ModificarUser extends javax.swing.JFrame {
      */
     public ModificarUser() {
         initComponents();
-        llenado();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         this.jLabel7.setText("");
         this.jLabel8.setText("");
         this.jLabel9.setText("");
         this.jLabel10.setText("");
-
+        
         evitarPegar(this.TxtModCorreo);
         evitarPegar(this.TxtModNombre);
         evitarPegar(this.TxtModPassword);
@@ -76,6 +73,7 @@ public class ModificarUser extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -304,45 +302,29 @@ public class ModificarUser extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
-        if (!this.TxtModNombre.getText().isEmpty()
-                || !this.TxtModUsuario.getText().isEmpty()
-                || this.TxtModCorreo.getText().isEmpty()
-                || this.ModPuesto.getSelectedIndex() == 0);
+        if (!this.TxtModNombre.getText().isEmpty() ||
+            !this.TxtModUsuario.getText().isEmpty() ||
+            !this.TxtModPassword.getText().isEmpty() ||
+            this.TxtModCorreo.getText().isEmpty() ||
+            this.ModPuesto.getSelectedIndex() == 0);
         {
-            if (!this.TxtModPassword.getText().isEmpty()) {
-                Usuario Usuario = new Usuario();
+            Usuario Usuario = new Usuario();
 
-                Usuario.setNomCompleto(TxtModNombre.getText());
-                Usuario.setUsuario(TxtModUsuario.getText());
-                Usuario.setPassword(TxtModPassword.getText());
-                Usuario.setCorreo(TxtModCorreo.getText());
-                Usuario.setTipo(Integer.toString(ModPuesto.getSelectedIndex()));
-                Usuario.setId_Usuario(Usuarios.Seleccion);
+            Usuario.setNomCompleto(TxtModNombre.getText());
+            Usuario.setUsuario(TxtModUsuario.getText());
+            Usuario.setPassword(TxtModPassword.getText());
+            Usuario.setCorreo(TxtModCorreo.getText());
+            Usuario.setTipo(Integer.toString(ModPuesto.getSelectedIndex()));
+            Usuario.setId_Usuario(Usuarios.Seleccion);
 
-                mBD.Modificar(Usuario);
+            mBD.Modificar(Usuario);
 
-                TxtModNombre.setText("");
-                TxtModUsuario.setText("");
-                TxtModPassword.setText("");
-                TxtModCorreo.setText("");
-                ModPuesto.setSelectedIndex(0);
-            } else {
-                Usuario Usuario = new Usuario();
-                Usuario.setNomCompleto(TxtModNombre.getText());
-                Usuario.setUsuario(TxtModUsuario.getText());
-                Usuario.setPassword(TxtModPassword.getText());
-                Usuario.setCorreo(TxtModCorreo.getText());
-                Usuario.setTipo(Integer.toString(ModPuesto.getSelectedIndex()));
-                Usuario.setId_Usuario(Usuarios.Seleccion);
+            TxtModNombre.setText("");
+            TxtModUsuario.setText("");
+            TxtModPassword.setText("");
+            TxtModCorreo.setText("");
+            ModPuesto.setSelectedIndex(0);
 
-                mBD.Modificar2(Usuario);
-
-                TxtModNombre.setText("");
-                TxtModUsuario.setText("");
-                TxtModPassword.setText("");
-                TxtModCorreo.setText("");
-                ModPuesto.setSelectedIndex(0);
-            }
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -355,7 +337,7 @@ public class ModificarUser extends javax.swing.JFrame {
 
         } else if (this.TxtModCorreo.getText().length() < 10) {
             this.jLabel8.setText("Correo Invalido");
-        } else if (this.TxtModCorreo.getText().length() > 10) {
+        } else if (this.TxtModCorreo.getText().length() > 10){
             this.jLabel8.setText("");
         }
     }//GEN-LAST:event_TxtModCorreoKeyTyped
@@ -378,7 +360,7 @@ public class ModificarUser extends javax.swing.JFrame {
 
         } else if (this.TxtModPassword.getText().length() < 8) {
             this.jLabel7.setText("Contraseña Demasiado Corta");
-        } else if (this.TxtModPassword.getText().length() >= 8) {
+        } else if (this.TxtModPassword.getText().length() >= 8){
             this.jLabel7.setText("");
         }
 
@@ -395,9 +377,9 @@ public class ModificarUser extends javax.swing.JFrame {
             this.jLabel9.setText("");
         } else if (this.TxtModUsuario.getText().length() == 45) {
             evt.consume();
-        } else if (this.TxtModUsuario.getText().length() < 10) {
+        }  else if (this.TxtModUsuario.getText().length() < 10) {
             this.jLabel9.setText("Invalido, Demasiado corto");
-        } else if (this.TxtModUsuario.getText().length() > 10) {
+        } else if (this.TxtModUsuario.getText().length() > 10){
             this.jLabel9.setText("");
         }
     }//GEN-LAST:event_TxtModUsuarioKeyTyped
@@ -412,9 +394,9 @@ public class ModificarUser extends javax.swing.JFrame {
             this.jLabel10.setText("");
         } else if (this.TxtModNombre.getText().length() == 45) {
             evt.consume();
-        } else if (this.TxtModNombre.getText().length() < 10) {
+        }  else if (this.TxtModNombre.getText().length() < 10) {
             this.jLabel10.setText("Invalido, Demasiado corto");
-        } else if (this.TxtModNombre.getText().length() >= 10) {
+        } else if (this.TxtModNombre.getText().length() >= 10){
             this.jLabel10.setText("");
         }
     }//GEN-LAST:event_TxtModNombreKeyTyped
@@ -429,38 +411,7 @@ public class ModificarUser extends javax.swing.JFrame {
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
 
     }
-
-    public void llenado() {
-        BD_1 mBD = new BD_1();
-
-        Icon icono;
-        Usuario vo = new Usuario();
-        ArrayList<Usuario> list = mBD.Listar_UsuarioEspecifico(Usuarios.Id2);
-
-        if (list.size() > 0) {
-            for (int i = 0; i < list.size(); i++) {
-
-                vo = list.get(i);
-
-                this.TxtModNombre.setText(vo.getNomCompleto());
-                this.TxtModUsuario.setText(vo.getUsuario());
-                this.TxtModCorreo.setText(vo.getCorreo());
-
-                switch (vo.getTipo()) {
-                    case "Administrador":
-                        this.ModPuesto.setSelectedItem(2);
-                        break;
-                    case "Cotizador de Ventas":
-                        this.ModPuesto.setSelectedItem(3);
-                        break;
-                    case "Encargado de Ventas":
-                        this.ModPuesto.setSelectedItem(4);
-                        break;
-                }
-            }
-        }
-    }
-
+    
     /**
      * @param args the command line arguments
      */

@@ -5,6 +5,9 @@
  */
 package Formularios;
 
+import Formularios.Productos.GestionProductos;
+import Formularios.Facturas.AddCompra;
+import Formularios.Usuarios.Usuarios;
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
 import java.awt.Desktop;
@@ -22,6 +25,8 @@ public class Admin extends javax.swing.JFrame {
      */
     public Admin() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
     }
 
     /**
@@ -46,6 +51,7 @@ public class Admin extends javax.swing.JFrame {
         BtnAdminCotizar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

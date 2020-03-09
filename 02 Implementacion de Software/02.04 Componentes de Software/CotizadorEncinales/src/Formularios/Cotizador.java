@@ -19,6 +19,8 @@ public class Cotizador extends javax.swing.JFrame {
      */
     public Cotizador() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
     }
 
     /**
@@ -59,6 +61,7 @@ public class Cotizador extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

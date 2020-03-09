@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Formularios;
+package Formularios.Productos;
 
 import Clases.*;
+import Formularios.BD;
 import java.awt.Event;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -47,6 +48,8 @@ public class ModProducto extends javax.swing.JFrame {
 
     public ModProducto() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         Ruta = "";
         mBD = new BD();
         this.llenado();
@@ -87,6 +90,7 @@ public class ModProducto extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);

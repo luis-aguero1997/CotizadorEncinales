@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Formularios;
+package Formularios.Usuarios;
 
 import BaseDeDatos.BD_1;
 import Clases.*;
 import Clases.imgTabla;
-import static Formularios.GestionProductos.Clave2;
-import java.awt.Image;
+import Formularios.Admin;
 import java.util.ArrayList;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -23,28 +21,24 @@ import javax.swing.table.DefaultTableModel;
  * @author manuelvaquera
  */
 public class Usuarios extends javax.swing.JFrame {
-
+    
     public static int Seleccion;
     int SeleccionY;
     int IdUsuarios;
     public static int Id2;
     BD_1 mBD = new BD_1();
+    
+    
+    
 
     /**
      * Creates new form Usuarios
      */
     public Usuarios() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         this.visualizar_Productos(TableUsuarios);
-
-        this.TableUsuarios.getColumnModel().getColumn(0).setPreferredWidth(50);
-        this.TableUsuarios.getColumnModel().getColumn(1).setPreferredWidth(170);
-        this.TableUsuarios.getColumnModel().getColumn(2).setPreferredWidth(150);
-        this.TableUsuarios.getColumnModel().getColumn(3).setPreferredWidth(150);
-        this.TableUsuarios.getColumnModel().getColumn(4).setPreferredWidth(170);
-        this.TableUsuarios.getColumnModel().getColumn(5).setPreferredWidth(130);
-        this.TableUsuarios.getColumnModel().getColumn(6).setPreferredWidth(70);
-        this.TableUsuarios.getColumnModel().getColumn(7).setPreferredWidth(70);
     }
 
     /**
@@ -75,6 +69,7 @@ public class Usuarios extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -89,26 +84,13 @@ public class Usuarios extends javax.swing.JFrame {
             new String [] {
                 "IdUsuario", "Nombre Completo", "Nombre de Usuario", "Contraseña", "Correo", "Puesto", "Eliminar", "Modificar"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        TableUsuarios.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        ));
         TableUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TableUsuariosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(TableUsuarios);
-        if (TableUsuarios.getColumnModel().getColumnCount() > 0) {
-            TableUsuarios.getColumnModel().getColumn(0).setPreferredWidth(20);
-            TableUsuarios.getColumnModel().getColumn(1).setPreferredWidth(100);
-        }
 
         BackMenuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         BackMenuUsuario.setBorderPainted(false);
@@ -215,7 +197,7 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void TableUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableUsuariosMouseClicked
-
+     
         Icon icono = null;
         int filaseleccionada = 0;
         filaseleccionada = TableUsuarios.getSelectedRow();
@@ -232,17 +214,15 @@ public class Usuarios extends javax.swing.JFrame {
 
                 break;
             case 7:
-                if (JOptionPane.showConfirmDialog(null, "Desea Modificar Este Usuario, la informacion Modificada no regresara") == 0) {
-                    Id2 = Seleccion;
-                    ModificarUser ModUser = new ModificarUser();
-                    ModUser.setVisible(true);
-                }
-
+                
+                ModificarUser ModUser = new ModificarUser();
+                ModUser.setVisible(true);
+                
                 break;
-            default:
+                default:
         }
-
-
+        
+        
     }//GEN-LAST:event_TableUsuariosMouseClicked
 
     private void BackMenuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackMenuUsuarioActionPerformed
@@ -250,9 +230,9 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_BackMenuUsuarioActionPerformed
 
     private void BackMenuUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMenuUsuarioMouseClicked
-        Admin mAdmin = new Admin();
-        this.dispose();
-        mAdmin.setVisible(true);
+               Admin mAdmin = new Admin();
+               this.dispose();
+               mAdmin.setVisible(true);
     }//GEN-LAST:event_BackMenuUsuarioMouseClicked
 
     public void visualizar_Productos(JTable tabla) {
@@ -293,57 +273,33 @@ public class Usuarios extends javax.swing.JFrame {
                     fila[5] = "Encargado de Ventas";
                 }
 
-                ImageIcon icono = new ImageIcon(get_Image("trash.jpg"));
-                icono = new ImageIcon(get_Image("trash.jpg").getScaledInstance(20, 20, 20));
+                //ImageIcon Imagen = new ImageIcon("\\src\\Image\\trahser.jpg");
+                //fila[4] = new ImageIcon(Imagen.getImage().getScaledInstance(10, 10, 10));
+                //Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(LblImagen.getWidth(), LblImagen.getHeight(), se));
+                fila[6] = new JButton("Eliminar");
 
-                if (get_Image("trash.jpg") == null) {
-                    JButton Boton2 = new JButton(icono);
-                    Boton2.setBackground(java.awt.Color.RED);
-                    fila[5] = Boton2;
-                } else {
-                    fila[6] = new JButton(icono);
-                }
-
-                ImageIcon icono2 = new ImageIcon(get_Image("file.jpg"));
-                icono2 = new ImageIcon(get_Image("file.jpg").getScaledInstance(20, 20, 20));
-
-                if (get_Image("file.jpg") == null) {
-                    JButton Boton2 = new JButton(icono2);
-                    Boton2.setBackground(java.awt.Color.RED);
-                    fila[7] = Boton2;
-                } else {
-                    fila[7] = new JButton(icono2);
-                }
+                //ImageIcon Imagen2 = new ImageIcon("\\src\\Image\\gear.jpg");
+                //fila[5] = new ImageIcon(Imagen.getImage().getScaledInstance(10, 10, 10));
+                fila[7] = new JButton("Modificar");
 
                 dt.addRow(fila);
             }
             tabla.setModel(dt);
             tabla.setRowHeight(32);
         }
-
+        
+        
     }
 
     void Borrar() {
         DefaultTableModel LimpiadoTabla = (DefaultTableModel) TableUsuarios.getModel();
         //Borramosla tabla...
         int a = TableUsuarios.getRowCount() - 1;
-
+        
         for (int i = a; i >= 0; i--) {
             LimpiadoTabla.removeRow(LimpiadoTabla.getRowCount() - 1);
         }
     }
-
-    public Image get_Image(String ruta) {
-        try {
-            ImageIcon imageIcon = new ImageIcon(getClass().getResource(ruta));
-            Image mainIcon = imageIcon.getImage();
-            return mainIcon;
-        } catch (Exception e) {
-            return null;
-        }
-
-    }
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
