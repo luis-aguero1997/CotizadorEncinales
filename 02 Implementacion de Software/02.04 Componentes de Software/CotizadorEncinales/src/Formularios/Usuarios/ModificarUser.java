@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Formularios;
+package Formularios.Usuarios;
 
+import Formularios.Usuarios.Usuarios;
 import BaseDeDatos.BD_1;
 import Clases.Usuario;
 import java.awt.Event;
@@ -28,6 +29,8 @@ public class ModificarUser extends javax.swing.JFrame {
      */
     public ModificarUser() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         this.jLabel7.setText("");
         this.jLabel8.setText("");
         this.jLabel9.setText("");
@@ -70,6 +73,7 @@ public class ModificarUser extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

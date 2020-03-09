@@ -1,6 +1,7 @@
-package Formularios;
+package Formularios.Facturas;
 
 import Clases.Archivo;
+import Formularios.BD;
 import java.io.*;
 import java.sql.*;
 import java.util.Date;
@@ -18,6 +19,8 @@ public class AddFactura extends javax.swing.JFrame {
 
     public AddFactura() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         this.jLabel5.setText("");
     }
 
@@ -58,6 +61,7 @@ public class AddFactura extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

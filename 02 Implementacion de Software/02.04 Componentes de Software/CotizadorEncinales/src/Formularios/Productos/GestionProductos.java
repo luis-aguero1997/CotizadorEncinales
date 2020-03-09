@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Formularios;
+package Formularios.Productos;
 
+import Formularios.Productos.ModProducto;
 import BaseDeDatos.Conexion;
 import Clases.Archivo;
 import Clases.Productos;
 import Clases.imgTabla;
+import Formularios.Admin;
+import Formularios.BD;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.image.BufferedImage;
@@ -46,6 +49,8 @@ public class GestionProductos extends javax.swing.JFrame {
 
     public GestionProductos() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         visualizar_Productos(Table);
         /*TableColumn columna;
         columna = Table.getColumnModel().getColumn(6);
@@ -79,6 +84,7 @@ public class GestionProductos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 

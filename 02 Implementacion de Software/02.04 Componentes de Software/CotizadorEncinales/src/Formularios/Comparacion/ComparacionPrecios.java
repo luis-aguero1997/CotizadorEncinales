@@ -52,6 +52,7 @@ public class ComparacionPrecios extends javax.swing.JFrame {
     
     public ComparacionPrecios() 
     {
+     
         TablaProductoEncinales = new DefaultTableModel()
         {
             @Override
@@ -69,7 +70,9 @@ public class ComparacionPrecios extends javax.swing.JFrame {
             }
         };
         
-        initComponents();        
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         TablaProductoEncinales.addColumn("Clave");
         TablaProductoEncinales.addColumn("Nombre");
         TablaProductoEncinales.addColumn("Descripción");
@@ -106,7 +109,21 @@ public class ComparacionPrecios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel13 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        JP_AgregarCompetencia = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TBL_ProductoEncinales = new javax.swing.JTable();
+        TXT_Search = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TBL_ProductoCompetencia = new javax.swing.JTable();
+        LBL_Grafico = new javax.swing.JLabel();
+        BTN_Atras = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         JP_ConsultarCompetencia = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         TXT_NombreEmpresa1 = new javax.swing.JTextField();
@@ -119,91 +136,15 @@ public class ComparacionPrecios extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         CB_Producto = new javax.swing.JComboBox<>();
         BTN_Guardar = new javax.swing.JButton();
-        JP_AgregarCompetencia = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TBL_ProductoEncinales = new javax.swing.JTable();
-        TXT_Search = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        TBL_ProductoCompetencia = new javax.swing.JTable();
-        LBL_Grafico = new javax.swing.JLabel();
-        BTN_Atras = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+
+        jLabel13.setText("jLabel13");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jLabel7.setText("Nombre de la empresa");
-
-        jLabel8.setText("Producto");
-
-        jLabel9.setText("Descripción");
-
-        jLabel10.setText("Precio Unitario");
-
-        jLabel1.setText("Comparado con");
-
-        BTN_Guardar.setText("Guardar");
-        BTN_Guardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTN_GuardarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout JP_ConsultarCompetenciaLayout = new javax.swing.GroupLayout(JP_ConsultarCompetencia);
-        JP_ConsultarCompetencia.setLayout(JP_ConsultarCompetenciaLayout);
-        JP_ConsultarCompetenciaLayout.setHorizontalGroup(
-            JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_ConsultarCompetenciaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel7)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(jLabel1))
-                .addGap(46, 46, 46)
-                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TXT_NombreEmpresa1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(TXT_NombreProducto1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(TXT_Descripcion1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(TXT_PrecioUnitario1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(CB_Producto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(258, 258, 258))
-            .addGroup(JP_ConsultarCompetenciaLayout.createSequentialGroup()
-                .addGap(419, 419, 419)
-                .addComponent(BTN_Guardar)
-                .addContainerGap(310, Short.MAX_VALUE))
-        );
-        JP_ConsultarCompetenciaLayout.setVerticalGroup(
-            JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_ConsultarCompetenciaLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(TXT_NombreEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(TXT_NombreProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(TXT_Descripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(TXT_PrecioUnitario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(CB_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(BTN_Guardar)
-                .addContainerGap(350, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Agregar", JP_ConsultarCompetencia);
+        JP_AgregarCompetencia.setBackground(new java.awt.Color(255, 255, 255));
 
         TBL_ProductoEncinales.setModel(TablaProductoEncinales);
         TBL_ProductoEncinales.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -219,8 +160,10 @@ public class ComparacionPrecios extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel2.setText("Anclas Mineras Encinales");
 
+        jLabel3.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel3.setText("Empresas Externas");
 
         TBL_ProductoCompetencia.setModel(TablaCompetencia);
@@ -231,75 +174,215 @@ public class ComparacionPrecios extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TBL_ProductoCompetencia);
 
-        javax.swing.GroupLayout JP_AgregarCompetenciaLayout = new javax.swing.GroupLayout(JP_AgregarCompetencia);
-        JP_AgregarCompetencia.setLayout(JP_AgregarCompetenciaLayout);
-        JP_AgregarCompetenciaLayout.setHorizontalGroup(
-            JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
-                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
-                        .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TXT_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jScrollPane2))
-                        .addGap(12, 12, 12)
-                        .addComponent(LBL_Grafico, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        JP_AgregarCompetenciaLayout.setVerticalGroup(
-            JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_AgregarCompetenciaLayout.createSequentialGroup()
-                .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LBL_Grafico, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(TXT_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)))
-                .addGap(21, 21, 21))
-        );
-
-        jTabbedPane1.addTab("Ver Tabla", JP_AgregarCompetencia);
-
-        BTN_Atras.setText("Atrás");
+        BTN_Atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
+        BTN_Atras.setBorderPainted(false);
+        BTN_Atras.setContentAreaFilled(false);
+        BTN_Atras.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        BTN_Atras.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        BTN_Atras.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
         BTN_Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN_AtrasActionPerformed(evt);
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/lupa.png"))); // NOI18N
+        jLabel5.setText("Buscar Producto");
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/metrica.png"))); // NOI18N
+        jLabel6.setText("Tabla Comparativa de Precios");
+        jLabel6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout JP_AgregarCompetenciaLayout = new javax.swing.GroupLayout(JP_AgregarCompetencia);
+        JP_AgregarCompetencia.setLayout(JP_AgregarCompetenciaLayout);
+        JP_AgregarCompetenciaLayout.setHorizontalGroup(
+            JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
+                .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(TXT_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_AgregarCompetenciaLayout.createSequentialGroup()
+                                .addComponent(BTN_Atras)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
+                                .addComponent(jLabel6)
+                                .addGap(177, 177, 177)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_AgregarCompetenciaLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
+                                        .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(LBL_Grafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                .addContainerGap())
+        );
+        JP_AgregarCompetenciaLayout.setVerticalGroup(
+            JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
+                .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BTN_Atras)
+                            .addComponent(jLabel12)))
+                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TXT_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(JP_AgregarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JP_AgregarCompetenciaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LBL_Grafico, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Ver Tabla Comparativa", JP_AgregarCompetencia);
+
+        JP_ConsultarCompetencia.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        jLabel7.setText("Nombre de la empresa");
+
+        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        jLabel8.setText("Producto");
+
+        TXT_NombreProducto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TXT_NombreProducto1ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        jLabel9.setText("Descripción");
+
+        jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        jLabel10.setText("Precio Unitario");
+
+        jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        jLabel1.setText("Comparado con");
+
+        BTN_Guardar.setFont(new java.awt.Font("Sukhumvit Set", 0, 16)); // NOI18N
+        BTN_Guardar.setText("Guardar Producto");
+        BTN_Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_GuardarActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Sukhumvit Set", 0, 20)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/portapapeles.png"))); // NOI18N
+        jLabel4.setText("Agregar Producto Nuevo a Comparar ");
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout JP_ConsultarCompetenciaLayout = new javax.swing.GroupLayout(JP_ConsultarCompetencia);
+        JP_ConsultarCompetencia.setLayout(JP_ConsultarCompetenciaLayout);
+        JP_ConsultarCompetenciaLayout.setHorizontalGroup(
+            JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JP_ConsultarCompetenciaLayout.createSequentialGroup()
+                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JP_ConsultarCompetenciaLayout.createSequentialGroup()
+                        .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JP_ConsultarCompetenciaLayout.createSequentialGroup()
+                                .addGap(216, 216, 216)
+                                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel1))
+                                .addGap(46, 46, 46)
+                                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TXT_PrecioUnitario1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TXT_Descripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TXT_NombreProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TXT_NombreEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CB_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(JP_ConsultarCompetenciaLayout.createSequentialGroup()
+                                .addGap(314, 314, 314)
+                                .addComponent(BTN_Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JP_ConsultarCompetenciaLayout.createSequentialGroup()
+                                .addGap(239, 239, 239)
+                                .addComponent(jLabel4)))
+                        .addGap(0, 280, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_ConsultarCompetenciaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        JP_ConsultarCompetenciaLayout.setVerticalGroup(
+            JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JP_ConsultarCompetenciaLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(50, 50, 50)
+                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(TXT_NombreProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(TXT_Descripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(TXT_PrecioUnitario1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TXT_NombreEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(30, 30, 30)
+                .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(CB_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(BTN_Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(116, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Agregar Producto", JP_ConsultarCompetencia);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BTN_Atras)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BTN_Atras)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addComponent(jTabbedPane1))
         );
 
         pack();
@@ -378,6 +461,10 @@ public class ComparacionPrecios extends javax.swing.JFrame {
         mCP_1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_TBL_ProductoCompetenciaMouseClicked
+
+    private void TXT_NombreProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXT_NombreProducto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_NombreProducto1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -638,8 +725,14 @@ public class ComparacionPrecios extends javax.swing.JFrame {
     private javax.swing.JTextField TXT_Search;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

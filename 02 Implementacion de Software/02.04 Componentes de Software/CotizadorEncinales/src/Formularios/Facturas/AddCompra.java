@@ -1,9 +1,11 @@
-package Formularios;
+package Formularios.Facturas;
 
 import Clases.Archivo;
 import Clases.Compras;
 import Clases.Tabla_PdfVO;
 import Clases.imgTabla;
+import Formularios.Admin;
+import Formularios.BD;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Desktop;
 import java.awt.Event;
@@ -40,6 +42,8 @@ public class AddCompra extends javax.swing.JFrame {
 
     public AddCompra() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
         tpdf.visualizar_PdfVO(Table);
         
         LblProceso.setText("");
@@ -113,6 +117,7 @@ public class AddCompra extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -318,7 +323,7 @@ public class AddCompra extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(210, 210, 210)
                         .addComponent(BtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(6, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
