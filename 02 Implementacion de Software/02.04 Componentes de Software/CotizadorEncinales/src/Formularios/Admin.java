@@ -10,6 +10,7 @@ import Formularios.Facturas.AddCompra;
 import Formularios.Usuarios.Usuarios;
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
+import Formularios.Facturas.MainFactura;
 import java.awt.Desktop;
 import java.net.URI;
 import javax.swing.JOptionPane;
@@ -93,7 +94,7 @@ public class Admin extends javax.swing.JFrame {
 
         BtnAdminFacturas.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         BtnAdminFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cuenta.png"))); // NOI18N
-        BtnAdminFacturas.setText("Facturas");
+        BtnAdminFacturas.setText("Compras");
         BtnAdminFacturas.setBorderPainted(false);
         BtnAdminFacturas.setContentAreaFilled(false);
         BtnAdminFacturas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -279,9 +280,10 @@ public class Admin extends javax.swing.JFrame {
 
     private void BtnAdminFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminFacturasActionPerformed
        
-        AddCompra mAddCompra = new AddCompra();
-        this.dispose();
-        mAddCompra.setVisible(true);
+        MainFactura MF = new MainFactura();
+        MF.setVisible(true);
+        this.setVisible(false);
+        
     }//GEN-LAST:event_BtnAdminFacturasActionPerformed
 
     private void BtnAdminUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminUsuariosActionPerformed
