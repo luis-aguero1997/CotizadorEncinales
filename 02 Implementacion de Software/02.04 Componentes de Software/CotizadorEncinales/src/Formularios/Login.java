@@ -27,7 +27,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
-        rsscalelabel.RSScaleLabel.setScaleLabel(a1, "/Users/manuelvaquera/CotizadorEncinales/02 Implementacion de Software/02.04 Componentes de Software/CotizadorEncinales/src/Icons/Login-Recuperado.jpg");
+        rsscalelabel.RSScaleLabel.setScaleLabel(a1, "src/Icons/Login-Recuperado.jpg");
         //rsscalelabel.RSScaleLabel.setScaleLabel(a2, "/Users/manuelvaquera/Downloads/Logo Nuevo.png");
         Tipousuario = "";
         mUsuario = new Usuario();
