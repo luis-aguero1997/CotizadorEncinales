@@ -27,6 +27,8 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
+        rsscalelabel.RSScaleLabel.setScaleLabel(a1, "/Users/manuelvaquera/CotizadorEncinales/02 Implementacion de Software/02.04 Componentes de Software/CotizadorEncinales/src/Icons/Login-Recuperado.jpg");
+        //rsscalelabel.RSScaleLabel.setScaleLabel(a2, "/Users/manuelvaquera/Downloads/Logo Nuevo.png");
         Tipousuario = "";
         mUsuario = new Usuario();
     }
@@ -42,46 +44,52 @@ public class Login extends javax.swing.JFrame {
 
         jDayChooser1 = new com.toedter.calendar.JDayChooser();
         jSpinner1 = new javax.swing.JSpinner();
-        jPanel1 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
         Lbl_Psw = new javax.swing.JLabel();
         Txt_Nombre = new javax.swing.JTextField();
-        Encinales = new javax.swing.JLabel();
         Lbl_Usuario = new javax.swing.JLabel();
         Lbl_Usuario1 = new javax.swing.JLabel();
         Txt_Psw = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        a1 = new javax.swing.JLabel();
+
+        jRadioButton1.setText("jRadioButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setFont(new java.awt.Font("AppleGothic", 0, 24)); // NOI18N
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(56, 56, 201));
-
-        Lbl_Psw.setFont(new java.awt.Font("Sukhumvit Set", 0, 28)); // NOI18N
+        Lbl_Psw.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        Lbl_Psw.setForeground(new java.awt.Color(0, 102, 204));
         Lbl_Psw.setText("Contraseña");
+        getContentPane().add(Lbl_Psw, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, 110, -1));
 
         Txt_Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_NombreActionPerformed(evt);
             }
         });
+        getContentPane().add(Txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 170, 30));
 
-        Encinales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Encinales250.png"))); // NOI18N
-
-        Lbl_Usuario.setFont(new java.awt.Font("Sukhumvit Set", 0, 34)); // NOI18N
-        Lbl_Usuario.setForeground(new java.awt.Color(255, 255, 255));
+        Lbl_Usuario.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
+        Lbl_Usuario.setForeground(new java.awt.Color(0, 102, 204));
         Lbl_Usuario.setText("Cotizador de Ventas");
+        getContentPane().add(Lbl_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 210, -1));
 
-        Lbl_Usuario1.setFont(new java.awt.Font("Sukhumvit Set", 0, 28)); // NOI18N
+        Lbl_Usuario1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        Lbl_Usuario1.setForeground(new java.awt.Color(0, 102, 204));
         Lbl_Usuario1.setText("Usuario");
+        getContentPane().add(Lbl_Usuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 80, -1));
 
         Txt_Psw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_PswActionPerformed(evt);
             }
         });
+        getContentPane().add(Txt_Psw, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 170, 30));
 
         jButton1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/login.png"))); // NOI18N
@@ -94,6 +102,7 @@ public class Login extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 190, 50));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar (1).png"))); // NOI18N
@@ -112,77 +121,8 @@ public class Login extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Lbl_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93)
-                        .addComponent(jButton2)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Lbl_Psw)
-                                .addGap(54, 54, 54)
-                                .addComponent(Txt_Psw, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Lbl_Usuario1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(71, 71, 71))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(Encinales)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(Lbl_Usuario)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Encinales)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lbl_Usuario1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Lbl_Psw)
-                    .addComponent(Txt_Psw, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, -1, -1));
+        getContentPane().add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 840, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -303,16 +243,16 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Encinales;
     private javax.swing.JLabel Lbl_Psw;
     private javax.swing.JLabel Lbl_Usuario;
     private javax.swing.JLabel Lbl_Usuario1;
     private javax.swing.JTextField Txt_Nombre;
     private javax.swing.JPasswordField Txt_Psw;
+    private javax.swing.JLabel a1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDayChooser jDayChooser1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables
 }
