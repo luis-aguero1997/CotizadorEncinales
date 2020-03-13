@@ -2,11 +2,16 @@ package Formularios.Facturas;
 
 import Clases.Archivo;
 import Formularios.BD;
+import java.awt.Event;
+import java.awt.event.KeyEvent;
 import java.io.*;
 import java.sql.*;
 import java.util.Date;
+import javax.swing.InputMap;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class AddFactura extends javax.swing.JFrame {
@@ -22,6 +27,8 @@ public class AddFactura extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
         this.jLabel5.setText("");
+        evitarPegar(this.TxtNomFact);
+        
     }
 
     /**
@@ -77,6 +84,12 @@ public class AddFactura extends javax.swing.JFrame {
         TxtNomFact.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtNomFactKeyTyped(evt);
+            }
+        });
+
+        jDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jDateKeyTyped(evt);
             }
         });
 
@@ -305,9 +318,21 @@ public class AddFactura extends javax.swing.JFrame {
         mAddCompra.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jDateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateKeyTyped
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jDateKeyTyped
+
     private static java.sql.Date convert(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
+    }
+    
+    public static void evitarPegar(JTextField campo) {
+
+        InputMap map2 = campo.getInputMap(JTextField.WHEN_FOCUSED);
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+
     }
 
     /**

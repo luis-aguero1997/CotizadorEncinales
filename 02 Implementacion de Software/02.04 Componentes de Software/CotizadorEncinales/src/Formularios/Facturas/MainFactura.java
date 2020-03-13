@@ -5,7 +5,15 @@
  */
 package Formularios.Facturas;
 
+import Formularios.BD;
+import Clases.MateriaPrima;
+import Clases.imgTabla;
 import Formularios.Admin;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,10 +24,28 @@ public class MainFactura extends javax.swing.JFrame {
     /**
      * Creates new form MainFactura
      */
+        DefaultTableModel Tabla = new DefaultTableModel()
+    {
+        @Override
+        public boolean isCellEditable(int row, int column) 
+        {
+            return false;
+        }
+    };
     public MainFactura() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
+        visualizar_Materia(this.jTable1);
+        
+        this.jTable1.getColumnModel().getColumn(0).setPreferredWidth(70);//Clave
+        this.jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);//Descripcion
+        this.jTable1.getColumnModel().getColumn(2).setPreferredWidth(90);//Medida
+        this.jTable1.getColumnModel().getColumn(3).setPreferredWidth(80);//Cantidad
+        this.jTable1.getColumnModel().getColumn(4).setPreferredWidth(95);//Precio U
+        this.jTable1.getColumnModel().getColumn(5).setPreferredWidth(95);//Precio T
+        this.jTable1.getColumnModel().getColumn(6).setPreferredWidth(100);//Fecha
+        this.jTable1.getColumnModel().getColumn(7).setPreferredWidth(70);//No Factura
     }
 
     /**
@@ -35,14 +61,14 @@ public class MainFactura extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        Fecha1 = new com.toedter.calendar.JDateChooser();
+        Fecha2 = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        TxtClave = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -90,6 +116,7 @@ public class MainFactura extends javax.swing.JFrame {
                 "Clave", "Descripción", "Unidad de Medida", "Cantidad", "Precio Unitario", "Precio Total", "Fecha", "Factura"
             }
         ));
+        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane1.setViewportView(jTable1);
 
         jButton2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
@@ -97,6 +124,15 @@ public class MainFactura extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        TxtClave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtClaveKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtClaveKeyTyped(evt);
             }
         });
 
@@ -120,6 +156,11 @@ public class MainFactura extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
         jButton1.setText("Buscar ");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,19 +183,19 @@ public class MainFactura extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel3))
                                         .addGap(34, 34, 34)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel4)
-                                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(Fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap())
@@ -171,7 +212,7 @@ public class MainFactura extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TxtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,8 +222,8 @@ public class MainFactura extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -221,9 +262,173 @@ public class MainFactura extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void TxtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClaveKeyTyped
+        // TODO add your handling code here:
+        
+        if (this.TxtClave.getText().isEmpty()) {
+            this.Fecha1.setDate(null);
+            this.Fecha2.setDate(null);
+        }
+        
+        if ((this.TxtClave.getText().length() == 45)) {
+            evt.consume();
+            
+        }
+        
+        
+    }//GEN-LAST:event_TxtClaveKeyTyped
+
+    private void TxtClaveKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClaveKeyReleased
+        // TODO add your handling code here:
+        this.LlenarTablaFiltro();
+    }//GEN-LAST:event_TxtClaveKeyReleased
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        
+        if (!Fecha1.equals(null) && !Fecha2.equals(null)) {
+            this.LlenarTablaFecha();
+        } else {
+            JOptionPane.showMessageDialog(null, "Llene los campos necesarios");
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    public void visualizar_Materia(JTable tabla) {
+        tabla.setDefaultRenderer(Object.class, new imgTabla());
+        DefaultTableModel dt = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        dt.addColumn("Clave");
+        dt.addColumn("Descripcion");
+        dt.addColumn("Unidad de Medida");
+        dt.addColumn("Cantidad");
+        dt.addColumn("Precio Unitario");
+        dt.addColumn("Precio Total");
+        dt.addColumn("Fecha");
+        dt.addColumn("No Factura");
+        
+
+        BD mBD = new BD();
+        MateriaPrima vo = new MateriaPrima();
+        ArrayList<MateriaPrima> list = mBD.Listar_Materia();
+
+        if (list.size() > 0) {
+            for (int i = 0; i < list.size(); i++) {
+                Object fila[] = new Object[9];
+
+                vo = list.get(i);
+                fila[0] = vo.getClave();
+                fila[1] = vo.getDescripcion();
+                fila[2] = vo.getUnidadMedida();
+                fila[3] = vo.getCantidad();
+                fila[4] = vo.getPrecioUnitario();
+                fila[5] = vo.getPrecioTotal();
+                fila[6] = vo.getFechaCompra();
+                fila[7] = vo.getFacturas_idfacturas();
+                
+                dt.addRow(fila);
+            }
+            tabla.setModel(dt);
+            tabla.setRowHeight(32);
+        }        
+    }
+    
+    public void LlenarTablaFiltro()
+    {
+        Borrar();
+        BD mBD = new BD();
+        MateriaPrima MT = new MateriaPrima();
+        
+        ArrayList mListaMateria = mBD.Listar_MateriaEspecifica(this.TxtClave.getText());
+        String [] datos=null;
+
+        for (Object mLista : mListaMateria)
+        {
+            datos = new String[8];
+            MT = (MateriaPrima) mLista;
+            
+            datos[0] = MT.getClave();
+            datos[1] = MT.getDescripcion();
+            datos[2] = MT.getUnidadMedida();
+            datos[3] = String.valueOf(MT.getCantidad());
+            datos[4] = String.valueOf(MT.getPrecioUnitario());
+            datos[5] = String.valueOf(MT.getPrecioTotal());
+            datos[6] = String.valueOf(MT.getFechaCompra());
+            datos[7] = String.valueOf(MT.getFacturas_idfacturas());
+            
+            this.Tabla.addRow(datos);
+        }
+        this.jTable1 = new javax.swing.JTable();
+        this.jTable1.setModel(Tabla);/*
+        this.jTable1.getColumnModel().getColumn(0).setPreferredWidth(10);
+        this.jTable1.getColumnModel().getColumn(1).setPreferredWidth(150);
+        this.jTable1.getColumnModel().getColumn(2).setPreferredWidth(50);
+        this.jTable1.getColumnModel().getColumn(3).setPreferredWidth(100);
+        this.jTable1.getColumnModel().getColumn(4).setPreferredWidth(100);
+        this.jTable1.getColumnModel().getColumn(5).setPreferredWidth(100);
+        this.jTable1.getColumnModel().getColumn(6).setPreferredWidth(100);
+        this.jTable1.getColumnModel().getColumn(7).setPreferredWidth(50);*/
+        if (this.jTable1.getRowCount() > 0) 
+        {
+            this.jTable1.setRowSelectionInterval(0, 0);
+        }
+    }
+    
+    
+    public void LlenarTablaFecha()
+    {
+        Borrar();
+        BD mBD = new BD();
+        MateriaPrima MT = new MateriaPrima();
+        
+        Date Date1 = convert(Fecha1.getDate());
+        Date Date2 = convert(Fecha2.getDate());
+        
+        ArrayList mListaMateria = mBD.Listar_MateriaFecha(Date1, Date2);
+        String [] datos=null;
+
+        for (Object mLista : mListaMateria)
+        {
+            datos = new String[8];
+            MT = (MateriaPrima) mLista;
+            
+            datos[0] = MT.getClave();
+            datos[1] = MT.getDescripcion();
+            datos[2] = MT.getUnidadMedida();
+            datos[3] = String.valueOf(MT.getCantidad());
+            datos[4] = String.valueOf(MT.getPrecioUnitario());
+            datos[5] = String.valueOf(MT.getPrecioTotal());
+            datos[6] = String.valueOf(MT.getFechaCompra());
+            datos[7] = String.valueOf(MT.getFacturas_idfacturas());
+            
+            this.Tabla.addRow(datos);
+        }
+        this.jTable1 = new javax.swing.JTable();
+        this.jTable1.setModel(Tabla);
+        if (this.jTable1.getRowCount() > 0) 
+        {
+            this.jTable1.setRowSelectionInterval(0, 0);
+        }
+    }
+    
+    void Borrar() {
+        DefaultTableModel LimpiadoTabla = (DefaultTableModel) this.jTable1.getModel();
+        //Borramosla tabla...
+        
+        Tabla = (DefaultTableModel) this.jTable1.getModel();
+        int a = Tabla.getRowCount() - 1;
+        for (int i = a; i >= 0; i--) {
+            Tabla.removeRow(Tabla.getRowCount() - 1);
+        }
+    }
+    
+    private static java.sql.Date convert(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -257,11 +462,12 @@ public class MainFactura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser Fecha1;
+    private com.toedter.calendar.JDateChooser Fecha2;
+    private javax.swing.JTextField TxtClave;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -272,6 +478,5 @@ public class MainFactura extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,8 +9,10 @@ import BaseDeDatos.BD_1;
 import Clases.*;
 import Clases.imgTabla;
 import Formularios.Admin;
+import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -21,15 +23,12 @@ import javax.swing.table.DefaultTableModel;
  * @author manuelvaquera
  */
 public class Usuarios extends javax.swing.JFrame {
-    
+
     public static int Seleccion;
     int SeleccionY;
     int IdUsuarios;
     public static int Id2;
     BD_1 mBD = new BD_1();
-    
-    
-    
 
     /**
      * Creates new form Usuarios
@@ -39,6 +38,15 @@ public class Usuarios extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
         this.visualizar_Productos(TableUsuarios);
+        this.TableUsuarios.getColumnModel().getColumn(0).setPreferredWidth(30);//Id
+        this.TableUsuarios.getColumnModel().getColumn(1).setPreferredWidth(200);//Nombre Completo
+        this.TableUsuarios.getColumnModel().getColumn(2).setPreferredWidth(130);//Nombre de Usuario
+        this.TableUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);//Password
+        this.TableUsuarios.getColumnModel().getColumn(4).setPreferredWidth(170);//Correo
+        this.TableUsuarios.getColumnModel().getColumn(5).setPreferredWidth(120);//Puesto
+        this.TableUsuarios.getColumnModel().getColumn(6).setPreferredWidth(70);//Del
+        this.TableUsuarios.getColumnModel().getColumn(7).setPreferredWidth(70);//Mod
+
     }
 
     /**
@@ -85,6 +93,7 @@ public class Usuarios extends javax.swing.JFrame {
                 "IdUsuario", "Nombre Completo", "Nombre de Usuario", "Contraseña", "Correo", "Puesto", "Eliminar", "Modificar"
             }
         ));
+        TableUsuarios.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         TableUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TableUsuariosMouseClicked(evt);
@@ -137,18 +146,19 @@ public class Usuarios extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(BackMenuUsuario)
-                                .addGap(347, 347, 347)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(288, 288, 288)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(363, Short.MAX_VALUE))))
+                        .addComponent(BackMenuUsuario)
+                        .addGap(347, 347, 347)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(288, 288, 288)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,9 +167,9 @@ public class Usuarios extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BackMenuUsuario)
                     .addComponent(jLabel1))
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -198,7 +208,7 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void TableUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableUsuariosMouseClicked
-     
+
         Icon icono = null;
         int filaseleccionada = 0;
         filaseleccionada = TableUsuarios.getSelectedRow();
@@ -215,27 +225,27 @@ public class Usuarios extends javax.swing.JFrame {
 
                 break;
             case 7:
-                
+
                 ModificarUser ModUser = new ModificarUser();
                 ModUser.setVisible(true);
-                
+
                 break;
-                default:
+            default:
         }
-        
-        
+
+
     }//GEN-LAST:event_TableUsuariosMouseClicked
 
     private void BackMenuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackMenuUsuarioActionPerformed
-               Admin mAdmin = new Admin();
-               this.dispose();
-               mAdmin.setVisible(true);
+        Admin mAdmin = new Admin();
+        this.dispose();
+        mAdmin.setVisible(true);
     }//GEN-LAST:event_BackMenuUsuarioActionPerformed
 
     private void BackMenuUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMenuUsuarioMouseClicked
-               Admin mAdmin = new Admin();
-               this.dispose();
-               mAdmin.setVisible(true);
+        Admin mAdmin = new Admin();
+        this.dispose();
+        mAdmin.setVisible(true);
     }//GEN-LAST:event_BackMenuUsuarioMouseClicked
 
     public void visualizar_Productos(JTable tabla) {
@@ -276,33 +286,55 @@ public class Usuarios extends javax.swing.JFrame {
                     fila[5] = "Encargado de Ventas";
                 }
 
-                //ImageIcon Imagen = new ImageIcon("\\src\\Image\\trahser.jpg");
-                //fila[4] = new ImageIcon(Imagen.getImage().getScaledInstance(10, 10, 10));
-                //Icon icono = new ImageIcon(Imagen.getImage().getScaledInstance(LblImagen.getWidth(), LblImagen.getHeight(), se));
-                fila[6] = new JButton("Eliminar");
+                ImageIcon icono = new ImageIcon(get_Image("trash.jpg"));
+                if (get_Image("trash.jpg") != null) {
+                    icono = new ImageIcon(get_Image("trash.jpg").getScaledInstance(20, 20, 20));
+                    fila[6] = new JButton(icono);
+                }
 
-                //ImageIcon Imagen2 = new ImageIcon("\\src\\Image\\gear.jpg");
-                //fila[5] = new ImageIcon(Imagen.getImage().getScaledInstance(10, 10, 10));
-                fila[7] = new JButton("Modificar");
+                if (icono == null) {
+                    fila[6] = new JButton("Eliminar");
+                }
+
+                ImageIcon icono2 = new ImageIcon(get_Image("file.jpg"));
+                if (get_Image("file.jpg") != null) {
+                    icono2 = new ImageIcon(get_Image("file.jpg").getScaledInstance(20, 20, 20));
+                    fila[7] = new JButton(icono2);
+                }
+
+                if (icono2 == null) {
+                    fila[7] = new JButton("Eliminar");
+                }
 
                 dt.addRow(fila);
             }
             tabla.setModel(dt);
             tabla.setRowHeight(32);
         }
-        
-        
+
     }
 
     void Borrar() {
         DefaultTableModel LimpiadoTabla = (DefaultTableModel) TableUsuarios.getModel();
         //Borramosla tabla...
         int a = TableUsuarios.getRowCount() - 1;
-        
+
         for (int i = a; i >= 0; i--) {
             LimpiadoTabla.removeRow(LimpiadoTabla.getRowCount() - 1);
         }
     }
+
+    public Image get_Image(String ruta) {
+        try {
+            ImageIcon imageIcon = new ImageIcon(getClass().getResource(ruta));
+            Image mainIcon = imageIcon.getImage();
+            return mainIcon;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

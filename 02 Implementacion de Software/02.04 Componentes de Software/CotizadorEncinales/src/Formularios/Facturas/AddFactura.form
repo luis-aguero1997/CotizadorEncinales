@@ -186,6 +186,9 @@
           </Events>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="jDate">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jDateKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnSeleccion">
           <Properties>

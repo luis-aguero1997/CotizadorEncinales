@@ -19,7 +19,6 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
     /**
      * Creates new form ComparacionPrecios_1
      */
-    
     public static String NombreEmpresa;
     public static String NombreProducto;
     public static String Descripcion;
@@ -27,35 +26,39 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
     public static String ClaveProductoComparado;
     public static int IdCompetencia;
     int Opcion;
-    
+
     BD_1 mBD;
     ComparacionPrecios mCP;
     Competencia mC;
-    
+
     public ComparacionPrecios_1() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
-        
+
         mBD = null;
         mCP = null;
         mC = null;
-        
+
         LlenarCombo();
-        
+
         TXT_NombreEmpresa1.setText(NombreEmpresa);
         TXT_NombreProducto1.setText(NombreProducto);
         TXT_Descripcion1.setText(Descripcion);
-        TXT_PrecioUnitario1.setText(String.valueOf(PrecioUnitario));        
-        for (int i = 0; i <= CB_Producto.getItemListeners().length; i++)
-        {           
-            if (CB_Producto.getItemAt(i).substring(0,6).equals(ClaveProductoComparado))
-            {
+        TXT_PrecioUnitario1.setText(String.valueOf(PrecioUnitario));
+        for (int i = 0; i <= CB_Producto.getItemListeners().length; i++) {
+            if (CB_Producto.getItemAt(i).substring(0, 6).equals(ClaveProductoComparado)) {
                 CB_Producto.setSelectedIndex(i);
             }
         }
-        
+
         Opcion = 0;
+
+        jLabel3.setText("");
+        jLabel4.setText("");
+        jLabel5.setText("");
+        jLabel6.setText("");
+
     }
 
     /**
@@ -83,6 +86,10 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
         BTN_Atras = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -92,14 +99,38 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel7.setText("Nombre de la empresa");
 
+        TXT_NombreEmpresa1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_NombreEmpresa1KeyTyped(evt);
+            }
+        });
+
         jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel8.setText("Producto");
+
+        TXT_NombreProducto1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_NombreProducto1KeyTyped(evt);
+            }
+        });
+
+        TXT_Descripcion1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_Descripcion1KeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel9.setText("Descripción");
 
         jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel10.setText("Precio Unitario");
+
+        TXT_PrecioUnitario1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_PrecioUnitario1KeyTyped(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel1.setText("Comparado con");
@@ -138,6 +169,22 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel3.setText("jLabel3");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel4.setText("jLabel3");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setText("jLabel3");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel6.setText("jLabel3");
+
         javax.swing.GroupLayout JP_ConsultarCompetenciaLayout = new javax.swing.GroupLayout(JP_ConsultarCompetencia);
         JP_ConsultarCompetencia.setLayout(JP_ConsultarCompetenciaLayout);
         JP_ConsultarCompetenciaLayout.setHorizontalGroup(
@@ -172,7 +219,11 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
                                         .addComponent(TXT_NombreProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(TXT_Descripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(TXT_PrecioUnitario1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(CB_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(CB_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6))
                                     .addGroup(JP_ConsultarCompetenciaLayout.createSequentialGroup()
                                         .addComponent(BTN_Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -190,19 +241,27 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
                 .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(TXT_NombreEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel3)
+                .addGap(2, 2, 2)
                 .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TXT_NombreProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TXT_Descripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(18, 18, 18)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel5)
+                .addGap(1, 1, 1)
                 .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TXT_PrecioUnitario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JP_ConsultarCompetenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(CB_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,7 +271,7 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
                         .addComponent(BTN_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BTN_Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel11))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -237,14 +296,11 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
     private void BTN_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EliminarActionPerformed
         // TODO add your handling code here:
         Opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de eliminar este precio? \n (los precios eliminados no se pueden recuperar)");
-        
-        if (JOptionPane.OK_OPTION == Opcion)
-        {
+
+        if (JOptionPane.OK_OPTION == Opcion) {
             EliminarCompetencia();
-        }
-        else
-        {
-            
+        } else {
+
         }
     }//GEN-LAST:event_BTN_EliminarActionPerformed
 
@@ -255,18 +311,77 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BTN_AtrasActionPerformed
 
-    public void LlenarCombo() 
-    {
+    private void TXT_NombreEmpresa1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NombreEmpresa1KeyTyped
+        // TODO add your handling code here:
+        if (this.TXT_NombreEmpresa1.getText().isEmpty()) {
+            this.jLabel3.setText("");
+        } else if (this.TXT_NombreEmpresa1.getText().length() == 45) {
+            evt.consume();
+        } else if (this.TXT_NombreEmpresa1.getText().length() < 5) {
+            this.jLabel3.setText("Nombre Invalido");
+        } else if (this.TXT_NombreEmpresa1.getText().length() >= 5) {
+            this.jLabel3.setText("");
+        }
+    }//GEN-LAST:event_TXT_NombreEmpresa1KeyTyped
+
+    private void TXT_PrecioUnitario1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_PrecioUnitario1KeyTyped
+        // TODO add your handling code here:
+        
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (this.TXT_PrecioUnitario1.getText().isEmpty()) {
+            this.jLabel6.setText("");
+        } else if (this.TXT_PrecioUnitario1.getText().length() == 10) {
+            evt.consume();
+        } else if (this.TXT_PrecioUnitario1.getText().length() < 2) {
+            this.jLabel6.setText("Precio Invalido");
+        } else if (this.TXT_PrecioUnitario1.getText().length() >= 2) {
+            this.jLabel6.setText("");
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_PrecioUnitario1.getText().contains(".")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_PrecioUnitario1KeyTyped
+
+    private void TXT_NombreProducto1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NombreProducto1KeyTyped
+        // TODO add your handling code here:
+        if (this.TXT_NombreProducto1.getText().isEmpty()) {
+            this.jLabel4.setText("");
+        } else if (this.TXT_NombreProducto1.getText().length() == 45) {
+            evt.consume();
+        } else if (this.TXT_NombreProducto1.getText().length() < 5) {
+            this.jLabel4.setText("Nombre Invalido");
+        } else if (this.TXT_NombreProducto1.getText().length() >= 5) {
+            this.jLabel4.setText("");
+        }
+    }//GEN-LAST:event_TXT_NombreProducto1KeyTyped
+
+    private void TXT_Descripcion1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_Descripcion1KeyTyped
+        // TODO add your handling code here:
+        if (this.TXT_Descripcion1.getText().isEmpty()) {
+            this.jLabel5.setText("");
+        } else if (this.TXT_Descripcion1.getText().length() == 45) {
+            evt.consume();
+        } else if (this.TXT_Descripcion1.getText().length() < 5) {
+            this.jLabel5.setText("Descripcion Invalida");
+        } else if (this.TXT_Descripcion1.getText().length() >= 5) {
+            this.jLabel5.setText("");
+        }
+    }//GEN-LAST:event_TXT_Descripcion1KeyTyped
+
+    public void LlenarCombo() {
         CB_Producto.addItem("Ninguno");
         mBD = new BD_1();
         ArrayList mArrayList = new ArrayList();
         mArrayList = mBD.ConsultaNombresProducto();
         //LDBLPrueba.setText(mArrayList.get(0).toString());
-        if (mArrayList != null) 
-        {
+        if (mArrayList != null) {
 
-            for (int i = 0; i < mArrayList.size(); i++) 
-            {
+            for (int i = 0; i < mArrayList.size(); i++) {
                 CB_Producto.addItem(mArrayList.get(i).toString());
             }
 
@@ -274,57 +389,47 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No tiene productos en el sistema");
         }
     }
-    
-    public void ActualizarCompetencia()
-    {
+
+    public void ActualizarCompetencia() {
         mC = new Competencia();
         mBD = new BD_1();
-        
-        if ( ("".equals(TXT_NombreEmpresa1.getText())) || ("".equals(TXT_NombreProducto1.getText()))
-        || ("".equals(TXT_Descripcion1.getText())) || ("".equals(TXT_PrecioUnitario1.getText())) 
-        || ("Ninguno".equals(CB_Producto.getSelectedItem())))
-        {                  
+
+        if (("".equals(TXT_NombreEmpresa1.getText())) || ("".equals(TXT_NombreProducto1.getText()))
+                || ("".equals(TXT_Descripcion1.getText())) || ("".equals(TXT_PrecioUnitario1.getText()))
+                || ("Ninguno".equals(CB_Producto.getSelectedItem()))) {
             JOptionPane.showMessageDialog(null, "Llena bien los campos");
-        }
-        else
-        {
+        } else {
             String Cadena = (String) CB_Producto.getSelectedItem();
             String[] CadenaPartes = Cadena.split("_");
-            
+
             mC.setEmpresa(TXT_NombreEmpresa1.getText());
             mC.setNombreProducto(TXT_NombreProducto1.getText());
             mC.setDescripcion(TXT_Descripcion1.getText());
             mC.setPrecioUnitario(Double.parseDouble(TXT_PrecioUnitario1.getText()));
             mC.setProducto_idProducto(mBD.ConsultarIdProductoClave(CadenaPartes[0]));
-            
-            if(mBD.ModificarProductoCompetencia(mC, IdCompetencia))
-            {
+
+            if (mBD.ModificarProductoCompetencia(mC, IdCompetencia)) {
 
                 mBD.Desconectar();
                 JOptionPane.showMessageDialog(null, "Producto Modificado");
-            }
-            else
-            {
+            } else {
                 JOptionPane.showMessageDialog(null, "Existe una falla en la Base de Datos");
             }
         }
     }
-    
-    public void EliminarCompetencia()
-    {
+
+    public void EliminarCompetencia() {
         mBD = new BD_1();
-        if (mBD.EliminarCompetencia(IdCompetencia))
-        {
+        if (mBD.EliminarCompetencia(IdCompetencia)) {
             JOptionPane.showMessageDialog(null, "Producto Eliminado");
             mCP = new ComparacionPrecios();
             mCP.setVisible(true);
             this.setVisible(false);
-        }
-        else
-        {
-            
+        } else {
+
         }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -374,6 +479,10 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

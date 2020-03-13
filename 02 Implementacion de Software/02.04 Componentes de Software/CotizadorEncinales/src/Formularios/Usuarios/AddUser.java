@@ -7,7 +7,12 @@ package Formularios.Usuarios;
 
 import BaseDeDatos.BD_1;
 import Clases.Usuario;
+import java.awt.Event;
+import java.awt.event.KeyEvent;
+import javax.swing.InputMap;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -29,6 +34,12 @@ public class AddUser extends javax.swing.JFrame {
         this.jLabel9.setText("");
         this.jLabel10.setText("");
         this.jLabel11.setText("");
+
+        evitarPegar(this.TxtCorreo);
+        evitarPegar(this.TxtNomCompleto);
+        evitarPegar(this.TxtPassword);
+        evitarPegar(this.TxtUsuario);
+
     }
 
     /**
@@ -193,17 +204,17 @@ public class AddUser extends javax.swing.JFrame {
         jLabel8.setText(" ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("jLabel10");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("jLabel11");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
@@ -230,20 +241,29 @@ public class AddUser extends javax.swing.JFrame {
                 || this.TxtCorreo.getText().isEmpty()
                 || this.Puesto.getSelectedIndex() == 0);
         {
-            Usuario Usuario = new Usuario();
-            Usuario.setNomCompleto(TxtNomCompleto.getText());
-            Usuario.setUsuario(TxtUsuario.getText());
-            Usuario.setPassword(TxtPassword.getText());
-            Usuario.setCorreo(TxtCorreo.getText());
-            Usuario.setTipo(Integer.toString(Puesto.getSelectedIndex()));
+            //Copiar en el frame de ramiro
+            if (this.TxtNomCompleto.getText().length() < 8
+                    || this.TxtUsuario.getText().length() < 8
+                    || this.TxtCorreo.getText().length() < 8
+                    || this.TxtPassword.getText().length() < 8) {
+                JOptionPane.showMessageDialog(null, "Uno o mas campos invalidos");
+            } else { //Hasta aqui
+                Usuario Usuario = new Usuario();
+                Usuario.setNomCompleto(TxtNomCompleto.getText());
+                Usuario.setUsuario(TxtUsuario.getText());
+                Usuario.setPassword(TxtPassword.getText());
+                Usuario.setCorreo(TxtCorreo.getText());
+                Usuario.setTipo(Integer.toString(Puesto.getSelectedIndex()));
 
-            mBD.Agregar_Usuario(Usuario);
+                mBD.Agregar_Usuario(Usuario);
 
-            TxtNomCompleto.setText("");
-            TxtUsuario.setText("");
-            TxtPassword.setText("");
-            TxtCorreo.setText("");
-            Puesto.setSelectedIndex(0);
+                TxtNomCompleto.setText("");
+                TxtUsuario.setText("");
+                TxtPassword.setText("");
+                TxtCorreo.setText("");
+                Puesto.setSelectedIndex(0);
+            }
+
         }
 
     }//GEN-LAST:event_BtnAddUserMouseClicked
@@ -270,7 +290,7 @@ public class AddUser extends javax.swing.JFrame {
 
     private void TxtNomCompletoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomCompletoKeyTyped
         // TODO add your handling code here:
-        
+
         if (this.TxtNomCompleto.getText().isEmpty()) {
             this.jLabel8.setText("");
         } else if (this.TxtNomCompleto.getText().length() == 45) {
@@ -298,14 +318,14 @@ public class AddUser extends javax.swing.JFrame {
 
     private void TxtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPasswordKeyTyped
         // TODO add your handling code here:
-         if (this.TxtPassword.getText().isEmpty()) {
+        if (this.TxtPassword.getText().isEmpty()) {
             this.jLabel10.setText("");
         } else if ((this.TxtPassword.getText().length() == 45)) {
             evt.consume();
-            
+
         } else if (this.TxtPassword.getText().length() < 8) {
             this.jLabel10.setText("Contraseña Demasiado Corta");
-        } else if (this.TxtPassword.getText().length() > 8){
+        } else if (this.TxtPassword.getText().length() > 8) {
             this.jLabel10.setText("");
         }
     }//GEN-LAST:event_TxtPasswordKeyTyped
@@ -316,13 +336,24 @@ public class AddUser extends javax.swing.JFrame {
             this.jLabel11.setText("");
         } else if ((this.TxtCorreo.getText().length() == 45)) {
             evt.consume();
-            
+
         } else if (this.TxtCorreo.getText().length() < 10) {
             this.jLabel11.setText("Correo Invalido");
-        } else if (this.TxtCorreo.getText().length() > 10){
+        } else if (this.TxtCorreo.getText().length() > 10) {
             this.jLabel11.setText("");
-        } 
+        }
+
+        if (evt.getKeyChar() == '@' && TxtCorreo.getText().contains("@")) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtCorreoKeyTyped
+
+    public static void evitarPegar(JTextField campo) {
+
+        InputMap map2 = campo.getInputMap(JTextField.WHEN_FOCUSED);
+        map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+
+    }
 
     /**
      * @param args the command line arguments
