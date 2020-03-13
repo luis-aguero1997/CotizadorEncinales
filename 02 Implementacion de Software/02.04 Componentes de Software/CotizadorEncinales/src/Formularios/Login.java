@@ -59,6 +59,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setFont(new java.awt.Font("AppleGothic", 0, 24)); // NOI18N
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -102,7 +103,7 @@ public class Login extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 190, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, 190, 50));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar (1).png"))); // NOI18N
@@ -122,7 +123,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, -1, -1));
-        getContentPane().add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 840, 630));
+        getContentPane().add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
