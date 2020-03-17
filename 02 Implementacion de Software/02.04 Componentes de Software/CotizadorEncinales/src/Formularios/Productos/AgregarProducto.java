@@ -317,6 +317,10 @@ public class AgregarProducto extends javax.swing.JFrame {
         } else if (this.TxtClave.getText().length() > 3) {
             this.jLabel8.setText("");
         } 
+        
+         if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtClaveKeyTyped
 
     private void TxtNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomKeyTyped
@@ -340,6 +344,10 @@ public class AgregarProducto extends javax.swing.JFrame {
         }
 
         if (TxtPrecio.getText().length() == 10) {
+            evt.consume();
+        }
+        
+        if (evt.getKeyChar() == '@' && TxtPrecio.getText().contains(".")) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtPrecioKeyTyped
