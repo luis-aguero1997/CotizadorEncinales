@@ -131,8 +131,25 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel1.setText("Nombre del equipo");
 
+        TXT_ConsumoKwEq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TXT_ConsumoKwEqActionPerformed(evt);
+            }
+        });
+        TXT_ConsumoKwEq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_ConsumoKwEqKeyTyped(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel2.setText("Consumo KW/Equipo");
+
+        TXT_NombreEquipo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_NombreEquipoKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel5.setText("Número de equipos");
@@ -160,6 +177,12 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel6.setText("Horas de consumo");
+
+        TXT_HorasConsumo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_HorasConsumoKeyTyped(evt);
+            }
+        });
 
         BTN_Eliminar.setText("Eliminar");
         BTN_Eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -225,11 +248,11 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(TXT_NombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TXT_ConsumoKwEq, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(TXT_ConsumoKwEq, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TXT_NombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -299,6 +322,47 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
     private void CB_NumeroEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_NumeroEquiposActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CB_NumeroEquiposActionPerformed
+
+    private void TXT_NombreEquipoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NombreEquipoKeyTyped
+            
+     
+    }//GEN-LAST:event_TXT_NombreEquipoKeyTyped
+
+    private void TXT_ConsumoKwEqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXT_ConsumoKwEqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_ConsumoKwEqActionPerformed
+
+    private void TXT_ConsumoKwEqKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_ConsumoKwEqKeyTyped
+                
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_ConsumoKwEq.getText().length() == 10) {
+            evt.consume();
+        }
+        
+        if (evt.getKeyChar() == '.' && TXT_ConsumoKwEq.getText().contains(".")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_ConsumoKwEqKeyTyped
+
+    private void TXT_HorasConsumoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_HorasConsumoKeyTyped
+         
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_HorasConsumo.getText().length() == 10) {
+            evt.consume();
+        }
+        
+        if (evt.getKeyChar() == '.' && TXT_HorasConsumo.getText().contains(".")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_HorasConsumoKeyTyped
 
     public void NuevosConsumos()
     {

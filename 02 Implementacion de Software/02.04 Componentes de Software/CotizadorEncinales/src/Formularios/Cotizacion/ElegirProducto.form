@@ -138,6 +138,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value=" Cotizaci&#xf3;n "/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">

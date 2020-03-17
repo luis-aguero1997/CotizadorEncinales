@@ -558,7 +558,7 @@ public class AddCompra extends javax.swing.JFrame {
 
     private void TxtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPrecioKeyTyped
         // TODO add your handling code here:
-        char car = evt.getKeyChar();
+       char car = evt.getKeyChar();
         if ((car < '0' || car > '9') && (car > '.')) {
             evt.consume();
         }
@@ -566,11 +566,15 @@ public class AddCompra extends javax.swing.JFrame {
         if (TxtPrecio.getText().length() == 10) {
             evt.consume();
         }
+        
+        if (evt.getKeyChar() == '.' && TxtPrecio.getText().contains(".")) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtPrecioKeyTyped
 
     private void TxtCantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCantKeyTyped
 
-        char car = evt.getKeyChar();
+      char car = evt.getKeyChar();
         if ((car < '0' || car > '9') && (car > '.')) {
             evt.consume();
         }
@@ -578,6 +582,11 @@ public class AddCompra extends javax.swing.JFrame {
         if (TxtCant.getText().length() == 10) {
             evt.consume();
         }
+        
+        if (evt.getKeyChar() == '.' && TxtCant.getText().contains(".")) {
+            evt.consume();
+        }
+       
     }//GEN-LAST:event_TxtCantKeyTyped
 
     private void TxtMedidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtMedidaKeyTyped

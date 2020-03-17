@@ -281,9 +281,9 @@ public class ModProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        GestionProductos mGestionProductos = new GestionProductos();
+        
         this.dispose();
-        mGestionProductos.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TxtNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomKeyTyped
@@ -314,12 +314,16 @@ public class ModProducto extends javax.swing.JFrame {
 
     private void TxtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPrecioKeyTyped
         // TODO add your handling code here:
-                char car = evt.getKeyChar();
+             char car = evt.getKeyChar();
         if ((car < '0' || car > '9') && (car > '.')) {
             evt.consume();
         }
 
         if (TxtPrecio.getText().length() == 10) {
+            evt.consume();
+        }
+        
+        if (evt.getKeyChar() == '.' && TxtPrecio.getText().contains(".")) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtPrecioKeyTyped

@@ -237,6 +237,7 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_TableUsuariosMouseClicked
 
     private void BackMenuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackMenuUsuarioActionPerformed
+
         Admin mAdmin = new Admin();
         this.dispose();
         mAdmin.setVisible(true);

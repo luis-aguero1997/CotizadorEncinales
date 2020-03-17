@@ -135,12 +135,12 @@
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TXT_NombreEquipo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="TXT_ConsumoKwEq" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TXT_ConsumoKwEq" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="TXT_NombreEquipo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -194,6 +194,10 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TXT_ConsumoKwEq">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TXT_ConsumoKwEqActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TXT_ConsumoKwEqKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -204,6 +208,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TXT_NombreEquipo">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TXT_NombreEquipoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -272,6 +279,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TXT_HorasConsumo">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TXT_HorasConsumoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BTN_Eliminar">
           <Properties>

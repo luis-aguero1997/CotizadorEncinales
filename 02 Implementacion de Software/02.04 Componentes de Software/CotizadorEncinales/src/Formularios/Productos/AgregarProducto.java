@@ -149,6 +149,11 @@ public class AgregarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(TxtDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 265, 210, -1));
 
+        TxtPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtPrecioActionPerformed(evt);
+            }
+        });
         TxtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtPrecioKeyTyped(evt);
@@ -301,9 +306,9 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          
-        GestionProductos mGestionProductos = new GestionProductos();
+        
          this.dispose();
-         mGestionProductos.setVisible(true);
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TxtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClaveKeyTyped
@@ -347,7 +352,7 @@ public class AgregarProducto extends javax.swing.JFrame {
             evt.consume();
         }
         
-        if (evt.getKeyChar() == '@' && TxtPrecio.getText().contains(".")) {
+        if (evt.getKeyChar() == '.' && TxtPrecio.getText().contains(".")) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtPrecioKeyTyped
@@ -372,6 +377,10 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSaveActionPerformed
+
+    private void TxtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtPrecioActionPerformed
 
     public static void evitarPegar(JTextField campo) {
 

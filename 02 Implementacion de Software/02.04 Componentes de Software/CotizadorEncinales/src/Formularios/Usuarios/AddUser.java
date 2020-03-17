@@ -175,6 +175,11 @@ public class AddUser extends javax.swing.JFrame {
         });
         jPanel1.add(TxtNomCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 230, -1));
 
+        TxtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtCorreoActionPerformed(evt);
+            }
+        });
         TxtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtCorreoKeyTyped(evt);
@@ -347,6 +352,10 @@ public class AddUser extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_TxtCorreoKeyTyped
+
+    private void TxtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCorreoActionPerformed
 
     public static void evitarPegar(JTextField campo) {
 

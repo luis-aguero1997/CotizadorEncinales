@@ -216,9 +216,9 @@ public class ModificarUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Usuarios mUsuarios = new Usuarios();
+       
         this.dispose();
-        mUsuarios.setVisible(true);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -264,7 +264,11 @@ public class ModificarUser extends javax.swing.JFrame {
             this.jLabel8.setText("Correo Invalido");
         } else if (this.TxtModCorreo.getText().length() > 10){
             this.jLabel8.setText("");
+        }        
+        if (evt.getKeyChar() == '@' && TxtModCorreo.getText().contains("@")) {
+            evt.consume();
         }
+      
     }//GEN-LAST:event_TxtModCorreoKeyTyped
 
     private void TxtModCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtModCorreoActionPerformed
