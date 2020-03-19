@@ -38,15 +38,6 @@ public class Usuarios extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
         this.visualizar_Productos(TableUsuarios);
-        this.TableUsuarios.getColumnModel().getColumn(0).setPreferredWidth(30);//Id
-        this.TableUsuarios.getColumnModel().getColumn(1).setPreferredWidth(200);//Nombre Completo
-        this.TableUsuarios.getColumnModel().getColumn(2).setPreferredWidth(130);//Nombre de Usuario
-        this.TableUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);//Password
-        this.TableUsuarios.getColumnModel().getColumn(4).setPreferredWidth(170);//Correo
-        this.TableUsuarios.getColumnModel().getColumn(5).setPreferredWidth(120);//Puesto
-        this.TableUsuarios.getColumnModel().getColumn(6).setPreferredWidth(70);//Del
-        this.TableUsuarios.getColumnModel().getColumn(7).setPreferredWidth(70);//Mod
-
     }
 
     /**
@@ -230,10 +221,11 @@ public class Usuarios extends javax.swing.JFrame {
 
                 break;
             case 7:
-
-                ModificarUser ModUser = new ModificarUser();
-                ModUser.setVisible(true);
-
+                if (JOptionPane.showConfirmDialog(null, "¿Desea Modificar la informacionn el Usuario?") == 0) {
+                    Id2 = Seleccion;
+                    ModificarUser ModUser = new ModificarUser();
+                    ModUser.setVisible(true);
+                }
                 break;
             default:
         }
@@ -249,9 +241,9 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_BackMenuUsuarioActionPerformed
 
     private void BackMenuUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMenuUsuarioMouseClicked
-        
+
         this.dispose();
-       
+
     }//GEN-LAST:event_BackMenuUsuarioMouseClicked
 
     public void visualizar_Productos(JTable tabla) {
@@ -317,6 +309,15 @@ public class Usuarios extends javax.swing.JFrame {
             tabla.setModel(dt);
             tabla.setRowHeight(32);
         }
+
+        this.TableUsuarios.getColumnModel().getColumn(0).setPreferredWidth(30);//Id
+        this.TableUsuarios.getColumnModel().getColumn(1).setPreferredWidth(200);//Nombre Completo
+        this.TableUsuarios.getColumnModel().getColumn(2).setPreferredWidth(130);//Nombre de Usuario
+        this.TableUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);//Password
+        this.TableUsuarios.getColumnModel().getColumn(4).setPreferredWidth(170);//Correo
+        this.TableUsuarios.getColumnModel().getColumn(5).setPreferredWidth(120);//Puesto
+        this.TableUsuarios.getColumnModel().getColumn(6).setPreferredWidth(70);//Del
+        this.TableUsuarios.getColumnModel().getColumn(7).setPreferredWidth(70);//Mod
 
     }
 

@@ -227,6 +227,40 @@ public class BD_1
         }
     }
      
+    public void Modificar2(Usuario Usuario) {
+        Conectar();
+        Conexion conec = new Conexion();
+        String sql = "UPDATE Usuarios SET NomCompleto = ?,Usuario = ?,Correo = ?, Tipo = ? WHERE idUsuarios =  ?;";
+        PreparedStatement ps = null;
+        
+        try {
+        ps = getConnection().prepareStatement(sql);    
+            ps.setString(1, Usuario.getNomCompleto());
+            ps.setString(2, Usuario.getUsuario());
+            ps.setString(3, Usuario.getCorreo());
+            ps.setString((4), Usuario.getTipo());
+            ps.setInt(5, Usuario.getId_Usuario());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Producto Modificado con Exito");
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al Modificar");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al Modificar");
+        } finally {
+            try {
+                
+                
+                ps.close();
+                Desconectar();
+            } catch (Exception ex) {
+                
+            }
+        }
+    } 
+     
      public void Eliminar(int Id) {
         Conectar();
         Statement consulta;
@@ -260,6 +294,44 @@ public class BD_1
             }
         }
 
+    }
+     
+     public ArrayList<Usuario> Listar_UsuarioFiltro(int Id) {
+        Conectar();
+        ArrayList<Usuario> list = new ArrayList<Usuario>();
+        Conexion conec = new Conexion();
+        Statement consulta;
+        String sql = "SELECT * FROM Usuarios WHERE idUsuarios = " + Id +";";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            consulta = Conexion.createStatement();
+            rs = consulta.executeQuery(sql);
+            while (rs.next()) {
+                Usuario Usuario = new Usuario();
+                Usuario.setId_Usuario(rs.getInt(1));
+                Usuario.setNomCompleto(rs.getString(3));
+                Usuario.setUsuario(rs.getString(2));
+                Usuario.setPassword(rs.getString(4));
+                Usuario.setCorreo(rs.getString(5));
+                Usuario.setTipo(rs.getString(6));
+                
+                list.add(Usuario);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+                conec.Desconectar();
+            } catch (Exception ex) {
+            }
+        }
+        Desconectar();
+        return list;
     }
   
      // ------------  RP R O D U C C I O N   ------------

@@ -47,6 +47,7 @@ public class AddCompra extends javax.swing.JFrame {
         tpdf.visualizar_PdfVO(Table);
 
         LblProceso.setText("");
+        jLabel15.setText("");
         evitarPegar(this.TxtCant);
         evitarPegar(this.TxtClave);
         evitarPegar(this.TxtDes);
@@ -444,11 +445,15 @@ public class AddCompra extends javax.swing.JFrame {
 
     private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
         // TODO add your handling code here:
+        String Nombre = "";
         int filaseleccionada = 0;
         filaseleccionada = Table.getSelectedRow();
         SeleccionY = Table.getSelectedColumn();
         //String bastidor = (String)Table.getValueAt(filaseleccionada, 0);
         Seleccion = (int) Table.getValueAt(filaseleccionada, 0);
+        Nombre = (String) Table.getValueAt(filaseleccionada, 1);
+        jLabel15.setText(Nombre);
+        
 
         if (SeleccionY == 2) {
             LblProceso.setText("Procesando.....");
@@ -465,7 +470,7 @@ public class AddCompra extends javax.swing.JFrame {
                     System.out.println("Bien");
                     pd.Ejecutar_ArchivoPDF(this.Seleccion);
 
-                    System.out.println("Bien");
+                    //System.out.println("Bien");
                     try {
                         System.out.println("Bien");
                         Desktop.getDesktop().open(new File("new.pdf"));

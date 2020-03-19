@@ -9,6 +9,8 @@ import BaseDeDatos.BD_1;
 import Clases.Usuario;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.InputMap;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -265,20 +267,24 @@ public class AddUser extends javax.swing.JFrame {
                     || this.TxtPassword.getText().length() < 8) {
                 JOptionPane.showMessageDialog(null, "Uno o mas campos invalidos");
             } else { //Hasta aqui
-                Usuario Usuario = new Usuario();
-                Usuario.setNomCompleto(TxtNomCompleto.getText());
-                Usuario.setUsuario(TxtUsuario.getText());
-                Usuario.setPassword(TxtPassword.getText());
-                Usuario.setCorreo(TxtCorreo.getText());
-                Usuario.setTipo(Integer.toString(Puesto.getSelectedIndex()));
+                if (ValidacionCorreo(TxtCorreo.getText())) {
+                    Usuario Usuario = new Usuario();
+                    Usuario.setNomCompleto(TxtNomCompleto.getText());
+                    Usuario.setUsuario(TxtUsuario.getText());
+                    Usuario.setPassword(TxtPassword.getText());
+                    Usuario.setCorreo(TxtCorreo.getText());
+                    Usuario.setTipo(Integer.toString(Puesto.getSelectedIndex()));
 
-                mBD.Agregar_Usuario(Usuario);
+                    mBD.Agregar_Usuario(Usuario);
 
-                TxtNomCompleto.setText("");
-                TxtUsuario.setText("");
-                TxtPassword.setText("");
-                TxtCorreo.setText("");
-                Puesto.setSelectedIndex(0);
+                    TxtNomCompleto.setText("");
+                    TxtUsuario.setText("");
+                    TxtPassword.setText("");
+                    TxtCorreo.setText("");
+                    Puesto.setSelectedIndex(0);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Correo invalido");
+                }
             }
 
         }
@@ -374,6 +380,21 @@ public class AddUser extends javax.swing.JFrame {
         InputMap map2 = campo.getInputMap(JTextField.WHEN_FOCUSED);
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
 
+    }
+
+    public boolean ValidacionCorreo(String Correo) {
+        // Patrón para validar el email
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+
+        Matcher mather = pattern.matcher(Correo);
+
+        if (mather.find() == true) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
