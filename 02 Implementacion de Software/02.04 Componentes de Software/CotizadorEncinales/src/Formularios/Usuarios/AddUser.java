@@ -52,6 +52,7 @@ public class AddUser extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -80,6 +81,17 @@ public class AddUser extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
@@ -129,9 +141,9 @@ public class AddUser extends javax.swing.JFrame {
                 BtnAddUserActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 290, 53));
+        jPanel1.add(BtnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 210, 53));
 
-        Puesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Opción", "Administrador", "Cotizador de Ventas", "Encargado de Ventas" }));
+        Puesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Cotizador de Ventas", "Encargado de Ventas" }));
         Puesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PuestoActionPerformed(evt);
@@ -204,10 +216,10 @@ public class AddUser extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel8.setText(" ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+        jLabel8.setText("jLabel8");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
@@ -315,7 +327,7 @@ public class AddUser extends javax.swing.JFrame {
             evt.consume();
 
         } else if (this.TxtUsuario.getText().length() < 8) {
-            this.jLabel9.setText("Usuario Invalida");
+            this.jLabel9.setText("Usuario Invalido");
         } else if (this.TxtUsuario.getText().length() >= 8) {
             this.jLabel9.setText("");
         }
@@ -420,5 +432,6 @@ public class AddUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

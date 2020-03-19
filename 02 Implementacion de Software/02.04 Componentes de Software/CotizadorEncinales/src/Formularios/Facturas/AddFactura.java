@@ -142,7 +142,7 @@ public class AddFactura extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("jLabel5");
 
