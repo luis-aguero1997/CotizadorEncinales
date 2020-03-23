@@ -10,6 +10,7 @@ import Formularios.Facturas.AddCompra;
 import Formularios.Usuarios.Usuarios;
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
+import Formularios.CotizacionPrevia.*;
 import Formularios.Facturas.MainFactura;
 import java.awt.Desktop;
 import java.net.URI;
@@ -177,6 +178,11 @@ public class Admin extends javax.swing.JFrame {
         BtnAdminCotizar2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
         BtnAdminCotizar2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
         BtnAdminCotizar2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnAdminCotizar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnAdminCotizar2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -298,6 +304,13 @@ public class Admin extends javax.swing.JFrame {
         mCP.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtnAdminComparacionActionPerformed
+
+    private void BtnAdminCotizar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAdminCotizar2MouseClicked
+        // TODO add your handling code here:
+        CotizacionPrevia mCP = new CotizacionPrevia();
+        mCP.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtnAdminCotizar2MouseClicked
 
     /**
      * @param args the command line arguments

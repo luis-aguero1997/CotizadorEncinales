@@ -7,6 +7,7 @@ package Formularios;
 
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
+import Formularios.CotizacionPrevia.*;
 
 /**
  *
@@ -135,6 +136,11 @@ public class Cotizador extends javax.swing.JFrame {
         jButton1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
         jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
 
@@ -268,6 +274,12 @@ public class Cotizador extends javax.swing.JFrame {
         mEP.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtnCotizadorCotizarMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        CotizacionPrevia mCP = new CotizacionPrevia();
+        mCP.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

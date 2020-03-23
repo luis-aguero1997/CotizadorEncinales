@@ -1217,4 +1217,177 @@ public class BD_1
             return false;
         }
     }
+    
+    // ------------  C O T I Z A C I O N  P R E V I A  ------------
+
+    public ArrayList ConsultaMateriaCotizable()
+        {
+            Conectar();
+            MateriaCotizable mMP;
+            ArrayList mListaMP = new ArrayList();
+            Statement consulta;
+            ResultSet resultado;
+
+            try 
+            {
+                consulta = Conexion.createStatement();
+
+                resultado = consulta.executeQuery("select * from MateriaCotizable;");
+                while (resultado.next()) 
+                {
+                    mMP = new MateriaCotizable();
+                    mMP.setIdMateriaCotizable(resultado.getInt("idMateriaCotizable"));
+                    mMP.setClave(resultado.getString("Clave"));
+                    mMP.setDescripcion(resultado.getString("Descripcion"));
+                    mMP.setPrecioCorte(resultado.getDouble("PrecioCorte"));
+                    mMP.setPrecioDobles(resultado.getDouble("PrecioDobles"));
+                    mMP.setPrecioRoscado(resultado.getDouble("PrecioRoscado"));
+                    mMP.setPrecioSoldadura(resultado.getDouble("PrecioSoldadura"));
+                    mMP.setPrecioUnitario(resultado.getDouble("PrecioUnitario"));
+                    mListaMP.add(mMP);
+                }
+            } 
+            catch (SQLException e) 
+            {
+                JOptionPane.showMessageDialog(null, "No Existe");
+            }
+            Desconectar();
+            return mListaMP;
+        }
+
+    public ArrayList ConsultaMateriaCotizableFiltro(String Buscar)
+    {
+        Conectar();
+        MateriaCotizable mMP;
+        ArrayList mListaMP = new ArrayList();
+        Statement consulta;
+        ResultSet resultado;
+
+        try 
+        {
+            consulta = Conexion.createStatement();
+            resultado = consulta.executeQuery("SELECT * FROM MateriaCotizable WHERE Clave LIKE '%" + Buscar + "%' OR Descripcion LIKE '%"+ Buscar +"%'");
+            while (resultado.next()) 
+            {
+                mMP = new MateriaCotizable();
+                mMP.setIdMateriaCotizable(resultado.getInt("idMateriaCotizable"));
+                mMP.setClave(resultado.getString("Clave"));
+                mMP.setDescripcion(resultado.getString("Descripcion"));
+                mMP.setPrecioCorte(resultado.getDouble("PrecioCorte"));
+                mMP.setPrecioDobles(resultado.getDouble("PrecioDobles"));
+                mMP.setPrecioRoscado(resultado.getDouble("PrecioRoscado"));
+                mMP.setPrecioSoldadura(resultado.getDouble("PrecioSoldadura"));
+                mMP.setPrecioUnitario(resultado.getDouble("PrecioUnitario"));
+                mListaMP.add(mMP);              
+            }
+        } 
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, "No Existe esa búsqueda");
+        }
+        Desconectar();
+        return mListaMP;
+    }
+
+    public ArrayList ConsultaMateriaCotizableClave(String Buscar)
+    {
+        Conectar();
+        MateriaCotizable mMP;
+        ArrayList mListaMP = new ArrayList();
+        Statement consulta;
+        ResultSet resultado;
+
+        try 
+        {
+            consulta = Conexion.createStatement();
+            resultado = consulta.executeQuery("SELECT * FROM MateriaCotizable WHERE Clave = '" + Buscar + "'");
+            while (resultado.next()) 
+            {
+                mMP = new MateriaCotizable();
+                mMP.setIdMateriaCotizable(resultado.getInt("idMateriaCotizable"));
+                mMP.setClave(resultado.getString("Clave"));
+                mMP.setDescripcion(resultado.getString("Descripcion"));
+                mMP.setPrecioCorte(resultado.getDouble("PrecioCorte"));
+                mMP.setPrecioDobles(resultado.getDouble("PrecioDobles"));
+                mMP.setPrecioRoscado(resultado.getDouble("PrecioRoscado"));
+                mMP.setPrecioSoldadura(resultado.getDouble("PrecioSoldadura"));
+                mMP.setPrecioUnitario(resultado.getDouble("PrecioUnitario"));
+                mListaMP.add(mMP);              
+            }
+        } 
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, "No Existe esa búsqueda");
+        }
+        Desconectar();
+        return mListaMP;
+    }
+    
+    public boolean AgregarMateriaPrimaCotizable(MateriaCotizable mMC) 
+    {
+       Conectar();
+       Statement consulta;     
+       
+        try 
+        {
+         consulta = Conexion.createStatement();
+         consulta.execute("insert into MateriaCotizable "
+                + "values (null,'" + mMC.getClave() + "',"
+                + "'" + mMC.getDescripcion()+ "',"
+                + "" + mMC.getPrecioCorte()+ "," 
+                + "" + mMC.getPrecioDobles()+ ","
+                + "" + mMC.getPrecioRoscado()+ ","
+                + "" + mMC.getPrecioSoldadura()+ ","
+                + "" + mMC.getPrecioUnitario()+ ");");
+         return true;
+        } 
+        catch (SQLException e) 
+        {
+         return false;
+        }
+    }
+    
+    public boolean ModificarMateriaCotizable(MateriaCotizable mMC, String Clave)
+    {
+        Statement consulta; 
+        Conectar();
+        try 
+        {
+            consulta = Conexion.createStatement();
+                
+                consulta.execute("update MateriaCotizable set "
+                    + "Descripcion = '" + mMC.getDescripcion()+ "',"
+                    + "PrecioCorte = " + mMC.getPrecioCorte()+ ","
+                    + "PrecioDobles = " + mMC.getPrecioDobles()+ ","
+                    + "PrecioRoscado = " + mMC.getPrecioRoscado()+ ","
+                    + "PrecioSoldadura = " + mMC.getPrecioSoldadura()+ ","
+                    + "PrecioUnitario = " + mMC.getPrecioUnitario()+  
+                    "where Clave = '" + Clave + "';");
+                
+                return true;
+        }
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, "Error " + e);
+            return false;
+        }
+   }
+    
+    public boolean EliminarMateriaCotizable(String Clave) 
+    {
+       Conectar();
+       Statement consulta;     
+       
+        try 
+        {
+            consulta = Conexion.createStatement();
+            consulta.execute("DELETE FROM MateriaCotizable WHERE Clave = '" + Clave + "';");
+            return true;
+        } 
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, "Error " + e);
+            return false;
+        }                   
+    }
 }
