@@ -41,6 +41,7 @@ public class ModificarUser extends javax.swing.JFrame {
         this.jLabel8.setText("");
         this.jLabel9.setText("");
         this.jLabel10.setText("");
+        this.ModPuesto.setSelectedIndex(1);
 
         evitarPegar(this.TxtModCorreo);
         evitarPegar(this.TxtModNombre);
@@ -159,7 +160,7 @@ public class ModificarUser extends javax.swing.JFrame {
         });
         jPanel1.add(TxtModCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 200, -1));
 
-        ModPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "* Seleccionar Opción *", "Administrador", "Cotizador de Ventas", "Encargado de Ventas" }));
+        ModPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "!!! Seleccionar Opción !!!", "Administrador", "Cotizador de Ventas", "Encargado de Ventas" }));
         jPanel1.add(ModPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 200, -1));
 
         jButton1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
@@ -222,7 +223,8 @@ public class ModificarUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        Usuarios User = new Usuarios();
+        User.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -270,6 +272,9 @@ public class ModificarUser extends javax.swing.JFrame {
                 TxtModPassword.setText("");
                 TxtModCorreo.setText("");
                 ModPuesto.setSelectedIndex(0);
+                Usuarios User = new Usuarios();
+                User.setVisible(true);
+                this.dispose();
             }
 
         }

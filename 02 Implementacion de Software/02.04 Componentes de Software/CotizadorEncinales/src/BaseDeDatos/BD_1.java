@@ -170,7 +170,7 @@ public class BD_1
             ps.setString(6, Usuario.getTipo());
            
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Producto Agregada con Exito");
+            JOptionPane.showMessageDialog(null, "Usuario Agregada con Exito");
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -207,7 +207,7 @@ public class BD_1
             ps.setString((5), Usuario.getTipo());
             ps.setInt(6, Usuario.getId_Usuario());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Producto Modificado con Exito");
+            JOptionPane.showMessageDialog(null, "Usuario Actualizado");
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -241,7 +241,7 @@ public class BD_1
             ps.setString((4), Usuario.getTipo());
             ps.setInt(5, Usuario.getId_Usuario());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Producto Modificado con Exito");
+            JOptionPane.showMessageDialog(null, "Usuario Actualizado");
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

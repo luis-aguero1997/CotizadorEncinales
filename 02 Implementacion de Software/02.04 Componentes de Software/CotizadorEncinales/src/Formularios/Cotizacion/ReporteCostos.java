@@ -68,7 +68,7 @@ public class ReporteCostos extends javax.swing.JFrame
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
-        jLabel1.setText("REPORTE DE COSTOS DE " + ElegirProducto.Clave + " - " + ElegirProducto.NombreProducto);
+        jLabel1.setText("Reporte de Costos de  " + ElegirProducto.Clave + " - " + ElegirProducto.NombreProducto);
         
         mMenuC = null;
         mBD = null;
@@ -512,11 +512,11 @@ public class ReporteCostos extends javax.swing.JFrame
                                     .addComponent(jLabel9)
                                     .addComponent(TXT_Especificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(TXT_UnidadEmpaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TXT_UnidadEmpaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TXT_Merma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel15))))
                         .addGap(25, 25, 25)

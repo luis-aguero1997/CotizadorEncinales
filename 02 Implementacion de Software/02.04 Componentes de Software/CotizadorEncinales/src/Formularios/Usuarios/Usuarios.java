@@ -224,6 +224,7 @@ public class Usuarios extends javax.swing.JFrame {
                 if (JOptionPane.showConfirmDialog(null, "¿Desea Modificar la informacionn el Usuario?") == 0) {
                     Id2 = Seleccion;
                     ModificarUser ModUser = new ModificarUser();
+                    this.dispose();
                     ModUser.setVisible(true);
                 }
                 break;

@@ -44,12 +44,13 @@ public class AgregarProducto extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
-        Ruta = "";
+        Ruta = "-";
         mBD = new BD();
         this.jLabel8.setText("");
         this.jLabel9.setText("");
         this.jLabel10.setText("");
         this.jLabel11.setText("");
+        this.TxtPrecio.setText("0");
         
         evitarPegar(this.TxtClave);
         evitarPegar(this.TxtDes);
@@ -246,6 +247,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void BtnSeleccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSeleccionMouseClicked
         // TODO add your handling code here:
+        
         JFileChooser j = new JFileChooser();
         FileNameExtensionFilter fi = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         j.setFileFilter(fi);
@@ -263,7 +265,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void BtnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSaveMouseClicked
         // TODO add your handling code here:
-        if (!this.TxtClave.getText().isEmpty() || this.TxtDes.getText().isEmpty() || this.TxtNom.getText().isEmpty() || this.TxtPrecio.getText().isEmpty() || !Ruta.isEmpty()) {
+        if (!this.TxtClave.getText().isEmpty() && !this.TxtDes.getText().isEmpty() && !this.TxtNom.getText().isEmpty() && !this.TxtPrecio.getText().equals("null") && !Ruta.equals("-")) {
             Productos Pro = new Productos();
             Pro.setClave(TxtClave.getText());
             Pro.setDesc(TxtDes.getText());
@@ -301,8 +303,9 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          
-        
-         this.dispose();
+        GestionProductos mGestionProductos = new GestionProductos();
+        this.dispose();
+        mGestionProductos.setVisible(true);
          
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -23,6 +23,7 @@ public class Tabla_PdfVO {
         };
         dt.addColumn("Codigo");
         dt.addColumn("Nombre");
+        dt.addColumn("Fecha");
         dt.addColumn("Archivo");
 
         ImageIcon icono = null;
@@ -36,15 +37,16 @@ public class Tabla_PdfVO {
 
         if (list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
-                Object fila[] = new Object[3];
+                Object fila[] = new Object[4];
                 vo = list.get(i);
                 fila[0] = vo.getID();
                 fila[1] = vo.getNombre();
+                fila[2] = vo.getFecha();
                 if (vo.getPDF() != null) {
-                fila[2] = new JButton("Abrir");
+                fila[3] = new JButton("Abrir");
                             //new ImageIcon(get_Image("32pdf.ico"));
                 } else {
-                    fila[2] = new JButton("Vacio");
+                    fila[3] = new JButton("Vacio");
                 }
 
                 dt.addRow(fila);
@@ -64,6 +66,7 @@ public class Tabla_PdfVO {
         };
         dt.addColumn("Codigo");
         dt.addColumn("Nombre");
+        dt.addColumn("Fecha");
         dt.addColumn("Archivo");
 
         ImageIcon icono = null;
