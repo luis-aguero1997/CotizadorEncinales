@@ -38,15 +38,6 @@ public class Usuarios extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
         this.visualizar_Productos(TableUsuarios);
-        this.TableUsuarios.getColumnModel().getColumn(0).setPreferredWidth(30);//Id
-        this.TableUsuarios.getColumnModel().getColumn(1).setPreferredWidth(200);//Nombre Completo
-        this.TableUsuarios.getColumnModel().getColumn(2).setPreferredWidth(130);//Nombre de Usuario
-        this.TableUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);//Password
-        this.TableUsuarios.getColumnModel().getColumn(4).setPreferredWidth(170);//Correo
-        this.TableUsuarios.getColumnModel().getColumn(5).setPreferredWidth(120);//Puesto
-        this.TableUsuarios.getColumnModel().getColumn(6).setPreferredWidth(70);//Del
-        this.TableUsuarios.getColumnModel().getColumn(7).setPreferredWidth(70);//Mod
-
     }
 
     /**
@@ -81,6 +72,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        TableUsuarios.setBackground(new java.awt.Color(131, 178, 225));
         TableUsuarios.setFont(new java.awt.Font("Sukhumvit Set", 0, 12)); // NOI18N
         TableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -152,9 +144,9 @@ public class Usuarios extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(288, 288, 288)
+                        .addGap(290, 290, 290)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(365, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,11 +161,15 @@ public class Usuarios extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -225,10 +221,12 @@ public class Usuarios extends javax.swing.JFrame {
 
                 break;
             case 7:
-
-                ModificarUser ModUser = new ModificarUser();
-                ModUser.setVisible(true);
-
+                if (JOptionPane.showConfirmDialog(null, "¿Desea Modificar la informacionn el Usuario?") == 0) {
+                    Id2 = Seleccion;
+                    ModificarUser ModUser = new ModificarUser();
+                    this.dispose();
+                    ModUser.setVisible(true);
+                }
                 break;
             default:
         }
@@ -237,15 +235,16 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_TableUsuariosMouseClicked
 
     private void BackMenuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackMenuUsuarioActionPerformed
+
         Admin mAdmin = new Admin();
         this.dispose();
         mAdmin.setVisible(true);
     }//GEN-LAST:event_BackMenuUsuarioActionPerformed
 
     private void BackMenuUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMenuUsuarioMouseClicked
-        Admin mAdmin = new Admin();
+
         this.dispose();
-        mAdmin.setVisible(true);
+
     }//GEN-LAST:event_BackMenuUsuarioMouseClicked
 
     public void visualizar_Productos(JTable tabla) {
@@ -311,6 +310,15 @@ public class Usuarios extends javax.swing.JFrame {
             tabla.setModel(dt);
             tabla.setRowHeight(32);
         }
+
+        this.TableUsuarios.getColumnModel().getColumn(0).setPreferredWidth(30);//Id
+        this.TableUsuarios.getColumnModel().getColumn(1).setPreferredWidth(200);//Nombre Completo
+        this.TableUsuarios.getColumnModel().getColumn(2).setPreferredWidth(130);//Nombre de Usuario
+        this.TableUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);//Password
+        this.TableUsuarios.getColumnModel().getColumn(4).setPreferredWidth(170);//Correo
+        this.TableUsuarios.getColumnModel().getColumn(5).setPreferredWidth(120);//Puesto
+        this.TableUsuarios.getColumnModel().getColumn(6).setPreferredWidth(70);//Del
+        this.TableUsuarios.getColumnModel().getColumn(7).setPreferredWidth(70);//Mod
 
     }
 

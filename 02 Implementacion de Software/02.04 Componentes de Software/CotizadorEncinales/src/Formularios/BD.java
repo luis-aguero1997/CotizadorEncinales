@@ -152,6 +152,8 @@ public class BD {
                 vo.setID(rs.getInt(1));
                 vo.setNombre(rs.getString(2));
                 vo.setPDF(rs.getBytes(3));
+                vo.setFecha(rs.getDate(5));
+                
                 list.add(vo);
             }
         } catch (SQLException ex) {
@@ -188,6 +190,7 @@ public class BD {
                 vo.setID(rs.getInt(1));
                 vo.setNombre(rs.getString(2));
                 vo.setPDF(rs.getBytes(3));
+                vo.setFecha(rs.getDate(5));
                 list.add(vo);
 
             }

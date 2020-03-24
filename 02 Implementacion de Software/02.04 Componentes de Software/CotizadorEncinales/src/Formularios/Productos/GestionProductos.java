@@ -115,13 +115,18 @@ public class GestionProductos extends javax.swing.JFrame {
         jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
         jButton1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
         jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        Table.setBackground(new java.awt.Color(153, 204, 255));
+        Table.setBackground(new java.awt.Color(121, 155, 255));
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -145,14 +150,13 @@ public class GestionProductos extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(335, 335, 335)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -168,7 +172,7 @@ public class GestionProductos extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
@@ -204,6 +208,7 @@ public class GestionProductos extends javax.swing.JFrame {
     private void BtnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddMouseClicked
         // TODO add your handling code here:
         AgregarProducto Add = new AgregarProducto();
+        this.dispose();
         Add.setVisible(true);
     }//GEN-LAST:event_BtnAddMouseClicked
 
@@ -228,6 +233,7 @@ public class GestionProductos extends javax.swing.JFrame {
                 if (JOptionPane.showConfirmDialog(null, "Desea Modificar Este Producto, la informacion Modificada no regresara") == 0) {
                     Clave2 = Clave;
                     ModProducto Pro = new ModProducto();
+                    this.dispose();;
                     Pro.setVisible(true);
                 }
 
@@ -242,15 +248,21 @@ public class GestionProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_TableMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
-        Admin mAdmin = new Admin();
-        this.dispose();
-        mAdmin.setVisible(true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
-        // TODO add your handling code here:
+        AgregarProducto Add = new AgregarProducto();
+        this.dispose();
+        Add.setVisible(true);
     }//GEN-LAST:event_BtnAddActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+            
+        Admin mAdmin = new Admin();
+        this.dispose();
+        mAdmin.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     public void visualizar_Productos(JTable tabla) {
         tabla.setDefaultRenderer(Object.class, new imgTabla());

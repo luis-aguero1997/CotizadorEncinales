@@ -120,6 +120,17 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel6.setText("Precio Unitario");
 
+        TXT_PrecioUnitario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TXT_PrecioUnitarioActionPerformed(evt);
+            }
+        });
+        TXT_PrecioUnitario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_PrecioUnitarioKeyTyped(evt);
+            }
+        });
+
         CB_Personal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
 
         BTN_Atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
@@ -148,6 +159,12 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
             }
         });
 
+        TXT_Cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_CantidadKeyTyped(evt);
+            }
+        });
+
         BTN_Eliminar.setText("Eliminar");
         BTN_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,9 +190,9 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
                         .addComponent(BTN_Atras)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85)
+                        .addGap(113, 113, 113)
                         .addComponent(jLabel7)
-                        .addGap(34, 34, 34))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -211,13 +228,13 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BTN_Atras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))))
+                            .addComponent(BTN_Atras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -298,6 +315,42 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_BTN_EliminarActionPerformed
+
+    private void TXT_PrecioUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXT_PrecioUnitarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_PrecioUnitarioActionPerformed
+
+    private void TXT_PrecioUnitarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_PrecioUnitarioKeyTyped
+       
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_PrecioUnitario.getText().length() == 10) {
+            evt.consume();
+        }
+        
+        if (evt.getKeyChar() == '.' && TXT_PrecioUnitario.getText().contains(".")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_PrecioUnitarioKeyTyped
+
+    private void TXT_CantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CantidadKeyTyped
+        
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_Cantidad.getText().length() == 10) {
+            evt.consume();
+        }
+        
+        if (evt.getKeyChar() == '.' && TXT_Cantidad.getText().contains(".")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_CantidadKeyTyped
 
     public void NuevosPrecios()
     {

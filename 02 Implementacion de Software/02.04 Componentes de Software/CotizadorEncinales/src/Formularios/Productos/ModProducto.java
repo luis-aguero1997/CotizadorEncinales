@@ -177,17 +177,17 @@ public class ModProducto extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 344, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 116, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("jLabel8");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 181, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 243, -1, -1));
@@ -281,9 +281,9 @@ public class ModProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        GestionProductos mGestionProductos = new GestionProductos();
+        
         this.dispose();
-        mGestionProductos.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TxtNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomKeyTyped
@@ -314,12 +314,16 @@ public class ModProducto extends javax.swing.JFrame {
 
     private void TxtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPrecioKeyTyped
         // TODO add your handling code here:
-                char car = evt.getKeyChar();
+             char car = evt.getKeyChar();
         if ((car < '0' || car > '9') && (car > '.')) {
             evt.consume();
         }
 
         if (TxtPrecio.getText().length() == 10) {
+            evt.consume();
+        }
+        
+        if (evt.getKeyChar() == '.' && TxtPrecio.getText().contains(".")) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtPrecioKeyTyped

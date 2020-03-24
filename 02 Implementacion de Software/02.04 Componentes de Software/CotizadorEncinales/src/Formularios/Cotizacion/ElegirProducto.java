@@ -94,6 +94,7 @@ public final class ElegirProducto extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/contrato (2).png"))); // NOI18N
         jLabel1.setText(" Cotización ");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         TBL_Productos.setModel(Tabla);
         TBL_Productos.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -44,12 +44,13 @@ public class AgregarProducto extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
-        Ruta = "";
+        Ruta = "-";
         mBD = new BD();
         this.jLabel8.setText("");
         this.jLabel9.setText("");
         this.jLabel10.setText("");
         this.jLabel11.setText("");
+        this.TxtPrecio.setText("0");
         
         evitarPegar(this.TxtClave);
         evitarPegar(this.TxtDes);
@@ -105,12 +106,12 @@ public class AgregarProducto extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 400, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 20)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/portapapeles.png"))); // NOI18N
         jLabel1.setText("Agregar Producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 16, 213, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 213, -1));
 
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel2.setText("Nombre: ");
@@ -149,6 +150,11 @@ public class AgregarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(TxtDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 265, 210, -1));
 
+        TxtPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtPrecioActionPerformed(evt);
+            }
+        });
         TxtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtPrecioKeyTyped(evt);
@@ -172,9 +178,6 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         BtnSave.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         BtnSave.setText("Guardar Producto");
-        BtnSave.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible (1).png"))); // NOI18N
-        BtnSave.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible (1).png"))); // NOI18N
-        BtnSave.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible (1).png"))); // NOI18N
         BtnSave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnSaveMouseClicked(evt);
@@ -185,11 +188,11 @@ public class AgregarProducto extends javax.swing.JFrame {
                 BtnSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 372, 205, 50));
+        jPanel1.add(BtnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 205, 50));
 
         LblImagen.setBackground(new java.awt.Color(255, 255, 255));
         LblImagen.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel1.add(LblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 79, 263, 268));
+        jPanel1.add(LblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 280, 270));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -208,22 +211,22 @@ public class AgregarProducto extends javax.swing.JFrame {
         jLabel5.setText("Imagen");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 325, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("jLabel8");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 110, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 173, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("jLabel10");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 235, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Sukhumvit Set", 0, 13)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("jLabel11");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 297, -1, -1));
@@ -232,13 +235,11 @@ public class AgregarProducto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
         );
 
         pack();
@@ -246,6 +247,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void BtnSeleccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSeleccionMouseClicked
         // TODO add your handling code here:
+        
         JFileChooser j = new JFileChooser();
         FileNameExtensionFilter fi = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         j.setFileFilter(fi);
@@ -263,7 +265,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void BtnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSaveMouseClicked
         // TODO add your handling code here:
-        if (!this.TxtClave.getText().isEmpty() || this.TxtDes.getText().isEmpty() || this.TxtNom.getText().isEmpty() || this.TxtPrecio.getText().isEmpty() || !Ruta.isEmpty()) {
+        if (!this.TxtClave.getText().isEmpty() && !this.TxtDes.getText().isEmpty() && !this.TxtNom.getText().isEmpty() && !this.TxtPrecio.getText().equals("null") && !Ruta.equals("-")) {
             Productos Pro = new Productos();
             Pro.setClave(TxtClave.getText());
             Pro.setDesc(TxtDes.getText());
@@ -302,8 +304,9 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          
         GestionProductos mGestionProductos = new GestionProductos();
-         this.dispose();
-         mGestionProductos.setVisible(true);
+        this.dispose();
+        mGestionProductos.setVisible(true);
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TxtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClaveKeyTyped
@@ -347,7 +350,7 @@ public class AgregarProducto extends javax.swing.JFrame {
             evt.consume();
         }
         
-        if (evt.getKeyChar() == '@' && TxtPrecio.getText().contains(".")) {
+        if (evt.getKeyChar() == '.' && TxtPrecio.getText().contains(".")) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtPrecioKeyTyped
@@ -372,6 +375,10 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSaveActionPerformed
+
+    private void TxtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtPrecioActionPerformed
 
     public static void evitarPegar(JTextField campo) {
 
