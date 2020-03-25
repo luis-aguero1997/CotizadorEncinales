@@ -96,6 +96,9 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         
         initComponents();
         
+        this.setLocationRelativeTo(null);
+        this.setTitle("Cotizador Encinales");
+        
         TablaMateriaPrima.addColumn("Seleccionar");
         TablaMateriaPrima.addColumn("Clave");
         TablaMateriaPrima.addColumn("Descripción");
@@ -152,19 +155,21 @@ public class CotizacionPrevia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         TP_CotizacionPrevia = new javax.swing.JTabbedPane();
         JP_MateriaPrima = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TBL_MateriaPrima = new javax.swing.JTable();
         TXT_Search1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         JP_Corte = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TBL_Corte = new javax.swing.JTable();
         TXT_Search = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         JP_Total = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TBL_Total = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         LBL_CostoMateriaPrima = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -179,14 +184,22 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         BTN_Atras = new javax.swing.JButton();
         BTN_Agregar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        TP_CotizacionPrevia.setBackground(new java.awt.Color(255, 255, 255));
+        TP_CotizacionPrevia.setFont(new java.awt.Font("Sukhumvit Set", 0, 16)); // NOI18N
         TP_CotizacionPrevia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TP_CotizacionPreviaMouseClicked(evt);
             }
         });
+
+        JP_MateriaPrima.setBackground(new java.awt.Color(255, 255, 255));
 
         TBL_MateriaPrima.setModel(TablaMateriaPrima);
         TBL_MateriaPrima.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,6 +218,9 @@ public class CotizacionPrevia extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        jLabel2.setText("Buscar");
+
         javax.swing.GroupLayout JP_MateriaPrimaLayout = new javax.swing.GroupLayout(JP_MateriaPrima);
         JP_MateriaPrima.setLayout(JP_MateriaPrimaLayout);
         JP_MateriaPrimaLayout.setHorizontalGroup(
@@ -212,23 +228,28 @@ public class CotizacionPrevia extends javax.swing.JFrame {
             .addGroup(JP_MateriaPrimaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JP_MateriaPrimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
                     .addGroup(JP_MateriaPrimaLayout.createSequentialGroup()
-                        .addComponent(TXT_Search1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(JP_MateriaPrimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TXT_Search1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         JP_MateriaPrimaLayout.setVerticalGroup(
             JP_MateriaPrimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_MateriaPrimaLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TXT_Search1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         TP_CotizacionPrevia.addTab("Materia Prima", JP_MateriaPrima);
+
+        JP_Corte.setBackground(new java.awt.Color(255, 255, 255));
 
         TBL_Corte.setModel(TablaCorte);
         TBL_Corte.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,6 +259,15 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TBL_Corte);
 
+        TXT_Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TXT_SearchActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        jLabel1.setText("Buscar");
+
         javax.swing.GroupLayout JP_CorteLayout = new javax.swing.GroupLayout(JP_Corte);
         JP_Corte.setLayout(JP_CorteLayout);
         JP_CorteLayout.setHorizontalGroup(
@@ -245,24 +275,28 @@ public class CotizacionPrevia extends javax.swing.JFrame {
             .addGroup(JP_CorteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JP_CorteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2)
                     .addGroup(JP_CorteLayout.createSequentialGroup()
-                        .addComponent(TXT_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(JP_CorteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TXT_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(0, 537, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         JP_CorteLayout.setVerticalGroup(
             JP_CorteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_CorteLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TXT_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         TP_CotizacionPrevia.addTab("Corte | Doblez | Roscado | Soldadura", JP_Corte);
 
+        JP_Total.setBackground(new java.awt.Color(255, 255, 255));
         JP_Total.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JP_TotalMouseClicked(evt);
@@ -277,76 +311,75 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(TBL_Total);
 
-        jLabel3.setText("PRECIO TOTAL DE LA COTIZACIÓN PREVIA");
-
-        jLabel4.setText("PRECIO TOTAL DE MATERIA PRIMA");
+        jLabel4.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+        jLabel4.setText("Precio Total De Materia Prima");
 
         LBL_CostoMateriaPrima.setText("$$$MP");
 
-        jLabel5.setText("COSTO ADMINISTRATIVO");
+        jLabel5.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+        jLabel5.setText("Costo Administrativo");
 
-        jLabel6.setText("COSTO FLETE EMBARQUE");
+        jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+        jLabel6.setText("Costo Flete - Embarque");
 
         LBL_CostoAdministrativo.setText("$$$CA");
 
         LBL_CostoFlete.setText("$$$FE");
 
-        jLabel7.setText("UTILIDAD 30%");
+        jLabel7.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+        jLabel7.setText("Utilidad (30%)");
 
         LBL_CostoUtilidad.setText("$$$UT");
 
-        jLabel8.setText("IVA 16%");
+        jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+        jLabel8.setText("IVA (16%)");
 
         LBL_CostoIVA.setText("$$$IVA");
 
+        LBL_CostoTotal.setForeground(new java.awt.Color(255, 0, 0));
         LBL_CostoTotal.setText("$$$CT");
 
+        jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 0, 51));
         jLabel9.setText("COSTO TOTAL");
 
         javax.swing.GroupLayout JP_TotalLayout = new javax.swing.GroupLayout(JP_Total);
         JP_Total.setLayout(JP_TotalLayout);
         JP_TotalLayout.setHorizontalGroup(
             JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_TotalLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(51, 51, 51)
+                .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LBL_CostoFlete)
+                    .addComponent(LBL_CostoAdministrativo)
+                    .addComponent(LBL_CostoMateriaPrima))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addGap(50, 50, 50)
+                .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LBL_CostoTotal)
+                    .addComponent(LBL_CostoIVA)
+                    .addComponent(LBL_CostoUtilidad))
+                .addGap(110, 110, 110))
             .addGroup(JP_TotalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JP_TotalLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_TotalLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(291, 291, 291))
-                    .addGroup(JP_TotalLayout.createSequentialGroup()
-                        .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(93, 93, 93)
-                        .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LBL_CostoFlete)
-                            .addComponent(LBL_CostoAdministrativo)
-                            .addComponent(LBL_CostoMateriaPrima))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
-                        .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(93, 93, 93)
-                        .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LBL_CostoTotal)
-                            .addComponent(LBL_CostoIVA)
-                            .addComponent(LBL_CostoUtilidad))
-                        .addGap(117, 117, 117))))
+                .addComponent(jScrollPane3)
+                .addContainerGap())
         );
         JP_TotalLayout.setVerticalGroup(
             JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_TotalLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(6, 6, 6)
                 .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JP_TotalLayout.createSequentialGroup()
                         .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -372,44 +405,82 @@ public class CotizacionPrevia extends javax.swing.JFrame {
                         .addGroup(JP_TotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(LBL_CostoTotal))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        TP_CotizacionPrevia.addTab("TOTAL", JP_Total);
+        TP_CotizacionPrevia.addTab("Total Cotización", JP_Total);
 
-        BTN_Atras.setText("Atrás");
+        BTN_Atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
+        BTN_Atras.setBorderPainted(false);
+        BTN_Atras.setContentAreaFilled(false);
+        BTN_Atras.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        BTN_Atras.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
+        BTN_Atras.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (2).png"))); // NOI18N
         BTN_Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN_AtrasActionPerformed(evt);
             }
         });
 
-        BTN_Agregar.setText("Agregar Materia Prima");
+        BTN_Agregar.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
+        BTN_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/mas.png"))); // NOI18N
+        BTN_Agregar.setText("   Agregar Materia Prima");
         BTN_Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN_AgregarActionPerformed(evt);
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/analisis-de-datos.png"))); // NOI18N
+        jLabel3.setText("Precio Total De La Cotización Previa");
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BTN_Atras)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addComponent(TP_CotizacionPrevia, javax.swing.GroupLayout.Alignment.TRAILING)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BTN_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(279, 279, 279))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BTN_Atras)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TP_CotizacionPrevia, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BTN_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TP_CotizacionPrevia)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(BTN_Atras)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BTN_Agregar)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BTN_Atras)
-                    .addComponent(BTN_Agregar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TP_CotizacionPrevia, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -558,6 +629,10 @@ public class CotizacionPrevia extends javax.swing.JFrame {
     private void JP_TotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JP_TotalMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_JP_TotalMouseClicked
+
+    private void TXT_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXT_SearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_SearchActionPerformed
 
     private void BTN_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_AgregarActionPerformed
         // TODO add your handling code here:
@@ -902,6 +977,9 @@ public class CotizacionPrevia extends javax.swing.JFrame {
     private javax.swing.JTabbedPane TP_CotizacionPrevia;
     private javax.swing.JTextField TXT_Search;
     private javax.swing.JTextField TXT_Search1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -909,6 +987,7 @@ public class CotizacionPrevia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
