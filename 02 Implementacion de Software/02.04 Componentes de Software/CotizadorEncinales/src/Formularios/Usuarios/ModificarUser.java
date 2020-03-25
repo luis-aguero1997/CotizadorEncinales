@@ -14,6 +14,8 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.InputMap;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -237,44 +239,69 @@ public class ModificarUser extends javax.swing.JFrame {
 
         if (!this.TxtModNombre.getText().isEmpty()
                 || !this.TxtModUsuario.getText().isEmpty()
-                || this.TxtModCorreo.getText().isEmpty()
-                || this.ModPuesto.getSelectedIndex() == 0);
+                || !this.TxtModCorreo.getText().isEmpty()
+                || this.ModPuesto.getSelectedIndex() != 0);
         {
             if (!this.TxtModPassword.getText().isEmpty()) {
-                Usuario Usuario = new Usuario();
 
-                Usuario.setNomCompleto(TxtModNombre.getText());
-                Usuario.setUsuario(TxtModUsuario.getText());
-                Usuario.setPassword(TxtModPassword.getText());
-                Usuario.setCorreo(TxtModCorreo.getText());
-                Usuario.setTipo(Integer.toString(ModPuesto.getSelectedIndex()));
-                Usuario.setId_Usuario(Usuarios.Seleccion);
+                if (this.TxtModNombre.getText().length() < 6
+                        || this.TxtModUsuario.getText().length() < 6
+                        || this.TxtModCorreo.getText().length() < 6
+                        || this.TxtModPassword.getText().length() < 6) {
 
-                mBD.Modificar(Usuario);
+                    JOptionPane.showMessageDialog(null, "Entrada de Datos invalida");
+                } else {
+                    Usuario Usuario = new Usuario();
 
-                TxtModNombre.setText("");
-                TxtModUsuario.setText("");
-                TxtModPassword.setText("");
-                TxtModCorreo.setText("");
-                ModPuesto.setSelectedIndex(0);
+                    Usuario.setNomCompleto(TxtModNombre.getText());
+                    Usuario.setUsuario(TxtModUsuario.getText());
+                    Usuario.setPassword(TxtModPassword.getText());
+                    Usuario.setCorreo(TxtModCorreo.getText());
+                    Usuario.setTipo(Integer.toString(ModPuesto.getSelectedIndex()));
+                    Usuario.setId_Usuario(Usuarios.Seleccion);
+
+                    mBD.Modificar(Usuario);
+
+                    TxtModNombre.setText("");
+                    TxtModUsuario.setText("");
+                    TxtModPassword.setText("");
+                    TxtModCorreo.setText("");
+                    ModPuesto.setSelectedIndex(0);
+
+                    this.dispose();
+                    Usuarios User = new Usuarios();
+                    User.setVisible(true);
+                }
             } else {
-                Usuario Usuario = new Usuario();
-                Usuario.setNomCompleto(TxtModNombre.getText());
-                Usuario.setUsuario(TxtModUsuario.getText());
-                Usuario.setCorreo(TxtModCorreo.getText());
-                Usuario.setTipo(Integer.toString(ModPuesto.getSelectedIndex()));
-                Usuario.setId_Usuario(Usuarios.Seleccion);
 
-                mBD.Modificar2(Usuario);
+                if (this.TxtModNombre.getText().length() < 6
+                        || this.TxtModUsuario.getText().length() < 6
+                        || this.TxtModCorreo.getText().length() < 6) {
 
-                TxtModNombre.setText("");
-                TxtModUsuario.setText("");
-                TxtModPassword.setText("");
-                TxtModCorreo.setText("");
-                ModPuesto.setSelectedIndex(0);
-                Usuarios User = new Usuarios();
-                User.setVisible(true);
-                this.dispose();
+                    JOptionPane.showMessageDialog(null, "Entrada de Datos invalida");
+                } else {
+                    if (this.ValidacionCorreo(TxtModCorreo.getText())) {
+                        Usuario Usuario = new Usuario();
+                        Usuario.setNomCompleto(TxtModNombre.getText());
+                        Usuario.setUsuario(TxtModUsuario.getText());
+                        Usuario.setCorreo(TxtModCorreo.getText());
+                        Usuario.setTipo(Integer.toString(ModPuesto.getSelectedIndex()));
+                        Usuario.setId_Usuario(Usuarios.Seleccion);
+
+                        mBD.Modificar2(Usuario);
+
+                        TxtModNombre.setText("");
+                        TxtModUsuario.setText("");
+                        TxtModPassword.setText("");
+                        TxtModCorreo.setText("");
+                        ModPuesto.setSelectedIndex(0);
+                        Usuarios User = new Usuarios();
+                        User.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Correo Invalido");
+                    }
+                }
             }
 
         }
@@ -287,9 +314,9 @@ public class ModificarUser extends javax.swing.JFrame {
         } else if ((this.TxtModCorreo.getText().length() == 45)) {
             evt.consume();
 
-        } else if (this.TxtModCorreo.getText().length() < 10) {
+        } else if (this.TxtModCorreo.getText().length() < 6) {
             this.jLabel8.setText("Correo Invalido");
-        } else if (this.TxtModCorreo.getText().length() > 10) {
+        } else if (this.TxtModCorreo.getText().length() > 6) {
             this.jLabel8.setText("");
         }
         if (evt.getKeyChar() == '@' && TxtModCorreo.getText().contains("@")) {
@@ -314,9 +341,9 @@ public class ModificarUser extends javax.swing.JFrame {
         } else if ((this.TxtModPassword.getText().length() == 45)) {
             evt.consume();
 
-        } else if (this.TxtModPassword.getText().length() < 8) {
+        } else if (this.TxtModPassword.getText().length() < 6) {
             this.jLabel7.setText("Contraseña Demasiado Corta");
-        } else if (this.TxtModPassword.getText().length() >= 8) {
+        } else if (this.TxtModPassword.getText().length() >= 6) {
             this.jLabel7.setText("");
         }
 
@@ -333,9 +360,9 @@ public class ModificarUser extends javax.swing.JFrame {
             this.jLabel9.setText("");
         } else if (this.TxtModUsuario.getText().length() == 45) {
             evt.consume();
-        } else if (this.TxtModUsuario.getText().length() < 10) {
+        } else if (this.TxtModUsuario.getText().length() < 6) {
             this.jLabel9.setText("Invalido, Demasiado corto");
-        } else if (this.TxtModUsuario.getText().length() > 10) {
+        } else if (this.TxtModUsuario.getText().length() > 6) {
             this.jLabel9.setText("");
         }
     }//GEN-LAST:event_TxtModUsuarioKeyTyped
@@ -350,9 +377,9 @@ public class ModificarUser extends javax.swing.JFrame {
             this.jLabel10.setText("");
         } else if (this.TxtModNombre.getText().length() == 45) {
             evt.consume();
-        } else if (this.TxtModNombre.getText().length() < 10) {
+        } else if (this.TxtModNombre.getText().length() < 6) {
             this.jLabel10.setText("Invalido, Demasiado corto");
-        } else if (this.TxtModNombre.getText().length() >= 10) {
+        } else if (this.TxtModNombre.getText().length() >= 6) {
             this.jLabel10.setText("");
         }
     }//GEN-LAST:event_TxtModNombreKeyTyped
@@ -397,6 +424,21 @@ public class ModificarUser extends javax.swing.JFrame {
                 }
 
             }
+        }
+    }
+    
+    public boolean ValidacionCorreo(String Correo) {
+        // Patrón para validar el email
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+
+        Matcher mather = pattern.matcher(Correo);
+
+        if (mather.find() == true) {
+            return true;
+        } else {
+            return false;
         }
     }
 

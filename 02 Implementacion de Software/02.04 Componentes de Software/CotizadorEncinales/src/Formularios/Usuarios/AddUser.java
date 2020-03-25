@@ -261,10 +261,10 @@ public class AddUser extends javax.swing.JFrame {
                 || this.Puesto.getSelectedIndex() == 0);
         {
             //Copiar en el frame de ramiro
-            if (this.TxtNomCompleto.getText().length() < 8
-                    || this.TxtUsuario.getText().length() < 8
-                    || this.TxtCorreo.getText().length() < 8
-                    || this.TxtPassword.getText().length() < 8) {
+            if (this.TxtNomCompleto.getText().length() < 6
+                    || this.TxtUsuario.getText().length() < 6
+                    || this.TxtCorreo.getText().length() < 6
+                    || this.TxtPassword.getText().length() < 6) {
                 JOptionPane.showMessageDialog(null, "Uno o mas campos invalidos");
             } else { //Hasta aqui
                 if (ValidacionCorreo(TxtCorreo.getText())) {
@@ -318,9 +318,9 @@ public class AddUser extends javax.swing.JFrame {
             this.jLabel8.setText("");
         } else if (this.TxtNomCompleto.getText().length() == 45) {
             evt.consume();
-        } else if (this.TxtNomCompleto.getText().length() < 8) {
+        } else if (this.TxtNomCompleto.getText().length() < 6) {
             this.jLabel8.setText("Nombre Invalido");
-        } else if (this.TxtNomCompleto.getText().length() >= 8) {
+        } else if (this.TxtNomCompleto.getText().length() >= 6) {
             this.jLabel8.setText("");
         }
     }//GEN-LAST:event_TxtNomCompletoKeyTyped
@@ -332,9 +332,9 @@ public class AddUser extends javax.swing.JFrame {
         } else if ((this.TxtUsuario.getText().length() == 45)) {
             evt.consume();
 
-        } else if (this.TxtUsuario.getText().length() < 8) {
+        } else if (this.TxtUsuario.getText().length() < 6) {
             this.jLabel9.setText("Usuario Invalido");
-        } else if (this.TxtUsuario.getText().length() >= 8) {
+        } else if (this.TxtUsuario.getText().length() >= 6) {
             this.jLabel9.setText("");
         }
     }//GEN-LAST:event_TxtUsuarioKeyTyped
@@ -346,9 +346,9 @@ public class AddUser extends javax.swing.JFrame {
         } else if ((this.TxtPassword.getText().length() == 45)) {
             evt.consume();
 
-        } else if (this.TxtPassword.getText().length() < 8) {
+        } else if (this.TxtPassword.getText().length() < 6) {
             this.jLabel10.setText("Contraseña Demasiado Corta");
-        } else if (this.TxtPassword.getText().length() > 8) {
+        } else if (this.TxtPassword.getText().length() > 6) {
             this.jLabel10.setText("");
         }
     }//GEN-LAST:event_TxtPasswordKeyTyped
@@ -360,14 +360,19 @@ public class AddUser extends javax.swing.JFrame {
         } else if ((this.TxtCorreo.getText().length() == 45)) {
             evt.consume();
 
-        } else if (this.TxtCorreo.getText().length() < 10) {
+        } else if (this.TxtCorreo.getText().length() < 6) {
             this.jLabel11.setText("Correo Invalido");
-        } else if (this.TxtCorreo.getText().length() > 10) {
+        } else if (this.TxtCorreo.getText().length() > 6) {
             this.jLabel11.setText("");
         }
 
         if (evt.getKeyChar() == '@' && TxtCorreo.getText().contains("@")) {
             evt.consume();
+        }
+        
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+            
         }
     }//GEN-LAST:event_TxtCorreoKeyTyped
 

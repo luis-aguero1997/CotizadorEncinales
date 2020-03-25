@@ -52,17 +52,6 @@ public class GestionProductos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
         visualizar_Productos(Table);
-        /*TableColumn columna;
-        columna = Table.getColumnModel().getColumn(6);
-        columna.setMaxWidth(190);
-        columna.setMinWidth(890);
-        
-        
-        TableColumnModel columnModel = Table.getColumnModel();
-        for (int i = 0; i < columnModel.getColumnCount(); i++) {
-        columnModel.getColumn(i).setPreferredWidth(300);
-        }*/
-        Table.setRowHeight(6, 1500);
     }
 
     /**
@@ -319,7 +308,12 @@ public class GestionProductos extends javax.swing.JFrame {
                 dt.addRow(fila);
             }
             tabla.setModel(dt);
-            tabla.setRowHeight(32);
+            this.Table.getColumnModel().getColumn(0).setPreferredWidth(60);//Clave
+            this.Table.getColumnModel().getColumn(1).setPreferredWidth(100);//Producto
+            this.Table.getColumnModel().getColumn(2).setPreferredWidth(100);//Descripcion
+            this.Table.getColumnModel().getColumn(3).setPreferredWidth(100);//Precio
+            this.Table.getColumnModel().getColumn(4).setPreferredWidth(78);//Eliminar
+            this.Table.getColumnModel().getColumn(5).setPreferredWidth(78);//Modificar
         }
     }
 

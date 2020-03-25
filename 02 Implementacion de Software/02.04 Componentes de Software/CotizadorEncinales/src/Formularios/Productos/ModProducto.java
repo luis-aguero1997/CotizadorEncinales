@@ -43,6 +43,7 @@ public class ModProducto extends javax.swing.JFrame {
      */
     String Ruta;
     Icon icono;
+    Icon icono2;
     BD mBD;
     GestionProductos Gestion;
 
@@ -56,7 +57,7 @@ public class ModProducto extends javax.swing.JFrame {
         this.jLabel7.setText("");
         this.jLabel8.setText("");
         this.jLabel9.setText("");
-        
+
         evitarPegar(this.TxtDes);
         evitarPegar(this.TxtNom);
         evitarPegar(this.TxtPrecio);
@@ -210,64 +211,80 @@ public class ModProducto extends javax.swing.JFrame {
 
     private void BtnSeleccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSeleccionMouseClicked
         // TODO add your handling code here:
-        LblImagen.setIcon(null);
-        JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fi = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
-        j.setFileFilter(fi);
-        int se = j.showOpenDialog(this);
-        Ruta = j.getSelectedFile().getAbsolutePath();
+        try {
 
-        if (se == JFileChooser.APPROVE_OPTION) {
-            Ruta = j.getSelectedFile().getAbsolutePath();
-            ImageIcon Imagen = new ImageIcon(Ruta);
-            icono = new ImageIcon(Imagen.getImage().getScaledInstance(LblImagen.getWidth(), LblImagen.getHeight(), se));
-            this.LblImagen.setIcon(icono);
+            JFileChooser j = new JFileChooser();
+            FileNameExtensionFilter fi = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+            j.setFileFilter(fi);
+            int se = j.showOpenDialog(this);
+
+            if (se == JFileChooser.APPROVE_OPTION) {
+                Ruta = j.getSelectedFile().getAbsolutePath();
+                LblImagen.setIcon(null);
+                Ruta = j.getSelectedFile().getAbsolutePath();
+                ImageIcon Imagen = new ImageIcon(Ruta);
+                icono = new ImageIcon(Imagen.getImage().getScaledInstance(LblImagen.getWidth(), LblImagen.getHeight(), se));
+                this.LblImagen.setIcon(icono);
+            } else if (se == JFileChooser.CANCEL_OPTION || se == JFileChooser.ABORT) {
+                this.LblImagen.setIcon(icono2);
+            }
+        } catch (Exception e) {
+            this.LblImagen.setIcon(icono2);
+            System.out.println(e);
         }
-
     }//GEN-LAST:event_BtnSeleccionMouseClicked
 
     private void BtnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSaveMouseClicked
         // TODO add your handling code here:
-        if (!this.TxtDes.getText().isEmpty() || !this.TxtNom.getText().isEmpty() || this.TxtPrecio.getText().isEmpty()) {
+        if (!this.TxtDes.getText().isEmpty() && !this.TxtNom.getText().isEmpty() && !this.TxtPrecio.getText().isEmpty()) {
             if (!Ruta.isEmpty()) {
-                Productos Pro = new Productos();
 
-                Pro.setDesc(TxtDes.getText());
-                Pro.setNombre(TxtNom.getText());
-                Pro.setPrecio(Float.parseFloat(TxtPrecio.getText()));
-                Pro.setClave(GestionProductos.Clave2);
+                if (this.TxtDes.getText().length() > 4 && this.TxtNom.getText().length() > 4 && !this.TxtPrecio.getText().equals(0)) {
+                    Productos Pro = new Productos();
+                    Pro.setDesc(TxtDes.getText());
+                    Pro.setNombre(TxtNom.getText());
+                    Pro.setPrecio(Float.parseFloat(TxtPrecio.getText()));
+                    Pro.setClave(GestionProductos.Clave2);
 
-                File ruta = new File(this.Ruta);
+                    File ruta = new File(this.Ruta);
 
-                InputStream input = null;
-                try {
-                    byte[] Imagen = new byte[(int) ruta.length()];
+                    InputStream input = null;
+                    try {
+                        byte[] Imagen = new byte[(int) ruta.length()];
 
-                    input = new FileInputStream(new File(Ruta));
-                    input.read(Imagen);
-                    Pro.setImagen(Imagen);
-                } catch (FileNotFoundException ex) {
-                    Pro.setImagen(null);
-                } catch (IOException ex) {
-                    Logger.getLogger(ModProducto.class.getName()).log(Level.SEVERE, null, ex);
+                        input = new FileInputStream(new File(Ruta));
+                        input.read(Imagen);
+                        Pro.setImagen(Imagen);
+                    } catch (FileNotFoundException ex) {
+                        Pro.setImagen(null);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ModProducto.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    mBD.Modificar(Pro);
+
+                    Gestion = new GestionProductos();
+                    Gestion.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Llene los campos de forma correcta");
                 }
-                mBD.Modificar(Pro);
 
-                Gestion = new GestionProductos();
-                Gestion.setVisible(true);
-                this.dispose();
             } else {
-                Productos Pro = new Productos();
+                if (this.TxtDes.getText().length() > 4 && this.TxtNom.getText().length() > 4 && !this.TxtPrecio.getText().equals(0)) {
+                    Productos Pro = new Productos();
 
-                Pro.setDesc(TxtDes.getText());
-                Pro.setNombre(TxtNom.getText());
-                Pro.setPrecio(Float.parseFloat(TxtPrecio.getText()));
-                Pro.setClave(GestionProductos.Clave2);
-                mBD.Modificar2(Pro);
+                    Pro.setDesc(TxtDes.getText());
+                    Pro.setNombre(TxtNom.getText());
+                    Pro.setPrecio(Float.parseFloat(TxtPrecio.getText()));
+                    Pro.setClave(GestionProductos.Clave2);
+                    mBD.Modificar2(Pro);
 
-                Gestion = new GestionProductos();
-                Gestion.setVisible(true);
-                this.dispose();
+                    Gestion = new GestionProductos();
+                    Gestion.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Llene los campos de forma correcta");
+                }
             }
 
         } else {
@@ -281,20 +298,20 @@ public class ModProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TxtNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomKeyTyped
         // TODO add your handling code here:
-         if (this.TxtNom.getText().isEmpty()) {
+        if (this.TxtNom.getText().isEmpty()) {
             this.jLabel7.setText("");
         } else if (this.TxtNom.getText().length() == 45) {
             evt.consume();
-        }  else if (this.TxtNom.getText().length() < 5) {
+        } else if (this.TxtNom.getText().length() < 3) {
             this.jLabel7.setText("Invalido, Demasiado corto");
-        } else if (this.TxtNom.getText().length() >= 5){
+        } else if (this.TxtNom.getText().length() >= 3) {
             this.jLabel7.setText("");
         }
     }//GEN-LAST:event_TxtNomKeyTyped
@@ -305,16 +322,16 @@ public class ModProducto extends javax.swing.JFrame {
             this.jLabel8.setText("");
         } else if (this.TxtDes.getText().length() == 45) {
             evt.consume();
-        }  else if (this.TxtDes.getText().length() < 5) {
+        } else if (this.TxtDes.getText().length() < 3) {
             this.jLabel8.setText("Invalido, Demasiado corto");
-        } else if (this.TxtDes.getText().length() >= 5){
+        } else if (this.TxtDes.getText().length() >= 3) {
             this.jLabel8.setText("");
         }
     }//GEN-LAST:event_TxtDesKeyTyped
 
     private void TxtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPrecioKeyTyped
         // TODO add your handling code here:
-             char car = evt.getKeyChar();
+        char car = evt.getKeyChar();
         if ((car < '0' || car > '9') && (car > '.')) {
             evt.consume();
         }
@@ -322,8 +339,12 @@ public class ModProducto extends javax.swing.JFrame {
         if (TxtPrecio.getText().length() == 10) {
             evt.consume();
         }
-        
+
         if (evt.getKeyChar() == '.' && TxtPrecio.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
             evt.consume();
         }
     }//GEN-LAST:event_TxtPrecioKeyTyped
@@ -359,7 +380,7 @@ public class ModProducto extends javax.swing.JFrame {
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
 
     }
-    
+
     /**
      * @param args the command line arguments
      */
