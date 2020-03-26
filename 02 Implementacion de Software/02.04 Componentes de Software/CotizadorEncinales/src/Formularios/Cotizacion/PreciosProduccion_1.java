@@ -31,7 +31,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
     public static int Personal;
     public static double PrecioUnitario;
     int Opcion;
-    
+
     public PreciosProduccion_1() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -40,27 +40,28 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         mP = null;
         mPV = null;
         mBD = null;
-        
-        if (!Bandera)
-        {
+
+        if (!Bandera) {
             BTN_Modificar.setEnabled(false);
             BTN_Eliminar.setEnabled(false);
             BTN_Agregar.setEnabled(true);
-        }
-        else
-        {
+        } else {
             BTN_Modificar.setEnabled(true);
             BTN_Eliminar.setEnabled(true);
             BTN_Agregar.setEnabled(false);
-            
+
             TXT_Cantidad.setText(String.valueOf(Cantidad));
             TXT_UnidadMedida.setText(UnidadMedida);
             TXT_ElementoCosto.setText(ElementoCosto);
             CB_Personal.setSelectedIndex(Personal);
             TXT_PrecioUnitario.setText(String.valueOf(PrecioUnitario));
         }
-        
+
         Opcion = 0;
+
+        this.jLabel9.setText("");
+        this.jLabel10.setText("");
+
     }
 
     /**
@@ -92,6 +93,8 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         BTN_Eliminar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -119,6 +122,18 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel6.setText("Precio Unitario");
+
+        TXT_UnidadMedida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_UnidadMedidaKeyTyped(evt);
+            }
+        });
+
+        TXT_ElementoCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_ElementoCostoKeyTyped(evt);
+            }
+        });
 
         TXT_PrecioUnitario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,6 +194,14 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel9.setText("jLabel8");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel10.setText("jLabel8");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -187,17 +210,13 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel6))))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel6))
                         .addGap(130, 130, 130)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TXT_UnidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,7 +224,9 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(CB_Personal, javax.swing.GroupLayout.Alignment.LEADING, 0, 200, Short.MAX_VALUE)
                                 .addComponent(TXT_ElementoCosto, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(TXT_PrecioUnitario)))
+                                .addComponent(TXT_PrecioUnitario))
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
                         .addContainerGap(89, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(BTN_Atras)
@@ -231,37 +252,35 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BTN_Atras, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
+                .addGap(53, 53, 53)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(TXT_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(TXT_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel2))
-                            .addComponent(TXT_UnidadMedida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(TXT_ElementoCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(CB_Personal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(TXT_PrecioUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(131, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BTN_Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BTN_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BTN_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33))))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TXT_UnidadMedida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(TXT_ElementoCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(CB_Personal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(TXT_PrecioUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTN_Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,35 +301,68 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         mPP = new PreciosProduccion();
         mPP.setVisible(true);
-        this.setVisible(false);    
+        this.setVisible(false);
     }//GEN-LAST:event_BTN_AtrasActionPerformed
 
     private void BTN_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_AgregarActionPerformed
-        NuevosPrecios();
-        mPP = new PreciosProduccion();
-        mPP.setVisible(true);
-        this.setVisible(false);
+        if (!this.TXT_Cantidad.getText().isEmpty() || !this.TXT_Cantidad.getText().equals("") //Verifica que los campos no esten vacios
+                && !this.TXT_ElementoCosto.getText().isEmpty() || !this.TXT_ElementoCosto.getText().equals(null)
+                && !this.TXT_UnidadMedida.getText().isEmpty() || !this.TXT_UnidadMedida.getText().equals(null)
+                && !this.TXT_PrecioUnitario.getText().isEmpty() || !this.TXT_PrecioUnitario.getText().equals(null)) {//Verifica que los datos sean correctos
+            if (this.TXT_Cantidad.getText().equals("0")
+                    || this.TXT_ElementoCosto.getText().length() < 4
+                    || this.TXT_UnidadMedida.getText().length() < 3
+                    || this.TXT_PrecioUnitario.getText().equals("0")) {
+                JOptionPane.showMessageDialog(null, "Campos llenados de forma invalidos");
+            } else {
+                NuevosPrecios();
+                mPP = new PreciosProduccion();
+                mPP.setVisible(true);
+                this.setVisible(false);
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Llene los campos necesarios");
+        }
+
+
     }//GEN-LAST:event_BTN_AgregarActionPerformed
 
     private void BTN_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ModificarActionPerformed
         // TODO add your handling code here:
-        ActualizarPrecios();
-        mPP = new PreciosProduccion();
-        mPP.setVisible(true);
-        this.setVisible(false);
+
+        if (!this.TXT_Cantidad.getText().isEmpty() || !this.TXT_Cantidad.getText().equals("") //Verifica que los campos no esten vacios
+                && !this.TXT_ElementoCosto.getText().isEmpty() || !this.TXT_ElementoCosto.getText().equals(null)
+                && !this.TXT_UnidadMedida.getText().isEmpty() || !this.TXT_UnidadMedida.getText().equals(null)
+                && !this.TXT_PrecioUnitario.getText().isEmpty() || !this.TXT_PrecioUnitario.getText().equals(null)) {//Verifica que los datos sean correctos
+            if (this.TXT_Cantidad.getText().equals("0")
+                    || this.TXT_ElementoCosto.getText().length() < 4
+                    || this.TXT_UnidadMedida.getText().length() < 3
+                    || this.TXT_PrecioUnitario.getText().equals("0")) {
+                JOptionPane.showMessageDialog(null, "Campos llenados de forma invalidos");
+            } else {
+                ActualizarPrecios();
+                mPP = new PreciosProduccion();
+                mPP.setVisible(true);
+                this.setVisible(false);
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Llene los campos necesarios");
+        }
+
     }//GEN-LAST:event_BTN_ModificarActionPerformed
 
     private void BTN_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EliminarActionPerformed
         // TODO add your handling code here:
         Opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de eliminar este precio de producción? \n (los precios eliminados no se pueden recuperar)");
-        
-        if (JOptionPane.OK_OPTION == Opcion)
-        {
+
+        if (JOptionPane.OK_OPTION == Opcion) {
             EliminarPreciosProduccion();
-        }
-        else
-        {
-            
+        } else {
+
         }
     }//GEN-LAST:event_BTN_EliminarActionPerformed
 
@@ -319,7 +371,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_TXT_PrecioUnitarioActionPerformed
 
     private void TXT_PrecioUnitarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_PrecioUnitarioKeyTyped
-       
+
         char car = evt.getKeyChar();
         if ((car < '0' || car > '9') && (car > '.')) {
             evt.consume();
@@ -328,14 +380,14 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         if (TXT_PrecioUnitario.getText().length() == 10) {
             evt.consume();
         }
-        
+
         if (evt.getKeyChar() == '.' && TXT_PrecioUnitario.getText().contains(".")) {
             evt.consume();
         }
     }//GEN-LAST:event_TXT_PrecioUnitarioKeyTyped
 
     private void TXT_CantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CantidadKeyTyped
-        
+
         char car = evt.getKeyChar();
         if ((car < '0' || car > '9') && (car > '.')) {
             evt.consume();
@@ -344,81 +396,98 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         if (TXT_Cantidad.getText().length() == 10) {
             evt.consume();
         }
-        
+
         if (evt.getKeyChar() == '.' && TXT_Cantidad.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.') {
             evt.consume();
         }
     }//GEN-LAST:event_TXT_CantidadKeyTyped
 
-    public void NuevosPrecios()
-    {
+    private void TXT_UnidadMedidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_UnidadMedidaKeyTyped
+        // TODO add your handling code here:
+        if (TXT_UnidadMedida.getText().length() < 2) {
+            this.jLabel9.setText("Texto demaciado Corto");
+        } else {
+            this.jLabel9.setText("");
+        }
+
+        if (TXT_UnidadMedida.getText().length() == 45) {
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_TXT_UnidadMedidaKeyTyped
+
+    private void TXT_ElementoCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_ElementoCostoKeyTyped
+        // TODO add your handling code here:
+        if (TXT_ElementoCosto.getText().length() < 4) {
+            this.jLabel10.setText("Texto demaciado Corto");
+        } else {
+            this.jLabel10.setText("");
+        }
+        if (TXT_ElementoCosto.getText().length() == 45) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_ElementoCostoKeyTyped
+
+    public void NuevosPrecios() {
         mP = new Produccion();
         mBD = new BD_1();
-        
+
         mP.setIdProduccion(idPrecioProd);
         mP.setCantidad(Double.parseDouble(TXT_Cantidad.getText()));
         mP.setUnidadMedida(TXT_UnidadMedida.getText());
         mP.setElementoCosto(TXT_ElementoCosto.getText());
         mP.setPersonal(Integer.parseInt(CB_Personal.getSelectedItem().toString()));
         mP.setPrecioUnit(Double.parseDouble(TXT_PrecioUnitario.getText()));
-        if (CB_Personal.getSelectedItem() == "0")
-        {
-            mP.setPrecioCantidad((Double.parseDouble(TXT_Cantidad.getText()))*(Double.parseDouble(TXT_PrecioUnitario.getText())));
+        if (CB_Personal.getSelectedItem() == "0") {
+            mP.setPrecioCantidad((Double.parseDouble(TXT_Cantidad.getText())) * (Double.parseDouble(TXT_PrecioUnitario.getText())));
+        } else {
+            mP.setPrecioCantidad((Integer.parseInt(CB_Personal.getSelectedItem().toString())) * (Double.parseDouble(TXT_Cantidad.getText())) * (Double.parseDouble(TXT_PrecioUnitario.getText())));
         }
-        else
-        {
-            mP.setPrecioCantidad((Integer.parseInt(CB_Personal.getSelectedItem().toString()))*(Double.parseDouble(TXT_Cantidad.getText()))*(Double.parseDouble(TXT_PrecioUnitario.getText())));
-        }        
         mP.setProducto_idProducto(mBD.ConsultarIdProductoClave(MenuCotizacion.Clave));
-        if (mBD.AgregarPreciosProduccion(mP))
-        {
-            JOptionPane.showMessageDialog(null, "Producto añadido");          
+        if (mBD.AgregarPreciosProduccion(mP)) {
+            JOptionPane.showMessageDialog(null, "Producto añadido");
             this.setVisible(false);
         }
     }
-    
-    public void ActualizarPrecios()
-    {
+
+    public void ActualizarPrecios() {
         mP = new Produccion();
         mPV = new Produccion();
         mBD = new BD_1();
-        
+
         mP.setIdProduccion(idPrecioProd);
         mP.setCantidad(Double.parseDouble(TXT_Cantidad.getText()));
         mP.setUnidadMedida(TXT_UnidadMedida.getText());
         mP.setElementoCosto(TXT_ElementoCosto.getText());
         mP.setPersonal(Integer.parseInt(CB_Personal.getSelectedItem().toString()));
         mP.setPrecioUnit(Double.parseDouble(TXT_PrecioUnitario.getText()));
-        if (CB_Personal.getSelectedItem() == "0")
-        {
-            mP.setPrecioCantidad((Double.parseDouble(TXT_Cantidad.getText()))*(Double.parseDouble(TXT_PrecioUnitario.getText())));
+        if (CB_Personal.getSelectedItem() == "0") {
+            mP.setPrecioCantidad((Double.parseDouble(TXT_Cantidad.getText())) * (Double.parseDouble(TXT_PrecioUnitario.getText())));
+        } else {
+            mP.setPrecioCantidad((Integer.parseInt(CB_Personal.getSelectedItem().toString())) * (Double.parseDouble(TXT_Cantidad.getText())) * (Double.parseDouble(TXT_PrecioUnitario.getText())));
         }
-        else
-        {
-            mP.setPrecioCantidad((Integer.parseInt(CB_Personal.getSelectedItem().toString()))*(Double.parseDouble(TXT_Cantidad.getText()))*(Double.parseDouble(TXT_PrecioUnitario.getText())));
-        }
-        if (mBD.ActualizarPreciosProduccion(mP, idPrecioProd))
-        {
-            JOptionPane.showMessageDialog(null, "Producto modificado");          
+        if (mBD.ActualizarPreciosProduccion(mP, idPrecioProd)) {
+            JOptionPane.showMessageDialog(null, "Producto modificado");
             this.setVisible(false);
         }
     }
-    
-    public void EliminarPreciosProduccion()
-    {
+
+    public void EliminarPreciosProduccion() {
         mBD = new BD_1();
-        if (mBD.EliminarProduccion(idPrecioProd))
-        {
+        if (mBD.EliminarProduccion(idPrecioProd)) {
             JOptionPane.showMessageDialog(null, "Producto Eliminado");
             mPP = new PreciosProduccion();
             mPP.setVisible(true);
             this.setVisible(false);
-        }
-        else
-        {
-            
+        } else {
+
         }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -465,12 +534,14 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
     private javax.swing.JTextField TXT_PrecioUnitario;
     private javax.swing.JTextField TXT_UnidadMedida;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

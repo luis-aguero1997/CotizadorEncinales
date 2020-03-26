@@ -51,12 +51,12 @@ public class AgregarProducto extends javax.swing.JFrame {
         this.jLabel10.setText("");
         this.jLabel11.setText("");
         this.TxtPrecio.setText("0");
-        
+
         evitarPegar(this.TxtClave);
         evitarPegar(this.TxtDes);
         evitarPegar(this.TxtNom);
         evitarPegar(this.TxtPrecio);
-        
+
     }
 
     /**
@@ -252,7 +252,7 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void BtnSeleccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSeleccionMouseClicked
         // TODO add your handling code here:
-        
+
         JFileChooser j = new JFileChooser();
         FileNameExtensionFilter fi = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         j.setFileFilter(fi);
@@ -270,48 +270,59 @@ public class AgregarProducto extends javax.swing.JFrame {
 
     private void BtnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSaveMouseClicked
         // TODO add your handling code here:
-        if (!this.TxtClave.getText().isEmpty() && !this.TxtDes.getText().isEmpty() && !this.TxtNom.getText().isEmpty() && !this.TxtPrecio.getText().equals("null") && !Ruta.equals("-")) {
-            Productos Pro = new Productos();
-            Pro.setClave(TxtClave.getText());
-            Pro.setDesc(TxtDes.getText());
-            Pro.setNombre(TxtNom.getText());
-            Pro.setPrecio(Float.parseFloat(TxtPrecio.getText()));
+        if (!this.TxtClave.getText().isEmpty()
+                && !this.TxtDes.getText().isEmpty()
+                && !this.TxtNom.getText().isEmpty()
+                && !this.TxtPrecio.getText().equals("null") && !Ruta.equals("-")) {
+            if (this.TxtClave.getText().length() < 3
+                    || this.TxtDes.getText().length() <5
+                    || this.TxtNom.getText().length() < 5
+                    || this.TxtPrecio.getText().equals("0") ) 
+            {
+                JOptionPane.showMessageDialog(null, "Campos llenados de manera invalida");
+            } else {
+                Productos Pro = new Productos();
+                Pro.setClave(TxtClave.getText());
+                Pro.setDesc(TxtDes.getText());
+                Pro.setNombre(TxtNom.getText());
+                Pro.setPrecio(Float.parseFloat(TxtPrecio.getText()));
 
-            File ruta = new File(this.Ruta);
+                File ruta = new File(this.Ruta);
 
-            InputStream input = null;
-            try {
-                byte[] Imagen = new byte[(int) ruta.length()];
+                InputStream input = null;
+                try {
+                    byte[] Imagen = new byte[(int) ruta.length()];
 
-                input = new FileInputStream(new File(Ruta));
-                input.read(Imagen);
-                Pro.setImagen(Imagen);
-            } catch (FileNotFoundException ex) {
-                Pro.setImagen(null);
-            } catch (IOException ex) {
-                Logger.getLogger(AgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
+                    input = new FileInputStream(new File(Ruta));
+                    input.read(Imagen);
+                    Pro.setImagen(Imagen);
+                } catch (FileNotFoundException ex) {
+                    Pro.setImagen(null);
+                } catch (IOException ex) {
+                    Logger.getLogger(AgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                mBD.Agregar_Producto(Pro);
+
+                TxtClave.setText("");
+                TxtDes.setText("");
+                TxtNom.setText("");
+                TxtPrecio.setText("");
+                this.LblImagen.setIcon(null);
+                Gestion = new GestionProductos();
+                Gestion.setVisible(true);
+                this.dispose();
             }
-            mBD.Agregar_Producto(Pro);
-
-            TxtClave.setText("");
-            TxtDes.setText("");
-            TxtNom.setText("");
-            TxtPrecio.setText("");
-            this.LblImagen.setIcon(null);
-            Gestion = new GestionProductos();
-            Gestion.setVisible(true);
-            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Llene Todos los campos y seleccione una imagen");
         }
     }//GEN-LAST:event_BtnSaveMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
+
         GestionProductos mGestionProductos = new GestionProductos();
         this.dispose();
         mGestionProductos.setVisible(true);
-         
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TxtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClaveKeyTyped
@@ -320,13 +331,13 @@ public class AgregarProducto extends javax.swing.JFrame {
             this.jLabel8.setText("");
         } else if (this.TxtClave.getText().length() == 45) {
             evt.consume();
-        }  else if (this.TxtClave.getText().length() < 3) {
+        } else if (this.TxtClave.getText().length() < 3) {
             this.jLabel8.setText("Invalido, Demasiado corto");
         } else if (this.TxtClave.getText().length() > 3) {
             this.jLabel8.setText("");
-        } 
-        
-         if (evt.getKeyChar() == ' ') {
+        }
+
+        if (evt.getKeyChar() == ' ') {
             evt.consume();
         }
     }//GEN-LAST:event_TxtClaveKeyTyped
@@ -337,9 +348,9 @@ public class AgregarProducto extends javax.swing.JFrame {
             this.jLabel9.setText("");
         } else if (this.TxtNom.getText().length() == 45) {
             evt.consume();
-        }  else if (this.TxtNom.getText().length() < 5) {
+        } else if (this.TxtNom.getText().length() < 5) {
             this.jLabel9.setText("Invalido, Demasiado corto");
-        } else if (this.TxtNom.getText().length() >= 5){
+        } else if (this.TxtNom.getText().length() >= 5) {
             this.jLabel9.setText("");
         }
     }//GEN-LAST:event_TxtNomKeyTyped
@@ -354,7 +365,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         if (TxtPrecio.getText().length() == 10) {
             evt.consume();
         }
-        
+
         if (evt.getKeyChar() == '.' && TxtPrecio.getText().contains(".")) {
             evt.consume();
         }
@@ -366,9 +377,9 @@ public class AgregarProducto extends javax.swing.JFrame {
             this.jLabel11.setText("");
         } else if (this.TxtDes.getText().length() == 45) {
             evt.consume();
-        }  else if (this.TxtDes.getText().length() < 5) {
+        } else if (this.TxtDes.getText().length() < 5) {
             this.jLabel11.setText("Invalido, Demasiado corto");
-        } else if (this.TxtDes.getText().length() >= 5){
+        } else if (this.TxtDes.getText().length() >= 5) {
             this.jLabel11.setText("");
         }
     }//GEN-LAST:event_TxtDesKeyTyped
@@ -395,7 +406,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
 
     }
-    
+
     /**
      * @param args the command line arguments
      */
