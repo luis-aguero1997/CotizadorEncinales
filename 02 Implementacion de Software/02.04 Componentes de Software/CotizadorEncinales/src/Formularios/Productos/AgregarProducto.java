@@ -106,49 +106,54 @@ public class AgregarProducto extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 28)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/portapapeles.png"))); // NOI18N
-        jLabel1.setText("Agregar Producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 213, -1));
+        jLabel1.setText("  Agregar Producto");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 300, -1));
 
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel2.setText("Nombre: ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 138, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel3.setText("Descripcion: ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 263, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel4.setText("Precio: ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 201, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel6.setText("Clave: ");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 79, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         TxtClave.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtClaveKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 81, 210, -1));
+        jPanel1.add(TxtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 210, -1));
 
+        TxtNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtNomActionPerformed(evt);
+            }
+        });
         TxtNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtNomKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 140, 210, -1));
+        jPanel1.add(TxtNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 210, -1));
 
         TxtDes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtDesKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 265, 210, -1));
+        jPanel1.add(TxtDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 210, -1));
 
         TxtPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +165,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 TxtPrecioKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 203, 210, -1));
+        jPanel1.add(TxtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 210, -1));
 
         BtnSeleccion.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         BtnSeleccion.setText("Seleccionar Imagen");
@@ -174,9 +179,9 @@ public class AgregarProducto extends javax.swing.JFrame {
                 BtnSeleccionActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnSeleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 328, 213, 26));
+        jPanel1.add(BtnSeleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 213, 26));
 
-        BtnSave.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
+        BtnSave.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         BtnSave.setText("Guardar Producto");
         BtnSave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -188,11 +193,11 @@ public class AgregarProducto extends javax.swing.JFrame {
                 BtnSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 205, 50));
+        jPanel1.add(BtnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 220, 50));
 
         LblImagen.setBackground(new java.awt.Color(255, 255, 255));
         LblImagen.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel1.add(LblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 280, 270));
+        jPanel1.add(LblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 280, 270));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -209,37 +214,37 @@ public class AgregarProducto extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel5.setText("Imagen");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 325, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("jLabel8");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 110, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 173, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("jLabel10");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 235, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("jLabel11");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 297, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -379,6 +384,10 @@ public class AgregarProducto extends javax.swing.JFrame {
     private void TxtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPrecioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtPrecioActionPerformed
+
+    private void TxtNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtNomActionPerformed
 
     public static void evitarPegar(JTextField campo) {
 

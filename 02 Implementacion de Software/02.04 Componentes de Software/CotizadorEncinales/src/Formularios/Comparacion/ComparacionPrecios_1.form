@@ -24,16 +24,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="JP_ConsultarCompetencia" min="-2" max="-2" attributes="0"/>
+          <Component id="JP_ConsultarCompetencia" alignment="0" pref="697" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="JP_ConsultarCompetencia" min="-2" pref="600" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
+          <Component id="JP_ConsultarCompetencia" alignment="1" pref="606" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -186,7 +182,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="640" y="10" width="-1" height="-1"/>
+              <AbsoluteConstraints x="630" y="10" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

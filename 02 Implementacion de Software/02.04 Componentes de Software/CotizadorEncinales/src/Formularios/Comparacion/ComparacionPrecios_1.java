@@ -160,7 +160,7 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
         JP_ConsultarCompetencia.add(BTN_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
-        JP_ConsultarCompetencia.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
+        JP_ConsultarCompetencia.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
@@ -215,14 +215,11 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JP_ConsultarCompetencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(JP_ConsultarCompetencia, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JP_ConsultarCompetencia, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(JP_ConsultarCompetencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
         );
 
         pack();

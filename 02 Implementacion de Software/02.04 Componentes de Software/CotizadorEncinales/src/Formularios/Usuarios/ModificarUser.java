@@ -83,7 +83,6 @@ public class ModificarUser extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -91,27 +90,27 @@ public class ModificarUser extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Modificar.png"))); // NOI18N
         jLabel1.setText("Modificar Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel2.setText("Nombre Completo");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel3.setText("Nombre de Usuario");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel4.setText("Contraseña");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel5.setText("Correo Electronico");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel6.setText("Puesto");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, -1, -1));
 
         TxtModNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +122,7 @@ public class ModificarUser extends javax.swing.JFrame {
                 TxtModNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtModNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 200, -1));
+        jPanel1.add(TxtModNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 200, -1));
 
         TxtModUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +137,7 @@ public class ModificarUser extends javax.swing.JFrame {
                 TxtModUsuarioKeyPressed(evt);
             }
         });
-        jPanel1.add(TxtModUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 200, -1));
+        jPanel1.add(TxtModUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 200, -1));
 
         TxtModPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -148,7 +147,7 @@ public class ModificarUser extends javax.swing.JFrame {
                 TxtModPasswordKeyPressed(evt);
             }
         });
-        jPanel1.add(TxtModPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 200, -1));
+        jPanel1.add(TxtModPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 200, -1));
 
         TxtModCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,17 +159,14 @@ public class ModificarUser extends javax.swing.JFrame {
                 TxtModCorreoKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtModCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 200, -1));
+        jPanel1.add(TxtModCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 200, -1));
 
         ModPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "!!! Seleccionar Opción !!!", "Administrador", "Cotizador de Ventas", "Encargado de Ventas" }));
-        jPanel1.add(ModPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 200, -1));
+        jPanel1.add(ModPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, 200, -1));
 
         jButton1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible.png"))); // NOI18N
         jButton1.setText("Guardar ");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible (1).png"))); // NOI18N
-        jButton1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible (1).png"))); // NOI18N
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -181,27 +177,27 @@ public class ModificarUser extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 220, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 220, 60));
 
         jLabel7.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("jLabel7");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("jLabel8");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("jLabel10");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         jButton2.setBorderPainted(false);
@@ -217,9 +213,18 @@ public class ModificarUser extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 488));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

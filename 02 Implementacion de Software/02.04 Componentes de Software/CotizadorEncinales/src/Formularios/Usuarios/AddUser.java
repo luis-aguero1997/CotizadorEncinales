@@ -99,7 +99,6 @@ public class AddUser extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,29 +106,28 @@ public class AddUser extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agregar-usuario (2).png"))); // NOI18N
         jLabel1.setText("Datos de Nuevo Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel2.setText("Nombre Completo");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel3.setText("Nombre de Usuario");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 35));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, 35));
 
         jLabel4.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel4.setText("Contraseña");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 35));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, 35));
 
         jLabel5.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel5.setText("Correo");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel6.setText("Puesto");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, -1, -1));
 
-        BtnAddUser.setBackground(new java.awt.Color(255, 255, 255));
         BtnAddUser.setFont(new java.awt.Font("Sukhumvit Set", 0, 20)); // NOI18N
         BtnAddUser.setText("   Agregar ");
         BtnAddUser.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -143,7 +141,7 @@ public class AddUser extends javax.swing.JFrame {
                 BtnAddUserActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 210, 53));
+        jPanel1.add(BtnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, 230, 60));
 
         Puesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Cotizador de Ventas", "Encargado de Ventas" }));
         Puesto.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +149,7 @@ public class AddUser extends javax.swing.JFrame {
                 PuestoActionPerformed(evt);
             }
         });
-        jPanel1.add(Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 230, 29));
+        jPanel1.add(Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, 230, 29));
 
         TxtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +161,7 @@ public class AddUser extends javax.swing.JFrame {
                 TxtUsuarioKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 230, -1));
+        jPanel1.add(TxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 230, -1));
 
         TxtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +173,7 @@ public class AddUser extends javax.swing.JFrame {
                 TxtPasswordKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 230, 30));
+        jPanel1.add(TxtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 230, 30));
 
         TxtNomCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +185,7 @@ public class AddUser extends javax.swing.JFrame {
                 TxtNomCompletoKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtNomCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 230, -1));
+        jPanel1.add(TxtNomCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 230, -1));
 
         TxtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,7 +197,7 @@ public class AddUser extends javax.swing.JFrame {
                 TxtCorreoKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 230, 30));
+        jPanel1.add(TxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 230, 30));
 
         jButton1.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
@@ -216,29 +214,38 @@ public class AddUser extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("jLabel8");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("jLabel10");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("jLabel11");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 530));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

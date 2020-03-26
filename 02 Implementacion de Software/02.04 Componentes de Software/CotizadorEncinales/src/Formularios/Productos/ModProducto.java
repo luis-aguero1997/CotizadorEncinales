@@ -103,32 +103,32 @@ public class ModProducto extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 81, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel4.setText("Precio");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 207, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         TxtNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtNomKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 79, 213, 35));
+        jPanel1.add(TxtNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 213, 35));
 
         TxtDes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtDesKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 144, 213, 35));
+        jPanel1.add(TxtDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 213, 35));
 
         TxtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtPrecioKeyTyped(evt);
             }
         });
-        jPanel1.add(TxtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 205, 213, 35));
+        jPanel1.add(TxtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 213, 35));
 
         BtnSeleccion.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         BtnSeleccion.setText("Seleccionar Imagen");
@@ -137,7 +137,7 @@ public class ModProducto extends javax.swing.JFrame {
                 BtnSeleccionMouseClicked(evt);
             }
         });
-        jPanel1.add(BtnSeleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 272, 213, -1));
+        jPanel1.add(BtnSeleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 213, -1));
 
         BtnSave.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         BtnSave.setText("Guardar Nuevos Datos ");
@@ -146,12 +146,12 @@ public class ModProducto extends javax.swing.JFrame {
                 BtnSaveMouseClicked(evt);
             }
         });
-        jPanel1.add(BtnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 321, -1, 57));
-        jPanel1.add(LblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 79, 200, 200));
+        jPanel1.add(BtnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, -1, 57));
+        jPanel1.add(LblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 310, 310));
 
         jLabel3.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel3.setText("Descripcion");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 144, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
@@ -173,37 +173,35 @@ public class ModProducto extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel5.setText("Imagen");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 271, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 344, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("jLabel7");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 116, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("jLabel8");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 181, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("jLabel9");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 243, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
