@@ -184,7 +184,7 @@ public class AddFactura extends javax.swing.JFrame {
 
         //Seleccion de Archivo
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fi = new FileNameExtensionFilter("PDF", "PDF");
+        FileNameExtensionFilter fi = new FileNameExtensionFilter("PDF & XML", "PDF", "XML");
         j.setFileFilter(fi);
         int se = j.showOpenDialog(this);
         if (se == 0) {
