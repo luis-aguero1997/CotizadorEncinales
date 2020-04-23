@@ -107,7 +107,4 @@ public class MateriaPrima
     public void setFacturas_idfacturas(int Facturas_idfacturas) {
         this.Facturas_idfacturas = Facturas_idfacturas;
     }
-    
-    
-    
 }

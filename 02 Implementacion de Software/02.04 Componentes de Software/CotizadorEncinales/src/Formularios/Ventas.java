@@ -7,6 +7,7 @@ package Formularios;
 
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
+import Formularios.CotizacionPrevia.*;
 
 /**
  *
@@ -62,6 +63,11 @@ public class Ventas extends javax.swing.JFrame {
         BtnVentasCotizar2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
         BtnVentasCotizar2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporte (4).png"))); // NOI18N
         BtnVentasCotizar2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnVentasCotizar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnVentasCotizar2MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 36)); // NOI18N
         jLabel1.setText("Bienvenido Encargado de Ventas ");
@@ -202,6 +208,13 @@ public class Ventas extends javax.swing.JFrame {
         this.dispose();
         mLogin.setVisible(true);
     }//GEN-LAST:event_BtnVentasSalirMenuActionPerformed
+
+    private void BtnVentasCotizar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasCotizar2MouseClicked
+        // TODO add your handling code here:
+        CotizacionPrevia mCP = new CotizacionPrevia();
+        mCP.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtnVentasCotizar2MouseClicked
 
     /**
      * @param args the command line arguments

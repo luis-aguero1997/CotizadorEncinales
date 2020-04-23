@@ -10,6 +10,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -290,8 +291,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Agregar Producto">
-                    <Property name="tabTitle" type="java.lang.String" value="Agregar Producto"/>
+                  <JTabbedPaneConstraints tabName="Agregar Producto Competencia">
+                    <Property name="tabTitle" type="java.lang.String" value="Agregar Producto Competencia"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>

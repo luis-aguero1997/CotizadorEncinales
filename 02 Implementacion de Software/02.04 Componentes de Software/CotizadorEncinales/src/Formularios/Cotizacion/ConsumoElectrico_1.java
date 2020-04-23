@@ -319,7 +319,7 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
                 mCE.setVisible(true);
                 this.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(null, "Campos llenados de forma invalidos");
+                JOptionPane.showMessageDialog(null, "Campos llenados de forma inválida");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Llene los campos necesarios");
@@ -343,7 +343,7 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
 
     private void TXT_NombreEquipoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NombreEquipoKeyTyped
         if (TXT_NombreEquipo.getText().length() < 3) {
-            this.jLabel8.setText("Texto demaciado Corto");
+            this.jLabel8.setText("Texto demasiado corto");
         } else {
             this.jLabel8.setText("");
         }
@@ -414,7 +414,7 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
         mCCE.setProducto_idProducto(mBD.ConsultarIdProductoClave(MenuCotizacion.Clave));
 
         if (mBD.AgregarConsumoElectrico(mCCE)) {
-            JOptionPane.showMessageDialog(null, "Consumo añadido");
+            JOptionPane.showMessageDialog(null, "Consumo eléctrico añadido");
             this.setVisible(false);
         }
     }
@@ -436,7 +436,7 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
 
         //JOptionPane.showMessageDialog(null, mCCE.getKW_Hora());
         if (mBD.ActualizarConsumosElectricos(mCCE, idConsumoElectrico)) {
-            JOptionPane.showMessageDialog(null, "Producto modificado");
+            JOptionPane.showMessageDialog(null, "Datos de consumo eléctrico modificados");
             this.setVisible(false);
         }
     }
@@ -444,7 +444,7 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
     public void EliminarPreciosConsumo() {
         mBD = new BD_1();
         if (mBD.EliminarConsumoElectrico(idConsumoElectrico)) {
-            JOptionPane.showMessageDialog(null, "Consumo Eliminado");
+            JOptionPane.showMessageDialog(null, "Datos de consumo eléctrico eliminado");
             mCE = new ConsumoElectrico();
             mCE.setVisible(true);
             this.setVisible(false);

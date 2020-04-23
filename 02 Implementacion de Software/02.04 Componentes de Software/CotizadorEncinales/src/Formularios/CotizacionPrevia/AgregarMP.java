@@ -7,7 +7,6 @@ package Formularios.CotizacionPrevia;
 
 import BaseDeDatos.*;
 import Clases.*;
-import Formularios.BD;
 import javax.swing.JOptionPane;
 
 /**
@@ -451,14 +450,14 @@ public class AgregarMP extends javax.swing.JFrame {
             
             if (mBD.AgregarMateriaPrimaCotizable(mMC))
             {
-                JOptionPane.showMessageDialog(null, "Producto añadido");
+                JOptionPane.showMessageDialog(null, "Materia prima añadida");
                 CotizacionPrevia mC = new CotizacionPrevia();
                 mC.setVisible(true);
                 this.setVisible(false);
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "Error en la BD");
+                JOptionPane.showMessageDialog(null, "Error en la base de datos, no se \npuede agregar la materia prima");
             }
         }
     }

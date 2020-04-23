@@ -1,6 +1,7 @@
 package Formularios.Facturas;
 
 import Clases.Archivo;
+import FacturasXML.*;
 import Formularios.BD;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
@@ -53,6 +54,7 @@ public class AddFactura extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        BtnSave1 = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -130,7 +132,7 @@ public class AddFactura extends javax.swing.JFrame {
                 BtnSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 200, 57));
+        jPanel1.add(BtnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 200, 57));
 
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 28)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add-file.png"))); // NOI18N
@@ -158,6 +160,25 @@ public class AddFactura extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("jLabel5");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 115, -1, -1));
+
+        BtnSave1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
+        BtnSave1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible.png"))); // NOI18N
+        BtnSave1.setText("XML");
+        BtnSave1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible (1).png"))); // NOI18N
+        BtnSave1.setRequestFocusEnabled(false);
+        BtnSave1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible (1).png"))); // NOI18N
+        BtnSave1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/disco-flexible (1).png"))); // NOI18N
+        BtnSave1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnSave1MouseClicked(evt);
+            }
+        });
+        BtnSave1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSave1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnSave1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 200, 57));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,26 +220,30 @@ public class AddFactura extends javax.swing.JFrame {
         String nombre = this.TxtNomFact.getText();
         Date Fecha = jDate.getDate();
         File ruta = new File(this.Ruta);
-
-        if (ruta.length() > 1048576) {
+        
+        if (ruta.length() > 1048576) 
+        {
             JOptionPane.showMessageDialog(null, "Archivo Demasiado grande para ser almacenado");
-        } else {
-
-            if (nombre.trim().length() != 0 && Ruta.trim().length() != 0 && !Fecha.equals("")) {
-
+        } 
+        else 
+        {
+            if (nombre.trim().length() != 0 && Ruta.trim().length() != 0 && !Fecha.equals("")) 
+            {
                 BD pa = new BD();
                 Archivo po = new Archivo();
                 po.setNombre(nombre);
                 po.setFecha(convert(Fecha));
 
-                try {
-
+                try 
+                {
                     byte[] pdf = new byte[(int) ruta.length()];
 
                     InputStream input = new FileInputStream(new File(Ruta));
                     input.read(pdf);
                     po.setPDF(pdf);
-                } catch (IOException ex) {
+                } 
+                catch (IOException ex) 
+                {
                     po.setPDF(null);
                     //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
                 }
@@ -227,11 +252,11 @@ public class AddFactura extends javax.swing.JFrame {
                 TxtNomFact.setText("");
                 jDate.setDate(null);
                 this.BtnSeleccion.setText("Seleccionar");
-
-            } else {
+            } 
+            else 
+            {
                 JOptionPane.showMessageDialog(null, "Rellenar todo los campos");
             }
-
         }
     }//GEN-LAST:event_BtnSaveMouseClicked
 
@@ -246,7 +271,7 @@ public class AddFactura extends javax.swing.JFrame {
         } else if (this.TxtNomFact.getText().length() == 45) {
             evt.consume();
         }  else if (this.TxtNomFact.getText().length() < 10) {
-            this.jLabel5.setText("Invalido, Demasiado corto");
+            this.jLabel5.setText("Inválido, demasiado corto");
         } else if (this.TxtNomFact.getText().length() >= 10){
             this.jLabel5.setText("");
         }
@@ -265,6 +290,17 @@ public class AddFactura extends javax.swing.JFrame {
         // TODO add your handling code here:
        
     }//GEN-LAST:event_jDateKeyTyped
+
+    private void BtnSave1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSave1MouseClicked
+        // TODO add your handling code here:
+        FRM_Factura mFRF = new FRM_Factura();
+        mFRF.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnSave1MouseClicked
+
+    private void BtnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSave1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSave1ActionPerformed
 
     private static java.sql.Date convert(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
@@ -307,6 +343,10 @@ public class AddFactura extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -318,6 +358,7 @@ public class AddFactura extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSave;
+    private javax.swing.JButton BtnSave1;
     private javax.swing.JButton BtnSeleccion;
     private javax.swing.JTextField TxtNomFact;
     private javax.swing.JButton jButton1;

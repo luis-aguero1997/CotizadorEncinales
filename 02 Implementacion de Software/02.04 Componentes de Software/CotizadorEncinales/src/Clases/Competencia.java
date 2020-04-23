@@ -83,7 +83,5 @@ public class Competencia {
 
     public void setProducto_idProducto(int Producto_idProducto) {
         this.Producto_idProducto = Producto_idProducto;
-    }
-    
-    
+    }   
 }

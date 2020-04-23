@@ -5,14 +5,10 @@
  */
 package Formularios.Usuarios;
 
-import Formularios.Usuarios.Usuarios;
 import BaseDeDatos.BD_1;
-import Clases.Productos;
 import Clases.Usuario;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -254,7 +250,7 @@ public class ModificarUser extends javax.swing.JFrame {
                         || this.TxtModCorreo.getText().length() < 6
                         || this.TxtModPassword.getText().length() < 6) {
 
-                    JOptionPane.showMessageDialog(null, "Entrada de Datos invalida");
+                    JOptionPane.showMessageDialog(null, "Entrada de datos inválida");
                 } else {
                     Usuario Usuario = new Usuario();
 
@@ -283,7 +279,7 @@ public class ModificarUser extends javax.swing.JFrame {
                         || this.TxtModUsuario.getText().length() < 6
                         || this.TxtModCorreo.getText().length() < 6) {
 
-                    JOptionPane.showMessageDialog(null, "Entrada de Datos invalida");
+                    JOptionPane.showMessageDialog(null, "Entrada de datos inválida");
                 } else {
                     if (this.ValidacionCorreo(TxtModCorreo.getText())) {
                         Usuario Usuario = new Usuario();
@@ -304,7 +300,7 @@ public class ModificarUser extends javax.swing.JFrame {
                         User.setVisible(true);
                         this.dispose();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Correo Invalido");
+                        JOptionPane.showMessageDialog(null, "Correo inválido");
                     }
                 }
             }
@@ -320,7 +316,7 @@ public class ModificarUser extends javax.swing.JFrame {
             evt.consume();
 
         } else if (this.TxtModCorreo.getText().length() < 6) {
-            this.jLabel8.setText("Correo Invalido");
+            this.jLabel8.setText("Correo inválido");
         } else if (this.TxtModCorreo.getText().length() > 6) {
             this.jLabel8.setText("");
         }
@@ -347,7 +343,7 @@ public class ModificarUser extends javax.swing.JFrame {
             evt.consume();
 
         } else if (this.TxtModPassword.getText().length() < 6) {
-            this.jLabel7.setText("Contraseña Demasiado Corta");
+            this.jLabel7.setText("Contraseña demasiado corta");
         } else if (this.TxtModPassword.getText().length() >= 6) {
             this.jLabel7.setText("");
         }
@@ -366,7 +362,7 @@ public class ModificarUser extends javax.swing.JFrame {
         } else if (this.TxtModUsuario.getText().length() == 45) {
             evt.consume();
         } else if (this.TxtModUsuario.getText().length() < 6) {
-            this.jLabel9.setText("Invalido, Demasiado corto");
+            this.jLabel9.setText("Inválido, demasiado corto");
         } else if (this.TxtModUsuario.getText().length() > 6) {
             this.jLabel9.setText("");
         }
@@ -383,7 +379,7 @@ public class ModificarUser extends javax.swing.JFrame {
         } else if (this.TxtModNombre.getText().length() == 45) {
             evt.consume();
         } else if (this.TxtModNombre.getText().length() < 6) {
-            this.jLabel10.setText("Invalido, Demasiado corto");
+            this.jLabel10.setText("Inválido, demasiado corto");
         } else if (this.TxtModNombre.getText().length() >= 6) {
             this.jLabel10.setText("");
         }

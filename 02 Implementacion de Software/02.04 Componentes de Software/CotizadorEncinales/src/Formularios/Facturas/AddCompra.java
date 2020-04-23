@@ -4,7 +4,6 @@ import Clases.Archivo;
 import Clases.Compras;
 import Clases.Tabla_PdfVO;
 import Clases.imgTabla;
-import Formularios.Admin;
 import Formularios.BD;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Desktop;
@@ -12,20 +11,15 @@ import java.awt.Event;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.io.*;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 public class AddCompra extends javax.swing.JFrame {
@@ -558,7 +552,7 @@ public class AddCompra extends javax.swing.JFrame {
                     || TxtDes.getText().length() <= 6
                     || this.TxtMedida.getText().length() <= 3
                     || TxtPrecio.getText().length() < 1) {
-                JOptionPane.showMessageDialog(this, "Uno o mas campos invalidos");
+                JOptionPane.showMessageDialog(this, "Uno o más campos inválidos");
 
             } else {
                 int Cant = 0;
@@ -575,7 +569,7 @@ public class AddCompra extends javax.swing.JFrame {
                 Precio = Float.parseFloat(TxtPrecio.getText());
                 //Fecha = 
                 if (Seleccion == 0) {
-                    JOptionPane.showMessageDialog(null, "Seleccione una de las Facturas de la Tabla");
+                    JOptionPane.showMessageDialog(null, "Seleccione una de las facturas de la tabla");
                 } else {
                     BD BDT = new BD();
                     Compras Com = new Compras();
@@ -595,7 +589,7 @@ public class AddCompra extends javax.swing.JFrame {
                         TxtClave.setText("");
                         TxtMedida.setText("");
                         TxtPrecio.setText("");
-                        JOptionPane.showMessageDialog(null, "Compra agregada con Exito");
+                        JOptionPane.showMessageDialog(null, "Compra agregada con éxito");
                     }
 
                 }
@@ -611,7 +605,7 @@ public class AddCompra extends javax.swing.JFrame {
             evt.consume();
 
         } else if (this.TxtClave.getText().length() < 3) {
-            jLabel16.setText("Demaciado pequeña");
+            jLabel16.setText("Demasiado pequeña");
         } else if (this.TxtClave.getText().length() >= 3) {
             this.jLabel16.setText("");
         }
@@ -624,7 +618,7 @@ public class AddCompra extends javax.swing.JFrame {
         if (TxtDes.getText().length() == 45) {
             evt.consume();
         } else if (TxtDes.getText().length() < 5) {
-            jLabel19.setText("Demaciado pequeña");
+            jLabel19.setText("Demasiado pequeña");
         } else if (TxtDes.getText().length() >= 5) {
             this.jLabel19.setText("");
         }
@@ -675,7 +669,7 @@ public class AddCompra extends javax.swing.JFrame {
         if (TxtMedida.getText().length() == 45) {
             evt.consume();
         }  else if (TxtMedida.getText().length() < 2) {
-            jLabel20.setText("Demaciado pequeña");
+            jLabel20.setText("Demasiado pequeña");
         } else if (TxtMedida.getText().length() >= 2) {
             this.jLabel20.setText("");
         }
@@ -733,7 +727,7 @@ public class AddCompra extends javax.swing.JFrame {
             Table.setModel(dt);
             Table.setRowHeight(32);
         } else {
-            JOptionPane.showMessageDialog(null, "No se encontraron Facturas durante ese periodo");
+            JOptionPane.showMessageDialog(null, "No se encontraron facturas durante ese periodo");
         }
     }
 

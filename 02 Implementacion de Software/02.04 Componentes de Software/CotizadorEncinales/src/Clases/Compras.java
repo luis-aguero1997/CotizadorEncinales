@@ -94,7 +94,5 @@ public class Compras {
 
     public void setIdFactura(int IdFactura) {
         this.IdFactura = IdFactura;
-    }
-    
-    
+    }   
 }

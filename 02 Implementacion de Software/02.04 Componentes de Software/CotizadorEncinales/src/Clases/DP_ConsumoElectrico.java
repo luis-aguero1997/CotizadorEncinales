@@ -63,6 +63,5 @@ public class DP_ConsumoElectrico {
 
     public void setPrecioConIVA(double PrecioConIVA) {
         this.PrecioConIVA = PrecioConIVA;
-    }
-        
+    }        
 }

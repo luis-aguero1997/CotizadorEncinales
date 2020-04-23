@@ -24,7 +24,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -153,6 +152,7 @@ public class ComparacionPrecios extends javax.swing.JFrame {
         jLabel13.setText("jLabel13");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -351,7 +351,7 @@ public class ComparacionPrecios extends javax.swing.JFrame {
         jLabel17.setText("jLabel17");
         JP_ConsultarCompetencia.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 426, -1, -1));
 
-        jTabbedPane1.addTab("Agregar Producto", JP_ConsultarCompetencia);
+        jTabbedPane1.addTab("Agregar Producto Competencia", JP_ConsultarCompetencia);
 
         jLabel18.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/diagrama (2)_1.png"))); // NOI18N
@@ -739,7 +739,7 @@ public class ComparacionPrecios extends javax.swing.JFrame {
         }
 
         JFreeChart jFC = ChartFactory.createBarChart3D("Estadística de Precios", "Empresas", "Precios", mDPDS, PlotOrientation.VERTICAL, true, true, false);
-        ;
+        
         try {
             OutputStream png = new FileOutputStream("GraficoComparacion.png");
             ChartUtilities.writeBufferedImageAsPNG(png, jFC.createBufferedImage(400, 400));

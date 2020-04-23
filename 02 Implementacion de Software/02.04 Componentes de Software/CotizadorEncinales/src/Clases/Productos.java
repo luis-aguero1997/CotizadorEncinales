@@ -5,8 +5,6 @@
  */
 package Clases;
 
-import javax.swing.Icon;
-
 /**
  *
  * @author luis_

@@ -272,7 +272,7 @@ public class AddUser extends javax.swing.JFrame {
                     || this.TxtUsuario.getText().length() < 6
                     || this.TxtCorreo.getText().length() < 6
                     || this.TxtPassword.getText().length() < 6) {
-                JOptionPane.showMessageDialog(null, "Uno o mas campos invalidos");
+                JOptionPane.showMessageDialog(null, "Uno o mas campos inválidos");
             } else { //Hasta aqui
                 if (ValidacionCorreo(TxtCorreo.getText())) {
                     Usuario Usuario = new Usuario();
@@ -290,7 +290,7 @@ public class AddUser extends javax.swing.JFrame {
                     TxtCorreo.setText("");
                     Puesto.setSelectedIndex(0);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Correo invalido");
+                    JOptionPane.showMessageDialog(null, "Correo inválido");
                 }
             }
 
@@ -326,7 +326,7 @@ public class AddUser extends javax.swing.JFrame {
         } else if (this.TxtNomCompleto.getText().length() == 45) {
             evt.consume();
         } else if (this.TxtNomCompleto.getText().length() < 6) {
-            this.jLabel8.setText("Nombre Invalido");
+            this.jLabel8.setText("Nombre inválido");
         } else if (this.TxtNomCompleto.getText().length() >= 6) {
             this.jLabel8.setText("");
         }
@@ -340,7 +340,7 @@ public class AddUser extends javax.swing.JFrame {
             evt.consume();
 
         } else if (this.TxtUsuario.getText().length() < 6) {
-            this.jLabel9.setText("Usuario Invalido");
+            this.jLabel9.setText("Usuario inválido");
         } else if (this.TxtUsuario.getText().length() >= 6) {
             this.jLabel9.setText("");
         }
@@ -354,7 +354,7 @@ public class AddUser extends javax.swing.JFrame {
             evt.consume();
 
         } else if (this.TxtPassword.getText().length() < 6) {
-            this.jLabel10.setText("Contraseña Demasiado Corta");
+            this.jLabel10.setText("Contraseña demasiado corta");
         } else if (this.TxtPassword.getText().length() > 6) {
             this.jLabel10.setText("");
         }
@@ -368,7 +368,7 @@ public class AddUser extends javax.swing.JFrame {
             evt.consume();
 
         } else if (this.TxtCorreo.getText().length() < 6) {
-            this.jLabel11.setText("Correo Invalido");
+            this.jLabel11.setText("Correo inválido");
         } else if (this.TxtCorreo.getText().length() > 6) {
             this.jLabel11.setText("");
         }

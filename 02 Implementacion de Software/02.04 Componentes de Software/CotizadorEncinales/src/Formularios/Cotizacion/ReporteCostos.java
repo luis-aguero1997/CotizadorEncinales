@@ -7,7 +7,6 @@ package Formularios.Cotizacion;
 
 import BaseDeDatos.*;
 import Clases.*;
-import Formularios.Admin;
 import Formularios.Cotizacion.Reporte.*;
 import java.awt.Image;
 import java.io.FileOutputStream;
@@ -815,7 +814,7 @@ public class ReporteCostos extends javax.swing.JFrame
                 || ("".equals(TXT_UnidadEmpaque.getText())) || ("".equals(TXT_UnidadUtilizacionM2.getText())) 
                 || ("".equals(TXT_UnidadUtilizacionKg.getText())) || ("".equals(TXT_Merma.getText())))
         {                  
-            JOptionPane.showMessageDialog(null, "Llena bien los campos");
+            JOptionPane.showMessageDialog(null, "Llenar los campos necesarios");
         }
         else
         {                                   
@@ -858,7 +857,7 @@ public class ReporteCostos extends javax.swing.JFrame
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "Existe una falla en la Base de Datos");
+                JOptionPane.showMessageDialog(null, "Existe una falla en la base de datos y no se puede agregar el reporte");
             }           
         }
     }

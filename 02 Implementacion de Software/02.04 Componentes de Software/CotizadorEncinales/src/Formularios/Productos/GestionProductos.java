@@ -5,33 +5,18 @@
  */
 package Formularios.Productos;
 
-import Formularios.Productos.ModProducto;
-import BaseDeDatos.Conexion;
-import Clases.Archivo;
 import Clases.Productos;
 import Clases.imgTabla;
 import Formularios.Admin;
 import Formularios.BD;
 import java.awt.Image;
-import java.awt.Label;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.util.ArrayList;
-import javafx.scene.paint.Color;
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-
 /**
  *
  * @author luis_

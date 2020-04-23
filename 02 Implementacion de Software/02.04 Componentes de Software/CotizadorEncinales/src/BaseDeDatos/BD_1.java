@@ -1462,4 +1462,30 @@ public class BD_1
             return false;
         }                   
     }
+    
+    public int ConsultaUltimaFactura()
+    {
+        int UltimaFactura = 0;
+        Conectar();
+
+        Statement consulta;
+        ResultSet resultado;
+
+        try 
+        {
+            consulta = Conexion.createStatement();
+
+            resultado = consulta.executeQuery("select idfacturas from Facturas where idfacturas = (select max(idfacturas) from Facturas )");
+            while (resultado.next()) 
+            {
+                UltimaFactura = resultado.getInt("idfacturas");
+            }
+        } 
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, "No Existe");
+        }
+        Desconectar();
+        return UltimaFactura;   
+    }
 }

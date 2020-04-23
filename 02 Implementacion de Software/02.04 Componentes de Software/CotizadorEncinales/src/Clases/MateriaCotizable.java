@@ -93,7 +93,5 @@ public class MateriaCotizable {
 
     public void setPrecioUnitario(double PrecioUnitario) {
         this.PrecioUnitario = PrecioUnitario;
-    }
-
-    
+    }   
 }

@@ -95,7 +95,7 @@ public class BD {
                 mListaUsuario.add(mUsuario);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No Existe");
+            JOptionPane.showMessageDialog(null, "No existe el usuario");
             e.printStackTrace();
         }
         Desconectar();
@@ -116,14 +116,14 @@ public class BD {
             ps.setString(4, "PDF");
             ps.setDate(5, (java.sql.Date) vo.getFecha());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Factura Agregada con Exito");
+            JOptionPane.showMessageDialog(null, "Factura agregada con éxito");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al guardar");
+            JOptionPane.showMessageDialog(null, "Error al guardar la factura");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al guardar");
+            JOptionPane.showMessageDialog(null, "Error al guardar la factura");
         } finally {
             try {
 
@@ -325,14 +325,14 @@ public class BD {
             ps.setBytes(5, Pro.getImagen());
             ps.setDouble(6, Pro.getPrecio());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Producto Agregada con Exito");
+            JOptionPane.showMessageDialog(null, "Producto agregado con éxito");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al guardar");
+            JOptionPane.showMessageDialog(null, "Error al guardar el producto, verifique el formato de \n los datos e inténtelo de nuevo");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al guardar");
+            JOptionPane.showMessageDialog(null, "Error al guardar el producto, verifique el formato de \n los datos e inténtelo de nuevo");
         } finally {
             try {
 
@@ -465,14 +465,14 @@ public class BD {
             ps.setDouble(4, Pro.getPrecio());
             ps.setString(5, Pro.getClave());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Producto Modificado con Exito");
+            JOptionPane.showMessageDialog(null, "Datos del producto modificados con éxito");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al Modificar");
+            JOptionPane.showMessageDialog(null, "Error al modificar el producto, verifique el formato de \n los datos e inténtelo de nuevo");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al Modificar");
+            JOptionPane.showMessageDialog(null, "Error al modificar el producto, verifique el formato de \n los datos e inténtelo de nuevo");
         } finally {
             try {
 
@@ -501,10 +501,10 @@ public class BD {
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al Modificar");
+            JOptionPane.showMessageDialog(null, "Error al modificar el producto, verifique el formato de \n los datos e inténtelo de nuevo");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al Modificar");
+            JOptionPane.showMessageDialog(null, "Error al modificar el producto, verifique el formato de \n los datos e inténtelo de nuevo");
         } finally {
             try {
 
@@ -533,10 +533,10 @@ public class BD {
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al Eliminar");
+            JOptionPane.showMessageDialog(null, "Error al eliminar, este producto contiene dependencias \n con datos externos que prohiben su eliminación \n elimine las dependencias e inténtelo de nuevo");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al Eliminar");
+            JOptionPane.showMessageDialog(null, "Error al eliminar, este producto contiene dependencias \n con datos externos que prohiben su eliminación \n elimine las dependencias e inténtelo de nuevo");
         } finally {
             try {
 
@@ -620,7 +620,7 @@ public class BD {
                 mListaMt.add(MT);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "No Existe esa búsqueda");
+            JOptionPane.showMessageDialog(null, "No existe la materia prima en esta búsqueda");
         }
         Desconectar();
         return mListaMt;
@@ -651,7 +651,7 @@ public class BD {
                 mListaMt.add(MT);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "No Existe esa búsqueda");
+            JOptionPane.showMessageDialog(null, "No existe la materia prima en esta búsqueda");
         }
         Desconectar();
         return mListaMt;

@@ -6,7 +6,6 @@
 package Formularios.Cotizacion;
 
 import BaseDeDatos.BD_1;
-import BaseDeDatos.*;
 import Clases.*;
 import javax.swing.JOptionPane;
 
@@ -313,7 +312,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
                     || this.TXT_ElementoCosto.getText().length() < 4
                     || this.TXT_UnidadMedida.getText().length() < 3
                     || this.TXT_PrecioUnitario.getText().equals("0")) {
-                JOptionPane.showMessageDialog(null, "Campos llenados de forma invalidos");
+                JOptionPane.showMessageDialog(null, "Campos llenados de forma inválida");
             } else {
                 NuevosPrecios();
                 mPP = new PreciosProduccion();
@@ -340,7 +339,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
                     || this.TXT_ElementoCosto.getText().length() < 4
                     || this.TXT_UnidadMedida.getText().length() < 3
                     || this.TXT_PrecioUnitario.getText().equals("0")) {
-                JOptionPane.showMessageDialog(null, "Campos llenados de forma invalidos");
+                JOptionPane.showMessageDialog(null, "Campos llenados de forma inválida");
             } else {
                 ActualizarPrecios();
                 mPP = new PreciosProduccion();
@@ -384,6 +383,10 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         if (evt.getKeyChar() == '.' && TXT_PrecioUnitario.getText().contains(".")) {
             evt.consume();
         }
+        
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
     }//GEN-LAST:event_TXT_PrecioUnitarioKeyTyped
 
     private void TXT_CantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CantidadKeyTyped
@@ -401,7 +404,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
             evt.consume();
         }
 
-        if (evt.getKeyChar() == '.') {
+        if (evt.getKeyChar() == ' ') {
             evt.consume();
         }
     }//GEN-LAST:event_TXT_CantidadKeyTyped
@@ -409,7 +412,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
     private void TXT_UnidadMedidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_UnidadMedidaKeyTyped
         // TODO add your handling code here:
         if (TXT_UnidadMedida.getText().length() < 2) {
-            this.jLabel9.setText("Texto demaciado Corto");
+            this.jLabel9.setText("Texto demasiado corto");
         } else {
             this.jLabel9.setText("");
         }
@@ -423,7 +426,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
     private void TXT_ElementoCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_ElementoCostoKeyTyped
         // TODO add your handling code here:
         if (TXT_ElementoCosto.getText().length() < 4) {
-            this.jLabel10.setText("Texto demaciado Corto");
+            this.jLabel10.setText("Texto demasiado corto");
         } else {
             this.jLabel10.setText("");
         }
@@ -449,7 +452,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         }
         mP.setProducto_idProducto(mBD.ConsultarIdProductoClave(MenuCotizacion.Clave));
         if (mBD.AgregarPreciosProduccion(mP)) {
-            JOptionPane.showMessageDialog(null, "Producto añadido");
+            JOptionPane.showMessageDialog(null, "Elemento de producción añadido");
             this.setVisible(false);
         }
     }
@@ -471,7 +474,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
             mP.setPrecioCantidad((Integer.parseInt(CB_Personal.getSelectedItem().toString())) * (Double.parseDouble(TXT_Cantidad.getText())) * (Double.parseDouble(TXT_PrecioUnitario.getText())));
         }
         if (mBD.ActualizarPreciosProduccion(mP, idPrecioProd)) {
-            JOptionPane.showMessageDialog(null, "Producto modificado");
+            JOptionPane.showMessageDialog(null, "Elemento de producción modificado");
             this.setVisible(false);
         }
     }
@@ -479,7 +482,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
     public void EliminarPreciosProduccion() {
         mBD = new BD_1();
         if (mBD.EliminarProduccion(idPrecioProd)) {
-            JOptionPane.showMessageDialog(null, "Producto Eliminado");
+            JOptionPane.showMessageDialog(null, "Elemento de producción eliminado");
             mPP = new PreciosProduccion();
             mPP.setVisible(true);
             this.setVisible(false);

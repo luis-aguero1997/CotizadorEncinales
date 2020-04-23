@@ -10,7 +10,6 @@ import Formularios.BD;
 import java.awt.Event;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import java.awt.Image.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
@@ -279,7 +278,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                     || this.TxtNom.getText().length() < 5
                     || this.TxtPrecio.getText().equals("0") ) 
             {
-                JOptionPane.showMessageDialog(null, "Campos llenados de manera invalida");
+                JOptionPane.showMessageDialog(null, "Campos llenados de manera inválida");
             } else {
                 Productos Pro = new Productos();
                 Pro.setClave(TxtClave.getText());
@@ -313,7 +312,7 @@ public class AgregarProducto extends javax.swing.JFrame {
                 this.dispose();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Llene Todos los campos y seleccione una imagen");
+            JOptionPane.showMessageDialog(null, "Llene todos los campos y seleccione una imagen");
         }
     }//GEN-LAST:event_BtnSaveMouseClicked
 
@@ -332,7 +331,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         } else if (this.TxtClave.getText().length() == 45) {
             evt.consume();
         } else if (this.TxtClave.getText().length() < 3) {
-            this.jLabel8.setText("Invalido, Demasiado corto");
+            this.jLabel8.setText("Inválido, demasiado corto");
         } else if (this.TxtClave.getText().length() > 3) {
             this.jLabel8.setText("");
         }
@@ -349,7 +348,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         } else if (this.TxtNom.getText().length() == 45) {
             evt.consume();
         } else if (this.TxtNom.getText().length() < 5) {
-            this.jLabel9.setText("Invalido, Demasiado corto");
+            this.jLabel9.setText("Inválido, demasiado corto");
         } else if (this.TxtNom.getText().length() >= 5) {
             this.jLabel9.setText("");
         }
@@ -378,7 +377,7 @@ public class AgregarProducto extends javax.swing.JFrame {
         } else if (this.TxtDes.getText().length() == 45) {
             evt.consume();
         } else if (this.TxtDes.getText().length() < 5) {
-            this.jLabel11.setText("Invalido, Demasiado corto");
+            this.jLabel11.setText("Inválido, demasiado corto");
         } else if (this.TxtDes.getText().length() >= 5) {
             this.jLabel11.setText("");
         }

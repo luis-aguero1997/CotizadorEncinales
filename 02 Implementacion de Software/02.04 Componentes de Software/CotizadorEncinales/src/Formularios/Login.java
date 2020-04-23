@@ -7,9 +7,6 @@ package Formularios;
 
 import BaseDeDatos.BD_1;
 import Clases.*;
-import java.awt.Color;
-import java.awt.Desktop;
-import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -135,7 +132,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         if (Txt_Nombre.getText().isEmpty() || Txt_Psw.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese Nombre de usuario y Contraseña");
+            JOptionPane.showMessageDialog(null, "Ingrese Nombre de usuario y contraseña");
         } else {
             if (mBD.Conectar()) {
                 String Nombre, Psw, Tipo;
@@ -159,8 +156,6 @@ public class Login extends javax.swing.JFrame {
                         datos[5] = mUsuario.getTipo();
                     }
 
-                    //if ((datos[1] == null ? this.Txt_Nombre.getText() == null : datos[1].equals(this.Txt_Nombre.getText()))
-                    //      && (datos[3] == null ? this.Txt_Psw.getText() == null : datos[3].equals(this.Txt_Psw.getText()))) {
                     switch (datos[5]) {
                         case "1":
                             Tipousuario = datos[5];
@@ -180,12 +175,9 @@ public class Login extends javax.swing.JFrame {
                             mVentas.setVisible(true);
                             this.dispose();
                             break;
-                        //}
-                        //} else {
-                        //JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Usuario o Contraseña Invalidos","AVISO", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Usuario o contraseña inválidos","AVISO", JOptionPane.WARNING_MESSAGE);
                 }
 
             } else {

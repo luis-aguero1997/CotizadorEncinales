@@ -84,6 +84,5 @@ public class DP_Produccion
 
     public void setProducto_idProducto(int Producto_idProducto) {
         this.Producto_idProducto = Producto_idProducto;
-    }
-    
+    }    
 }

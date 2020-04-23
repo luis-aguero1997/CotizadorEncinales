@@ -10,10 +10,7 @@ import Formularios.BD;
 import java.awt.Event;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import java.awt.Image.*;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,11 +19,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.InputMap;
-import javax.swing.JButton;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
@@ -286,7 +280,7 @@ public class ModProducto extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Llene Todos los campos y seleccione una imagen");
+            JOptionPane.showMessageDialog(null, "Llene todos los campos y seleccione una imagen");
         }
     }//GEN-LAST:event_BtnSaveMouseClicked
 
@@ -297,7 +291,9 @@ public class ModProducto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        this.dispose();
+        GestionProductos mGP = new GestionProductos();
+        mGP.setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -308,7 +304,7 @@ public class ModProducto extends javax.swing.JFrame {
         } else if (this.TxtNom.getText().length() == 45) {
             evt.consume();
         } else if (this.TxtNom.getText().length() < 3) {
-            this.jLabel7.setText("Invalido, Demasiado corto");
+            this.jLabel7.setText("Inválido, demasiado corto");
         } else if (this.TxtNom.getText().length() >= 3) {
             this.jLabel7.setText("");
         }
@@ -321,7 +317,7 @@ public class ModProducto extends javax.swing.JFrame {
         } else if (this.TxtDes.getText().length() == 45) {
             evt.consume();
         } else if (this.TxtDes.getText().length() < 3) {
-            this.jLabel8.setText("Invalido, Demasiado corto");
+            this.jLabel8.setText("Inválido, demasiado corto");
         } else if (this.TxtDes.getText().length() >= 3) {
             this.jLabel8.setText("");
         }

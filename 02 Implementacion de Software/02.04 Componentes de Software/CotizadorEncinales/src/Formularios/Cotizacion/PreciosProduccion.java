@@ -6,7 +6,6 @@
 package Formularios.Cotizacion;
 
 import BaseDeDatos.BD_1;
-import BaseDeDatos.*;
 import Clases.*;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -411,7 +410,7 @@ public final class PreciosProduccion extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "Existe una falla en la Base de Datos");
+                JOptionPane.showMessageDialog(null, "Existe una falla en la base de datos \n y no se puede añadir");
             }
             
         }

@@ -8,6 +8,7 @@ package Formularios;
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
 import Formularios.CotizacionPrevia.*;
+import Formularios.Facturas.*;
 
 /**
  *
@@ -146,7 +147,7 @@ public class Cotizador extends javax.swing.JFrame {
 
         BtnAdminFacturas1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         BtnAdminFacturas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cuenta.png"))); // NOI18N
-        BtnAdminFacturas1.setText("Facturas");
+        BtnAdminFacturas1.setText("Facturas y Compras");
         BtnAdminFacturas1.setBorderPainted(false);
         BtnAdminFacturas1.setContentAreaFilled(false);
         BtnAdminFacturas1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -266,6 +267,9 @@ public class Cotizador extends javax.swing.JFrame {
 
     private void BtnAdminFacturas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminFacturas1ActionPerformed
         // TODO add your handling code here:
+        MainFactura MF = new MainFactura();
+        MF.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtnAdminFacturas1ActionPerformed
 
     private void BtnCotizadorCotizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCotizadorCotizarMouseClicked
