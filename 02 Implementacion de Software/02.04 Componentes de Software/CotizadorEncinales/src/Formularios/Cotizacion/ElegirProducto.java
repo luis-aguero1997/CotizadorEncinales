@@ -228,14 +228,32 @@ public final class ElegirProducto extends javax.swing.JFrame {
             }
             else
             {
-                if ("3".equals(Login.Tipousuario))
-                {
+                if ("3".equals(Login.Tipousuario)) {
                     Ventas mV = new Ventas();
                     mV.setVisible(true);
                     this.setVisible(false);
-                }
-                else
-                {                   
+                } 
+                else 
+                {
+                   if ("4".equals(Login.Tipousuario)) 
+                    {
+                        Compras mCompras = new Compras();
+                        mCompras.setVisible(true);
+                        this.setVisible(false);
+                    } 
+                    else 
+                    {
+                       if ("5".equals(Login.Tipousuario)) 
+                       {
+                            Contabilidad mContabilidad = new Contabilidad();
+                            mContabilidad.setVisible(true);
+                            this.setVisible(false);
+                        } 
+                        else 
+                        {
+
+                        }
+                    } 
                 }
             }
         }        

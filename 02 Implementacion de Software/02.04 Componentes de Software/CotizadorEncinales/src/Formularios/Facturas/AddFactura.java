@@ -1,12 +1,12 @@
 package Formularios.Facturas;
 
+import BaseDeDatos.*;
 import Clases.Archivo;
 import FacturasXML.*;
-import Formularios.BD;
+import Formularios.*;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
 import java.io.*;
-import java.sql.*;
 import java.util.Date;
 import javax.swing.InputMap;
 import javax.swing.JFileChooser;
@@ -241,6 +241,10 @@ public class AddFactura extends javax.swing.JFrame {
                     InputStream input = new FileInputStream(new File(Ruta));
                     input.read(pdf);
                     po.setPDF(pdf);
+                    String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó la factura " + nombre;
+                    BD_1 mBD_1 = new BD_1();
+                    mBD_1.AgregarRegistro(DescripcionN);
+                    mBD_1.Desconectar();
                 } 
                 catch (IOException ex) 
                 {

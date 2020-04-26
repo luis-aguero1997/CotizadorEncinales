@@ -5,8 +5,10 @@
  */
 package Formularios.Productos;
 
+import BaseDeDatos.BD_1;
 import Clases.*;
 import Formularios.BD;
+import Formularios.Login;
 import java.awt.Event;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -253,6 +255,10 @@ public class ModProducto extends javax.swing.JFrame {
                         Logger.getLogger(ModProducto.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     mBD.Modificar(Pro);
+                    String DescripcionN = "El usuario " + Login.NombreUsuario + " modificó los datos de un producto del sistema";
+                    BD_1 mBD_1 = new BD_1();
+                    mBD_1.AgregarRegistro(DescripcionN);
+                    mBD_1.Desconectar();
 
                     Gestion = new GestionProductos();
                     Gestion.setVisible(true);

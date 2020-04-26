@@ -343,6 +343,10 @@ public class FRM_Factura extends javax.swing.JFrame {
         // TODO add your handling code here:
         try
         {
+            String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó una factura en formato XML";
+            BD_1 mBD = new BD_1();
+            mBD.AgregarRegistro(DescripcionN);
+            mBD.Desconectar();
             MandarRutaFecha();
             SubirArchivoXML();
             VerificarMateriaPrima();

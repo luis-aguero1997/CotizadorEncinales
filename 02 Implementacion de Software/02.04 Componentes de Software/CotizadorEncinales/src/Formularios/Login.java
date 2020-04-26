@@ -8,6 +8,8 @@ package Formularios;
 import BaseDeDatos.BD_1;
 import Clases.*;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +21,9 @@ public class Login extends javax.swing.JFrame {
     BD_1 mBD = new BD_1();
     Usuario mUsuario;
     public static String Tipousuario;
+    public static String NombreUsuario;
+    public static Calendar c2 = new GregorianCalendar();
+    public static String FechaActual = c2.get(Calendar.YEAR) + "/" + c2.get(Calendar.MONTH) + "/" + c2.get(Calendar.DATE);
 
     public Login() {
         initComponents();
@@ -159,23 +164,43 @@ public class Login extends javax.swing.JFrame {
                     switch (datos[5]) {
                         case "1":
                             Tipousuario = datos[5];
+                            NombreUsuario = datos[1];
                             Admin mAdmin = new Admin();
                             mAdmin.setVisible(true);
                             this.dispose();
                             break;
                         case "2":
                             Tipousuario = datos[5];
+                            NombreUsuario = datos[1];
                             Cotizador mCotizador = new Cotizador();
                             mCotizador.setVisible(true);
                             this.dispose();
                             break;
                         case "3":
                             Tipousuario = datos[5];
+                            NombreUsuario = datos[1];
                             Ventas mVentas = new Ventas();
                             mVentas.setVisible(true);
                             this.dispose();
                             break;
+                        case "4":
+                            Tipousuario = datos[5];
+                            NombreUsuario = datos[1];
+                            Compras mCompras = new Compras();
+                            mCompras.setVisible(true);
+                            this.dispose();
+                            break;
+                        case "5":
+                            Tipousuario = datos[5];
+                            NombreUsuario = datos[1];
+                            Contabilidad mContabilidad = new Contabilidad();
+                            mContabilidad.setVisible(true);
+                            this.dispose();
+                            break;
                     }
+                    
+                    String Descripcion = "El usuario " + Login.NombreUsuario + " entró al sistema";
+                    mBD.AgregarRegistro(Descripcion);
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña inválidos","AVISO", JOptionPane.WARNING_MESSAGE);
                 }

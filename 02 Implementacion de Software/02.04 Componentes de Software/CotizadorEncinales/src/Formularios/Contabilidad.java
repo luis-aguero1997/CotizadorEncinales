@@ -5,25 +5,26 @@
  */
 package Formularios;
 
+import BaseDeDatos.BD_1;
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
 import Formularios.CotizacionPrevia.*;
 import Formularios.Facturas.*;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author manuelvaquera
  */
-public class Cotizador extends javax.swing.JFrame {
+public class Contabilidad extends javax.swing.JFrame {
 
     /**
      * Creates new form Cotizador
      */
-    public Cotizador() {
+    public Contabilidad() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
-        BtnAdminFacturas1.setEnabled(false);
     }
 
     /**
@@ -69,7 +70,7 @@ public class Cotizador extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("AppleGothic", 0, 28)); // NOI18N
-        jLabel1.setText("Bienvenido Encargado de Producción ");
+        jLabel1.setText("Bienvenido Encargado de Contabilidad ");
 
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         jLabel2.setText("Seleccione Alguna de las Siguientes Opciones ");
@@ -177,7 +178,7 @@ public class Cotizador extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))))
-                .addGap(0, 70, Short.MAX_VALUE))
+                .addGap(0, 59, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -260,6 +261,9 @@ public class Cotizador extends javax.swing.JFrame {
 
         Login mLogin = new Login();
         this.dispose();
+        String Descripcion = "El usuario " + Login.NombreUsuario + " salió del sistema";
+        BD_1 mBD = new BD_1();
+        mBD.AgregarRegistro(Descripcion);
         mLogin.setVisible(true);
     }//GEN-LAST:event_BtnCotizadorSalirMenuActionPerformed
 
@@ -281,7 +285,6 @@ public class Cotizador extends javax.swing.JFrame {
         // TODO add your handling code here:
         CotizacionPrevia mCP = new CotizacionPrevia();
         mCP.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -301,14 +304,42 @@ public class Cotizador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cotizador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Contabilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cotizador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Contabilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cotizador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Contabilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cotizador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Contabilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -317,7 +348,7 @@ public class Cotizador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cotizador().setVisible(true);
+                new Contabilidad().setVisible(true);
             }
         });
     }

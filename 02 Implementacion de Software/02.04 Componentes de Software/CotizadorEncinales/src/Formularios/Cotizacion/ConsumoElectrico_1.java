@@ -7,6 +7,8 @@ package Formularios.Cotizacion;
 
 import BaseDeDatos.*;
 import Clases.*;
+import static Formularios.Comparacion.ComparacionPrecios_1.NombreProducto;
+import Formularios.*;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
@@ -298,6 +300,9 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
     private void BTN_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ModificarActionPerformed
         // TODO add your handling code here:
         ActualizarConsumoElectrico();
+        String DescripcionN = "El usuario " + Login.NombreUsuario + " modificó datos de un consumo eléctrico";
+        mBD.AgregarRegistro(DescripcionN);
+        mBD.Desconectar();
         mCE = new ConsumoElectrico();
         mCE.setVisible(true);
         this.setVisible(false);
@@ -315,6 +320,9 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
                     && !this.TXT_HorasConsumo.getText().equals("0")
                     && this.TXT_NombreEquipo.getText().length() > 3) {
                 NuevosConsumos();
+                String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó un consumo eléctrico";
+                mBD.AgregarRegistro(DescripcionN);
+                mBD.Desconectar();
                 mCE = new ConsumoElectrico();
                 mCE.setVisible(true);
                 this.setVisible(false);
@@ -331,7 +339,7 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
         Opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de eliminar este precio de consumo eléctrico? \n (los precios eliminados no se pueden recuperar)");
 
         if (JOptionPane.OK_OPTION == Opcion) {
-            EliminarPreciosConsumo();
+            EliminarPreciosConsumo();         
         } else {
 
         }
@@ -445,6 +453,9 @@ public class ConsumoElectrico_1 extends javax.swing.JFrame {
         mBD = new BD_1();
         if (mBD.EliminarConsumoElectrico(idConsumoElectrico)) {
             JOptionPane.showMessageDialog(null, "Datos de consumo eléctrico eliminado");
+            String DescripcionN = "El usuario " + Login.NombreUsuario + " eliminó un consumo eléctrico";
+            mBD.AgregarRegistro(DescripcionN);
+            mBD.Desconectar();
             mCE = new ConsumoElectrico();
             mCE.setVisible(true);
             this.setVisible(false);

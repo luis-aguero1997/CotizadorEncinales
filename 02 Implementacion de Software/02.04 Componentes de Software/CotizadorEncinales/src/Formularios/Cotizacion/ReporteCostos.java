@@ -8,6 +8,7 @@ package Formularios.Cotizacion;
 import BaseDeDatos.*;
 import Clases.*;
 import Formularios.Cotizacion.Reporte.*;
+import Formularios.*;
 import java.awt.Image;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -613,8 +614,11 @@ public class ReporteCostos extends javax.swing.JFrame
 
     private void BTN_PDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_PDFActionPerformed
         // TODO add your handling code here:
+        String DescripcionN = "El usuario " + Login.NombreUsuario + " creó o modificó datos de un reporte de cotización";
+        mBD.AgregarRegistro(DescripcionN);
+        mBD.Desconectar();
         SubirActualizarReporte();
-
+        
     }//GEN-LAST:event_BTN_PDFActionPerformed
 
     private void BTN_ConsumoElectricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ConsumoElectricoActionPerformed

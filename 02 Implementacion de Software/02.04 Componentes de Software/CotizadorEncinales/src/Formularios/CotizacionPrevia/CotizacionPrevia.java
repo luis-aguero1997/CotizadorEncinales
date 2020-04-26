@@ -133,6 +133,22 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         LBL_CostoUtilidad.setText("0");
         LBL_CostoIVA.setText("0");
         LBL_CostoTotal.setText("0");
+        
+        if ("1".equals(Login.Tipousuario))
+        {
+            BTN_Agregar.setEnabled(true);
+        }
+        else
+        {
+            if ("2".equals(Login.Tipousuario))
+            {
+                BTN_Agregar.setEnabled(true);
+            }
+            else
+            {
+                BTN_Agregar.setEnabled(false);
+            }
+        }
     }
 
     /**
@@ -476,10 +492,11 @@ public class CotizacionPrevia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TBL_MateriaPrimaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TBL_MateriaPrimaMouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here:       
+        
         SeleccionX = TBL_MateriaPrima.rowAtPoint(evt.getPoint());
         SeleccionZ = TBL_MateriaPrima.columnAtPoint(evt.getPoint());
-        
+
         switch (SeleccionZ) 
         {
             case 1:
@@ -526,7 +543,7 @@ public class CotizacionPrevia extends javax.swing.JFrame {
                 break;
             default:
                 ArrayList mListaClave = mBD.ConsultaMateriaCotizableClave(TablaMateriaPrima.getValueAt(SeleccionX, 1).toString());
-                
+
                 for (Object mListaClave2 : mListaClave)
                 {
                     mMP = (MateriaCotizable) mListaClave2;
@@ -539,7 +556,7 @@ public class CotizacionPrevia extends javax.swing.JFrame {
                     AgregarMP.PrecioSoldadura = mMP.getPrecioSoldadura();
                     AgregarMP.PrecioUnitario = mMP.getPrecioUnitario();
                 }
-                
+
                 AgregarMP.Bandera = false;
                 AgregarMP mAMP = new AgregarMP();
                 mAMP.setVisible(true);
@@ -602,14 +619,32 @@ public class CotizacionPrevia extends javax.swing.JFrame {
             }
             else
             {
-                if ("3".equals(Login.Tipousuario))
-                {
+                if ("3".equals(Login.Tipousuario)) {
                     Ventas mV = new Ventas();
                     mV.setVisible(true);
                     this.setVisible(false);
-                }
-                else
-                {                   
+                } 
+                else 
+                {
+                   if ("4".equals(Login.Tipousuario)) 
+                    {
+                        Compras mCompras = new Compras();
+                        mCompras.setVisible(true);
+                        this.setVisible(false);
+                    } 
+                    else 
+                    {
+                       if ("5".equals(Login.Tipousuario)) 
+                       {
+                            Contabilidad mContabilidad = new Contabilidad();
+                            mContabilidad.setVisible(true);
+                            this.setVisible(false);
+                        } 
+                        else 
+                        {
+
+                        }
+                    } 
                 }
             }
         }

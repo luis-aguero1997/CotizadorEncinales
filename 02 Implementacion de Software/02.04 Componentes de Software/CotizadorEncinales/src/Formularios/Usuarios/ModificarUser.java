@@ -7,6 +7,7 @@ package Formularios.Usuarios;
 
 import BaseDeDatos.BD_1;
 import Clases.Usuario;
+import Formularios.Login;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -262,6 +263,10 @@ public class ModificarUser extends javax.swing.JFrame {
                     Usuario.setId_Usuario(Usuarios.Seleccion);
 
                     mBD.Modificar(Usuario);
+                    String DescripcionN = "El usuario " + Login.NombreUsuario + " modificó los datos de un usuario del sistema";
+                    BD_1 mBD_1 = new BD_1();
+                    mBD_1.AgregarRegistro(DescripcionN);
+                    mBD_1.Desconectar();
 
                     TxtModNombre.setText("");
                     TxtModUsuario.setText("");

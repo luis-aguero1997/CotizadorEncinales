@@ -3,6 +3,7 @@ package FacturasXML;
 import BaseDeDatos.*;
 import Clases.*;
 import Formularios.BD;
+import Formularios.Login;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
@@ -480,7 +481,7 @@ public class FRM_MPFactura extends javax.swing.JFrame {
             BD BDT = new BD();
             BD_1 mBD = new BD_1();
             
-            Compras Com = new Compras();
+            ClaseCompras Com = new ClaseCompras();
             Com.setCantidad(Cant);
             Com.setClave(Clave);
             Com.setDescripcion(Des);
@@ -508,6 +509,10 @@ public class FRM_MPFactura extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Compra agregada con Exito");
                 this.setVisible(false);
                 
+                String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó una compra de materia prima";
+                mBD.AgregarRegistro(DescripcionN);
+                mBD.Desconectar();
+                
                 if (RB_No.isSelected() == true && RB_Si.isSelected() == false)
                 {
                    
@@ -515,6 +520,9 @@ public class FRM_MPFactura extends javax.swing.JFrame {
                 else
                 {
                     mBD.AgregarMateriaPrimaCotizable(mMC);
+                    DescripcionN = "El usuario " + Login.NombreUsuario + " agregó una compra de materia prima cotizable";
+                    mBD.AgregarRegistro(DescripcionN);
+                    mBD.Desconectar();
                 }
             }
         } else {

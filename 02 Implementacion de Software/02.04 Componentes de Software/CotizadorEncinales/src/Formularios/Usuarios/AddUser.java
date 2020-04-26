@@ -7,6 +7,7 @@ package Formularios.Usuarios;
 
 import BaseDeDatos.BD_1;
 import Clases.Usuario;
+import Formularios.Login;
 import java.awt.Event;
 import java.awt.event.KeyEvent;
 import java.util.regex.Matcher;
@@ -143,7 +144,7 @@ public class AddUser extends javax.swing.JFrame {
         });
         jPanel1.add(BtnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, 230, 60));
 
-        Puesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Cotizador de Ventas", "Encargado de Ventas" }));
+        Puesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elige el puesto del usuario", "Administrador", "Encargado de Producción", "Encargado de Ventas", "Encargado de Compras", "Encargado de Contabilidad" }));
         Puesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PuestoActionPerformed(evt);
@@ -252,7 +253,6 @@ public class AddUser extends javax.swing.JFrame {
 
     private void BtnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddUserActionPerformed
 
-
     }//GEN-LAST:event_BtnAddUserActionPerformed
 
     private void PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuestoActionPerformed
@@ -260,42 +260,51 @@ public class AddUser extends javax.swing.JFrame {
     }//GEN-LAST:event_PuestoActionPerformed
 
     private void BtnAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddUserMouseClicked
+       if (Puesto.getSelectedIndex() != 0)
+       {  
+            if (!this.TxtNomCompleto.getText().isEmpty()
+                    || this.TxtUsuario.getText().isEmpty()
+                    || this.TxtPassword.getText().isEmpty()
+                    || this.TxtCorreo.getText().isEmpty()
+                    || this.Puesto.getSelectedIndex() == 0);
+            {
+                //Copiar en el frame de ramiro
+                if (this.TxtNomCompleto.getText().length() < 6
+                        || this.TxtUsuario.getText().length() < 6
+                        || this.TxtCorreo.getText().length() < 6
+                        || this.TxtPassword.getText().length() < 6) {
+                    JOptionPane.showMessageDialog(null, "Uno o mas campos inválidos");
+                } else { //Hasta aqui
+                    if (ValidacionCorreo(TxtCorreo.getText())) {
+                        Usuario Usuario = new Usuario();
+                        Usuario.setNomCompleto(TxtNomCompleto.getText());
+                        Usuario.setUsuario(TxtUsuario.getText());
+                        Usuario.setPassword(TxtPassword.getText());
+                        Usuario.setCorreo(TxtCorreo.getText());
+                        Usuario.setTipo(Integer.toString(Puesto.getSelectedIndex()));
 
-        if (!this.TxtNomCompleto.getText().isEmpty()
-                || this.TxtUsuario.getText().isEmpty()
-                || this.TxtPassword.getText().isEmpty()
-                || this.TxtCorreo.getText().isEmpty()
-                || this.Puesto.getSelectedIndex() == 0);
-        {
-            //Copiar en el frame de ramiro
-            if (this.TxtNomCompleto.getText().length() < 6
-                    || this.TxtUsuario.getText().length() < 6
-                    || this.TxtCorreo.getText().length() < 6
-                    || this.TxtPassword.getText().length() < 6) {
-                JOptionPane.showMessageDialog(null, "Uno o mas campos inválidos");
-            } else { //Hasta aqui
-                if (ValidacionCorreo(TxtCorreo.getText())) {
-                    Usuario Usuario = new Usuario();
-                    Usuario.setNomCompleto(TxtNomCompleto.getText());
-                    Usuario.setUsuario(TxtUsuario.getText());
-                    Usuario.setPassword(TxtPassword.getText());
-                    Usuario.setCorreo(TxtCorreo.getText());
-                    Usuario.setTipo(Integer.toString(Puesto.getSelectedIndex()));
+                        mBD.Agregar_Usuario(Usuario);
+                        String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó a un usuario al sistema";
+                        BD_1 mBD_1 = new BD_1();
+                        mBD_1.AgregarRegistro(DescripcionN);
+                        mBD_1.Desconectar();
 
-                    mBD.Agregar_Usuario(Usuario);
-
-                    TxtNomCompleto.setText("");
-                    TxtUsuario.setText("");
-                    TxtPassword.setText("");
-                    TxtCorreo.setText("");
-                    Puesto.setSelectedIndex(0);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Correo inválido");
+                        TxtNomCompleto.setText("");
+                        TxtUsuario.setText("");
+                        TxtPassword.setText("");
+                        TxtCorreo.setText("");
+                        Puesto.setSelectedIndex(0);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Correo inválido");
+                    }
                 }
+
             }
-
-        }
-
+       }
+       else
+       {
+           JOptionPane.showMessageDialog(null, "Elige un puesto primeramente");
+       }
     }//GEN-LAST:event_BtnAddUserMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

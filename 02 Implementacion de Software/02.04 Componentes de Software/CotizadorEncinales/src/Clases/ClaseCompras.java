@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author luis_
  */
-public class Compras {
+public class ClaseCompras {
     private int Id;
     private String Clave;
     private String Descripcion;
@@ -21,7 +21,7 @@ public class Compras {
     private Date Fecha;
     private int IdFactura;
 
-    public Compras() {
+    public ClaseCompras() {
         Id = 0;
         Clave = "";
         Descripcion = "";

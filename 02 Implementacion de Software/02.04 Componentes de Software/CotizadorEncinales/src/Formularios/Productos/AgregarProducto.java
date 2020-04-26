@@ -5,8 +5,10 @@
  */
 package Formularios.Productos;
 
+import BaseDeDatos.BD_1;
 import Clases.Productos;
 import Formularios.BD;
+import Formularios.Login;
 import java.awt.Event;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -301,6 +303,10 @@ public class AgregarProducto extends javax.swing.JFrame {
                     Logger.getLogger(AgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 mBD.Agregar_Producto(Pro);
+                String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó un producto al sistema";
+                BD_1 mBD_1 = new BD_1();
+                mBD_1.AgregarRegistro(DescripcionN);
+                mBD_1.Desconectar();
 
                 TxtClave.setText("");
                 TxtDes.setText("");

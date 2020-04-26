@@ -213,7 +213,7 @@ public class BD {
     //Agregar Compra
     //Agregar PDF
     /*Metodo agregar*/
-    public boolean Agregar_Compra(Compras vo) {
+    public boolean Agregar_Compra(ClaseCompras vo) {
         //Archivo mArchivo = new Archivo();
         Conectar();
         Statement consulta;

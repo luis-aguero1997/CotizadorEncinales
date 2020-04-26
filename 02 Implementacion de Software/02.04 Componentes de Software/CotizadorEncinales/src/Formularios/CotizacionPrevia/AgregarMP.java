@@ -7,6 +7,7 @@ package Formularios.CotizacionPrevia;
 
 import BaseDeDatos.*;
 import Clases.*;
+import Formularios.Login;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,6 +34,7 @@ public class AgregarMP extends javax.swing.JFrame {
     
     int Aleatorio;
     int Opcion;
+    Boolean Restriccion;
     
     public AgregarMP() 
     {
@@ -45,24 +47,50 @@ public class AgregarMP extends javax.swing.JFrame {
         Aleatorio = 0;
         Opcion = 0;
         
-        if (Bandera == true)
+        if ("1".equals(Login.Tipousuario))
         {
-            BTN_Modificar.setEnabled(false);
-            BTN_Eliminar.setEnabled(false);
-            BTN_Guardar.setEnabled(true);
+            Restriccion = true;
         }
         else
         {
-            BTN_Modificar.setEnabled(true);
-            BTN_Eliminar.setEnabled(true);
+            if ("2".equals(Login.Tipousuario))
+            {
+                Restriccion = true;
+            }
+            else
+            {
+                Restriccion = false;
+            }
+        }
+        
+        if (Restriccion == true)
+        {
+            if (Bandera == true)
+            {
+                BTN_Modificar.setEnabled(false);
+                BTN_Eliminar.setEnabled(false);
+                BTN_Guardar.setEnabled(true);
+            }
+            else
+            {
+                BTN_Modificar.setEnabled(true);
+                BTN_Eliminar.setEnabled(true);
+                BTN_Guardar.setEnabled(false);
+
+                TXT_Descripcion.setText(Descripcion);
+                TXT_PrecioCorte.setText(String.valueOf(PrecioCorte));
+                TXT_PrecioDobles.setText(String.valueOf(PrecioDobles));
+                TXT_PrecioRoscado.setText(String.valueOf(PrecioRoscado));
+                TXT_PrecioSoldadura.setText(String.valueOf(PrecioSoldadura));
+                TXT_PrecioUnitario.setText(String.valueOf(PrecioUnitario));
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Usuario no autorizado para modificar precios");
+            BTN_Modificar.setEnabled(false);
+            BTN_Eliminar.setEnabled(false);
             BTN_Guardar.setEnabled(false);
-                     
-            TXT_Descripcion.setText(Descripcion);
-            TXT_PrecioCorte.setText(String.valueOf(PrecioCorte));
-            TXT_PrecioDobles.setText(String.valueOf(PrecioDobles));
-            TXT_PrecioRoscado.setText(String.valueOf(PrecioRoscado));
-            TXT_PrecioSoldadura.setText(String.valueOf(PrecioSoldadura));
-            TXT_PrecioUnitario.setText(String.valueOf(PrecioUnitario));
         }
     }
 
@@ -191,7 +219,7 @@ public class AgregarMP extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/haz.png"))); // NOI18N
-        jLabel1.setText(" Añadir Nueva Materia Prima");
+        jLabel1.setText(" Gestión de Materia Prima");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/003.jpg"))); // NOI18N
 
@@ -304,17 +332,26 @@ public class AgregarMP extends javax.swing.JFrame {
 
     private void BTN_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_GuardarActionPerformed
         // TODO add your handling code here:
+        String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó un registro de materia prima cotizable";
+        mBD.AgregarRegistro(DescripcionN);
+        mBD.Desconectar();
         GuardarMateriaPrima();
     }//GEN-LAST:event_BTN_GuardarActionPerformed
 
     private void BTN_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ModificarActionPerformed
         // TODO add your handling code here:
+        String DescripcionN = "El usuario " + Login.NombreUsuario + " modificó datos de un registro de materia prima cotizable";
+        mBD.AgregarRegistro(DescripcionN);
+        mBD.Desconectar();
         ModificarMateriaPrima();
     }//GEN-LAST:event_BTN_ModificarActionPerformed
 
     private void BTN_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EliminarActionPerformed
         // TODO add your handling code here:
         EliminarMateriaPrima();
+        String DescripcionN = "El usuario " + Login.NombreUsuario + " eliminó un registro de materia prima cotizable";
+        mBD.AgregarRegistro(DescripcionN);
+        mBD.Desconectar();
         CotizacionPrevia mC = new CotizacionPrevia();
         mC.setVisible(true);
         this.setVisible(false);

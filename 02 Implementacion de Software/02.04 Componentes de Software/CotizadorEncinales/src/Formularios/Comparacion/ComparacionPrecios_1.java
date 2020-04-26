@@ -7,6 +7,7 @@ package Formularios.Comparacion;
 
 import BaseDeDatos.*;
 import Clases.*;
+import Formularios.Login;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -228,6 +229,8 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
     private void BTN_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ModificarActionPerformed
         // TODO add your handling code here:
         ActualizarCompetencia();
+        String DescripcionN = "El usuario " + Login.NombreUsuario + " actualizó datos del producto competencia " + NombreProducto;
+        mBD.AgregarRegistro(DescripcionN);
     }//GEN-LAST:event_BTN_ModificarActionPerformed
 
     private void BTN_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EliminarActionPerformed
@@ -235,6 +238,8 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
         Opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de eliminar este precio? \n (los precios eliminados no se pueden recuperar)");
 
         if (JOptionPane.OK_OPTION == Opcion) {
+            String DescripcionN = "El usuario " + Login.NombreUsuario + " eliminó el producto competencia " + NombreProducto;
+            mBD.AgregarRegistro(DescripcionN);
             EliminarCompetencia();
         } else {
 

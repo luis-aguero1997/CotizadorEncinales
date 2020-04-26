@@ -8,7 +8,7 @@ package Formularios.Facturas;
 import Formularios.BD;
 import Clases.MateriaPrima;
 import Clases.imgTabla;
-import Formularios.Admin;
+import Formularios.*;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -253,9 +253,51 @@ public class MainFactura extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        Admin Admin = new Admin();
-        Admin.setVisible(true);
-        this.setVisible(false);
+        if ("1".equals(Login.Tipousuario))
+        {
+            Admin mA = new Admin();
+            mA.setVisible(true);
+            this.setVisible(false);
+        }
+        else
+        {
+            if ("2".equals(Login.Tipousuario))
+            {
+                Cotizador mC = new Cotizador();
+                mC.setVisible(true);
+                this.setVisible(false);
+            }
+            else
+            {
+                if ("3".equals(Login.Tipousuario)) {
+                    Ventas mV = new Ventas();
+                    mV.setVisible(true);
+                    this.setVisible(false);
+                } 
+                else 
+                {
+                   if ("4".equals(Login.Tipousuario)) 
+                    {
+                        Compras mCompras = new Compras();
+                        mCompras.setVisible(true);
+                        this.setVisible(false);
+                    } 
+                    else 
+                    {
+                       if ("5".equals(Login.Tipousuario)) 
+                       {
+                            Contabilidad mContabilidad = new Contabilidad();
+                            mContabilidad.setVisible(true);
+                            this.setVisible(false);
+                        } 
+                        else 
+                        {
+
+                        }
+                    } 
+                }
+            }
+        }
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -365,15 +407,7 @@ public class MainFactura extends javax.swing.JFrame {
             this.Tabla.addRow(datos);
         }
         this.jTable1 = new javax.swing.JTable();
-        this.jTable1.setModel(Tabla);/*
-        this.jTable1.getColumnModel().getColumn(0).setPreferredWidth(10);
-        this.jTable1.getColumnModel().getColumn(1).setPreferredWidth(150);
-        this.jTable1.getColumnModel().getColumn(2).setPreferredWidth(50);
-        this.jTable1.getColumnModel().getColumn(3).setPreferredWidth(100);
-        this.jTable1.getColumnModel().getColumn(4).setPreferredWidth(100);
-        this.jTable1.getColumnModel().getColumn(5).setPreferredWidth(100);
-        this.jTable1.getColumnModel().getColumn(6).setPreferredWidth(100);
-        this.jTable1.getColumnModel().getColumn(7).setPreferredWidth(50);*/
+        this.jTable1.setModel(Tabla);
         if (this.jTable1.getRowCount() > 0) 
         {
             this.jTable1.setRowSelectionInterval(0, 0);

@@ -9,6 +9,7 @@ import BaseDeDatos.BD_1;
 import Clases.*;
 import Clases.imgTabla;
 import Formularios.Admin;
+import Formularios.Login;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.Icon;
@@ -205,6 +206,10 @@ public class Usuarios extends javax.swing.JFrame {
         switch (SeleccionY) {
             case 6:
                 if (JOptionPane.showConfirmDialog(null, "¿Desea Eliminar el Usuario?") == 0) {
+                    String DescripcionN = "El usuario " + Login.NombreUsuario + " eliminó un usuario del sistema";
+                    BD_1 mBD_1 = new BD_1();
+                    mBD_1.AgregarRegistro(DescripcionN);
+                    mBD_1.Desconectar();
                     mBD.Eliminar(Seleccion);
                     Borrar();
                     this.visualizar_Productos(TableUsuarios);
@@ -271,9 +276,13 @@ public class Usuarios extends javax.swing.JFrame {
                 if (vo.getTipo().equals("1")) {
                     fila[5] = "Administrador";
                 } else if (vo.getTipo().equals("2")) {
-                    fila[5] = "Cotizador de Ventas";
+                    fila[5] = "Encargado de Producción";
                 } else if (vo.getTipo().equals("3")) {
                     fila[5] = "Encargado de Ventas";
+                } else if (vo.getTipo().equals("4")) {
+                    fila[5] = "Encargado de Compras";
+                } else if (vo.getTipo().equals("5")) {
+                    fila[5] = "Encargado de Contabilidad";
                 }
 
                 ImageIcon icono = new ImageIcon(get_Image("trash.jpg"));

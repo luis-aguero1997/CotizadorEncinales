@@ -8,6 +8,8 @@ package BaseDeDatos;
 
 
 import Clases.*;
+import Formularios.Login;
+import static Formularios.Login.c2;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,6 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,6 +43,8 @@ public class BD_1
     
     ResultSet rs = null;
     Statement statement = null;
+    
+    Calendar c2 = new GregorianCalendar();
 
 
     public boolean Conectar() 
@@ -62,8 +68,8 @@ public class BD_1
                     
                 }
             }
-            
             return Conexion != null;
+            
         } 
         catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) 
         {
@@ -109,7 +115,7 @@ public class BD_1
         } 
         catch (Exception e) 
         {
-            JOptionPane.showMessageDialog(null, "No Existe");
+            JOptionPane.showMessageDialog(null, "No Existe el usuario");
             e.printStackTrace();
         }
         Desconectar();
@@ -154,7 +160,8 @@ public class BD_1
         return list;
     }
         
-        public void Agregar_Usuario(Usuario Usuario) {
+        public void Agregar_Usuario(Usuario Usuario) 
+        {
         Conectar();
         Conexion conec = new Conexion();
         String sql = "INSERT INTO Usuarios (idUsuarios,Usuario,NomCompleto,Password,Correo,Tipo) VALUES(?, ?, ?, ?, ?, ?);";
@@ -1487,5 +1494,28 @@ public class BD_1
         }
         Desconectar();
         return UltimaFactura;   
+    }
+    
+    // ------------  R E G I S T R O  D E  M O V I M I E N T O S  --------------
+    public boolean AgregarRegistro(String Descripcion) 
+    {
+        Conectar();
+        Statement consulta;     
+
+        try 
+        {
+         consulta = Conexion.createStatement();
+         consulta.execute("insert into Registro values (null,'" + Login.NombreUsuario + "', '" + Descripcion + "', '" + Login.FechaActual + "', '" + ObtenerHoraActual() + "');");
+         return true;
+        } 
+        catch (SQLException e) 
+        {
+         return false;
+        }
+    }
+    public String ObtenerHoraActual()
+    {
+        String HoraActual = c2.get(Calendar.HOUR_OF_DAY) + ":" + c2.get(Calendar.MINUTE) + ":" + c2.get(Calendar.SECOND);
+        return HoraActual;
     }
 }

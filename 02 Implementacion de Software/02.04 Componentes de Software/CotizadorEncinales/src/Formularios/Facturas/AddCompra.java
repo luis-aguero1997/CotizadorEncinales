@@ -1,10 +1,11 @@
 package Formularios.Facturas;
 
+import BaseDeDatos.*;
 import Clases.Archivo;
-import Clases.Compras;
+import Clases.ClaseCompras;
 import Clases.Tabla_PdfVO;
 import Clases.imgTabla;
-import Formularios.BD;
+import Formularios.*;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Desktop;
 import java.awt.Event;
@@ -572,7 +573,7 @@ public class AddCompra extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Seleccione una de las facturas de la tabla");
                 } else {
                     BD BDT = new BD();
-                    Compras Com = new Compras();
+                    ClaseCompras Com = new ClaseCompras();
                     Com.setCantidad(Cant);
                     Com.setClave(Clave);
                     Com.setDescripcion(Des);
@@ -590,6 +591,10 @@ public class AddCompra extends javax.swing.JFrame {
                         TxtMedida.setText("");
                         TxtPrecio.setText("");
                         JOptionPane.showMessageDialog(null, "Compra agregada con éxito");
+                        String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó una compra de materia prima correspondiente a la factura " + jLabel15.getText();
+                        BD_1 mBD_1 = new BD_1();
+                        mBD_1.AgregarRegistro(DescripcionN);
+                        mBD_1.Desconectar();
                     }
 
                 }

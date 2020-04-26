@@ -7,6 +7,7 @@ package Formularios.Cotizacion;
 
 import BaseDeDatos.BD_1;
 import Clases.*;
+import Formularios.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -315,6 +316,9 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Campos llenados de forma inválida");
             } else {
                 NuevosPrecios();
+                String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó un elemento de producción";
+                mBD.AgregarRegistro(DescripcionN);
+                mBD.Desconectar();
                 mPP = new PreciosProduccion();
                 mPP.setVisible(true);
                 this.setVisible(false);
@@ -342,6 +346,9 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Campos llenados de forma inválida");
             } else {
                 ActualizarPrecios();
+                String DescripcionN = "El usuario " + Login.NombreUsuario + " modificó datos de un elemento de producción";
+                mBD.AgregarRegistro(DescripcionN);
+                mBD.Desconectar();
                 mPP = new PreciosProduccion();
                 mPP.setVisible(true);
                 this.setVisible(false);
@@ -483,6 +490,9 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         mBD = new BD_1();
         if (mBD.EliminarProduccion(idPrecioProd)) {
             JOptionPane.showMessageDialog(null, "Elemento de producción eliminado");
+            String DescripcionN = "El usuario " + Login.NombreUsuario + " eliminó un elemento de producción";
+            mBD.AgregarRegistro(DescripcionN);
+            mBD.Desconectar();
             mPP = new PreciosProduccion();
             mPP.setVisible(true);
             this.setVisible(false);

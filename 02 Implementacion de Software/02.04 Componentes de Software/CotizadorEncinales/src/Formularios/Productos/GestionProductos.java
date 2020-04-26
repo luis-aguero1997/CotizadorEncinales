@@ -5,10 +5,12 @@
  */
 package Formularios.Productos;
 
+import BaseDeDatos.BD_1;
 import Clases.Productos;
 import Clases.imgTabla;
 import Formularios.Admin;
 import Formularios.BD;
+import Formularios.Login;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.Icon;
@@ -202,6 +204,10 @@ public class GestionProductos extends javax.swing.JFrame {
         switch (SeleccionY) {
             case 4:
                 if (JOptionPane.showConfirmDialog(null, "Desea Eliminar Este Producto, toda la informacion se perdera") == 0) {
+                    String DescripcionN = "El usuario " + Login.NombreUsuario + " eliminó un producto del sistema";
+                    BD_1 mBD_1 = new BD_1();
+                    mBD_1.AgregarRegistro(DescripcionN);
+                    mBD_1.Desconectar();
                     mBD.Eliminar(Clave);
                     Borrar();
                     this.visualizar_Productos(Table);
@@ -209,10 +215,10 @@ public class GestionProductos extends javax.swing.JFrame {
 
                 break;
             case 5:
-                if (JOptionPane.showConfirmDialog(null, "Desea Modificar Este Producto, la informacion Modificada no regresara") == 0) {
+                if (JOptionPane.showConfirmDialog(null, "Desea Modificar Este Producto, la informacion Modificada no regresara") == 0) {                    
                     Clave2 = Clave;
                     ModProducto Pro = new ModProducto();
-                    this.dispose();;
+                    this.dispose();
                     Pro.setVisible(true);
                 }
 

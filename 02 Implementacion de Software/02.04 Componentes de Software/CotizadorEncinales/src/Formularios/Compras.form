@@ -97,7 +97,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="76" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -120,7 +120,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BtnCotizadorSalirMenu" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="BtnComprasSalirMenu" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace pref="548" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -150,7 +150,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BtnCotizadorSalirMenu" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="BtnComprasSalirMenu" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace pref="641" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -163,7 +163,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="AppleGothic" size="28" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Bienvenido Encargado de Producci&#xf3;n "/>
+            <Property name="text" type="java.lang.String" value="Bienvenido Encargado de Compras "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -233,7 +233,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCotizadorComparacionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BtnCotizadorSalirMenu">
+        <Component class="javax.swing.JButton" name="BtnComprasSalirMenu">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -262,7 +262,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCotizadorSalirMenuActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnComprasSalirMenuActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">

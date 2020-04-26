@@ -5,25 +5,28 @@
  */
 package Formularios;
 
+import BaseDeDatos.BD_1;
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
 import Formularios.CotizacionPrevia.*;
 import Formularios.Facturas.*;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author manuelvaquera
  */
-public class Cotizador extends javax.swing.JFrame {
+public class Compras extends javax.swing.JFrame {
 
     /**
      * Creates new form Cotizador
      */
-    public Cotizador() {
+    public Compras() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
-        BtnAdminFacturas1.setEnabled(false);
+        jButton1.setEnabled(false);
+        BtnCotizadorCotizar.setEnabled(false);
     }
 
     /**
@@ -41,7 +44,7 @@ public class Cotizador extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         BtnCotizadorCotizar = new javax.swing.JButton();
         BtnCotizadorComparacion = new javax.swing.JButton();
-        BtnCotizadorSalirMenu = new javax.swing.JButton();
+        BtnComprasSalirMenu = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         BtnAdminFacturas1 = new javax.swing.JButton();
@@ -69,7 +72,7 @@ public class Cotizador extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("AppleGothic", 0, 28)); // NOI18N
-        jLabel1.setText("Bienvenido Encargado de Producción ");
+        jLabel1.setText("Bienvenido Encargado de Compras ");
 
         jLabel2.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         jLabel2.setText("Seleccione Alguna de las Siguientes Opciones ");
@@ -113,18 +116,18 @@ public class Cotizador extends javax.swing.JFrame {
             }
         });
 
-        BtnCotizadorSalirMenu.setBackground(new java.awt.Color(255, 255, 255));
-        BtnCotizadorSalirMenu.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        BtnCotizadorSalirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
-        BtnCotizadorSalirMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BtnCotizadorSalirMenu.setBorderPainted(false);
-        BtnCotizadorSalirMenu.setContentAreaFilled(false);
-        BtnCotizadorSalirMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BtnCotizadorSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BtnCotizadorSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BtnCotizadorSalirMenu.addActionListener(new java.awt.event.ActionListener() {
+        BtnComprasSalirMenu.setBackground(new java.awt.Color(255, 255, 255));
+        BtnComprasSalirMenu.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        BtnComprasSalirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
+        BtnComprasSalirMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnComprasSalirMenu.setBorderPainted(false);
+        BtnComprasSalirMenu.setContentAreaFilled(false);
+        BtnComprasSalirMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
+        BtnComprasSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
+        BtnComprasSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
+        BtnComprasSalirMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCotizadorSalirMenuActionPerformed(evt);
+                BtnComprasSalirMenuActionPerformed(evt);
             }
         });
 
@@ -177,7 +180,7 @@ public class Cotizador extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))))
-                .addGap(0, 70, Short.MAX_VALUE))
+                .addGap(0, 76, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -194,7 +197,7 @@ public class Cotizador extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(BtnCotizadorSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnComprasSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(548, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -218,7 +221,7 @@ public class Cotizador extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(BtnCotizadorSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnComprasSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(641, Short.MAX_VALUE)))
         );
 
@@ -256,12 +259,15 @@ public class Cotizador extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BtnCotizadorComparacionActionPerformed
 
-    private void BtnCotizadorSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCotizadorSalirMenuActionPerformed
+    private void BtnComprasSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnComprasSalirMenuActionPerformed
 
         Login mLogin = new Login();
-        this.dispose();
+        this.setVisible(false);
+        String Descripcion = "El usuario " + Login.NombreUsuario + " salió del sistema";
+        BD_1 mBD = new BD_1();
+        mBD.AgregarRegistro(Descripcion);
         mLogin.setVisible(true);
-    }//GEN-LAST:event_BtnCotizadorSalirMenuActionPerformed
+    }//GEN-LAST:event_BtnComprasSalirMenuActionPerformed
 
     private void BtnAdminFacturas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminFacturas1ActionPerformed
         // TODO add your handling code here:
@@ -272,16 +278,31 @@ public class Cotizador extends javax.swing.JFrame {
 
     private void BtnCotizadorCotizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCotizadorCotizarMouseClicked
         // TODO add your handling code here:
-        ElegirProducto mEP = new ElegirProducto();
-        mEP.setVisible(true);
-        this.setVisible(false);
+        
+        if (BtnCotizadorCotizar.isEnabled() == false)
+        {
+            
+        }
+        else
+        {
+            ElegirProducto mEP = new ElegirProducto();
+            mEP.setVisible(true);
+            this.setVisible(false);
+        }  
     }//GEN-LAST:event_BtnCotizadorCotizarMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        CotizacionPrevia mCP = new CotizacionPrevia();
-        mCP.setVisible(true);
-        this.setVisible(false);
+        if (jButton1.isEnabled() == false)
+        {
+            
+        }
+        else
+        {
+            CotizacionPrevia mCP = new CotizacionPrevia();
+            mCP.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -301,14 +322,26 @@ public class Cotizador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cotizador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Compras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cotizador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Compras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cotizador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Compras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cotizador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Compras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -317,7 +350,7 @@ public class Cotizador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cotizador().setVisible(true);
+                new Compras().setVisible(true);
             }
         });
     }
@@ -325,9 +358,9 @@ public class Cotizador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAdminFacturas;
     private javax.swing.JButton BtnAdminFacturas1;
+    private javax.swing.JButton BtnComprasSalirMenu;
     private javax.swing.JButton BtnCotizadorComparacion;
     private javax.swing.JButton BtnCotizadorCotizar;
-    private javax.swing.JButton BtnCotizadorSalirMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

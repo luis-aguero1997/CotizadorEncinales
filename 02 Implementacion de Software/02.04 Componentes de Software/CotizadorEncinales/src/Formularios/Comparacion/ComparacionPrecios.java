@@ -437,6 +437,19 @@ public class ComparacionPrecios extends javax.swing.JFrame {
                     mV.setVisible(true);
                     this.setVisible(false);
                 } else {
+                   if ("4".equals(Login.Tipousuario)) {
+                    Compras mCompras = new Compras();
+                    mCompras.setVisible(true);
+                    this.setVisible(false);
+                    } else {
+                       if ("5".equals(Login.Tipousuario)) {
+                        Contabilidad mContabilidad = new Contabilidad();
+                        mContabilidad.setVisible(true);
+                        this.setVisible(false);
+                        } else {
+
+                        }
+                    } 
                 }
             }
         }
@@ -445,6 +458,8 @@ public class ComparacionPrecios extends javax.swing.JFrame {
     private void BTN_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_GuardarActionPerformed
         // TODO add your handling code here:
         GuardarCompetencia();
+        String Descripcion = "El usuario " + Login.NombreUsuario + " agregó un nuevo producto competencia del producto " + CB_Producto.getSelectedItem().toString();
+        mBD.AgregarRegistro(Descripcion);
     }//GEN-LAST:event_BTN_GuardarActionPerformed
 
     private void TXT_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_SearchKeyReleased
@@ -459,6 +474,8 @@ public class ComparacionPrecios extends javax.swing.JFrame {
         PrecioProducto = Double.parseDouble(TBL_ProductoEncinales.getModel().getValueAt(Seleccion, 3).toString());
         LlenarTablaCompetencia();
         LlenarGrafico();
+        String Descripcion = "El usuario " + Login.NombreUsuario + " consultó los precios de la competencia del producto con clave: " + ClaveProducto;
+        mBD.AgregarRegistro(Descripcion);
     }//GEN-LAST:event_TBL_ProductoEncinalesMouseClicked
 
     private void TBL_ProductoCompetenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TBL_ProductoCompetenciaMouseClicked

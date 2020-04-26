@@ -179,10 +179,13 @@
         <Component class="javax.swing.JComboBox" name="Puesto">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Administrador"/>
-                <StringItem index="1" value="Cotizador de Ventas"/>
-                <StringItem index="2" value="Encargado de Ventas"/>
+              <StringArray count="6">
+                <StringItem index="0" value="Elige el puesto del usuario"/>
+                <StringItem index="1" value="Administrador"/>
+                <StringItem index="2" value="Encargado de Producci&#xf3;n"/>
+                <StringItem index="3" value="Encargado de Ventas"/>
+                <StringItem index="4" value="Encargado de Compras"/>
+                <StringItem index="5" value="Encargado de Contabilidad"/>
               </StringArray>
             </Property>
           </Properties>

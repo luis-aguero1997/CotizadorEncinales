@@ -5,12 +5,14 @@
  */
 package Formularios;
 
+import BaseDeDatos.*;
 import Formularios.Productos.GestionProductos;
 import Formularios.Usuarios.Usuarios;
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
 import Formularios.CotizacionPrevia.*;
 import Formularios.Facturas.MainFactura;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -257,6 +259,9 @@ public class Admin extends javax.swing.JFrame {
 
         Login mLogin = new Login();
         this.dispose();
+        String Descripcion = "El usuario " + Login.NombreUsuario + " salió del sistema";
+        BD_1 mBD = new BD_1();
+        mBD.AgregarRegistro(Descripcion);
         mLogin.setVisible(true);
     }//GEN-LAST:event_BtnAdminSalirMenuActionPerformed
 
