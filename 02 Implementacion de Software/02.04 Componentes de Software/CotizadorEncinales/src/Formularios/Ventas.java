@@ -44,7 +44,7 @@ public class Ventas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         BtnVentasCotizar = new javax.swing.JButton();
         BtnVentasComparacion = new javax.swing.JButton();
-        BtnVentasSalirMenu = new javax.swing.JButton();
+        BtnAdminSalirMenu = new javax.swing.JButton();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -111,18 +111,19 @@ public class Ventas extends javax.swing.JFrame {
             }
         });
 
-        BtnVentasSalirMenu.setBackground(new java.awt.Color(255, 255, 255));
-        BtnVentasSalirMenu.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        BtnVentasSalirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
-        BtnVentasSalirMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BtnVentasSalirMenu.setBorderPainted(false);
-        BtnVentasSalirMenu.setContentAreaFilled(false);
-        BtnVentasSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BtnVentasSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BtnVentasSalirMenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/espalda (1).png"))); // NOI18N
-        BtnVentasSalirMenu.addActionListener(new java.awt.event.ActionListener() {
+        BtnAdminSalirMenu.setBackground(new java.awt.Color(255, 255, 255));
+        BtnAdminSalirMenu.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        BtnAdminSalirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salida (1).png"))); // NOI18N
+        BtnAdminSalirMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnAdminSalirMenu.setBorderPainted(false);
+        BtnAdminSalirMenu.setContentAreaFilled(false);
+        BtnAdminSalirMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salida (2).png"))); // NOI18N
+        BtnAdminSalirMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salida (2).png"))); // NOI18N
+        BtnAdminSalirMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salida (2).png"))); // NOI18N
+        BtnAdminSalirMenu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salida (5).png"))); // NOI18N
+        BtnAdminSalirMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVentasSalirMenuActionPerformed(evt);
+                BtnAdminSalirMenuActionPerformed(evt);
             }
         });
 
@@ -131,57 +132,64 @@ public class Ventas extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4))
+                        .addComponent(jLabel4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BtnVentasSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(BtnVentasCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(BtnVentasComparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel1))
-                            .addComponent(BtnVentasCotizar2))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(BtnVentasCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(135, 135, 135)
+                                .addComponent(BtnVentasComparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(jLabel2))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(BtnVentasCotizar2)
+                                .addGap(165, 165, 165)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(BtnAdminSalirMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(29, 29, 29))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnVentasSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(BtnAdminSalirMenu)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(BtnVentasComparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnVentasCotizar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(32, 32, 32)
                 .addComponent(BtnVentasCotizar2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,22 +209,22 @@ public class Ventas extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BtnVentasComparacionActionPerformed
 
-    private void BtnVentasSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentasSalirMenuActionPerformed
-        BD_1 mBD = new BD_1();
-        String DescripcionN = "El usuario " + Login.NombreUsuario + " salió del sistema";
-        mBD.AgregarRegistro(DescripcionN);
-        mBD.Desconectar();
-        Login mLogin = new Login();
-        this.dispose();
-        mLogin.setVisible(true);
-    }//GEN-LAST:event_BtnVentasSalirMenuActionPerformed
-
     private void BtnVentasCotizar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVentasCotizar2MouseClicked
         // TODO add your handling code here:
         CotizacionPrevia mCP = new CotizacionPrevia();
         mCP.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtnVentasCotizar2MouseClicked
+
+    private void BtnAdminSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminSalirMenuActionPerformed
+
+        Login mLogin = new Login();
+        this.dispose();
+        String Descripcion = "El usuario " + Login.NombreUsuario + " salió del sistema";
+        BD_1 mBD = new BD_1();
+        mBD.AgregarRegistro(Descripcion);
+        mLogin.setVisible(true);
+    }//GEN-LAST:event_BtnAdminSalirMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,10 +262,10 @@ public class Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAdminSalirMenu;
     private javax.swing.JButton BtnVentasComparacion;
     private javax.swing.JButton BtnVentasCotizar;
     private javax.swing.JButton BtnVentasCotizar2;
-    private javax.swing.JButton BtnVentasSalirMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
