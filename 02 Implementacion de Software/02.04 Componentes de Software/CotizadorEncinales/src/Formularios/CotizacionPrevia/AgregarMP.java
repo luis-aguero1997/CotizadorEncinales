@@ -195,6 +195,11 @@ public class AgregarMP extends javax.swing.JFrame {
 
         BTN_Guardar.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         BTN_Guardar.setText("Guardar");
+        BTN_Guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BTN_GuardarMouseClicked(evt);
+            }
+        });
         BTN_Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN_GuardarActionPerformed(evt);
@@ -332,14 +337,16 @@ public class AgregarMP extends javax.swing.JFrame {
 
     private void BTN_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_GuardarActionPerformed
         // TODO add your handling code here:
+        BD_1 mBD_1 = new BD_1();
         String DescripcionN = "El usuario " + Login.NombreUsuario + " agregó un registro de materia prima cotizable";
-        mBD.AgregarRegistro(DescripcionN);
-        mBD.Desconectar();
+        mBD_1.AgregarRegistro(DescripcionN);
+        mBD_1.Desconectar();
         GuardarMateriaPrima();
     }//GEN-LAST:event_BTN_GuardarActionPerformed
 
     private void BTN_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ModificarActionPerformed
         // TODO add your handling code here:
+        mBD = new BD_1();
         String DescripcionN = "El usuario " + Login.NombreUsuario + " modificó datos de un registro de materia prima cotizable";
         mBD.AgregarRegistro(DescripcionN);
         mBD.Desconectar();
@@ -350,6 +357,7 @@ public class AgregarMP extends javax.swing.JFrame {
         // TODO add your handling code here:
         EliminarMateriaPrima();
         String DescripcionN = "El usuario " + Login.NombreUsuario + " eliminó un registro de materia prima cotizable";
+        mBD = new BD_1();
         mBD.AgregarRegistro(DescripcionN);
         mBD.Desconectar();
         CotizacionPrevia mC = new CotizacionPrevia();
@@ -453,6 +461,11 @@ public class AgregarMP extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TXT_DescripcionKeyTyped
 
+    private void BTN_GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_GuardarMouseClicked
+        // TODO add your handling code here:
+        GuardarMateriaPrima();
+    }//GEN-LAST:event_BTN_GuardarMouseClicked
+
     public boolean ValidarCajas()
     {
         if (
@@ -496,6 +509,10 @@ public class AgregarMP extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, "Error en la base de datos, no se \npuede agregar la materia prima");
             }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Error al guardar, verifique los datos de entrada en las cajas de texto");
         }
     }
     

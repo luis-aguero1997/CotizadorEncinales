@@ -5,6 +5,7 @@
  */
 package Formularios;
 
+import BaseDeDatos.BD_1;
 import Formularios.Comparacion.*;
 import Formularios.Cotizacion.*;
 import Formularios.CotizacionPrevia.*;
@@ -201,7 +202,10 @@ public class Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnVentasComparacionActionPerformed
 
     private void BtnVentasSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentasSalirMenuActionPerformed
-
+        BD_1 mBD = new BD_1();
+        String DescripcionN = "El usuario " + Login.NombreUsuario + " salió del sistema";
+        mBD.AgregarRegistro(DescripcionN);
+        mBD.Desconectar();
         Login mLogin = new Login();
         this.dispose();
         mLogin.setVisible(true);

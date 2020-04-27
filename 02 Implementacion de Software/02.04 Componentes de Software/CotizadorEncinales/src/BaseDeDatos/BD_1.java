@@ -9,7 +9,6 @@ package BaseDeDatos;
 
 import Clases.*;
 import Formularios.Login;
-import static Formularios.Login.c2;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
