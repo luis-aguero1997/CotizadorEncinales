@@ -7,10 +7,10 @@ package Formularios;
 
 import BaseDeDatos.BD_1;
 import Formularios.Comparacion.*;
+import Formularios.Constantes.FRM_ContaConstantes;
 import Formularios.Cotizacion.*;
 import Formularios.CotizacionPrevia.*;
 import Formularios.Facturas.*;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,6 +25,9 @@ public class Contabilidad extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
+        BtnAdminFacturas1.setEnabled(false);
+        BtnCotizadorCotizar.setEnabled(false);
+        jButton1.setEnabled(false);
     }
 
     /**
@@ -46,6 +49,7 @@ public class Contabilidad extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         BtnAdminFacturas1 = new javax.swing.JButton();
         BtnAdminSalirMenu = new javax.swing.JButton();
+        BTN_ModificarConstantes1 = new javax.swing.JButton();
 
         BtnAdminFacturas.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         BtnAdminFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/proyecto-de-ley.png"))); // NOI18N
@@ -165,6 +169,13 @@ public class Contabilidad extends javax.swing.JFrame {
             }
         });
 
+        BTN_ModificarConstantes1.setText("Modificar Constantes");
+        BTN_ModificarConstantes1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_ModificarConstantes1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -191,6 +202,11 @@ public class Contabilidad extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 36, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(BTN_ModificarConstantes1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,6 +228,11 @@ public class Contabilidad extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(BTN_ModificarConstantes1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -245,22 +266,14 @@ public class Contabilidad extends javax.swing.JFrame {
 
     private void BtnAdminFacturas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminFacturas1ActionPerformed
         // TODO add your handling code here:
-        MainFactura MF = new MainFactura();
-        MF.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_BtnAdminFacturas1ActionPerformed
 
     private void BtnCotizadorCotizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCotizadorCotizarMouseClicked
         // TODO add your handling code here:
-        ElegirProducto mEP = new ElegirProducto();
-        mEP.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_BtnCotizadorCotizarMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        CotizacionPrevia mCP = new CotizacionPrevia();
-        mCP.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void BtnAdminSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdminSalirMenuActionPerformed
@@ -272,6 +285,13 @@ public class Contabilidad extends javax.swing.JFrame {
         mBD.AgregarRegistro(Descripcion);
         mLogin.setVisible(true);
     }//GEN-LAST:event_BtnAdminSalirMenuActionPerformed
+
+    private void BTN_ModificarConstantes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ModificarConstantes1ActionPerformed
+        // TODO add your handling code here:
+        FRM_ContaConstantes mFCC = new FRM_ContaConstantes();
+        mFCC.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BTN_ModificarConstantes1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,35 +321,7 @@ public class Contabilidad extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -340,6 +332,8 @@ public class Contabilidad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTN_ModificarConstantes;
+    private javax.swing.JButton BTN_ModificarConstantes1;
     private javax.swing.JButton BtnAdminFacturas;
     private javax.swing.JButton BtnAdminFacturas1;
     private javax.swing.JButton BtnAdminSalirMenu;

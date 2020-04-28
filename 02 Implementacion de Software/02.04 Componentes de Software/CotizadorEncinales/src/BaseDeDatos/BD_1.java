@@ -1517,4 +1517,30 @@ public class BD_1
         String HoraActual = c2.get(Calendar.HOUR_OF_DAY) + ":" + c2.get(Calendar.MINUTE) + ":" + c2.get(Calendar.SECOND);
         return HoraActual;
     }
+    
+    // ------------  M O D I F I C A R  C O N S T A N T E S  -------------------
+    public boolean ModificarConstantes(Constantes mC)
+    {
+        Statement consulta; 
+        Conectar();
+        try 
+        {
+            consulta = Conexion.createStatement();
+                
+                consulta.execute("update Constantes set "
+                    + "CostoTotalOp = " + mC.getCostoTotalOp() + ","
+                    + "CostoUnitOp = " + mC.getCostoUnitOp() + ","
+                    + "Utilidad = " + mC.getUtilidad() + ","
+                    + "IVA = " + mC.getIVA() + ","
+                    + "PrecioKW_Mes = " + mC.getPrecioKW_Mes() +  
+                      "where idConstantes = '1';");
+                
+                return true;
+        }
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, "Error " + e);
+            return false;
+        }
+    }
 }
