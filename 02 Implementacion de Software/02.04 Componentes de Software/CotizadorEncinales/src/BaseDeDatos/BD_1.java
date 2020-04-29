@@ -1504,9 +1504,11 @@ public class BD_1
 
         try 
         {
-         consulta = Conexion.createStatement();
-         consulta.execute("insert into Registro values (null,'" + Login.NombreUsuario + "', '" + Descripcion + "', '" + Login.FechaActual + "', '" + ObtenerHoraActual() + "');");
-         return true;
+            //JOptionPane.showMessageDialog(null, ObtenerFechaActual());
+            consulta = Conexion.createStatement();
+            consulta.execute("insert into Registro values (null,'" + Login.NombreUsuario + "', '" + Descripcion + "', '" + ObtenerFechaActual() + "', '" + ObtenerHoraActual() + "');");
+            //consulta.execute("");
+            return true;
         } 
         catch (SQLException e) 
         {
@@ -1517,6 +1519,22 @@ public class BD_1
     {
         String HoraActual = c2.get(Calendar.HOUR_OF_DAY) + ":" + c2.get(Calendar.MINUTE) + ":" + c2.get(Calendar.SECOND);
         return HoraActual;
+    }
+    public String ObtenerFechaActual()
+    {
+        String FechaActual;
+        Calendar mCalendar = new GregorianCalendar();
+        int CalcularMes = (mCalendar.get(Calendar.MONTH)+1);
+        if (CalcularMes == 13)
+        {
+            FechaActual = mCalendar.get(Calendar.YEAR) + "/01/" + mCalendar.get(Calendar.DATE);
+        }
+        else
+        {
+            FechaActual = mCalendar.get(Calendar.YEAR) + "/" + (mCalendar.get(Calendar.MONTH)+1) + "/" + mCalendar.get(Calendar.DATE);
+        }
+        
+        return FechaActual;
     }
     
     // ------------  M O D I F I C A R  C O N S T A N T E S  -------------------

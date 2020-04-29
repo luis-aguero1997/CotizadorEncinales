@@ -8,8 +8,6 @@ package Formularios;
 import BaseDeDatos.BD_1;
 import Clases.*;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,8 +20,6 @@ public class Login extends javax.swing.JFrame {
     Usuario mUsuario;
     public static String Tipousuario;
     public static String NombreUsuario;
-    public static Calendar c2 = new GregorianCalendar();
-    public static String FechaActual = c2.get(Calendar.YEAR) + "/" + c2.get(Calendar.MONTH) + "/" + c2.get(Calendar.DATE);
 
     public Login() {
         initComponents();

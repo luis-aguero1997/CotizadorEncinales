@@ -200,6 +200,12 @@ public class ReporteCostos extends javax.swing.JFrame
         jLabel9.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel9.setText("Especificaciones del material");
 
+        TXT_CostoMateriaPrima.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_CostoMateriaPrimaKeyTyped(evt);
+            }
+        });
+
         jLabel17.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel17.setText("Costo materia prima  ($)");
 
@@ -211,9 +217,26 @@ public class ReporteCostos extends javax.swing.JFrame
                 TXT_DiametroNominalActionPerformed(evt);
             }
         });
+        TXT_DiametroNominal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_DiametroNominalKeyTyped(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel11.setText("Peso del material (kg/m)");
+
+        TXT_PesoMaterial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_PesoMaterialKeyTyped(evt);
+            }
+        });
+
+        TXT_CMP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_CMPKeyTyped(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel19.setText("Costo total operativo ($)");
@@ -223,6 +246,11 @@ public class ReporteCostos extends javax.swing.JFrame
                 TXT_UnidadEmpaqueActionPerformed(evt);
             }
         });
+        TXT_UnidadEmpaque.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_UnidadEmpaqueKeyTyped(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel12.setText("Unidad de empaque (m)");
@@ -230,14 +258,32 @@ public class ReporteCostos extends javax.swing.JFrame
         jLabel13.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel13.setText("Unidades de utilización (m^2)");
 
+        TXT_UnidadUtilizacionM2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_UnidadUtilizacionM2KeyTyped(evt);
+            }
+        });
+
+        TXT_UnidadUtilizacionKg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_UnidadUtilizacionKgKeyTyped(evt);
+            }
+        });
+
         jLabel14.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel14.setText("Unidades de utilización (kg)");
 
         jLabel15.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel15.setText("Merma c/1pz (g) ");
 
+        TXT_Merma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_MermaKeyTyped(evt);
+            }
+        });
+
         jLabel20.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
-        jLabel20.setText("- Mano de Obra");
+        jLabel20.setText("- Maquinas y Herramientas");
 
         jLabel23.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel23.setText("Tiempo mano de obra (h)");
@@ -246,7 +292,7 @@ public class ReporteCostos extends javax.swing.JFrame
         jLabel27.setText("C. operativo mano de obra ($)");
 
         jLabel28.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
-        jLabel28.setText("- Maquinas y Herramientas");
+        jLabel28.setText("- Mano de Obra");
 
         jLabel30.setFont(new java.awt.Font("Sukhumvit Set", 0, 14)); // NOI18N
         jLabel30.setText("C. operativo energético ($)");
@@ -341,58 +387,74 @@ public class ReporteCostos extends javax.swing.JFrame
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabel27))
-                                    .addComponent(jLabel23))
-                                .addGap(36, 36, 36)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TXT_COpMdO, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TXT_TiempoMdO, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(BTN_Atras)
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel8))
+                        .addGap(109, 109, 109)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BTN_PreciosProduccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BTN_ConsumoElectrico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 34, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel35)
-                                            .addComponent(jLabel34)
-                                            .addComponent(jLabel36))
-                                        .addGap(39, 39, 39))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(4, 4, 4)
+                                                .addComponent(jLabel27))
+                                            .addComponent(jLabel23))
+                                        .addGap(36, 36, 36)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(TXT_COpMdO, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(TXT_TiempoMdO, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel33)
-                                            .addComponent(jLabel37)
-                                            .addComponent(jLabel7))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TXT_CEEFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TXT_CMPFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TXT_CMdOFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TXT_CAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TXT_CFEmb, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel35)
+                                                    .addComponent(jLabel34)
+                                                    .addComponent(jLabel36))
+                                                .addGap(39, 39, 39))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel33)
+                                                    .addComponent(jLabel37)
+                                                    .addComponent(jLabel7))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(TXT_CEEFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(TXT_CMPFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(TXT_CMdOFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(TXT_CAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(TXT_CFEmb, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel19)
+                                        .addGap(63, 63, 63)
+                                        .addComponent(TXT_CostoMateriaPrima, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(TXT_UnidadUtilizacionM2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(70, 70, 70)
+                                        .addComponent(TXT_DiametroNominal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(95, 95, 95))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
                                 .addComponent(jLabel28)
-                                .addGap(183, 183, 183))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(63, 63, 63)
-                                .addComponent(TXT_CostoMateriaPrima, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(34, 34, 34)
-                                .addComponent(TXT_UnidadUtilizacionM2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(70, 70, 70)
-                                .addComponent(TXT_DiametroNominal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(95, 95, 95)
+                                .addGap(378, 378, 378)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel38)
                             .addComponent(jLabel20)
@@ -434,19 +496,7 @@ public class ReporteCostos extends javax.swing.JFrame
                                     .addComponent(TXT_UnidadUtilizacionKg, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TXT_PesoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TXT_CMP, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(LBL_Grafica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(BTN_Atras)
-                                .addGap(47, 47, 47)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel8))
-                        .addGap(109, 109, 109)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BTN_PreciosProduccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BTN_ConsumoElectrico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 34, Short.MAX_VALUE)))
+                            .addComponent(LBL_Grafica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -650,6 +700,166 @@ public class ReporteCostos extends javax.swing.JFrame
     private void TXT_CTOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXT_CTOpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TXT_CTOpActionPerformed
+
+    private void TXT_DiametroNominalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_DiametroNominalKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_DiametroNominal.getText().length() == 10) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_DiametroNominal.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_DiametroNominalKeyTyped
+
+    private void TXT_UnidadUtilizacionM2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_UnidadUtilizacionM2KeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_UnidadUtilizacionM2.getText().length() == 10) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_UnidadUtilizacionM2.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_UnidadUtilizacionM2KeyTyped
+
+    private void TXT_CostoMateriaPrimaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CostoMateriaPrimaKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_CostoMateriaPrima.getText().length() == 10) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_CostoMateriaPrima.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_CostoMateriaPrimaKeyTyped
+
+    private void TXT_UnidadEmpaqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_UnidadEmpaqueKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_UnidadEmpaque.getText().length() == 10) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_UnidadEmpaque.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_UnidadEmpaqueKeyTyped
+
+    private void TXT_MermaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_MermaKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_Merma.getText().length() == 10) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_Merma.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_MermaKeyTyped
+
+    private void TXT_PesoMaterialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_PesoMaterialKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_PesoMaterial.getText().length() == 10) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_PesoMaterial.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_PesoMaterialKeyTyped
+
+    private void TXT_UnidadUtilizacionKgKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_UnidadUtilizacionKgKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_UnidadUtilizacionKg.getText().length() == 10) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_UnidadUtilizacionKg.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_UnidadUtilizacionKgKeyTyped
+
+    private void TXT_CMPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_CMPKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_CMP.getText().length() == 10) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_CMP.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_CMPKeyTyped
 
     /**
      */
