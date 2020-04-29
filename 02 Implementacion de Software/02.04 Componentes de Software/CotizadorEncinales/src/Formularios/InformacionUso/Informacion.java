@@ -5,12 +5,20 @@
  */
 package Formularios.InformacionUso;
 
+import Clases.Registro;
+import Clases.imgTabla;
 import Formularios.Admin;
+import BaseDeDatos.BD_1;
 import Formularios.Compras;
 import Formularios.Contabilidad;
 import Formularios.Cotizador;
 import Formularios.Login;
 import Formularios.Ventas;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.util.Date;
 
 /**
  *
@@ -21,10 +29,14 @@ public class Informacion extends javax.swing.JFrame {
     /**
      * Creates new form Informacion
      */
+    DefaultTableModel Tabla = new DefaultTableModel();
+
     public Informacion() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
+
+        visualizar_Registro(Table);
     }
 
     /**
@@ -37,35 +49,43 @@ public class Informacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Table = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        F1 = new com.toedter.calendar.JDateChooser();
+        F2 = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         BTN_Atras = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Id_Info", "Nombre Usuario", "Descripción", "Fecha", "Hora"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        Table.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane1.setViewportView(Table);
 
         jLabel1.setText("Información de Uso");
 
         jLabel2.setText("Buscar por Fecha");
 
         jLabel3.setText("Busqueda por Usuario");
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         BTN_Atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         BTN_Atras.setBorderPainted(false);
@@ -76,6 +96,14 @@ public class Informacion extends javax.swing.JFrame {
         BTN_Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN_AtrasActionPerformed(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        jButton1.setText("Buscar ");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
             }
         });
 
@@ -90,24 +118,29 @@ public class Informacion extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2))
-                        .addGap(51, 51, 51)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel2)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(F1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(F2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(BTN_Atras)
                 .addGap(154, 154, 154)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,17 +152,19 @@ public class Informacion extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addComponent(jLabel1)))
                 .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(F1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -170,9 +205,153 @@ public class Informacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BTN_AtrasActionPerformed
 
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // TODO add your handling code here:
+        if (this.jTextField1.getText().isEmpty()) {
+            this.F1.setDate(null);
+            this.F2.setDate(null);
+
+        }
+
+        if ((this.jTextField1.getText().length() == 45)) {
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        // TODO add your handling code here:
+        this.LlenarTablaFiltro();
+    }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+
+        try {
+            if (!F1.equals(null) && !F2.equals(null)) {
+                this.LlenarTablaFecha();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Llene los campos necesarios");
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
+    public void visualizar_Registro(JTable tabla) {
+        tabla.setDefaultRenderer(Object.class, new imgTabla());
+        DefaultTableModel dt = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        dt.addColumn("Id Info");
+        dt.addColumn("Usuario");
+        dt.addColumn("Descripcion");
+        dt.addColumn("Fecha");
+        dt.addColumn("Hora");
+
+        BD_1 mBD = new BD_1();
+        Registro mR = new Registro();
+        ArrayList<Registro> list = mBD.Listar_Movimientos();
+
+        if (list.size() > 0) {
+
+            for (int i = 0; i < list.size(); i++) {
+                Object fila[] = new Object[5];
+
+                mR = list.get(i);
+                fila[0] = mR.getIdRegistro();
+                fila[1] = mR.getNombreUsuario();
+                fila[2] = mR.getDescripcion();
+                fila[3] = mR.getFecha();
+                fila[4] = mR.getHora();
+
+                dt.addRow(fila);
+            }
+            tabla.setModel(dt);
+            this.Table.getColumnModel().getColumn(0).setPreferredWidth(60);//Id
+            this.Table.getColumnModel().getColumn(1).setPreferredWidth(60);//Usuario
+            this.Table.getColumnModel().getColumn(2).setPreferredWidth(300);//Desc
+            this.Table.getColumnModel().getColumn(3).setPreferredWidth(80);//Fecha
+            this.Table.getColumnModel().getColumn(4).setPreferredWidth(78);//Hora
+
+        }
+    }
+
+    public void LlenarTablaFiltro() {
+        Borrar();
+        BD_1 mBD = new BD_1();
+        Registro mR = new Registro();
+
+        ArrayList mListaRegistro = mBD.Listar_Movimientos_EspecificosUsuario(this.jTextField1.getText());
+        String[] datos = null;
+
+        for (Object mLista : mListaRegistro) {
+            datos = new String[5];
+            mR = (Registro) mLista;
+
+            datos[0] = String.valueOf(mR.getIdRegistro());
+            datos[1] = mR.getNombreUsuario();
+            datos[2] = mR.getDescripcion();
+            datos[3] = String.valueOf(mR.getFecha());
+            datos[4] = mR.getHora();
+            this.Tabla.addRow(datos);
+        }
+        this.Table = new javax.swing.JTable();
+        this.Table.setModel(Tabla);
+        if (this.Table.getRowCount() > 0) {
+            this.Table.setRowSelectionInterval(0, 0);
+        }
+    }
+
+    public void LlenarTablaFecha() {
+        Borrar();
+        BD_1 mBD = new BD_1();
+        Registro mR = new Registro();
+
+        Date Date1 = convert(F1.getDate());
+        Date Date2 = convert(F2.getDate());
+
+        ArrayList mListaMateria = mBD.Listar_Movimientos_Especificos(Date1, Date2);
+        String[] datos = null;
+
+        for (Object mLista : mListaMateria) {
+            datos = new String[5];
+            mR = (Registro) mLista;
+
+            datos[0] = String.valueOf(mR.getIdRegistro());
+            datos[1] = mR.getNombreUsuario();
+            datos[2] = mR.getDescripcion();
+            datos[3] = String.valueOf(mR.getFecha());
+            datos[4] = mR.getHora();
+            this.Tabla.addRow(datos);
+        }
+        this.Table = new javax.swing.JTable();
+        this.Table.setModel(Tabla);
+        if (this.Table.getRowCount() > 0) {
+            this.Table.setRowSelectionInterval(0, 0);
+        }
+    }
+
+    void Borrar() {
+        DefaultTableModel LimpiadoTabla = (DefaultTableModel) Table.getModel();
+        //Borramosla tabla...
+        Tabla = (DefaultTableModel) this.Table.getModel();
+        int a = Tabla.getRowCount() - 1;
+
+        for (int i = a; i >= 0; i--) {
+            LimpiadoTabla.removeRow(LimpiadoTabla.getRowCount() - 1);
+        }
+    }
+
+    private static java.sql.Date convert(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -207,13 +386,14 @@ public class Informacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Atras;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser F1;
+    private com.toedter.calendar.JDateChooser F2;
+    private javax.swing.JTable Table;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
