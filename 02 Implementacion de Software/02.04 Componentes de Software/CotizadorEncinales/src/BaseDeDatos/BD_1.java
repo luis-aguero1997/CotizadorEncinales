@@ -1543,4 +1543,119 @@ public class BD_1
             return false;
         }
     }
+
+     // ------------ C O N S U L T A  D E  R E G I S T R O s  D E  M O V I M I E N T O S --------------
+    public ArrayList<Registro> Listar_Movimientos() {
+        Conectar();
+        ArrayList<Registro> list = new ArrayList<Registro>();
+        Conexion conec = new Conexion();
+        Statement consulta;
+        String sql = "SELECT * FROM registro;";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            consulta = Conexion.createStatement();
+            rs = consulta.executeQuery(sql);
+            while (rs.next()) {
+                Registro mR = new Registro();
+                mR.setIdRegistro(rs.getInt(1));
+                mR.setNombreUsuario(rs.getString(2));
+                mR.setDescripcion(rs.getString(3));
+                mR.setFecha(rs.getDate(4));
+                mR.setHora(rs.getString(5));
+                
+                
+                list.add(mR);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+                conec.Desconectar();
+            } catch (Exception ex) {
+            }
+        }
+        Desconectar();
+        return list;
+    }
+    
+    public ArrayList<Registro> Listar_Movimientos_Especificos(Date F1, Date F2) {
+        Conectar();
+        ArrayList<Registro> list = new ArrayList<Registro>();
+        Conexion conec = new Conexion();
+        Statement consulta;
+        String sql = "SELECT * FROM registro WHERE Fecha BETWEEN '" + F1 + "' AND '" + F2 + "';";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            consulta = Conexion.createStatement();
+            rs = consulta.executeQuery(sql);
+            while (rs.next()) {
+                Registro mR = new Registro();
+                mR.setIdRegistro(rs.getInt(1));
+                mR.setNombreUsuario(rs.getString(2));
+                mR.setDescripcion(rs.getString(3));
+                mR.setFecha(rs.getDate(4));
+                mR.setHora(rs.getString(5));
+                
+                
+                list.add(mR);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+                conec.Desconectar();
+            } catch (Exception ex) {
+            }
+        }
+        Desconectar();
+        return list;
+    }
+    
+    public ArrayList<Registro> Listar_Movimientos_EspecificosUsuario(String User) {
+        Conectar();
+        ArrayList<Registro> list = new ArrayList<Registro>();
+        Conexion conec = new Conexion();
+        Statement consulta;
+        String sql = "SELECT * FROM registro WHERE NombreUsuario LIKE '%" + User + "%';";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            consulta = Conexion.createStatement();
+            rs = consulta.executeQuery(sql);
+            while (rs.next()) {
+                Registro mR = new Registro();
+                mR.setIdRegistro(rs.getInt(1));
+                mR.setNombreUsuario(rs.getString(2));
+                mR.setDescripcion(rs.getString(3));
+                mR.setFecha(rs.getDate(4));
+                mR.setHora(rs.getString(5));
+                
+                
+                list.add(mR);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+                conec.Desconectar();
+            } catch (Exception ex) {
+            }
+        }
+        Desconectar();
+        return list;
+    }
 }
