@@ -53,7 +53,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
             TXT_Cantidad.setText(String.valueOf(Cantidad));
             TXT_UnidadMedida.setText(UnidadMedida);
             String[] Partes = ElementoCosto.split("-");
-            TXT_ElementoCosto.setText(Partes[1]);
+          TXT_ElementoCosto.setText(Partes[1]);
             CB_Personal.setSelectedIndex(Personal);
             TXT_PrecioUnitario.setText(String.valueOf(PrecioUnitario));
         }
@@ -108,7 +108,7 @@ public class PreciosProduccion_1 extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 

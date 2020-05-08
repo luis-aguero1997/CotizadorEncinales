@@ -60,7 +60,7 @@ public class Informacion extends javax.swing.JFrame {
         Table = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -406,8 +406,6 @@ public class Informacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Atras;
-    private javax.swing.JButton BTN_Atras2;
-    private javax.swing.JButton BTN_Atras3;
     private com.toedter.calendar.JDateChooser F1;
     private com.toedter.calendar.JDateChooser F2;
     private javax.swing.JTable Table;
@@ -415,8 +413,6 @@ public class Informacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;

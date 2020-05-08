@@ -86,7 +86,7 @@ public final class MenuCotizacion extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

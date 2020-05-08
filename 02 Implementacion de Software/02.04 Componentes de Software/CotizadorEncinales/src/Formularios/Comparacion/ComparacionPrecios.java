@@ -151,7 +151,7 @@ public class ComparacionPrecios extends javax.swing.JFrame {
 
         jLabel13.setText("jLabel13");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 

@@ -173,7 +173,7 @@ public class ReporteCostos extends javax.swing.JFrame
         LBL_Grafica = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1054,16 +1054,19 @@ public class ReporteCostos extends javax.swing.JFrame
             mRC.setIVA(Double.parseDouble(TXT_IVA.getText()));
             mRC.setPrecioSugerido(Double.parseDouble(TXT_PrecioFinal.getText()));
 
-            if(mBD.AgregarReportes(mRC, MenuCotizacion.Clave))
+            if((mBD.AgregarReportes(mRC, MenuCotizacion.Clave)) 
+                    && (mBD.ActualizarPrecioProducto(MenuCotizacion.Clave, (Double.parseDouble(TXT_PrecioFinal.getText())))))
             {
+                
                 //SE MODIFICA O SE AÑADE EL COSTO DE PRODUCCION
-                //JOptionPane.showMessageDialog(null, "Archivo exitoso");
+                //BD_1 mBDN = new BD_1();
+                //mBDN.ActualizarPrecioProducto(MenuCotizacion.Clave, (Double.parseDouble(TXT_PrecioFinal.getText())));
                 
                 CallReport mCR = new CallReport();
                 mConRep = new ConexionReporte();
                 mBD = new BD_1();
-
                 Map Parametros = new HashMap();
+                
                 Parametros.put("Producto_idProducto", mBD.ConsultarIdProductoClave(MenuCotizacion.Clave));
                 mBD.Conectar();
                 mCR.abrirReporte("src/Formularios/Cotizacion/Reporte/ReporteCostos.jrxml", mBD.getConnection(), Parametros);

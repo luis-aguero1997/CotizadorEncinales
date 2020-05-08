@@ -92,7 +92,7 @@ public class ComparacionPrecios_1 extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
         JP_ConsultarCompetencia.setBackground(new java.awt.Color(255, 255, 255));

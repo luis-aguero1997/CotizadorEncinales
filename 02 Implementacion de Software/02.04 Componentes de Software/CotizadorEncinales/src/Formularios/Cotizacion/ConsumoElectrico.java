@@ -126,7 +126,7 @@ public class ConsumoElectrico extends javax.swing.JFrame {
         BTN_Reporte = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

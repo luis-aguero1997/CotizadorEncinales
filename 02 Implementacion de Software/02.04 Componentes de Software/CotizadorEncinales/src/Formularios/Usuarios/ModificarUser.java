@@ -77,7 +77,7 @@ public class ModificarUser extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 

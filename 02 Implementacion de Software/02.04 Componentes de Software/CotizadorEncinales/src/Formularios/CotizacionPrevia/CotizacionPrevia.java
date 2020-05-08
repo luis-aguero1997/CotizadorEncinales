@@ -8,10 +8,12 @@ package Formularios.CotizacionPrevia;
 import BaseDeDatos.*;
 import Clases.*;
 import Formularios.*;
+import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
@@ -28,6 +30,7 @@ public class CotizacionPrevia extends javax.swing.JFrame {
     DecimalFormat mDF;
     
     DefaultTableModel TablaMateriaPrima;
+    DefaultTableModel TablaProductosLinea;
     DefaultTableModel TablaCorte;
     DefaultTableModel TablaTotal;
     
@@ -35,6 +38,7 @@ public class CotizacionPrevia extends javax.swing.JFrame {
     MateriaCotizable mMP;
     ArrayList mListaMP;
     Constantes mC;
+    ClaseProductosLinea mCPL;
     
     int Seleccion;
     int SeleccionX;
@@ -82,6 +86,14 @@ public class CotizacionPrevia extends javax.swing.JFrame {
                 return false;
             }           
         };
+        this.TablaProductosLinea = new DefaultTableModel()
+        {
+            @Override
+            public boolean isCellEditable(int row, int column)
+            {
+                return false;
+            }           
+        };
         
         initComponents();
         
@@ -107,9 +119,19 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         TablaTotal.addColumn("Descripción");
         TablaTotal.addColumn("Precio");
         
+        TablaProductosLinea.addColumn("Clave");
+        TablaProductosLinea.addColumn("Nombre");
+        TablaProductosLinea.addColumn("Diámetro");
+        TablaProductosLinea.addColumn("Peso Material");
+        TablaProductosLinea.addColumn("Unidad (m)");
+        TablaProductosLinea.addColumn("Unidad (m2)");
+        TablaProductosLinea.addColumn("Unidad (kg)");
+        TablaProductosLinea.addColumn("Precio");
+        
         mBD = null;
         mMP = null;
         mC = null;
+        mCPL = null;
         mListaMP = null;
         
         Seleccion = 0;
@@ -126,6 +148,7 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         
         LlenarCombo();          
         LlenarTablaMateriaPrima();
+        LlenarTablaProductosPrimeraLinea();
         
         LBL_CostoMateriaPrima.setText("0");
         LBL_CostoAdministrativo.setText("0");
@@ -187,12 +210,23 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         LBL_CostoIVA = new javax.swing.JLabel();
         LBL_CostoTotal = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        JP_ProdLinea = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TBL_ProdLinea = new javax.swing.JTable();
+        LBL_TipoVariable = new javax.swing.JLabel();
+        LBL_CantidadVariable = new javax.swing.JLabel();
+        LBL_PrecioProdLinea = new javax.swing.JLabel();
+        LBL_PrecioSugerido = new javax.swing.JLabel();
+        LBL_TipoVariableN = new javax.swing.JLabel();
+        TXT_Personalizado = new javax.swing.JTextField();
+        LBL_PrecioProdLinea1 = new javax.swing.JLabel();
+        LBL_PrecioSugeridoPersonalizado = new javax.swing.JLabel();
         BTN_Atras = new javax.swing.JButton();
         BTN_Agregar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -414,6 +448,94 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         );
 
         TP_CotizacionPrevia.addTab("Total Cotización", JP_Total);
+
+        JP_ProdLinea.setBackground(new java.awt.Color(255, 255, 255));
+
+        TBL_ProdLinea.setModel(TablaProductosLinea);
+        TBL_ProdLinea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TBL_ProdLineaMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(TBL_ProdLinea);
+
+        LBL_TipoVariable.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+
+        LBL_CantidadVariable.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+
+        LBL_PrecioProdLinea.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+        LBL_PrecioProdLinea.setText("Precio sugerido:");
+
+        LBL_PrecioSugerido.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+
+        LBL_TipoVariableN.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+
+        TXT_Personalizado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_PersonalizadoKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TXT_PersonalizadoKeyPressed(evt);
+            }
+        });
+
+        LBL_PrecioProdLinea1.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+        LBL_PrecioProdLinea1.setText("Precio sugerido:");
+
+        LBL_PrecioSugeridoPersonalizado.setFont(new java.awt.Font("Sukhumvit Set", 0, 15)); // NOI18N
+        LBL_PrecioSugeridoPersonalizado.setForeground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout JP_ProdLineaLayout = new javax.swing.GroupLayout(JP_ProdLinea);
+        JP_ProdLinea.setLayout(JP_ProdLineaLayout);
+        JP_ProdLineaLayout.setHorizontalGroup(
+            JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JP_ProdLineaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
+                    .addGroup(JP_ProdLineaLayout.createSequentialGroup()
+                        .addGroup(JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(LBL_TipoVariableN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                            .addComponent(LBL_TipoVariable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LBL_CantidadVariable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TXT_Personalizado, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JP_ProdLineaLayout.createSequentialGroup()
+                                .addComponent(LBL_PrecioProdLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LBL_PrecioSugerido, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JP_ProdLineaLayout.createSequentialGroup()
+                                .addComponent(LBL_PrecioProdLinea1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LBL_PrecioSugeridoPersonalizado, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+        );
+        JP_ProdLineaLayout.setVerticalGroup(
+            JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JP_ProdLineaLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addGroup(JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LBL_TipoVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LBL_CantidadVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LBL_PrecioProdLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LBL_PrecioSugerido, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(LBL_TipoVariableN, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(JP_ProdLineaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TXT_Personalizado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LBL_PrecioProdLinea1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(LBL_PrecioSugeridoPersonalizado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
+
+        TP_CotizacionPrevia.addTab("Productos de Línea", JP_ProdLinea);
 
         BTN_Atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/flecha-hacia-la-izquierda (3).png"))); // NOI18N
         BTN_Atras.setBorderPainted(false);
@@ -665,7 +787,112 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         mAMP.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BTN_AgregarActionPerformed
+
+    private void TBL_ProdLineaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TBL_ProdLineaMouseClicked
+        // TODO add your handling code here:
+        SeleccionX = 0;
+        SeleccionY = 0;
+        SeleccionX = TBL_ProdLinea.rowAtPoint(evt.getPoint());
+        SeleccionY = TBL_ProdLinea.columnAtPoint(evt.getPoint());
         
+        LBL_TipoVariable.setText("");
+        LBL_TipoVariableN.setText("");
+        LBL_CantidadVariable.setText("");
+        LBL_PrecioSugerido.setText("");
+        
+        switch (SeleccionY) 
+        {
+            case 3:
+                LBL_TipoVariable.setText("Diámetro");
+                LBL_TipoVariableN.setText("Diámetro personalizado");
+                LBL_CantidadVariable.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 2).toString());
+                LBL_PrecioSugerido.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 7).toString());
+                break;
+            case 4:
+                LBL_TipoVariable.setText("Peso del material");
+                LBL_TipoVariableN.setText("Peso del material personalizado");
+                LBL_CantidadVariable.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 3).toString());
+                LBL_PrecioSugerido.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 7).toString());
+                break;
+            case 5:
+                LBL_TipoVariable.setText("Unidad de empaque (mts)");
+                LBL_TipoVariableN.setText("Unidad de empaque (mts) personalizado");
+                LBL_CantidadVariable.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 4).toString());
+                LBL_PrecioSugerido.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 7).toString());
+                break;
+            case 6:
+                LBL_TipoVariable.setText("Unidad de utilización (mts^2)");
+                LBL_TipoVariableN.setText("Unidad de utilización (mts^2) personalizado");
+                LBL_CantidadVariable.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 5).toString());
+                LBL_PrecioSugerido.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 7).toString());
+                break;
+            case 7:
+                LBL_TipoVariable.setText("Unidad de utilización (kg)");
+                LBL_TipoVariableN.setText("Unidad de utilización (kg) personalizado");
+                LBL_CantidadVariable.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 6).toString());
+                LBL_PrecioSugerido.setText(TBL_ProdLinea.getModel().getValueAt(SeleccionX, 7).toString());
+                break;
+            default:
+                LBL_TipoVariable.setText("No especificado");
+                LBL_CantidadVariable.setText("0.0");
+                break;
+        }
+    }//GEN-LAST:event_TBL_ProdLineaMouseClicked
+
+    private void TXT_PersonalizadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_PersonalizadoKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car > '.')) {
+            evt.consume();
+        }
+
+        if (TXT_Personalizado.getText().length() == 10) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && TXT_Personalizado.getText().contains(".")) {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TXT_PersonalizadoKeyTyped
+
+    private void TXT_PersonalizadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_PersonalizadoKeyPressed
+        // TODO add your handling code here:
+            if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+                ObtenerPrecioProdLineaPersonalizado();
+            }
+    }//GEN-LAST:event_TXT_PersonalizadoKeyPressed
+     
+    public void ObtenerPrecioProdLineaPersonalizado()
+    {
+        try
+        {
+            double Resultado;
+        
+            Resultado = ( Double.parseDouble(TXT_Personalizado.getText()) * Double.parseDouble(LBL_PrecioSugerido.getText()) ) / (Double.parseDouble(LBL_CantidadVariable.getText()));
+            LBL_PrecioSugeridoPersonalizado.setText("$"+mDF.format(Resultado));
+            
+            if (!"".equals(LBL_PrecioSugeridoPersonalizado.getText()))
+            {
+                mBD = new BD_1();
+                String DescripcionN = "El usuario " + Login.NombreUsuario + " consultó un precio de un producto de línea personalizado";
+                mBD.AgregarRegistro(DescripcionN);
+                mBD.Desconectar();
+            }
+            else
+            {
+                
+            }        
+        }
+        catch (NumberFormatException e)
+        {
+            
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -951,6 +1178,47 @@ public class CotizacionPrevia extends javax.swing.JFrame {
         }
     }
     
+    public void LlenarTablaProductosPrimeraLinea()
+    {
+        mBD = new BD_1();
+        mCPL = new ClaseProductosLinea();
+        
+        ArrayList mListaProdLinea = mBD.ConsultaProductosLinea();
+        String [] datos;       
+        
+        for (Object mCPL_2 : mListaProdLinea)
+        {
+            datos = new String[8];
+            
+            mCPL = (ClaseProductosLinea) mCPL_2;
+
+            datos[0] = mCPL.getClave();
+            datos[1] = mCPL.getNombreProducto();
+            datos[2] = String.valueOf(mCPL.getDiametro());
+            datos[3] = String.valueOf(mCPL.getPesoMaterial());
+            datos[4] = String.valueOf(mCPL.getUnidadEmpaque());
+            datos[5] = String.valueOf(mCPL.getUnidadUtilizacionM());
+            datos[6] = String.valueOf(mCPL.getUnidadUtilizacionKg());
+            datos[7] = String.valueOf(mCPL.getPrecioSugerido());
+            TablaProductosLinea.addRow(datos);
+        } 
+        this.TBL_ProdLinea = new javax.swing.JTable();
+        this.TBL_ProdLinea.setModel(TablaProductosLinea);
+        this.TBL_ProdLinea.getColumnModel().getColumn(0).setPreferredWidth(50);
+        this.TBL_ProdLinea.getColumnModel().getColumn(1).setPreferredWidth(50);
+        this.TBL_ProdLinea.getColumnModel().getColumn(2).setPreferredWidth(50);
+        this.TBL_ProdLinea.getColumnModel().getColumn(3).setPreferredWidth(50);
+        this.TBL_ProdLinea.getColumnModel().getColumn(0).setPreferredWidth(50);
+        this.TBL_ProdLinea.getColumnModel().getColumn(1).setPreferredWidth(50);
+        this.TBL_ProdLinea.getColumnModel().getColumn(2).setPreferredWidth(50);
+        this.TBL_ProdLinea.getColumnModel().getColumn(3).setPreferredWidth(50);
+
+        if (this.TBL_MateriaPrima.getRowCount() > 0) 
+        {
+            this.TBL_MateriaPrima.setRowSelectionInterval(0, 0);
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -988,17 +1256,27 @@ public class CotizacionPrevia extends javax.swing.JFrame {
     private javax.swing.JButton BTN_Atras;
     private javax.swing.JPanel JP_Corte;
     private javax.swing.JPanel JP_MateriaPrima;
+    private javax.swing.JPanel JP_ProdLinea;
     private javax.swing.JPanel JP_Total;
+    private javax.swing.JLabel LBL_CantidadVariable;
     private javax.swing.JLabel LBL_CostoAdministrativo;
     private javax.swing.JLabel LBL_CostoFlete;
     private javax.swing.JLabel LBL_CostoIVA;
     private javax.swing.JLabel LBL_CostoMateriaPrima;
     private javax.swing.JLabel LBL_CostoTotal;
     private javax.swing.JLabel LBL_CostoUtilidad;
+    private javax.swing.JLabel LBL_PrecioProdLinea;
+    private javax.swing.JLabel LBL_PrecioProdLinea1;
+    private javax.swing.JLabel LBL_PrecioSugerido;
+    private javax.swing.JLabel LBL_PrecioSugeridoPersonalizado;
+    private javax.swing.JLabel LBL_TipoVariable;
+    private javax.swing.JLabel LBL_TipoVariableN;
     private javax.swing.JTable TBL_Corte;
     private javax.swing.JTable TBL_MateriaPrima;
+    private javax.swing.JTable TBL_ProdLinea;
     private javax.swing.JTable TBL_Total;
     private javax.swing.JTabbedPane TP_CotizacionPrevia;
+    private javax.swing.JTextField TXT_Personalizado;
     private javax.swing.JTextField TXT_Search;
     private javax.swing.JTextField TXT_Search1;
     private javax.swing.JLabel jLabel1;
@@ -1015,5 +1293,6 @@ public class CotizacionPrevia extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     // End of variables declaration//GEN-END:variables
 }

@@ -70,7 +70,7 @@
 				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="412" y="0" width="37" height="20"/>
+				<reportElement x="405" y="0" width="44" height="20"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -352,10 +352,6 @@
 				</textElement>
 				<textFieldExpression class="java.lang.Double"><![CDATA[$F{IVA}]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="274" y="153" width="281" height="223"/>
-				<imageExpression class="java.lang.String"><![CDATA["/Users/eduardogarciadelgado/Documents/02.4 Componentes de Software/CotizadorEncinales/Grafico.png"]]></imageExpression>
-			</image>
 			<textField>
 				<reportElement x="467" y="20" width="88" height="20"/>
 				<textElement>
@@ -396,6 +392,10 @@
 				</textElement>
 				<text><![CDATA[Mano de Obra]]></text>
 			</staticText>
+			<image>
+				<reportElement x="274" y="127" width="281" height="249"/>
+				<imageExpression class="java.lang.String"><![CDATA["/Users/eduardogarciadelgado/Documents/Nuevo/CotizadorEncinales/02 Implementacion de Software/02.04 Componentes de Software/CotizadorEncinales/Grafico.png"]]></imageExpression>
+			</image>
 		</band>
 	</detail>
 	<columnFooter>

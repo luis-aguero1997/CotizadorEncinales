@@ -1071,6 +1071,24 @@ public class BD_1
         }
    }
     
+   public boolean ActualizarPrecioProducto(String Clave, double PrecioNuevo)
+   {
+        Statement consulta; 
+        Conectar();
+        try 
+        {
+            consulta = Conexion.createStatement();
+                
+                consulta.execute("update Producto set PrecioUnitario = " + PrecioNuevo + "where idProducto = '" + ConsultarIdProductoClave(Clave) + "';");               
+                return true;
+        }
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, "Error " + e);
+            return false;
+        }
+   }
+    
     
 // ------------  C O T I Z A C I O N  P R E V I A  ------------
     
@@ -1676,5 +1694,42 @@ public class BD_1
         }
         Desconectar();
         return list;
+    }
+    
+    public ArrayList ConsultaProductosLinea() 
+    {
+        Conectar();
+        ClaseProductosLinea mCPL;
+        ArrayList mListaCPL = new ArrayList();
+        Statement consulta;
+        ResultSet resultado;
+        
+        try 
+        {
+            consulta = Conexion.createStatement();
+                       
+            resultado = consulta.executeQuery("SELECT Producto.Clave, Producto.NombreProducto, ReporteCostes.Diametro, ReporteCostes.PesoMaterial, " + 
+                        " ReporteCostes.UnidadEmpaque, ReporteCostes.UnidadUtilizacionM, ReporteCostes.UnidadUtilizacionKg, ReporteCostes.PrecioSugerido " + 
+                        "FROM Producto, ReporteCostes where Producto.idProducto = ReporteCostes.Producto_idProducto");
+            while (resultado.next()) 
+            {
+                mCPL = new ClaseProductosLinea();
+                mCPL.setClave(resultado.getString("Clave"));
+                mCPL.setNombreProducto(resultado.getString("NombreProducto"));
+                mCPL.setDiametro(resultado.getDouble("Diametro"));
+                mCPL.setPesoMaterial(resultado.getDouble("PesoMaterial"));
+                mCPL.setUnidadEmpaque(resultado.getDouble("UnidadEmpaque"));
+                mCPL.setUnidadUtilizacionM(resultado.getDouble("UnidadUtilizacionM"));
+                mCPL.setUnidadUtilizacionKg(resultado.getDouble("UnidadUtilizacionKg"));
+                mCPL.setPrecioSugerido(resultado.getDouble("PrecioSugerido"));
+                mListaCPL.add(mCPL);
+            }
+        } 
+        catch (SQLException e) 
+        {
+            JOptionPane.showMessageDialog(null, "No Existen productos de línea dados de alta");
+        }
+        Desconectar();
+        return mListaCPL;      
     }
 }
