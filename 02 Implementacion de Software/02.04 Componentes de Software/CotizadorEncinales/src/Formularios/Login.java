@@ -23,9 +23,10 @@ public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        //this.setLocationRelativeTo(null);
         this.setTitle("Cotizador Encinales");
-        rsscalelabel.RSScaleLabel.setScaleLabel(a1, "src/Icons/Login-Recuperado.jpg");
+        this.setSize(852, 640);
+        //rsscalelabel.RSScaleLabel.setScaleLabel(a1, "src/Icons/Login-Recuperado.jpg");
         //rsscalelabel.RSScaleLabel.setScaleLabel(a2, "/Users/manuelvaquera/Downloads/Logo Nuevo.png");
         Tipousuario = "";
         mUsuario = new Usuario();
@@ -43,6 +44,7 @@ public class Login extends javax.swing.JFrame {
         jDayChooser1 = new com.toedter.calendar.JDayChooser();
         jSpinner1 = new javax.swing.JSpinner();
         jRadioButton1 = new javax.swing.JRadioButton();
+        a1 = new javax.swing.JLabel();
         Lbl_Psw = new javax.swing.JLabel();
         Txt_Nombre = new javax.swing.JTextField();
         Lbl_Usuario = new javax.swing.JLabel();
@@ -50,7 +52,7 @@ public class Login extends javax.swing.JFrame {
         Txt_Psw = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        a1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -59,36 +61,42 @@ public class Login extends javax.swing.JFrame {
         setFont(new java.awt.Font("AppleGothic", 0, 24)); // NOI18N
         setUndecorated(true);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setSize(new java.awt.Dimension(600, 600));
+        getContentPane().setLayout(null);
 
         Lbl_Psw.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         Lbl_Psw.setForeground(new java.awt.Color(0, 102, 204));
         Lbl_Psw.setText("Contraseña");
-        getContentPane().add(Lbl_Psw, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, 110, -1));
+        getContentPane().add(Lbl_Psw);
+        Lbl_Psw.setBounds(280, 440, 110, 29);
 
         Txt_Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_NombreActionPerformed(evt);
             }
         });
-        getContentPane().add(Txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 170, 30));
+        getContentPane().add(Txt_Nombre);
+        Txt_Nombre.setBounds(390, 400, 170, 30);
 
         Lbl_Usuario.setFont(new java.awt.Font("Sukhumvit Set", 0, 24)); // NOI18N
         Lbl_Usuario.setForeground(new java.awt.Color(0, 102, 204));
         Lbl_Usuario.setText("Cotizador de Ventas");
-        getContentPane().add(Lbl_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 210, -1));
+        getContentPane().add(Lbl_Usuario);
+        Lbl_Usuario.setBounds(320, 350, 210, 39);
 
         Lbl_Usuario1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         Lbl_Usuario1.setForeground(new java.awt.Color(0, 102, 204));
         Lbl_Usuario1.setText("Usuario");
-        getContentPane().add(Lbl_Usuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 80, -1));
+        getContentPane().add(Lbl_Usuario1);
+        Lbl_Usuario1.setBounds(280, 400, 80, 29);
 
         Txt_Psw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_PswActionPerformed(evt);
             }
         });
-        getContentPane().add(Txt_Psw, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 170, 30));
+        getContentPane().add(Txt_Psw);
+        Txt_Psw.setBounds(390, 440, 170, 30);
 
         jButton1.setFont(new java.awt.Font("Sukhumvit Set", 0, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/login.png"))); // NOI18N
@@ -101,7 +109,8 @@ public class Login extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, 190, 50));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(340, 480, 190, 50);
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar (1).png"))); // NOI18N
@@ -120,8 +129,12 @@ public class Login extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, -1, -1));
-        getContentPane().add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 630));
+        getContentPane().add(jButton2);
+        jButton2.setBounds(820, 0, 32, 32);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Login-Recuperado.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 850, 650);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -266,6 +279,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDayChooser jDayChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables

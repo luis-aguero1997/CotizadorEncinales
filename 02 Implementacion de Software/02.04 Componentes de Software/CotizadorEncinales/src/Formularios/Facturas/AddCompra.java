@@ -504,7 +504,7 @@ public class AddCompra extends javax.swing.JFrame {
         jLabel15.setText(Nombre);
         
 
-        if (SeleccionY == 2) {
+        if (SeleccionY == 3) {
             LblProceso.setText("Procesando.....");
 
             Object value = Table.getValueAt(filaseleccionada, SeleccionY);

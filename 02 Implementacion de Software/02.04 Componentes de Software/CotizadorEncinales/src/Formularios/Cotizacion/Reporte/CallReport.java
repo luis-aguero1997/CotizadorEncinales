@@ -14,6 +14,7 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -34,7 +35,7 @@ public final class CallReport
         catch (JRException jRException)
         {
             System.err.println(jRException.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al abrir el reporte");
+            JOptionPane.showMessageDialog(null, "Error al abrir el reporte " + jRException.getMessage());
         }
     }
     
@@ -43,14 +44,27 @@ public final class CallReport
     {
         try
         {
-            JasperReport Report = JasperCompileManager.compileReport(Ruta);
-            JasperPrint Print = JasperFillManager.fillReport(Report, Parametros, con);
-            JasperViewer.viewReport(Print, false);
+            
+                //JasperReport Report = (JasperReport) JRLoader.loadObject(getClass().getResource("ReporteCostos.jasper"));
+                JasperReport Report = (JasperReport) JRLoader.loadObject(ClassLoader.getSystemResource(Ruta));
+                JasperPrint Print = JasperFillManager.fillReport(Report, Parametros, con);
+                JasperViewer.viewReport(Print, false);
+                //JasperViewer jv = new JasperViewer(Print,false);
+                //jv.setVisible(true);
+                //jv.setTitle("Reporte");
+                //jv.show();
+            
+            /*
+                JasperReport Report = JasperCompileManager.compileReport(Ruta);
+                JasperPrint Print = JasperFillManager.fillReport(Report, Parametros, con);
+                //JasperExportManager.exportReportToPdfFile(Print, "Reporte.pdf");
+                JasperViewer.viewReport(Print, false);
+            */
         }
         catch (JRException jRException)
         {
             System.err.println(jRException.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al abrir el reporte");
+            JOptionPane.showMessageDialog(null, "Error al abrir el reporte " + jRException.getMessage());
         }
     }
 }

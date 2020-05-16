@@ -2,10 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="275"/>
+	<style name="Heading" fontSize="14"/>
 	<parameter name="Producto_idProducto" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="graficobarra" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[SELECT *, Producto.NombreProducto FROM ReporteCostes, Producto where Producto_idProducto = $P{Producto_idProducto} and Producto.idProducto = Producto_idProducto;]]>
 	</queryString>
@@ -41,36 +43,32 @@
 	</background>
 	<title>
 		<band height="63" splitType="Stretch">
-			<image>
-				<reportElement x="0" y="9" width="281" height="54"/>
-				<imageExpression class="java.lang.String"><![CDATA["/Users/eduardogarciadelgado/Documents/02.4 Componentes de Software/CotizadorEncinales/logoencinales-min.jpg"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="211" y="20" width="147" height="20"/>
+				<reportElement x="206" y="0" width="147" height="20"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte General de Costos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="69" y="43" width="117" height="20"/>
+				<reportElement x="0" y="43" width="117" height="20"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Producto:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="186" y="43" width="147" height="20"/>
+				<reportElement x="117" y="43" width="147" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{NombreProducto}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="449" y="0" width="106" height="20"/>
-				<textElement textAlignment="Right"/>
+				<reportElement x="397" y="43" width="158" height="20"/>
+				<textElement/>
 				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="405" y="0" width="44" height="20"/>
+				<reportElement x="353" y="43" width="44" height="20"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -393,8 +391,8 @@
 				<text><![CDATA[Mano de Obra]]></text>
 			</staticText>
 			<image>
-				<reportElement x="274" y="127" width="281" height="249"/>
-				<imageExpression class="java.lang.String"><![CDATA["/Users/eduardogarciadelgado/Documents/Nuevo/CotizadorEncinales/02 Implementacion de Software/02.04 Componentes de Software/CotizadorEncinales/Grafico.png"]]></imageExpression>
+				<reportElement x="281" y="159" width="274" height="217"/>
+				<imageExpression class="java.lang.String"><![CDATA["Grafico.png"]]></imageExpression>
 			</image>
 		</band>
 	</detail>

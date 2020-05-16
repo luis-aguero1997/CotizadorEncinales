@@ -17,9 +17,17 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -667,7 +675,11 @@ public class ReporteCostos extends javax.swing.JFrame
         String DescripcionN = "El usuario " + Login.NombreUsuario + " creó o modificó datos de un reporte de cotización";
         mBD.AgregarRegistro(DescripcionN);
         mBD.Desconectar();
-        SubirActualizarReporte();
+        try {
+            SubirActualizarReporte();
+        } catch (JRException ex) {
+            Logger.getLogger(ReporteCostos.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_BTN_PDFActionPerformed
 
@@ -1019,7 +1031,7 @@ public class ReporteCostos extends javax.swing.JFrame
         this.repaint();
     }
     
-    public void SubirActualizarReporte()
+    public void SubirActualizarReporte() throws JRException
     {
         mRC = new ClaseReporteCostos();
         mBD = new BD_1();
@@ -1068,8 +1080,10 @@ public class ReporteCostos extends javax.swing.JFrame
                 Map Parametros = new HashMap();
                 
                 Parametros.put("Producto_idProducto", mBD.ConsultarIdProductoClave(MenuCotizacion.Clave));
+                //Parametros.put("graficobarra", getClass().getClassLoader().getResourceAsStream("Grafico.png"));
                 mBD.Conectar();
-                mCR.abrirReporte("src/Formularios/Cotizacion/Reporte/ReporteCostos.jrxml", mBD.getConnection(), Parametros);
+                //mCR.abrirReporte("src/ReporteCostos.jrxml", mBD.getConnection(), Parametros);
+                mCR.abrirReporte("ReporteCostos.jasper", mBD.getConnection(), Parametros);
                 mBD.Desconectar();
             }
             else
